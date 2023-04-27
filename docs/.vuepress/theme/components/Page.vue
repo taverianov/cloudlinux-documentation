@@ -2,10 +2,10 @@
   <div class="page">
     <slot name="top"/>
 
-        <Breadcrumb class="page-breadcrumb"/>
+    <Breadcrumb class="page-breadcrumb"/>
 
     <div class="page-nav-wrapper">
-            <PageNav :sidebar-items="sidebarItems" :allPages="allPages"/>
+      <PageNav :sidebar-items="sidebarItems" :allPages="allPages"/>
     </div>
 
     <Content class="content" :custom="false"/>
@@ -42,12 +42,12 @@
 import {endingSlashRE, normalize, outboundRE} from '../util'
 import BackToTop from './BackToTop.vue';
 import {usePageData, usePageFrontmatter, usePageLang} from "@vuepress/client";
-import {computed, inject, onMounted, ref} from "vue";
+import {computed, inject} from "vue";
 import Breadcrumb from "./Breadcrumb.vue";
 import PageNav from "./PageNav.vue";
 
 const {
-  editIcon, lastUpdated, repo,
+  editIcon, lastUpdated, repo, editLinks,
   docsDir = '',
   docsBranch = 'master',
   docsRepo = repo,
@@ -58,15 +58,14 @@ const props = defineProps({
     type: Array,
     default: () => []
   },
-    allPages: {
-      type: Array
-    }
+  allPages: {
+    type: Array
+  }
 })
 
 const page = usePageData()
 const lang = usePageLang()
 const frontmatter = usePageFrontmatter()
-const activeAnchor = ref("")
 const isLastUpdated = computed(() => {
   if (page.value.lastUpdated) {
     return new Date(page.value.lastUpdated).toLocaleString(lang.value)
@@ -94,7 +93,7 @@ const editLink = computed(() => {
   } else {
     path += '.md'
   }
-  if (docsRepo) {
+  if (docsRepo && editLinks) {
     return createEditLink(repo, docsRepo, docsDir, docsBranch, path)
   }
 })
@@ -184,28 +183,4 @@ const createEditLink = (repo, docsRepo, docsDir, docsBranch, path) => {
 .content
   h1
     max-width 80%
-
-@media (max-width: $MQMobile)
-  .page
-    padding-top 5rem
-
-    &-breadcrumb
-      margin-left 1.5rem
-
-    &-nav-wrapper
-      display none
-
-    .page-edit
-      .edit-link
-        margin-bottom .5rem
-
-      .last-updated
-        font-size .8em
-        float none
-        text-align left
-
-  .content
-    h1
-      max-width 100%
-
 </style>

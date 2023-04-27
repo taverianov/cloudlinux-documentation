@@ -38,6 +38,7 @@ onUnmounted(() => {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../styles/config.styl'
 .back-to-top__link
   position fixed
   right 6rem

@@ -1,5 +1,4 @@
 import {containerPlugin} from "@vuepress/plugin-container";
-import {App} from "vuepress";
 import {ContainerPluginOptions} from "@vuepress/plugin-container/lib/node/containerPlugin";
 
 export default [

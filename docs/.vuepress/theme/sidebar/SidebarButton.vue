@@ -26,7 +26,4 @@
     width 1.25rem
     height 1.25rem
 
-@media (max-width: $MQMobile)
-  .sidebar-button
-    display block
 </style>

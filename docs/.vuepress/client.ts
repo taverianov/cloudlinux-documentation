@@ -1,5 +1,6 @@
 import {provide} from "vue";
 import {defineClientConfig} from "@vuepress/client";
+import InstantSearch from 'vue-instantsearch/vue3/es';
 
 import Layout from "./theme/layouts/Layout.vue";
 import HomeLayout from "./theme/layouts/HomeLayout.vue";
@@ -14,6 +15,9 @@ export default defineClientConfig({
     layouts: {
         Layout,
         HomeLayout
+    },
+    enhance({app}) {
+        app.component('InstantSearch', InstantSearch)
     },
     setup() {
         provide('themeConfig', {
@@ -74,6 +78,14 @@ export default defineClientConfig({
 
             //social links for footer
             social,
+
+            //algolia
+            algoliaOptions: {
+                apiKey: "e6b9d79daf71aa98e2e2a51d4556f9d4",
+                indexName: "cloudlinuxos",
+                appId: "0TCNL6CGX8"
+            },
+            MAX_ALGOLIA_VISIBLE_RESULT: 10,
         })
     }
 })

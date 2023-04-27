@@ -1,32 +1,35 @@
 <template>
   <div class="header-products-wrapper">
     <div ref="menu" class="dropdown">
-      <img @click="openedMenu = !openedMenu" width="20" height="13" :src="hamburgerIcon"
-           alt="hamburger icon">
       <div v-if="openedMenu" class="dropdown-wrapper">
         <p class="dropdown-content__paragraph" v-for="product in productsList" :key="product.label">
           <a class="dropdown-content__link" href="#">{{ product.label }}</a>
         </p>
       </div>
+      <div @click="openedMenu = !openedMenu" class="header-products-container">
+        <p class="header-products-wrapper-paragraph">{{ productsText }}</p>
+        <img class="products-icon__default"
+             :class="{'products-icon__rotate': openedMenu}"
+             width="10" height="8"
+             :src="arrowDownIcon"
+             alt="arrow down icon"/>
+      </div>
     </div>
-    <p class="header-products-wrapper-paragraph">{{ productsText }}</p>
-    <img width="10" height="8" :src="arrowDownIcon" alt="arrow down icon"/>
   </div>
 </template>
 <script setup>
 
 import {inject, onMounted, onUnmounted, ref} from "vue";
 
-const {productsText, arrowDownIcon, hamburgerIcon, productsList} = inject('themeConfig');
+const {productsText, arrowDownIcon, productsList} = inject('themeConfig');
 
 const openedMenu = ref(false)
-
 const menu = ref(null)
 
 const clickOutside = (event) => {
-  const target = menu.value
-  openedMenu.value = event.composedPath().includes(target)
+  !event.composedPath().includes(menu.value) && (openedMenu.value = false)
 }
+
 
 onMounted(() => {
   document.addEventListener('click', clickOutside)
@@ -49,8 +52,14 @@ onUnmounted(() => {
 
   &-paragraph
     font-size $text-default
+    cursor pointer
     line-height 16px
     color white
+
+.header-products-container
+  display: flex;
+  align-items center
+  gap 14px
 
 .dropbtn
   color: black;
@@ -73,7 +82,8 @@ onUnmounted(() => {
   min-width: 200px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
-  right 0
+  left: -117px;
+  top: 43px;
 
 .dropdown-content__paragraph
   color: black;
@@ -94,4 +104,13 @@ onUnmounted(() => {
 .dropdown-wrapper p:hover
   background-color: white;
 
+.products-icon
+  &__rotate
+    cursor pointer
+    transform rotate(180deg)
+    transition-duration 500ms
+
+  &__default
+    cursor pointer
+    transition-duration 500ms
 </style>
