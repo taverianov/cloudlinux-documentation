@@ -2,13 +2,14 @@
   <div class="theme-container">
     <HeaderLayout/>
     <Sidebar
-            v-if="allPages.length"
+        v-if="allPages.length"
         :items="allPages"
     >
       <template #top>
         <div class="sidebar-header">
           <p class="sidebar-header__paragraph">Select CL docs</p>
           <DSelect
+              v-if="sidebarOption"
               with-icon
               v-model="selectedValue"
               @changeSidebarItems="changeSidebarItems"
@@ -35,7 +36,6 @@ import {usePageData, useSiteData} from "@vuepress/client";
 import {pagesData} from "../../.temp/internal/pagesData.js";
 import {resolveSidebarItems} from "../util.js";
 
-
 const {sidebarOption} = inject('themeConfig')
 
 const selectedValue = ref(null);
@@ -45,28 +45,25 @@ const site = useSiteData()
 const page = usePageData()
 const allPages = ref([])
 
-
-
 const sidebarItems = computed(() => page.value && allPages.value.length ? resolveSidebarItems(page.value, route, allPages.value) : [])
-
 
 const changeSidebarItems = (e) => {
   router.push(e.value)
 }
 
 const getStartedString = () => {
-  let str = route.path;
-  let index = str.indexOf("/", str.indexOf("/") + 1);
+  const str = page.value.path
+  const index = str.indexOf("/", str.indexOf("/") + 1);
   return str.substr(0, index);
 }
 
 onMounted(() => {
-    Object.values(pagesData).map(f => f().then(res => {
-        allPages.value.push(res)
-    }))
-
+  Object.values(pagesData).map(f => f().then(res => {
+    allPages.value.push(res)
+  }))
   selectedValue.value = sidebarOption.find((item) => item.value.startsWith(getStartedString()));
 })
+
 </script>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="../../styles/theme.styl" lang="stylus"></style>

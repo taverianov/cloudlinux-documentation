@@ -42,11 +42,10 @@ import {usePageFrontmatter, useRouteLocale} from "@vuepress/client";
 
 const {logo, locales, defaultURL, try_free, submitRequestURL} = inject('themeConfig');
 const linksWrapMaxWidth = ref(null)
-
 const frontmatter = usePageFrontmatter()
 
 const tryFreeTitle = computed(() => {
-  return locales.tryFree || 'Try Free';
+  return locales.try_free || 'Try Free';
 })
 
 const submitRequestTitle = computed(() => {

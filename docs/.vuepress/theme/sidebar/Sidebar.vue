@@ -57,46 +57,47 @@ const refreshIndex = () => {
 const toggleGroup = (index) => {
   openGroupIndex.value = index === openGroupIndex.value ? -1 : index
 }
+
 const isInViewport = (element) => {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+  const rect = element.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.bottom <= 220
+  );
 }
 watch(() => route, refreshIndex)
 const checkIfScroll = () => {
-    const pageAnchors = document.querySelectorAll('.header-anchor')
-    const sidebar = document.querySelector('.sidebar')
-    const sidebarAnchors = sidebar.querySelectorAll('a')
-    const sidebarAnchorsContainer = sidebar.querySelectorAll('.collapsible.sidebar-sub-header')
-    const sidebarStringLinks = Array.from(sidebarAnchors).map(a => a.getAttribute('href'))
+  const pageAnchors = document.querySelectorAll('.header-anchor')
+  const sidebar = document.querySelector('.sidebar')
+  const sidebarAnchors = sidebar.querySelectorAll('a')
+  const sidebarAnchorsContainer = sidebar.querySelectorAll('.collapsible.sidebar-sub-header')
+  const sidebarStringLinks = Array.from(sidebarAnchors).map(a => a.getAttribute('href'))
 
-    pageAnchors.forEach(a => {
-        if(isInViewport(a)) {
-            const currentLink = sidebarStringLinks.find(link => !!link.includes(a.getAttribute('href')))
+  pageAnchors.forEach(a => {
+    if (isInViewport(a)) {
+      const currentLink = sidebarStringLinks.find(link => !!link.includes(a.getAttribute('href')))
 
-            sidebarAnchorsContainer.forEach(container => {
-                container.querySelectorAll('.sidebar-link-container').forEach(cl => {
-                    if(container.querySelector(`a[href="${currentLink}"]`)) cl.classList.remove("collapsed")
-                    else cl.classList.add("collapsed")
-                })
-            })
+      sidebarAnchorsContainer.forEach(container => {
+        container.querySelectorAll('.sidebar-link-container').forEach(cl => {
+          if (container.querySelector(`a[href="${currentLink}"]`)) cl.classList.remove("collapsed")
+          else cl.classList.add("collapsed")
+        })
+      })
 
-            if(sidebar.querySelector(`a[href="${currentLink}"]`)) {
-                sidebarAnchors.forEach(a => a.classList.remove("active"))
-                sidebar.querySelector(`a[href="${currentLink}"]`).classList.add("active")
-            }
-        }
-    })
+      if (sidebar.querySelector(`a[href="${currentLink}"]`)) {
+        sidebarAnchors.forEach(a => a.classList.remove("active"))
+        sidebar.querySelector(`a[href="${currentLink}"]`).classList.add("active")
+      }
+    }
+  })
 }
 onMounted(() => {
-    refreshIndex()
-    window.addEventListener("scroll", checkIfScroll)
+  refreshIndex()
+  window.addEventListener("scroll", checkIfScroll)
 })
+
 onUnmounted(() => window.removeEventListener("scroll", checkIfScroll))
+
 const resolveOpenGroupIndex = (route, items) => {
   for (let i = 0; i < items.length; i++) {
     const item = items[i]

@@ -7,5 +7,8 @@ export default [
         text: "Forum",
         url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
     },
-    {text: "Blog", url: "https://blog.cloudlinux.com/"}
+    {
+        text: "Blog",
+        url: "https://blog.cloudlinux.com/"
+    }
 ]

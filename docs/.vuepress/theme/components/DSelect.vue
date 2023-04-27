@@ -6,7 +6,7 @@
       :clearable="false"
       :searchable="false"
       :options="options">
-      <template #open-indicator="{ attributes }">
+    <template #open-indicator="{ attributes }">
           <span v-if="withIcon" class="select-icon" v-bind="attributes">
         <img :src="withBase(searchSelectIcon)" alt="search Icon"/>
       </span>
@@ -22,45 +22,54 @@ import {inject, onMounted, onUnmounted, ref} from "vue";
 import {withBase} from "@vuepress/client";
 
 defineProps({
-    withIcon: {
-        type: Boolean,
-        default: true
-    },
-    selectedValue: {
-        type: Object,
-        default: () => ({
-            label: '',
-            value: ''
-        })
-    },
-    options: {
-        type: Array,
-        default: () => {
-            return []
-        }
+  withIcon: {
+    type: Boolean,
+    default: true
+  },
+  selectedValue: {
+    type: Object,
+    default: () => ({
+      label: '',
+      value: ''
+    })
+  },
+  options: {
+    type: Array,
+    default: () => {
+      return []
     }
+  }
 })
-const { searchSelectIcon } = inject("themeConfig")
-const emit = defineEmits(['changeSidebarItems', 'update:selectedValue'])
+const {searchSelectIcon} = inject("themeConfig")
+const emit = defineEmits(['changeSidebarItems', 'update:selectedValue', 'update:model-value'])
+
 const changeSidebarItems = (e) => {
-    emit('changeSidebarItems', e)
-    emit('update:model-value', e)
+  emit('changeSidebarItems', e)
+  emit('update:model-value', e)
 }
 const dropdown = ref();
 const closeDropdown = () => {
-    if (!dropdown.value) return
-    dropdown.value.open = false
+  if (!dropdown.value) return
+  dropdown.value.open = false
 }
 onMounted(() => window.addEventListener('click', (event) => {
-        if (!dropdown.value?.$el.contains(event.target)) closeDropdown()
-    }))
+  if (!dropdown.value?.$el.contains(event.target)) closeDropdown()
+}))
 onUnmounted(() => window.removeEventListener('click', closeDropdown))
 </script>
+
 <style lang="stylus">
 @import '../../styles/config.styl'
 .v-select
   .vs__selected-options
     padding 5px 0 5px 1rem
+
+  .vs__selected
+    display block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px
 
   .vs__search
     display none

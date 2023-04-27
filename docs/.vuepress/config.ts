@@ -1,4 +1,4 @@
-import {App, defineUserConfig} from "vuepress";
+import { defineUserConfig} from "vuepress";
 
 import theme from "./theme"
 import plugins from "./config-user/plugins";

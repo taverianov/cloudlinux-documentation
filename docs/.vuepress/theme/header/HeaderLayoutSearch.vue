@@ -3,38 +3,69 @@
     <h1 v-if="isGlobalLayout" class="header-layout__search-title">
       {{ headerSearch }}
     </h1>
-    <div class="header-layout__search-wrapper">
-      <input :class="searchClass" type="text" :placeholder="placeholder">
-      <div class="header-layout__search-icon" :class="{'header-layout__search-icon-default':!isGlobalLayout}">
-        <img alt="search icon" :src="searchColorIcon"/>
-      </div>
-    </div>
+    <teleport v-if="isOpenDrawer" to="#drawerSearch">
+      <DrawerSearch
+          :options="algoliaOptions"
+          v-model="searchTextValue"
+          @openDrawer="openDrawer"
+          :isOpenDrawer="isOpenDrawer"
+          @result="getResultsFromSearch"
+      />
+    </teleport>
+    <DrawerSearch
+        v-else
+        :options="algoliaOptions"
+        v-model="searchTextValue"
+        @openDrawer="openDrawer"
+        :isOpenDrawer="isOpenDrawer"
+        @result="getResultsFromSearch"
+    />
+    <Drawer
+        :homeLayoutSearchResult="homeLayoutSearchResult"
+        v-model="searchTextValue"
+        @closeDrawer="closeDrawer"
+        :isOpenDrawer="isOpenDrawer"/>
   </div>
 </template>
 
 <script setup>
-import {computed, inject} from "vue";
+import {computed, inject, ref, watch} from "vue";
 import {usePageFrontmatter} from "@vuepress/client";
+import Drawer from "../drawer/Drawer.vue";
+import DrawerSearch from "../drawer/DrawerSearch.vue";
 
-const {headerSearch, headerSearchPlaceholder, headerDefaultSearchIcon, headerSearchIcon} = inject('themeConfig')
-
+const {headerSearch, algoliaOptions} = inject('themeConfig')
 const frontmatter = usePageFrontmatter()
+
+const isOpenDrawer = ref(false)
+
+const searchTextValue = ref('')
+
+const homeLayoutSearchResult = ref([]);
+
+watch(() => searchTextValue.value, () => {
+  if (!searchTextValue.value) {
+    homeLayoutSearchResult.value = [];
+  }
+})
+
+const getResultsFromSearch = (hits) => {
+  homeLayoutSearchResult.value = hits;
+}
 
 const isGlobalLayout = computed(() => {
   return frontmatter.value.layout === 'HomeLayout'
 })
 
-const placeholder = computed(() => {
-  return isGlobalLayout.value ? headerSearchPlaceholder : 'Search'
-})
+const openDrawer = () => {
+  isOpenDrawer.value = true
+}
 
-const searchClass = computed(() => {
-  return isGlobalLayout.value ? 'header-layout__search' : 'header-layout__search-default'
-})
-
-const searchColorIcon = computed(() => {
-  return isGlobalLayout.value ? headerSearchIcon : headerDefaultSearchIcon
-})
+const closeDrawer = () => {
+  homeLayoutSearchResult.value.length = 0;
+  searchTextValue.value = ''
+  isOpenDrawer.value = false
+}
 </script>
 
 <style lang="stylus">
@@ -47,13 +78,6 @@ const searchColorIcon = computed(() => {
     align-items: center
     flex-direction column
 
-  &-wrapper
-    position relative
-    display: flex;
-    justify-content center
-    align-content center
-    width: 70%
-
   &-title
     font-weight: 500
     font-size: 3.4rem
@@ -63,12 +87,12 @@ const searchColorIcon = computed(() => {
     margin-bottom: 2.5rem
 
   &
-    width: 70%
+    width: 610px
     border-radius: $homeSearchBorderRadius
     border none
     padding 1.4rem 2rem
     color: $gray-500;
-    font-size: 14px
+    font-size: $text-default
     line-height: 16px
     margin-bottom 7.25rem
     outline: none
@@ -91,9 +115,12 @@ const searchColorIcon = computed(() => {
   &-icon
     position absolute
     top: 8%;
-    right 15%
+    right 5%
     cursor pointer
 
-  &-icon-default
-    right 10%
+    &-default
+      position absolute
+      top: 8%;
+      cursor pointer
+      right 7%
 </style>

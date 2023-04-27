@@ -43,7 +43,7 @@ const isGlobalLayout = computed(() => frontmatter.value.layout === 'HomeLayout')
   padding $layout-vertical-padding 1rem $layout-vertical-padding $layout-horizontal-padding
   color $textColor
   border-top 1px solid $borderColor
-  height 102px
+  height $footerHeight
   background #fff
   display flex
   align-items center
