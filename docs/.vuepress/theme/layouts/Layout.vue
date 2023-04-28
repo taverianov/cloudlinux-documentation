@@ -6,14 +6,13 @@
         :items="allPages"
     >
       <template #top>
-        <div class="sidebar-header">
+        <div v-if="docsCards" class="sidebar-header">
           <p class="sidebar-header__paragraph">Select CL docs</p>
           <DSelect
-              v-if="sidebarOption"
               with-icon
               v-model="selectedValue"
               @changeSidebarItems="changeSidebarItems"
-              :options="sidebarOption"
+              :options="docsCards"
           />
         </div>
       </template>
@@ -32,27 +31,24 @@ import Page from "../components/Page.vue";
 import DSelect from "../components/DSelect.vue";
 import {useRoute, useRouter} from "../../.cache/deps/vue-router.js";
 import {computed, inject, onMounted, ref} from "vue";
-import {usePageData, useSiteData} from "@vuepress/client";
+import { usePageData } from "@vuepress/client";
 import {pagesData} from "../../.temp/internal/pagesData.js";
 import {resolveSidebarItems} from "../util.js";
 
-const {sidebarOption} = inject('themeConfig')
+const { docsCards } = inject('themeConfig')
 
 const selectedValue = ref(null);
 const router = useRouter();
 const route = useRoute();
-const site = useSiteData()
 const page = usePageData()
 const allPages = ref([])
 
 const sidebarItems = computed(() => page.value && allPages.value.length ? resolveSidebarItems(page.value, route, allPages.value) : [])
 
-const changeSidebarItems = (e) => {
-  router.push(e.value)
-}
+const changeSidebarItems = (e) => router.push(e.link)
 
 const getStartedString = () => {
-  const str = page.value.path
+  const str = page.value?.path
   const index = str.indexOf("/", str.indexOf("/") + 1);
   return str.substr(0, index);
 }
@@ -61,7 +57,7 @@ onMounted(() => {
   Object.values(pagesData).map(f => f().then(res => {
     allPages.value.push(res)
   }))
-  selectedValue.value = sidebarOption.find((item) => item.value.startsWith(getStartedString()));
+  selectedValue.value = docsCards.find((item) => item.link?.startsWith(getStartedString()));
 })
 
 </script>

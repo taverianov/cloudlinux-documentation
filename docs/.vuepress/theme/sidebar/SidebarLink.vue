@@ -145,6 +145,12 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
     background-repeat no-repeat
     background-position left 5px center
     background-size 16px 9px
+    position relative
+    &::before
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
 
     & + .sidebar-sub-headers
       display none

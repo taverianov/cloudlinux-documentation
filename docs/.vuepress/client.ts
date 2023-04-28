@@ -8,7 +8,6 @@ import HomeLayout from "./theme/layouts/HomeLayout.vue";
 import bottomLinks from "./config-client/bottomLinks";
 import docsCards from "./config-client/docsCards";
 import sidebar from "./config-client/sidebar";
-import sidebarOption from "./config-client/sidebarOption";
 import social from "./config-client/social";
 
 export default defineClientConfig({
@@ -25,11 +24,10 @@ export default defineClientConfig({
             cloudlinuxSite: "https://cloudlinux.com",
             defaultURL: "/",
             docsBranch: "dev",
-            docsCardButtonText: "View tutorial",
-            docsCardIcon: "collections-bookmark.svg",
+
             docsCards,
             docsDir: "docs",
-            repo: "cloudlinux/user-docs-solo-cloudlinux",
+            repo: "cloudlinux/cloudlinux-documentation",
             submitRequestURL: "https://www.cloudlinux.com/support-portal/",
             try_free: "https://cloudlinux.com/trial",
 
@@ -74,18 +72,18 @@ export default defineClientConfig({
 
             //sidebar
             sidebarDepth: 2,
-            sidebarOption,
 
             //social links for footer
             social,
 
-            //algolia
+            // Algolia
             algoliaOptions: {
                 apiKey: "e6b9d79daf71aa98e2e2a51d4556f9d4",
                 indexName: "cloudlinuxos",
                 appId: "0TCNL6CGX8"
             },
             MAX_ALGOLIA_VISIBLE_RESULT: 10,
+            MAX_ALGOLIA_VISIBLE_ROWS: 5,
         })
     }
 })

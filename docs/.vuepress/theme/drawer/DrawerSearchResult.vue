@@ -17,7 +17,12 @@
     </div>
   </div>
   <div v-else>
-    <p class="no_results">No results <span v-if="modelValue" class="no_results__text">for "{{ modelValue }}"</span></p>
+    <p class="no_results">
+      Sorry! No results found for
+      <span v-if="modelValue">"{{ modelValue }}"</span>
+      😞<br/>Please try ask the community (link to the
+      <a class="no_results__link" href=" https://forum.cloudlinux.com/" target="_blank">https://forum.cloudlinux.com/</a>).
+    </p>
   </div>
 </template>
 
@@ -34,7 +39,7 @@ const props = defineProps({
     required: true
   }
 })
-const {MAX_ALGOLIA_VISIBLE_RESULT} = inject('themeConfig')
+const { MAX_ALGOLIA_VISIBLE_RESULT, MAX_ALGOLIA_VISIBLE_ROWS } = inject('themeConfig')
 const isShowAllResult = ref(false);
 
 const visibleResults = computed(() => {
@@ -107,6 +112,12 @@ const getBreadcrumbsForArticle = (obj) => {
     line-height $drawerSearchResultTextLineHeight
     color $drawerSearchResultTextColor
     margin 0
+    overflow: hidden
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: v-bind(MAX_ALGOLIA_VISIBLE_ROWS)
+    -webkit-box-decoration-break: clone
+    box-decoration-break: clone
 
   &__breadcrumb
     font-size $drawerSearchResultBreadcrumbTextSize
@@ -132,4 +143,7 @@ const getBreadcrumbsForArticle = (obj) => {
 .no_results
   font-size 25px
   font-weight 700
+  &__link
+    &:hover
+      text-decoration underline
 </style>

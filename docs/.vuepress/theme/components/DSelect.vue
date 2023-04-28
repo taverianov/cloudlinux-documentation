@@ -3,13 +3,16 @@
       ref="dropdown"
       @update:model-value="changeSidebarItems"
       :model-value="selectedValue"
+      label="title"
+      value="link"
       :clearable="false"
       :searchable="false"
-      :options="options">
+      :options="options"
+  >
     <template #open-indicator="{ attributes }">
-          <span v-if="withIcon" class="select-icon" v-bind="attributes">
+      <div v-if="withIcon" class="select-icon" v-bind="attributes">
         <img :src="withBase(searchSelectIcon)" alt="search Icon"/>
-      </span>
+      </div>
       <span v-else/>
     </template>
   </VueSelect>
@@ -35,9 +38,7 @@ defineProps({
   },
   options: {
     type: Array,
-    default: () => {
-      return []
-    }
+    default: () => []
   }
 })
 const {searchSelectIcon} = inject("themeConfig")
