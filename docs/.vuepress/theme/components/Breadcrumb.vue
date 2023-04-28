@@ -17,7 +17,7 @@ const { locales: {siteTitle}} = inject("themeConfig")
 const breadCrumbs = computed(() => {
     const crumbs = [];
     if (page.value.path !== '/') {
-      crumbs.push({path: page.value.path, title: page.value.title || page.value.title});
+      crumbs.push({path: page.value.path, title: page.value.title});
     }
   return crumbs;
 });
@@ -30,7 +30,7 @@ const breadCrumbs = computed(() => {
   color $breadcrumbColor
 
   &::after
-    content ">"
+    content " > "
     font-family inherit
     font-size inherit
 

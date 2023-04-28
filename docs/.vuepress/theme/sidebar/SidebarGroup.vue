@@ -3,20 +3,6 @@
       class="sidebar-group"
       :class="{ first, collapsable }"
   >
-    <div
-        v-if="!hideHeading"
-        class="sidebar-heading"
-        :class="{ open }"
-        @click="$emit('toggle')"
-    >
-      <span>{{ item.title }}</span>
-      <span
-          class="arrow"
-          v-if="collapsable"
-          :class="open ? 'down' : 'right'">
-      </span>
-    </div>
-
     <DropdownTransition>
       <ul
           ref="items"
@@ -54,7 +40,6 @@ const props = defineProps({
     required: true
   },
 })
-const {hideHeading} = inject('themeConfig')
 </script>
 
 <style lang="stylus">

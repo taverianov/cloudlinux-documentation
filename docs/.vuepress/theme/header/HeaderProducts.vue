@@ -2,26 +2,26 @@
   <div class="header-products-wrapper">
     <div ref="menu" class="dropdown">
       <div v-if="openedMenu" class="dropdown-wrapper">
-        <p class="dropdown-content__paragraph" v-for="product in productsList" :key="product.label">
-          <a class="dropdown-content__link" href="#">{{ product.label }}</a>
+        <p class="dropdown-content__paragraph" v-for="product in productsList" :key="product">
+          <a class="dropdown-content__link" href="#">{{ product }}</a>
         </p>
       </div>
       <div @click="openedMenu = !openedMenu" class="header-products-container">
-        <p class="header-products-wrapper-paragraph">{{ productsText }}</p>
+        <p class="header-products-wrapper-paragraph">{{ productsTitle }}</p>
         <img class="products-icon__default"
              :class="{'products-icon__rotate': openedMenu}"
              width="10" height="8"
-             :src="arrowDownIcon"
+             :src="withBase(arrowDownIcon)"
              alt="arrow down icon"/>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-
+import {withBase} from "@vuepress/client";
 import {inject, onMounted, onUnmounted, ref} from "vue";
 
-const {productsText, arrowDownIcon, productsList} = inject('themeConfig');
+const {productsTitle, arrowDownIcon, productsList} = inject('themeConfig');
 
 const openedMenu = ref(false)
 const menu = ref(null)

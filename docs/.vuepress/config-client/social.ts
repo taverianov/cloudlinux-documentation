@@ -1,18 +1,18 @@
 export default [
     {
         url: "https://www.facebook.com/cloudlinux/",
-        logo: "fb.png"
+        icon: "footer-social/fb.png"
     },
     {
         url: "https://twitter.com/cloudlinuxos/",
-        logo: "tw.png"
+        icon: "footer-social/tw.png"
     },
     {
         url: "https://linkedin.com/company/cloudlinux",
-        logo: "in.png"
+        icon: "footer-social/in.png"
     },
     {
         url: "https://www.youtube.com/channel/UCZ3YMHWnMP7TaxlXVay5-aw",
-        logo: "ytube.svg"
+        icon: "footer-social/ytube.png"
     }
 ]

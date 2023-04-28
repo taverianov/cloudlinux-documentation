@@ -16,8 +16,8 @@
       </div>
       <span class="footer-social-text">{{ locales.stayInTouch }}</span>
       <div class="social-icons-wrapper">
-        <a v-for="item in social" class="social-icons-link" :href="item.url" target="_blank">
-          <img class="social-icons-link-img" :src="withBase(item.logo)" alt="footer logo"/>
+        <a v-for="item in social" class="social-icons-link" :href="item?.url" target="_blank">
+          <img v-if="item.icon" class="social-icons-link-img" :src="withBase(item?.icon)" alt="footer logo"/>
         </a>
       </div>
     </div>
@@ -27,11 +27,11 @@
 
 <script setup>
 import {computed, inject} from "vue";
-import {usePageFrontmatter, useSiteData, withBase} from "@vuepress/client";
+import {usePageFrontmatter, withBase} from "@vuepress/client";
 
-const {repo, social, cloudlinuxSite, footerCustomLogo, footerCustomAltText, locales} = inject('themeConfig');
-const site = useSiteData()
+const {social, cloudlinuxSite, footerCustomLogo, footerCustomAltText, locales} = inject('themeConfig');
 const frontmatter = usePageFrontmatter()
+
 const year = computed(() => (new Date()).getFullYear());
 const isGlobalLayout = computed(() => frontmatter.value.layout === 'HomeLayout');
 </script>

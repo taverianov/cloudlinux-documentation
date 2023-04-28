@@ -34,6 +34,7 @@ export default {
 
 function renderLink(h, to, text, active, children, depth = 0) {
   const link = h(RouterLink, {
+    'data-anchor': to,
     to,
     activeClass: '',
     exactActiveClass: '',
@@ -46,7 +47,6 @@ function renderLink(h, to, text, active, children, depth = 0) {
   return h('div', {
     class: {
       active,
-      'collapsed': true,
       'sidebar-link-container': !!children?.length
     },
     onClick: (e) => {
@@ -61,7 +61,7 @@ function renderHeader(h, to, text, active, childHeaders) {
   return h('div', {
     class: {
       active,
-      'collapsed': false,
+      'collapsed': active,
       'sidebar-header': true,
       'sidebar-link': true,
       'sidebar-header--empty': !hasDirectChildren,
@@ -146,7 +146,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
     background-position left 5px center
     background-size 16px 9px
     position relative
-    &::before
+    &:not(.sidebar-header--empty)::before
       content: ''
       position: absolute
       width: 100%
@@ -173,7 +173,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
     display block
 
   .sidebar-group &
-    padding 0.6rem 0 0.6rem 0.8rem
+    padding 0.6rem 0 0.6rem 0.43rem
 
   .sidebar-group &.sidebar-header
     padding 0 0 0 2rem

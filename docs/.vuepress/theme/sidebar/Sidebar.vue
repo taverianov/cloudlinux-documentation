@@ -62,7 +62,7 @@ const isInViewport = (element) => {
   const rect = element.getBoundingClientRect();
   return (
       rect.top >= 0 &&
-      rect.bottom <= 220
+      rect.bottom <= window.innerHeight - 350
   );
 }
 watch(() => route, refreshIndex)
@@ -71,12 +71,16 @@ const checkIfScroll = () => {
   const sidebar = document.querySelector('.sidebar')
   const sidebarAnchors = sidebar.querySelectorAll('a')
   const sidebarAnchorsContainer = sidebar.querySelectorAll('.collapsible.sidebar-sub-header')
-  const sidebarStringLinks = Array.from(sidebarAnchors).map(a => a.getAttribute('href'))
+  const sidebarStringLinks = Array.from(sidebarAnchors).map(a => a.getAttribute('data-anchor'))
+
+  pageAnchors.forEach((a)=>{
+    if(a.getAttribute('data-anchor')) return
+    a.setAttribute('data-anchor', page.value.path+a.hash)
+  })
 
   pageAnchors.forEach(a => {
     if (isInViewport(a)) {
-      const currentLink = sidebarStringLinks.find(link => !!link.includes(a.getAttribute('href')))
-
+      const currentLink = sidebarStringLinks.find(link => !!link.includes(a.getAttribute('data-anchor')))
       sidebarAnchorsContainer.forEach(container => {
         container.querySelectorAll('.sidebar-link-container').forEach(cl => {
           if (container.querySelector(`a[href="${currentLink}"]`)) cl.classList.remove("collapsed")
@@ -84,9 +88,9 @@ const checkIfScroll = () => {
         })
       })
 
-      if (sidebar.querySelector(`a[href="${currentLink}"]`)) {
+      if (sidebar.querySelector(`a[data-anchor="${currentLink}"]`)) {
         sidebarAnchors.forEach(a => a.classList.remove("active"))
-        sidebar.querySelector(`a[href="${currentLink}"]`).classList.add("active")
+        sidebar.querySelector(`a[data-anchor="${currentLink}"]`).classList.add("active")
       }
     }
   })

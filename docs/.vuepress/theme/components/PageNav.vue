@@ -19,7 +19,7 @@
 <script setup>
 import {resolvePage} from '../util'
 import {computed} from "vue";
-import {usePageData, usePageFrontmatter, useRouteLocale, useSiteData} from "@vuepress/client";
+import {usePageData, useRouteLocale, useSiteData} from "@vuepress/client";
 
 const props = defineProps({
   sidebarItems: {
@@ -71,6 +71,7 @@ const find = (page, items, offset) => {
 <style lang="stylus">
 @import '../../styles/config.styl'
 @require '../../styles/wrapper.styl'
+@import "../../styles/theme.styl"
 
 .page-nav
   @extend $wrapper

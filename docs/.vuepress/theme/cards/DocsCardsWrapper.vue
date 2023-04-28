@@ -1,6 +1,6 @@
 <template>
   <div class="docs-cards-wrapper">
-    <template v-for="(card, index) in docsCards" :key="index">
+    <template v-for="(card, index) in documents" :key="index">
       <DocsCard :card="card" />
     </template>
   </div>
@@ -9,7 +9,7 @@
 <script setup>
 import DocsCard from "./DocsCard.vue"
 import { inject } from "vue";
-const { docsCards } = inject('themeConfig')
+const { documents } = inject('themeConfig')
 </script>
 
 <style lang="stylus">

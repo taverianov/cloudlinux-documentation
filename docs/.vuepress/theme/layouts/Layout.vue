@@ -6,13 +6,13 @@
         :items="allPages"
     >
       <template #top>
-        <div v-if="docsCards" class="sidebar-header">
+        <div v-if="documents" class="sidebar-header">
           <p class="sidebar-header__paragraph">Select CL docs</p>
           <DSelect
               with-icon
               v-model="selectedValue"
               @changeSidebarItems="changeSidebarItems"
-              :options="docsCards"
+              :options="documents"
           />
         </div>
       </template>
@@ -35,7 +35,7 @@ import { usePageData } from "@vuepress/client";
 import {pagesData} from "../../.temp/internal/pagesData.js";
 import {resolveSidebarItems} from "../util.js";
 
-const { docsCards } = inject('themeConfig')
+const { documents } = inject('themeConfig')
 
 const selectedValue = ref(null);
 const router = useRouter();
@@ -57,7 +57,7 @@ onMounted(() => {
   Object.values(pagesData).map(f => f().then(res => {
     allPages.value.push(res)
   }))
-  selectedValue.value = docsCards.find((item) => item.link?.startsWith(getStartedString()));
+  selectedValue.value = documents.find((item) => item.link?.startsWith(getStartedString()));
 })
 
 </script>

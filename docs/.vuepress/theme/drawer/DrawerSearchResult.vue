@@ -1,10 +1,10 @@
 <template>
   <section v-if="data.length" class="drawer-main__search-results">
     <template v-for="(i) in visibleResults" :key="i">
-      <div class="search-result">
+      <div class="search-result" @click="gotTo(i?.url || '/')">
         <div class="search-result__title" v-html="getTitleForArticle(i._highlightResult?.hierarchy)"/>
-        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i?.hierarchy)"/>
-        <div class="search-result__text" v-html="i.content"></div>
+        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i._highlightResult?.hierarchy)"/>
+        <div class="search-result__text" v-html="i._highlightResult?.content?.value"></div>
       </div>
     </template>
   </section>
@@ -42,6 +42,10 @@ const props = defineProps({
 const { MAX_ALGOLIA_VISIBLE_RESULT, MAX_ALGOLIA_VISIBLE_ROWS } = inject('themeConfig')
 const isShowAllResult = ref(false);
 
+const gotTo = (url) => {
+ window.location.href = url;
+}
+
 const visibleResults = computed(() => {
   if (isShowAllResult.value) {
     return props.data;
@@ -72,7 +76,7 @@ const getTitleForArticle = (obj) => {
 }
 
 const getBreadcrumbsForArticle = (obj) => {
-  return Object.values(obj).slice(2).filter(Boolean).join(' > ')
+  return Object.values(obj).slice(2).filter(Boolean).map((content) => content.value).join(' > ')
 }
 
 </script>
@@ -97,7 +101,13 @@ const getBreadcrumbsForArticle = (obj) => {
   align-items flex-start
   justify-content flex-start
   gap $drawerOneSearchResultGap
-  max-width $drawerOneSearchResultMaxWidth
+  width fit-content
+  cursor pointer
+
+  &:hover
+    .search-result__title
+      color $mainColor
+      text-decoration underline
 
   &__title
     font-size $drawerSearchResultTitleFontSize
@@ -105,6 +115,9 @@ const getBreadcrumbsForArticle = (obj) => {
     line-height $drawerSearchResultTitleLineHeight
     color $drawerSearchResultTitleColor
     margin 0
+    &:hover
+      color $mainColor
+      text-decoration underline
 
 
   &__text

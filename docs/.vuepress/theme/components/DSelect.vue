@@ -63,7 +63,10 @@ onUnmounted(() => window.removeEventListener('click', closeDropdown))
 @import '../../styles/config.styl'
 .v-select
   .vs__selected-options
-    padding 5px 0 5px 1rem
+    padding 5px 0 5px 11px
+
+  .vs__dropdown-option
+    padding-left 18px !important
 
   .vs__selected
     display block;
