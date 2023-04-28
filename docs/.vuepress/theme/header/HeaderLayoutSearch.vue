@@ -53,9 +53,7 @@ const getResultsFromSearch = (hits) => {
   homeLayoutSearchResult.value = hits;
 }
 
-const isGlobalLayout = computed(() => {
-  return frontmatter.value.layout === 'HomeLayout'
-})
+const isGlobalLayout = computed(() =>  frontmatter.value.layout === 'HomeLayout')
 
 const openDrawer = () => {
   isOpenDrawer.value = true

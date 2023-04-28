@@ -6,7 +6,6 @@
   </div>
 </template>
 
-
 <script setup>
 import DocsCardsWrapper from "../cards/DocsCardsWrapper.vue";
 import Footer from "../footer/Footer.vue";

@@ -1,7 +1,6 @@
 export default {
     '/user-docs-solo-cloudlinux/': [
         {
-            title: 'Configuration',
             collapsable: false,
             children: [
                 "/user-docs-solo-cloudlinux/introduction/",
@@ -14,7 +13,6 @@ export default {
     ],
     '/cln/': [
         {
-            title: 'Configuration',
             collapsable: false,
             children: [
                 "/cln/introduction/",
@@ -27,7 +25,6 @@ export default {
     ],
     '/shared-pro/': [
         {
-            title: 'Configuration',
             collapsable: false,
             children: [
                 "/shared-pro/introduction/",
@@ -40,9 +37,7 @@ export default {
     ],
     '/ubuntu/': [
         {
-            title: 'Configuration',
             collapsable: false,
-            isFirstSidebarItemClosed: true,
             children: [
                 "/ubuntu/introduction/",
                 "/ubuntu/faq/",
@@ -55,7 +50,6 @@ export default {
     ],
     '/shared/': [
         {
-            title: 'Configuration',
             collapsable: false,
             children: [
                 "/shared/introduction/",
@@ -69,7 +63,6 @@ export default {
     ],
     '/sub-system-ubuntu/': [
         {
-            title: 'Configuration',
             collapsable: false,
             children: [
                 "/sub-system-ubuntu/introduction/",

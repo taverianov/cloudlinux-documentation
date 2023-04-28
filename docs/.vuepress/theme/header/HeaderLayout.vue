@@ -8,8 +8,8 @@
         >
           <img
               class="logo"
-              v-if="logo"
-              :src="logo"
+              v-if="siteLogo"
+              :src="withBase(siteLogo)"
               alt="logo header"
           >
         </router-link>
@@ -24,7 +24,7 @@
           {{ submitRequestTitle }}
         </a>
 
-        <a :href="try_free" target="_blank" class="btn btn-free">
+        <a :href="tryFreeLink" target="_blank" class="btn btn-free">
           {{ tryFreeTitle }}
         </a>
       </div>
@@ -38,25 +38,18 @@
 import HeaderLayoutSearch from "./HeaderLayoutSearch.vue";
 import HeaderProducts from "./HeaderProducts.vue";
 import {computed, inject, ref} from "vue";
-import {usePageFrontmatter, useRouteLocale} from "@vuepress/client";
+import {usePageFrontmatter, useRouteLocale,withBase} from "@vuepress/client";
 
-const {logo, locales, defaultURL, try_free, submitRequestURL} = inject('themeConfig');
+const {siteLogo, locales, defaultURL, tryFreeLink, submitRequestURL} = inject('themeConfig');
 const linksWrapMaxWidth = ref(null)
 const frontmatter = usePageFrontmatter()
-
-const tryFreeTitle = computed(() => {
-  return locales.try_free || 'Try Free';
-})
-
-const submitRequestTitle = computed(() => {
-  return locales.submitRequest || 'Submit support request';
-})
-
-const isGlobalLayout = computed(() => {
-  return frontmatter.value.layout === 'HomeLayout'
-})
-
 const localePath = useRouteLocale()
+
+const tryFreeTitle = computed(() => locales.tryFreeLink || 'Try Free')
+
+const submitRequestTitle = computed(() => locales.submitRequest || 'Submit support request')
+
+const isGlobalLayout = computed(() => frontmatter.value.layout === 'HomeLayout')
 
 const homeUrl = computed(() => {
   const defaultUrl = localePath.value + defaultURL;
@@ -64,14 +57,7 @@ const homeUrl = computed(() => {
   return defaultUrl.replace(/\/+/g, '/');
 })
 
-const submitRequestUrl = computed(() => {
-  return submitRequestURL || "https://cloudlinux.zendesk.com/hc/en-us/requests/new";
-})
-
-const css = (el, property) => {
-  const win = el.ownerDocument.defaultView
-  return win.getComputedStyle(el, null)[property]
-}
+const submitRequestUrl = computed(() => submitRequestURL || "https://cloudlinux.zendesk.com/hc/en-us/requests/new")
 </script>
 
 <style src="../../styles/theme.styl" lang="stylus"></style>

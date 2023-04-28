@@ -7,7 +7,7 @@
           <div id="drawerSearch"></div>
         </div>
         <div class="drawer-cross">
-          <img @click="onCloseDrawer" class="drawer-cross__img" :src="withBase('/cross.svg')" alt="cross">
+          <img @click="onCloseDrawer" class="drawer-cross__img" :src="withBase('/global/cross.svg')" alt="cross">
           <p @click="onCloseDrawer" class="drawer-cross__text">close</p>
         </div>
       </div>
@@ -15,7 +15,10 @@
       <main class="drawer-main">
         <div class="drawer-main__wrapper">
           <div class="drawer-main__breadcrumb">
-            <p v-if="drawerArticleResult.length" class="drawer-main__breadcrumb__text">Home > Documentation</p>
+            <p v-if="drawerArticleResult.length" class="drawer-main__breadcrumb__text">Home
+              <img :src="withBase('/arrows/arrow-right-breadcrumb.svg')" alt="breadcrumb icon"/>
+              Documentation
+            </p>
           </div>
           <DrawerSearchResult :modelValue="modelValue" :data="drawerArticleResult"/>
           <BackToTop/>

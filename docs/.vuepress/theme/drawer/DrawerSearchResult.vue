@@ -1,10 +1,10 @@
 <template>
   <section v-if="data.length" class="drawer-main__search-results">
     <template v-for="(i) in visibleResults" :key="i">
-      <div class="search-result">
+      <div class="search-result" @click="gotTo(i?.url || '/')">
         <div class="search-result__title" v-html="getTitleForArticle(i._highlightResult?.hierarchy)"/>
-        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i?.hierarchy)"/>
-        <div class="search-result__text" v-html="i.content"></div>
+        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i._highlightResult?.hierarchy)"/>
+        <div class="search-result__text" v-html="i._highlightResult?.content?.value"></div>
       </div>
     </template>
   </section>
@@ -17,7 +17,12 @@
     </div>
   </div>
   <div v-else>
-    <p class="no_results">No results <span v-if="modelValue" class="no_results__text">for "{{ modelValue }}"</span></p>
+    <p class="no_results">
+      Sorry! No results found for
+      <span v-if="modelValue">"{{ modelValue }}"</span>
+      😞<br/>Please try ask the community (link to the
+      <a class="no_results__link" href=" https://forum.cloudlinux.com/" target="_blank">https://forum.cloudlinux.com/</a>).
+    </p>
   </div>
 </template>
 
@@ -34,8 +39,12 @@ const props = defineProps({
     required: true
   }
 })
-const {MAX_ALGOLIA_VISIBLE_RESULT} = inject('themeConfig')
+const { MAX_ALGOLIA_VISIBLE_RESULT, MAX_ALGOLIA_VISIBLE_ROWS } = inject('themeConfig')
 const isShowAllResult = ref(false);
+
+const gotTo = (url) => {
+ window.location.href = url;
+}
 
 const visibleResults = computed(() => {
   if (isShowAllResult.value) {
@@ -67,7 +76,7 @@ const getTitleForArticle = (obj) => {
 }
 
 const getBreadcrumbsForArticle = (obj) => {
-  return Object.values(obj).slice(2).filter(Boolean).join(' > ')
+  return Object.values(obj).slice(2).filter(Boolean).map((content) => content.value).join(' > ')
 }
 
 </script>
@@ -92,7 +101,13 @@ const getBreadcrumbsForArticle = (obj) => {
   align-items flex-start
   justify-content flex-start
   gap $drawerOneSearchResultGap
-  max-width $drawerOneSearchResultMaxWidth
+  width fit-content
+  cursor pointer
+
+  &:hover
+    .search-result__title
+      color $mainColor
+      text-decoration underline
 
   &__title
     font-size $drawerSearchResultTitleFontSize
@@ -100,6 +115,9 @@ const getBreadcrumbsForArticle = (obj) => {
     line-height $drawerSearchResultTitleLineHeight
     color $drawerSearchResultTitleColor
     margin 0
+    &:hover
+      color $mainColor
+      text-decoration underline
 
 
   &__text
@@ -107,6 +125,12 @@ const getBreadcrumbsForArticle = (obj) => {
     line-height $drawerSearchResultTextLineHeight
     color $drawerSearchResultTextColor
     margin 0
+    overflow: hidden
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: v-bind(MAX_ALGOLIA_VISIBLE_ROWS)
+    -webkit-box-decoration-break: clone
+    box-decoration-break: clone
 
   &__breadcrumb
     font-size $drawerSearchResultBreadcrumbTextSize
@@ -132,4 +156,7 @@ const getBreadcrumbsForArticle = (obj) => {
 .no_results
   font-size 25px
   font-weight 700
+  &__link
+    &:hover
+      text-decoration underline
 </style>

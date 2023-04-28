@@ -1,51 +1,30 @@
 <template>
   <div class="docs-card-container">
     <div class="docs-card-container__header">
-      <img width="20" height="20" :src="withBase(docsCardIcon)" alt="document icon">
-      <p class="docs-card-container__header-paragraph">{{ docsTitle }}</p>
+      <img width="20" height="20" :src="withBase('collections-bookmark.svg')" alt="document icon">
+      <p v-if="card.title" class="docs-card-container__header-paragraph">{{ card.title }}</p>
     </div>
     <div class="docs-card-container__main">
-      <p class="docs-card-container__main-paragraph">{{ docsText }}</p>
+      <p v-if="card.description" class="docs-card-container__main-paragraph">{{ card.description }}</p>
     </div>
     <div class="docs-card-container__footer">
-      <button @click="linkToDocs" class="docs-card-container__footer-btn">
-        {{ docsCardButtonText }}
-      </button>
+      <button @click="goTo()" class="docs-card-container__footer-btn">View tutorial</button>
     </div>
   </div>
 </template>
 <script setup>
-import {useRouter} from "vue-router/dist/vue-router.esm-bundler.js";
-import {inject} from "vue";
-import {useSiteData, withBase} from "@vuepress/client";
-
-const site = useSiteData()
-const {docsCardIcon, docsCardButtonText} = inject('themeConfig')
-
+import { useRouter } from "vue-router/dist/vue-router.esm-bundler.js";
+import { withBase } from "@vuepress/client";
 const props = defineProps({
-  docsTitle: {
-    type: String,
-    default: ''
+  card: {
+    type: Object,
+    default: null
   },
-  docsText: {
-    type: String,
-    default: ''
-  },
-  url: {
-    type: String,
-    default: ''
-  },
-  defaultOpenedSidebarItem: {
-    type: String,
-    default: ''
-  }
 })
 const router = useRouter()
-
-const linkToDocs = () => {
-  router.push(props.url + (props.defaultOpenedSidebarItem || ''))
-}
+const goTo = () => router.push(props.card?.link)
 </script>
+
 <style lang="stylus">
 @import '../../styles/config.styl'
 

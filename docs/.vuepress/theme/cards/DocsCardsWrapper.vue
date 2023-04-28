@@ -1,21 +1,15 @@
 <template>
   <div class="docs-cards-wrapper">
-    <template v-for="card in docsCards" :key="card.text">
-      <DocsCard
-          :docs-title="card.title"
-          :docs-text="card.text"
-          :url="card.url"
-          :default-opened-sidebar-item="card.defaultOpenedSidebarItem"
-      />
+    <template v-for="(card, index) in documents" :key="index">
+      <DocsCard :card="card" />
     </template>
   </div>
 </template>
 
 <script setup>
 import DocsCard from "./DocsCard.vue"
-import {inject} from "vue";
-
-const {docsCards} = inject('themeConfig')
+import { inject } from "vue";
+const { documents } = inject('themeConfig')
 </script>
 
 <style lang="stylus">
