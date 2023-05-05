@@ -62,7 +62,13 @@ const emit = defineEmits(['closeDrawer', 'update:modelValue'])
 const selectedTabIndex = ref(0);
 
 const tabs = computed(() => {
-  return [...new Set(props.homeLayoutSearchResult.map(result => result.hierarchy.lvl0))];
+    const uniqueTitles = props.homeLayoutSearchResult.reduce((unique, result) => {
+        const title = result.hierarchy?.lvl0;
+        unique[title] = unique[title] || { title, numberResults: 0 };
+        unique[title].numberResults++;
+        return unique;
+    }, {});
+    return Object.values(uniqueTitles);
 });
 
 const drawerArticleResult = computed(() => {
@@ -70,7 +76,7 @@ const drawerArticleResult = computed(() => {
     return props.homeLayoutSearchResult || [];
   }
   const selectedTab = tabs.value[selectedTabIndex.value];
-  return props.homeLayoutSearchResult.filter(result => result.hierarchy.lvl0 === selectedTab);
+  return props.homeLayoutSearchResult.filter(result => result.hierarchy.lvl0 === selectedTab?.title);
 })
 
 const onCloseDrawer = () => {
