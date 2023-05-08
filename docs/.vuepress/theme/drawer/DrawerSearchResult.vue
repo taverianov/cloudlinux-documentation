@@ -1,29 +1,30 @@
 <template>
-  <section v-if="data.length" class="drawer-main__search-results">
-    <template v-for="(i) in visibleResults" :key="i">
-      <div class="search-result" @click="gotTo(i?.url || '/')">
-        <div class="search-result__title" v-html="getTitleForArticle(i._highlightResult?.hierarchy)"/>
-        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i._highlightResult?.hierarchy)"/>
-        <div class="search-result__text" v-html="i._highlightResult?.content?.value"></div>
-      </div>
-    </template>
-  </section>
-  <div v-if="data.length">
-    <div v-if="countOfHiddenResults" class="hidden_results" @click="showAllHiddenResult">
-      <p class="hidden_results__text">Show all results({{ countOfHiddenResults }})</p>
+    <section v-if="data.length" class="drawer-main__search-results">
+        <template v-for="(i) in visibleResults" :key="i">
+            <div class="search-result" @click="gotTo(i?.url || '/')">
+                <div class="search-result__title" v-html="getTitleForArticle(i._highlightResult?.hierarchy)"/>
+                <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i._highlightResult?.hierarchy)"/>
+                <div class="search-result__text" v-html="i._highlightResult?.content?.value"></div>
+            </div>
+        </template>
+    </section>
+    <div v-if="data.length">
+        <div v-if="countOfHiddenResults" class="hidden_results" @click="showAllHiddenResult">
+            <p class="hidden_results__text">Show all results({{ countOfHiddenResults }})</p>
+        </div>
+        <div v-else-if="!countOfHiddenResults && isShowAllResult" class="hidden_results" @click="collapseResults">
+            <p class="hidden_results__text">Collapse results</p>
+        </div>
     </div>
-    <div v-else-if="!countOfHiddenResults && isShowAllResult" class="hidden_results" @click="collapseResults">
-      <p class="hidden_results__text">Collapse results</p>
+    <div v-else>
+        <p v-if="!modelValue.length" class="no_results">What are you searching for?</p>
+        <p v-else class="no_results">
+            Sorry! No results found for
+            <span v-if="modelValue">"{{ modelValue }}"</span>
+            😞<br/>Please try ask the community (link to the
+            <a class="no_results__link" href=" https://forum.cloudlinux.com/" target="_blank">https://forum.cloudlinux.com/</a>).
+        </p>
     </div>
-  </div>
-  <div v-else>
-    <p class="no_results">
-      Sorry! No results found for
-      <span v-if="modelValue">"{{ modelValue }}"</span>
-      😞<br/>Please try ask the community (link to the
-      <a class="no_results__link" href=" https://forum.cloudlinux.com/" target="_blank">https://forum.cloudlinux.com/</a>).
-    </p>
-  </div>
 </template>
 
 <script setup>
