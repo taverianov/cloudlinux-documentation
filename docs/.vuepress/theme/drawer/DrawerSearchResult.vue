@@ -17,7 +17,8 @@
     </div>
   </div>
   <div v-else>
-    <p class="no_results">
+    <p v-if="!modelValue.length" class="no_results">What are you searching for?</p>
+    <p v-else class="no_results">
       Sorry! No results found for
       <span v-if="modelValue">"{{ modelValue }}"</span>
       😞<br/>Please try ask the community (link to the
