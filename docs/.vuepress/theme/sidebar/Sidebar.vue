@@ -80,10 +80,10 @@ const checkIfScroll = () => {
 
   pageAnchors.forEach(a => {
     if (isInViewport(a)) {
-      const currentLink = sidebarStringLinks.find(link => !!link.includes(a.getAttribute('data-anchor')))
+      const currentLink = sidebarStringLinks.find(link => link === a.getAttribute('data-anchor'))
       sidebarAnchorsContainer.forEach(container => {
         container.querySelectorAll('.sidebar-link-container').forEach(cl => {
-          if (container.querySelector(`a[href="${currentLink}"]`)) cl.classList.remove("collapsed")
+          if (container.querySelector(`a[data-anchor="${currentLink}"]`)) cl.classList.remove("collapsed")
           else cl.classList.add("collapsed")
         })
       })
@@ -95,12 +95,6 @@ const checkIfScroll = () => {
     }
   })
 }
-onMounted(() => {
-  refreshIndex()
-  window.addEventListener("scroll", checkIfScroll)
-})
-
-onUnmounted(() => window.removeEventListener("scroll", checkIfScroll))
 
 const resolveOpenGroupIndex = (route, items) => {
   for (let i = 0; i < items.length; i++) {
@@ -111,6 +105,13 @@ const resolveOpenGroupIndex = (route, items) => {
   }
   return -1
 }
+
+onMounted(() => {
+  refreshIndex()
+  window.addEventListener("scroll", checkIfScroll)
+})
+
+onUnmounted(() => window.removeEventListener("scroll", checkIfScroll))
 </script>
 
 <style lang="stylus">
