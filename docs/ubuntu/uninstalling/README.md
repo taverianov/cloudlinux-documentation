@@ -4,9 +4,6 @@
 
 You can uninstall CloudLinux Subsystem For Ubuntu by running the following command:
 
-```
-./ubuntu2cloudlinux.py --uninstall
-```
 
 In that case the script will:
 

@@ -1,6 +1,6 @@
 import {provide} from "vue";
 import {defineClientConfig} from "@vuepress/client";
-import InstantSearch from 'vue-instantsearch/vue3/es';
+import InstantSearch from 'vue-instantsearch/vue3/es/index.js';
 
 import Layout from "./theme/layouts/Layout.vue";
 import HomeLayout from "./theme/layouts/HomeLayout.vue";

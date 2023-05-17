@@ -9,7 +9,6 @@ preprocessing and website preloading.
 In order to start using AccelerateWP, go to the cPanel interface and find the `AccelerateWP`
 application in the `Software` section.
 
-![](./AWPApp.png)
 
 If you use Plesk control panel, (1) trigger the side panel and (2) choose the AccelerateWP widget.
 
@@ -17,7 +16,7 @@ If you use Plesk control panel, (1) trigger the side panel and (2) choose the Ac
 
 Click the application button and get into the AccelerateWP interface.
 
-![](./AWPUserUI.png)
+![](/AWPUserUI.png)
 
 Each row in the table is the WordPress website that was found on server and each column is the
 optimization feature.
@@ -30,17 +29,16 @@ a best suited optimization feature to increase it significantly.
 Use the `Advice available` link to check advice details and click the `Apply advice`
 button to activate the feature.
 
-![](./AdviceReview.png)
+![](/AdviceReview.png)
 
 After a couple of minutes, the feature will be activated and advice becomes `Applied`.
 Close the window and see `Active` link in the corresponding cell of the table.
 
-![](./AdviceApplied.png)
+![](/AdviceApplied.png)
 
 If you still would like to try the feature on the website where advice was not issued,
 click on the gear icon and enable the feature.
 
-![](./AWPEnableManually.png)
 
 ## AccelerateWP feature: WordPress optimization plugin
 
@@ -50,21 +48,21 @@ optimizations.
 In order to start working with AccelerateWP feature, check if advice is available in the corresponding
 cell on the intersection of website and AccelerateWP column.
 
-![](./AWPUserUI.png)
+![](/AWPUserUI.png)
 
 And click the "Apply advice" button to activate the AccelerateWP feature.
 
-![](./AdviceReview.png)
+![](/AdviceReview.png)
 
 After a couple of minutes, the plugin will be installed.
 Login into the WordPress Admin and find the AccelerateWP in the list of active plugins.
 
-![](./WPPlugins.png)
+![](/WPPlugins.png)
 
 Page caching will be enabled by default. Click the "Settings" link below the plugin name to configure additional
 options.
 
-![](./AWPPlugin.png)
+![](/AWPPlugin.png)
 
 ### Limitations
 
@@ -88,7 +86,7 @@ This option is necessary if you have some functionality only for mobile devices,
 
 The following diagram helps you understand if you need mobile caching.
 
-![](./MobileDiag.png)
+![](/MobileDiag.png)
 
 :::tip Note
 If you use an additional layer of Cache (Varnish, NGINX , etc.) make sure it can distinguish between desktop and mobile
@@ -319,13 +317,13 @@ To set up a CDN in the AccelerateWP you must register CDN zone and get pull zone
 
 After setting up the Pull zone, you will receive an address, for example: domain.b-cdn.net
 
-![](./CDNGeneral.png)
+![](/CDNGeneral.png)
 
 Go to the WP Admin of your WordPress site, open the settings of the AccelerateWP (Step 1) and select the CDN section (
 Step 2). Select the option: Enable Content Delivery Network (Step 3) and fill in the "CDN CNAME(s)" field with the
 previously received domain.b-cdn.net address (Step 4).
 
-![](./CDNFlow.png)
+![](/CDNFlow.png)
 
 Click the "Save changes" button (Step 5).
 
@@ -360,39 +358,35 @@ The Object caching feature is recommended to use in the following:
 In order to start working with Object caching feature, check if advice is available in the corresponding
 cell on the intersection of website and AccelerateWP Premium column.
 
-![](./AWPPremiumUI.png)
+![](/AWPPremiumUI.png)
 
 And click the "Apply advice" button to activate the Object caching feature.
 
-![](./AWPPremiumReview.png)
+![](/AWPPremiumReview.png)
 
 If you still would like to try the feature on the website where advice was not issued,
 click on the gear icon and enable the feature.
 
-![](./AWPEnableManually.png)
 
 In case if you still don't have active Premium subscription, you will see the following
 window with link to the page where you can upgrade subscription.
 
-![](./AWPUpgradeLink.png)
 
 When upgrade link is clicked, you will see the billing interface opened in new browser window.
 Successful upgrade of your subscription will automatically close the billing window and start
 background upgrade process. Once your payment is processed, feature will be automatically installed
 on the website.
 
-![](./AWPUpgradeModuleWait.png)
 
 If you don't see any links, contact your hoster to upgrade your subscription manually.
 
-![](./AWPUpgradeNoLink.png)
 
 If subscription is active, you will bypass the subscription window and proceed
 directly to the plugin installation.
 
 After a couple of minutes, the redis instance will be configured, plugin will be installed and activated.
 
-![](./AWPPremiumApplied.png)
+![](/AWPPremiumApplied.png)
 
 Close the window and see "Active" link in the corresponding cell of the table.
 
@@ -418,11 +412,11 @@ When you see the `Advice available` link in the corresponding feature cell, it m
 AccelerateWP decided that this feature will significantly improve the performance of your website.
 Otherwise you see the `No advice` note.
 
-![](./FAQAdviceTable.png)
+![](/FAQAdviceTable.png)
 
 Click the `Advice available` link and push `Apply advice` button to automatically enable the feature.
 
-![](./FAQAdviceReview.png)
+![](/FAQAdviceReview.png)
 
 ### What should I do if I see both the "No advice" note and the "Incompatible" link?
 
@@ -432,9 +426,9 @@ Causes of the `Incompatible` note are always Limitations: [AccelerateWP](/wpos-p
 Each message has a small "how to", so you can try to fix them by yourself via control panel or WordPress Admin
 interface.
 
-![](./FAQIncompatible.png)
+![](/FAQIncompatible.png)
 
-![](./FAQIncMessage.png)
+![](/FAQIncMessage.png)
 
 ### What should I do if I see the "Misconfiguration"?
 

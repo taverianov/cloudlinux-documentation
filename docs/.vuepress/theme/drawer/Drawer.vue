@@ -55,7 +55,6 @@ const props = defineProps({
   }
 })
 
-const {algoliaOptions} = inject('themeConfig')
 
 const emit = defineEmits(['closeDrawer', 'update:modelValue'])
 

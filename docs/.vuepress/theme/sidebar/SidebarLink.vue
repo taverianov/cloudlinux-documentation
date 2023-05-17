@@ -2,7 +2,7 @@
 import {groupHeaders, isActive} from '../util'
 import {h} from "vue"
 import {usePageData} from "@vuepress/client";
-import {RouterLink, useRoute} from "../../.cache/deps/vue-router.js";
+import {RouterLink, useRoute} from "vue-router";
 
 export default {
   functional: true,

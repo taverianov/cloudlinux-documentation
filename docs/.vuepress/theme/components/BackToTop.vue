@@ -18,7 +18,7 @@ const props = defineProps({
 const isVisible = ref(false);
 
 const handleScroll = () => {
-  isVisible.value = window.pageYOffset > props.boundary;
+  if(window)  isVisible.value = window.pageYOffset > props.boundary;
 }
 const goToTop = () => {
   document.body.scrollTop = 0;

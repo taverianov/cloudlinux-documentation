@@ -48,8 +48,6 @@ These are configuration steps:
 
     * Via MultiPHP Manager
 
-   ![](/viaMultiPHP.png)
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
-   ![](/enablephp-fpm.png)

@@ -16,7 +16,6 @@
 <script setup>
 import {usePageFrontmatter, withBase} from "@vuepress/client";
 import {computed, inject, watch} from "vue";
-
 const {headerDefaultSearchIcon, headerSearchIcon} = inject('themeConfig')
 
 const props = defineProps({
@@ -61,14 +60,14 @@ const placeholder = computed(() => {
 
 
 const initialize = async (userOptions) => {
+  if (typeof window === "undefined") {
+    return;
+  }
   const [docsearchModule] = await Promise.all([
     import(/* webpackChunkName: "docsearch" */ "docsearch.js/dist/cdn/docsearch.min.js"),
     import(/* webpackChunkName: "docsearch" */ "docsearch.js/dist/cdn/docsearch.min.css"),
   ]);
-
   const docsearch = docsearchModule.default;
-  const {algoliaOptions = {}} = userOptions;
-
   docsearch(
       Object.assign({}, userOptions, {
         inputSelector: "#algolia-search-input",
@@ -81,11 +80,10 @@ const initialize = async (userOptions) => {
       })
   );
 };
-
 watch(
     () => props.options,
-    (newValue) => {
-      initialize(newValue);
+    async (newValue) => {
+     await initialize(newValue);
     }, {
       immediate: true
     }
