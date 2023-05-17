@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup>
-import { useRouter } from "vue-router/dist/vue-router.esm-bundler.js";
+import { useRouter } from "vue-router"
 import { withBase } from "@vuepress/client";
 const props = defineProps({
   card: {

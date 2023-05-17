@@ -29,7 +29,7 @@ import Sidebar from "../sidebar/Sidebar.vue";
 import HeaderLayout from "../header/HeaderLayout.vue";
 import Page from "../components/Page.vue";
 import DSelect from "../components/DSelect.vue";
-import {useRoute, useRouter} from "../../.cache/deps/vue-router.js";
+import {useRoute, useRouter} from "vue-router";
 import {computed, inject, onMounted, ref} from "vue";
 import { usePageData } from "@vuepress/client";
 import {pagesData} from "../../.temp/internal/pagesData.js";

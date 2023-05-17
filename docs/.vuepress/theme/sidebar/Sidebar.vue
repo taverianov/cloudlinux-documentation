@@ -24,7 +24,7 @@ import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
 import {isActive, resolveSidebarItems} from '../util'
 import {computed, onMounted, onUnmounted, ref, watch} from "vue";
-import {useRoute} from "../../.cache/deps/vue-router.js";
+import {useRoute} from "vue-router";
 import {usePageData} from "@vuepress/client";
 
 const props = defineProps({
