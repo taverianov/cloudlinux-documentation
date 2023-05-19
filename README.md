@@ -1,4 +1,4 @@
-# cloudlinuk-documentation
+# cloudlinux-documentation
 
 # Install dependencies
 
