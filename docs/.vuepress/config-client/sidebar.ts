@@ -1,13 +1,42 @@
 export default {
-    '/user-docs-solo-cloudlinux/': [
+    '/user-docs/': [
         {
             collapsable: false,
             children: [
-                "/user-docs-solo-cloudlinux/introduction/",
-                "/user-docs-solo-cloudlinux/wpos-plugin/",
-                "/user-docs-solo-cloudlinux/end-user-x-ray-plugin/",
-                "/user-docs-solo-cloudlinux/smart-advice/",
-                "/user-docs-solo-cloudlinux/php-selector/"
+                "/user-docs/user-docs-shared-cloudlinux/",
+                "/user-docs/user-docs-solo-cloudlinux/"
+            ]
+        },
+    ],
+    '/introduction/': [
+        {
+            collapsable: false,
+            children: [
+                "/introduction/"
+            ]
+        },
+    ],
+    '/admin/': [
+        {
+            collapsable: false,
+            children: [
+            "/admin/description/",
+            "/admin/installation/",
+            "/admin/components/",
+            "/admin/faq/"
+            ]
+        },
+    ],
+    '/solo/': [
+        {
+            collapsable: false,
+            children: [
+            "/solo/introduction/",
+            "/solo/installation/",
+            "/solo/activation/",
+            "/solo/administration/",
+            "/solo/manager/",
+            "/solo/faq/"
             ]
         },
     ],
@@ -16,10 +45,15 @@ export default {
             collapsable: false,
             children: [
                 "/cln/introduction/",
-                "/cln/wpos-plugin/",
-                "/cln/end-user-x-ray-plugin/",
-                "/cln/smart-advice/",
-                "/cln/php-selector/"
+                "/cln/terminology/",
+                "/cln/dashboard/",
+                "/cln/billing/",
+                "/cln/payment_methods/",
+                "/cln/purchase/",
+                "/cln/account_settings/",
+                "/cln/cln_for_resellers/",
+                "/cln/whmcs_plugin/",
+                "/cln/whmcs_awp_plugin/"
             ]
         },
     ],
@@ -27,11 +61,9 @@ export default {
         {
             collapsable: false,
             children: [
-                "/shared-pro/introduction/",
-                "/shared-pro/wpos-plugin/",
-                "/shared-pro/end-user-x-ray-plugin/",
-                "/shared-pro/smart-advice/",
-                "/shared-pro/php-selector/"
+                "/shared-pro/x-ray/",
+                "/shared-pro/centralized-monitoring/",
+                "/shared-pro/accelerate-wp/"
             ]
         },
     ],
@@ -52,12 +84,16 @@ export default {
         {
             collapsable: false,
             children: [
-                "/shared/introduction/",
-                "/shared/faq/",
-                "/ubuntu/features/",
-                "/shared/installation/",
-                "/shared/troubleshooting/",
-                "/shared/uninstalling/"
+                "/shared/cloudlinux_installation/",
+                "/shared/elevate/",
+                "/shared/limits/",
+                "/shared/lve_manager/",
+                "/shared/cloudlinux_os_components/",
+                "/shared/command-line_tools/",
+                "/shared/control_panel_integration/",
+                "/shared/cloudlinux_os_kernel/",
+                "/shared/for_cloudlinux_partners/",
+                "/shared/deprecated/"
             ]
         },
     ],

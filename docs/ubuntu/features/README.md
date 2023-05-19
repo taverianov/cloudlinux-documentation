@@ -4,26 +4,26 @@ Below, you can find the list of supported features with the links to the documen
 
 ## LVE limits
 
-* [Understanding limits](https://docs.cloudlinux.com/limits/#understanding-limits)
-* [SPEED limit](https://docs.cloudlinux.com/limits/#speed-limit)
-* [Memory limit](https://docs.cloudlinux.com/limits/#memory-limit)
-* [IO](https://docs.cloudlinux.com/limits/#io)
-* [IOPS](https://docs.cloudlinux.com/limits/#iops)
-* [Entry processes](https://docs.cloudlinux.com/limits/#entry-processes)
-* [Number of processes](https://docs.cloudlinux.com/limits/#number-of-processes)
-* [Inodes](https://docs.cloudlinux.com/limits/#inodes)
-* [Network traffic bandwidth control and accounting system](https://docs.cloudlinux.com/limits/#network-traffic-bandwidth-control-and-accounting-system)
-* [Limits validation](https://docs.cloudlinux.com/limits/#limits-validation)
-* [Compatibility matrix](https://docs.cloudlinux.com/limits/#compatibility-matrix)
-* [Reseller limits](https://docs.cloudlinux.com/limits/#reseller-limits)
+* [Understanding limits](/shared/limits/#understanding-limits)
+* [SPEED limit](/shared/limits/#speed-limit)
+* [Memory limit](/shared/limits/#memory-limit)
+* [IO](/shared/limits/#io)
+* [IOPS](/shared/limits/#iops)
+* [Entry processes](/shared/limits/#entry-processes)
+* [Number of processes](/shared/limits/#number-of-processes)
+* [Inodes](/shared/limits/#inodes)
+* [Network traffic bandwidth control and accounting system](/shared/limits/#network-traffic-bandwidth-control-and-accounting-system)
+* [Limits validation](/shared/limits/#limits-validation)
+* [Compatibility matrix](/shared/limits/#compatibility-matrix)
+* [Reseller limits](/shared/limits/#reseller-limits)
 
 ## Inode limits
 
-The documentation is available [here](https://docs.cloudlinux.com/limits/#inodes).
+The documentation is available [here](/shared/limits/#inodes).
 
 ## Reseller limits
 
-The documentation is available [here](https://docs.cloudlinux.com/limits/#reseller-limits).
+The documentation is available [here](/shared/limits/#reseller-limits).
 
 ## MySQL Governor
 
@@ -45,7 +45,7 @@ MySQL Governor allows restricting customers who use too many resources. It suppo
 
 You can set different limits for different periods: current, short, med, long. By default those periods are defined as 1
 second, 5 seconds, 1 minute and 5 minutes. They can be re-defined using
-the [configuration file](https://docs.cloudlinux.com/cloudlinux_os_components/#configuration-and-operation). The idea is
+the [configuration file](/shared/cloudlinux_os_components/#configuration-and-operation). The idea is
 to use larger acceptable values for shorter periods. Like you could allow a customer to use two cores (200%) for one
 second, but only 1 core (on average) for 1 minute, and only 70% within 5 minutes. That would make sure that customer can
 burst for short periods of time.
@@ -90,11 +90,15 @@ apt  install governor-mysql
 
 In case of installing on cPanel + Ubuntu server, set the following parameter:
 
+<<<<<<< Updated upstream
+=======
+![](./images/Param.png)
+>>>>>>> Stashed changes
 
 5. After installation, check that the database server is working properly. If you have any problems,
    use [Support Portal]().
 6. Configure user mapping to the database. The mapping format is described in
-   the [following section](https://docs.cloudlinux.com/cloudlinux_os_components/#mapping-a-user-to-a-database).
+   the [following section](/shared/cloudlinux_os_components/#mapping-a-user-to-a-database).
 
 In case a non-panel system the `/etc/container/dbuser-map` should be created and updated with new users by admin.
 
@@ -112,9 +116,9 @@ such a mechanism for MySQL Governor to operate properly. MySQL Governor automati
 dbuser-map file every five minutes.
 
 7. MySQL Governor configuration can be found in the
-   following [section](https://docs.cloudlinux.com/cloudlinux_os_components/#configuration-3).
+   following [section](/shared/cloudlinux_os_components/#configuration-3).
 8. MySQL Governor CLI tools description can be found in the
-   following [section](https://docs.cloudlinux.com/command-line_tools/#mysql-governor).
+   following [section](/shared/command-line_tools/#mysql-governor).
 9. Having configured the mapping use `dbtop` to see the current user load on the database (you'd need to make some
    database queries).
 
@@ -127,7 +131,7 @@ dbtop
 ### How To upgrade database server
 
 You can find the instructions
-in [this documentation](https://docs.cloudlinux.com/cloudlinux_os_components/#upgrading-database-server).
+in [this documentation](/shared/cloudlinux_os_components/#upgrading-database-server).
 
 ### Uninstalling
 
@@ -142,26 +146,26 @@ The script will install the original MySQL server, and remove MySQL Governor.
 ### Configuration and operation
 
 You can find the instructions
-in [this documentation](https://docs.cloudlinux.com/cloudlinux_os_components/#configuration-and-operation).
+in [this documentation](/shared/cloudlinux_os_components/#configuration-and-operation).
 
 ## Administrator WEB interface (CloudLinux Manager)
 
-The documentation is available [here](https://docs.cloudlinux.com/lve_manager/#cloudlinux-manager).
+The documentation is available [here](/shared/lve_manager/#cloudlinux-manager).
 
-* [Dashboard](/features/#dashboard)
-* [Current Usage](https://docs.cloudlinux.com/lve_manager/#current-usage)
-* [Users](https://docs.cloudlinux.com/lve_manager/#users)
-* [Statistics](https://docs.cloudlinux.com/lve_manager/#statistics)
-* [Packages](https://docs.cloudlinux.com/lve_manager/#packages)
-* [Options](https://docs.cloudlinux.com/lve_manager/#options)
-* [PHP Selector](https://docs.cloudlinux.com/cloudlinux_os_components/#php-selector)
+* [Dashboard](/sub-system-ubuntu/features/#dashboard)
+* [Current Usage](/shared/lve_manager/#current-usage)
+* [Users](/shared/lve_manager/#users)
+* [Statistics](/shared/lve_manager/#statistics)
+* [Packages](/shared/lve_manager/#packages)
+* [Options](/shared/lve_manager/#options)
+* [PHP Selector](/shared/cloudlinux_os_components/#php-selector)
     * [Installation instructions](/features/#php-selector-installation-instructions)
-    * [Selector tab](https://docs.cloudlinux.com/lve_manager/#selector-tab)
-    * [Selector tab additional features (cPanel)](https://docs.cloudlinux.com/lve_manager/#selector-tab-additional-features)
+    * [Selector tab](/shared/lve_manager/#selector-tab)
+    * [Selector tab additional features (cPanel)](/shared/lve_manager/#selector-tab-additional-features)
       CloudLinux Manager 6.0.1-2
-    * [PHP Selector troubleshooting (cPanel)](https://docs.cloudlinux.com/lve_manager/#php-selector-troubleshooting)
+    * [PHP Selector troubleshooting (cPanel)](/shared/lve_manager/#php-selector-troubleshooting)
       CloudLinux Manager 6.0.1-2
-    * [PHP Selector diagnostic tool and notifications](https://docs.cloudlinux.com/lve_manager/#php-selector-diagnostic-tool-and-notifications)
+    * [PHP Selector diagnostic tool and notifications](/shared/lve_manager/#php-selector-diagnostic-tool-and-notifications)
       CloudLinux Manager 6.0.1-2
 
 ### Dashboard
@@ -174,17 +178,21 @@ Dashboard provides a quick overview of statistics and all administrative informa
 
 Go to _CloudLinux Manager_ | _Dashboard_.
 
+<<<<<<< Updated upstream
+=======
+![](./images/Dashboard.png)
+>>>>>>> Stashed changes
 
 * End Users hitting limits — number of users reaching their limit in any kind of resource. Data is within the last 24
   hours.
 * Resellers hitting limits — number of enrolled Resellers that are reaching their limit in any kind of resource. Data is
   within the last 24 hours.
-* [PHP Selector](https://docs.cloudlinux.com/lve_manager/#php-selector-2) block displays the following information:
+* [PHP Selector](/shared/lve_manager/#php-selector-2) block displays the following information:
     * Default version — the default version of PHP binaries. Click _Manage_ to change the default version, enable or
       disable PHP Selector, change the list of supported versions, and choose default modules. You will be redirected to
       CloudLinux Manager | PHP Selector. PHP Selector (cPanel) has malfunctions warnings
-      about [the most common issues](https://docs.cloudlinux.com/lve_manager/#errors).
-* [CageFS](https://docs.cloudlinux.com/cloudlinux_os_components/#cagefs) block displays the following information:
+      about [the most common issues](/shared/lve_manager/#errors).
+* [CageFS](/shared/cloudlinux_os_components/#cagefs) block displays the following information:
     * CageFS status (Enabled/Disabled/Not installed). To manage CageFS, click _Manage_. You will be redirected to
       CloudLinux Manager | Options | CageFS. Click _Install_ to install CageFS.
     * Mode displays the current CageFS mode of operation.
@@ -192,20 +200,20 @@ Go to _CloudLinux Manager_ | _Dashboard_.
 
 ## Reseller WEB interface (CloudLinux Manager)
 
-* [Current Usage](https://docs.cloudlinux.com/lve_manager/#current-usage-tab)
-* [Historical Usage](https://docs.cloudlinux.com/lve_manager/#historical-usage-tab)
-* [Users](https://docs.cloudlinux.com/lve_manager/#users-tab)
-* [Statistics](https://docs.cloudlinux.com/lve_manager/#statistics-tab)
-* [Packages](https://docs.cloudlinux.com/lve_manager/#packages-tab)
+* [Current Usage](/shared/lve_manager/#current-usage-tab)
+* [Historical Usage](/shared/lve_manager/#historical-usage-tab)
+* [Users](/shared/lve_manager/#users-tab)
+* [Statistics](/shared/lve_manager/#statistics-tab)
+* [Packages](/shared/lve_manager/#packages-tab)
 
 ## User WEB interface
 
-* [Resource Usage](https://docs.cloudlinux.com/lve_manager/#resource-usage-client-plugin)
-* [PHP Selector](https://docs.cloudlinux.com/lve_manager/#php-selector-client-plugin)
+* [Resource Usage](/shared/lve_manager/#resource-usage-client-plugin)
+* [PHP Selector](/shared/lve_manager/#php-selector-client-plugin)
 
 ## LVE Wrappers
 
-The documentation is available [here](https://docs.cloudlinux.com/cloudlinux_os_components/#lve-wrappers).
+The documentation is available [here](/shared/cloudlinux_os_components/#lve-wrappers).
 
 * lve_wrapper
 * lve_suwrapper
@@ -213,7 +221,7 @@ The documentation is available [here](https://docs.cloudlinux.com/cloudlinux_os_
 ## CageFS and running commands inside
 
 The documentation is
-available [here](https://docs.cloudlinux.com/control_panel_integration/#running-commands-inside-cagefs).
+available [here](/shared/control_panel_integration/#running-commands-inside-cagefs).
 
 * cagefs_enter
 * cagefs_enter_user
@@ -231,7 +239,7 @@ sure that no single web site can bring down your web server.
 Today, a single site can consume all CPU, IO, Memory resources or Apache processes - and bring the server to a halt. LVE
 prevents that. It is done via collaboration of Apache module, PAM module and kernel.
 
-[mod_hostinglimits](https://docs.cloudlinux.com/cloudlinux_os_components/#hostinglimits-module-for-apache) is an Apache
+[mod_hostinglimits](/shared/cloudlinux_os_components/#hostinglimits-module-for-apache) is an Apache
 module that:
 
 * detects VirtualHost from which the request came;
@@ -273,6 +281,10 @@ To install, follow these steps:
 
 1. Remove `mod-ruid2`:
 
+<<<<<<< Updated upstream
+=======
+   ![](./images/remove-mod-ruid2.png)
+>>>>>>> Stashed changes
 
 2. Install packages (with `alt-php74` as an example):
 
@@ -283,7 +295,7 @@ To install, follow these steps:
 
 #### PHP Selector installation instructions
 
-The documentation is available [here](https://docs.cloudlinux.com/cloudlinux_os_components/#php-selector).
+The documentation is available [here](/shared/cloudlinux_os_components/#php-selector).
 
 :::warning Attention!
 Only the following handlers can be used:
@@ -302,27 +314,27 @@ To install, run the following commands:
 
 ## Symlink owner match protection
 
-The documentation is available [here](https://docs.cloudlinux.com/cloudlinux_os_kernel/#fs-enforce-symlinksifowner).
+The documentation is available [here](/shared/cloudlinux_os_kernel/#fs-enforce-symlinksifowner).
 
-* [fs.enforce_symlinksifowner](https://docs.cloudlinux.com/cloudlinux_os_kernel/#fs-enforce-symlinksifowner)
-* [fs.symlinkown_gid](https://docs.cloudlinux.com/cloudlinux_os_kernel/#fs-symlinkown-gid)
-* [fs.process_symlinks_by_task](https://docs.cloudlinux.com/cloudlinux_os_kernel/#fs-process-symlinks-by-task)
+* [fs.enforce_symlinksifowner](/shared/cloudlinux_os_kernel/#fs-enforce-symlinksifowner)
+* [fs.symlinkown_gid](/shared/cloudlinux_os_kernel/#fs-symlinkown-gid)
+* [fs.process_symlinks_by_task](/shared/cloudlinux_os_kernel/#fs-process-symlinks-by-task)
 
 ## Link traversal protection
 
-* [fs.protected_symlinks_create](https://docs.cloudlinux.com/cloudlinux_os_kernel/#link-traversal-protection)
-* [fs.protected_hardlinks_create](https://docs.cloudlinux.com/cloudlinux_os_kernel/#link-traversal-protection)
+* [fs.protected_symlinks_create](/shared/cloudlinux_os_kernel/#link-traversal-protection)
+* [fs.protected_hardlinks_create](/shared/cloudlinux_os_kernel/#link-traversal-protection)
 
 ## Tuned profiles
 
-The documentation is available [here](https://docs.cloudlinux.com/cloudlinux_os_kernel/#tuned-profiles-cloudlinux).
+The documentation is available [here](/shared/cloudlinux_os_kernel/#tuned-profiles-cloudlinux).
 
 ## Apache mod_lsapi
 
 ### General requirements
 
 General requirements are
-available [here](https://docs.cloudlinux.com/cloudlinux_os_components/#general-information-and-requirements-9).
+available [here](/shared/cloudlinux_os_components/#general-information-and-requirements-9).
 
 ### Installation
 
@@ -346,7 +358,7 @@ $ service apache2 restart
 
 ### Configuration
 
-Configuration instructions are available [here](https://docs.cloudlinux.com/cloudlinux_os_components/#configuration-4).
+Configuration instructions are available [here](/shared/cloudlinux_os_components/#configuration-4).
 
 ### Troubleshooting
 

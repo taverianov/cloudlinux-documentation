@@ -68,6 +68,10 @@ const initialize = async (userOptions) => {
     import(/* webpackChunkName: "docsearch" */ "docsearch.js/dist/cdn/docsearch.min.css"),
   ]);
   const docsearch = docsearchModule.default;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   docsearch(
       Object.assign({}, userOptions, {
         inputSelector: "#algolia-search-input",

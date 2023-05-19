@@ -1,23 +1,28 @@
 export default [
     {
+        title: "Introduction to Cloudlinux OS",
+        description: "Introduction to CloudLinux OS editions and their description.",
+        link: "/introduction/",
+    },
+    {
         title: "CloudLinux Solo",
         description: "CloudLinux OS Solo is designed for VPS or dedicated servers with a single hosting account for any number of websites.",
-        link: "/user-docs-solo-cloudlinux/introduction/",
+        link: "/solo/introduction/",
     },
     {
         title: "CloudLinux OS Admin",
-        description: "CCloudLinux OS Admin is designed for shared hosting providers and allows flawless migration of big shared hosting customers to individual VPS with the same CloudLinux features as on shared hosting.",
-        link: "/ubuntu/introduction/",
+        description: "CloudLinux OS Admin is designed for shared hosting providers and allows flawless migration of big shared hosting customers to individual VPS with the same CloudLinux features as on shared hosting.",
+        link: "/admin/description",
     },
     {
         title: "CloudLinux OS Shared",
         description: "CloudLinux OS Shared is designed for shared hosting providers. It isolates each customer into a separate “Lightweight Virtualized Environment” (LVE), which allocates and limits server resources.",
-        link: "/shared/introduction/",
+        link: "/shared/cloudlinux_installation/",
     },
     {
         title: "CloudLinux OS Shared Pro",
         description: "CloudLinux OS Shared Pro extends your CloudLinux OS Shared functionality with even more useful features.",
-        link: "/shared-pro/introduction/",
+        link: "/shared-pro/",
     },
     {
         title: "CLN",
@@ -27,6 +32,11 @@ export default [
     {
         title: "CloudLinux Subsystem For Ubuntu",
         description: "CloudLinux subsystem on Ubuntu is a scope of deb-packages that allows using CloudLinux features on Ubuntu OS.",
-        link: "/sub-system-ubuntu/introduction/",
+        link: "/ubuntu/introduction/",
+    },
+    {
+        title: "End-user Documents",
+        description: "Documentation section for end-users on Cloudlinux OS Shared & Solo.",
+        link: "/user-docs/user-docs-shared-cloudlinux/",
     }
 ]
