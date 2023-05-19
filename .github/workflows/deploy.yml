@@ -13,18 +13,15 @@ steps:
 uses: actions/checkout@v3 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 with:
 persist-credentials: false
-
 - name: Setup Node.js
 uses: actions/setup-node@v3
 with:
 # choose node.js version to use
 node-version: '16'
-
 - name: Install and Build  #
 run: |
 yarn
 yarn docs:build
-
 - name: Deploy 
 uses: JamesIves/github-pages-deploy-action@3.7.1
 with:
