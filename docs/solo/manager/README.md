@@ -72,7 +72,7 @@ This subtab views the latest report (for the last 24 hours) of the Website monit
 Report is regenerated each time the page is loaded, so all changes in configuration (the [_Settings_](/solo/manager/#wmt-settings) tab) or in the list of domains will be applied immediately.
 
 * **Total number of requests** - requests that were sent to all domains, existing on the servers
-* **Successful requests** - the number of requests for all domains with status code 200 ![](./images/Code200.png)
+* **Successful requests** - the number of requests for all domains with status code 200
 * **Requests with errors** - the number of requests for all domains which status code is not 200
 * **Not started requests due to short check interval** - this metric is used to adjust configuration. If it is not equal 0, an admin should increase the value of Requests sending interval, because the tool does not fit into this interval to send requests to all domains.
 * **Slowest websites in 24h and Websites with most errors in 24h** - in these sections you can find the number of domains that was exposed here.
