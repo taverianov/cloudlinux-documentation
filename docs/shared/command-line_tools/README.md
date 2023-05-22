@@ -745,22 +745,22 @@ cloudlinux-statistics [-h] [-j] [-v] [--by-usage BY_USAGE]
   |-|-|
   |FIELD|DESCRIPTION|
   |<span class="notranslate">`any_faults`</span>|total number of faults of all types|
-  |<span class="notranslate">`cpu`</span>|average CPU usage`</span>|
-  |<span class="notranslate">`mysql_cpu`</span>|average MySQL CPU usage`</span>|
-  |<span class="notranslate">`io`</span>|average IO usage`</span>|
-  |<span class="notranslate">`mysql_io`</span>|average MySQL IO usage`</span>|
-  |<span class="notranslate">`iops`</span>|average IO operations; (LVE version >= 8)`</span>|
-  |<span class="notranslate">`ep`</span>|average number of entry processes (concurrent connections)`</span>|
-  |<span class="notranslate">`nproc`</span>|average number of processes`</span>|
-  |<span class="notranslate">`pmem`</span>|average physical memory usage`</span>|
-  |<span class="notranslate">`vmem`</span>|average virtual memory usage`</span>|
-  |<span class="notranslate">`cpu_faults`</span>|total number of CPU usage faults`</span>|
-  |<span class="notranslate">`io_faults`</span>|total number of max IO faults`</span>|
-  |<span class="notranslate">`iops_fault`</span>|total number of max IO operations faults; (LVE version >= 8)`</span>|
-  |<span class="notranslate">`ep_faults`</span>|total number of max entry processes faults`</span>|
-  |<span class="notranslate">`nproc_faults`</span>|total number of max processes faults`</span>|
-  |<span class="notranslate">`pmem_faults`</span>|total number of out of physical memory faults`</span>|
-  |<span class="notranslate">`vmem_faults`</span>|total number of out of virtual memory faults`</span>|
+  |<span class="notranslate">`cpu`</span>|average CPU usage|
+  |<span class="notranslate">`mysql_cpu`</span>|average MySQL CPU usage|
+  |<span class="notranslate">`io`</span>|average IO usage|
+  |<span class="notranslate">`mysql_io`</span>|average MySQL IO usage|
+  |<span class="notranslate">`iops`</span>|average IO operations; (LVE version >= 8)|
+  |<span class="notranslate">`ep`</span>|average number of entry processes (concurrent connections)|
+  |<span class="notranslate">`nproc`</span>|average number of processes|
+  |<span class="notranslate">`pmem`</span>|average physical memory usage|
+  |<span class="notranslate">`vmem`</span>|average virtual memory usage|
+  |<span class="notranslate">`cpu_faults`</span>|total number of CPU usage faults|
+  |<span class="notranslate">`io_faults`</span>|total number of max IO faults|
+  |<span class="notranslate">`iops_fault`</span>|total number of max IO operations faults; (LVE version >= 8)|
+  |<span class="notranslate">`ep_faults`</span>|total number of max entry processes faults|
+  |<span class="notranslate">`nproc_faults`</span>|total number of max processes faults|
+  |<span class="notranslate">`pmem_faults`</span>|total number of out of physical memory faults|
+  |<span class="notranslate">`vmem_faults`</span>|total number of out of virtual memory faults|
 
 * <span class="notranslate"> `-r FOR_RESELLER`, `--for-reseller FOR_RESELLER` </span> – show statistics only for given reseller and his users
 
