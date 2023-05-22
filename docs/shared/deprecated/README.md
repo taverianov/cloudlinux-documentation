@@ -967,7 +967,7 @@ To remove skip mask:
 <div class="notranslate">
 
 ```
-$ occtl --remove-skip-mask ID|Tag
+$ occtl --remove-skip-mask ID\|Tag
 ```
 </div>
 
@@ -1210,7 +1210,7 @@ Optional Arguments:
 |<span class="notranslate">`--move-ploop param [param ...]`</span>|Move cache from one ploop image to <span class="notranslate">`/path/to/new/image/location [New Size[KMGT]]`</span>.
 |<span class="notranslate">`--check`</span>|Check marked files for errors. This task is scheduled as background job, unless <span class="notranslate">`--foreground`</span> is specified.|
 |<span class="notranslate">`--verbose`</span>|List what is being checked.|
-|<span class="notranslate">`--init-ploop [param [param ...]]`</span>|Create ploop image for the cache <span class="notranslate">`[/path/to/ploop/image [ploop_size] | ploop_size]`</span> - if only one parameter is given, it is considered to be ploop size. Size should be a <span class="notranslate">`NUMBER[KMGT]`</span>.|
+|<span class="notranslate">`--init-ploop [param [param ...]]`</span>|Create ploop image for the cache <span class="notranslate">`[/path/to/ploop/image [ploop_size] \| ploop_size]`</span> - if only one parameter is given, it is considered to be ploop size. Size should be a <span class="notranslate">`NUMBER[KMGT]`</span>.|
 |<span class="notranslate">`--resize-ploop New Size`</span>|New Size NUMBER[KMGT].|
 |<span class="notranslate">`--disable-ploop`</span>|Disable ploop.|
 |<span class="notranslate">`--enable-ploop`</span>|Enable ploop.|
@@ -1222,7 +1222,7 @@ Optional Arguments:
 |<span class="notranslate">`--unmark-dir Path [Path ...]`</span>|Unmark directory for caching.|
 |<span class="notranslate">`--recursive`</span>|Is used with mark/unmark dir.|
 |<span class="notranslate">`--add-skip-mask Regex`</span>|Regexp to skip files/directories for caching.|
-|<span class="notranslate">`--remove-skip-mask Id|Tag`</span>|Remove regexp to skip files/directories by id or tag.|
+|<span class="notranslate">`--remove-skip-mask Id\|Tag`</span>|Remove regexp to skip files/directories by id or tag.|
 |<span class="notranslate">`--list-skip-mask`</span>|List regexp to skip files/directories.|
 |<span class="notranslate">`--silent`</span>|Do not echo status to stdout/syslog.|
 |<span class="notranslate">`--ignore-unmount-failure`</span>|Ignore cannot unmount ploop problem.|
