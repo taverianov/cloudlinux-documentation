@@ -7,4 +7,4 @@ If a user bought a license directly via CLN UI (not via vendors), he can use Spa
 
 To get to Spacewalk, go to _CloudLinux OS → Activation Keys_. On the left sidebar menu click _Open Servers_ panel, the CloudLinux Spacewalk application opens in a new tab.
 
-![](/images/clnuispacewalk_zoom70.png)
+/images/clnuispacewalk_zoom70.png)
