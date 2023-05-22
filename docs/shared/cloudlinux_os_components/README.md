@@ -339,7 +339,7 @@ If you need to provide access to <span class="notranslate">LVE Stats</span> info
 
 * creating a user (check **_Note_** above)
 
-<div class="notranslate"> </span>
+<div class="notranslate">
 
 ```
 CREATE USER 'lvestats2_read'@'localhost' IDENTIFIED BY 'lvestats2_read_passwd';
@@ -7475,9 +7475,9 @@ Will be installed:<br>
 **WHMCS Status page not accessible after installing CL and mod_lsapi (cPanel).**
 
 * add <span class="notranslate"> user: useradd </span> userstat
-* add to file (to the end of file before <span class="notranslate"> </IfModule>) /usr/local/apache/conf/conf.d/lsapi.conf: <Directory /usr/local/apache/htdocs/>  </span>
+* add to file (to the end of file before <span class="notranslate"> \</IfModule>) /usr/local/apache/conf/conf.d/lsapi.conf: <Directory /usr/local/apache/htdocs/>  </span>
 lsapi_user_group userstat userstat
-</Directory>
+\</Directory>
 * service httpd restart
 
 This is safe solution for easyapache rebuilding and cpanel-mod-lsapi updating.
