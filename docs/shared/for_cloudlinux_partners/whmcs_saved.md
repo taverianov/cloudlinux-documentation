@@ -97,7 +97,7 @@ You can use the CloudLinux license module as an individual product. By default, 
 
 Example:
 
-![](/images/WHMCSCustomField.png)
+/images/WHMCSCustomField.png)
 
 #### Configuration of add-on
 
@@ -105,10 +105,10 @@ Example:
 1. Go to <span class="notranslate">_Setup → Add-on Modules_</span> , find <span class="notranslate">_CloudLinux Licenses Add-on_</span> and click <span class="notranslate">_Activate_</span> next to it.
 2. The next step is permitting access to this module. Click <span class="notranslate"> _Configure_ </span> , select admin role and confirm by clicking <span class="notranslate"> _Save Changes_ </span> .
 
-![](/images/provisioningmoduleconfiguration_zoom90.png)  
+/images/provisioningmoduleconfiguration_zoom90.png)  
 _Fig 1: CloudLinux License For WHMCS provisioning module configuration._
 
-![](/images/fig2cloudlinuxlicenseforwhmcsaddonmodulemainpage_zoom70.png)  
+/images/fig2cloudlinuxlicenseforwhmcsaddonmodulemainpage_zoom70.png)  
 _Fig 2: CloudLinux License For WHMCS add-on module main page._
 
 
@@ -141,16 +141,16 @@ The following steps must be performed to prepare such connection:
 
 ||
 |:-:|
-|![](/images/configurationofproductaddon0_zoom70.png)|
-|![](/images/configurationofproductaddon1_zoom70.png)|
-|![](/images/configurationofproductaddon2_zoom70.png)|
+|/images/configurationofproductaddon0_zoom70.png)|
+|/images/configurationofproductaddon1_zoom70.png)|
+|/images/configurationofproductaddon2_zoom70.png)|
 |Fig 3: Configuration of product add-on, which will trigger license product adding.|
 
 
 4. Go to <span class="notranslate"> _Add-ons → CloudLinux Licenses Add-on → Add-on Relations_ </span> and click <span class="notranslate"> _Add Relation_ </span> .
 5. Select previously created product add-on and license product as shown below  and click <span class="notranslate"> _Add Relation_ </span> .
 
-![](/images/fig4creatingrelationbetweenproductaddonandprovisioningmodule_zoom70.png)  
+/images/fig4creatingrelationbetweenproductaddonandprovisioningmodule_zoom70.png)  
 _Fig 4: Creating relations between product add-on and provisioning module._
 
 #### Link products directly
@@ -164,7 +164,7 @@ If you want to offer server along with the license, perform the following steps.
 2. Go to <span class="notranslate"> _Add-ons → CloudLinux Licenses Add-on → Products Relations_ </span> and click <span class="notranslate"> _Add Relation_ </span> .
 3. Select server provisioning product from the <span class="notranslate"> _Main Product_ </span> drop-down list and license provisioning product from <span class="notranslate"> _Linked Product With License_ </span> and click <span class="notranslate"> _Add Relation_ </span> .
 
-![](/images/fig5creatingrelationdirectlybetweenserverandlicenseprovisioningmodules_zoom70.png)  
+/images/fig5creatingrelationdirectlybetweenserverandlicenseprovisioningmodules_zoom70.png)  
 _Fig 5: Creating relations directly between server and license provisioning modules_ .
 
 #### Link via configurable options
@@ -182,7 +182,7 @@ Below we will show you what steps to proceed to prepare such connection:
 
 **_Note. The plugin doesn’t support “quantity” type of Configurable Options._**
 
-![](/images/fig6creatingrelationsdirectlybetweenserverandlicenseprovisioningmodules_zoom70.png)  
+/images/fig6creatingrelationsdirectlybetweenserverandlicenseprovisioningmodules_zoom70.png)  
 _Fig 6: Creating relations directly between server and license provisioning modules._
 
 
@@ -200,7 +200,7 @@ In order to allow your client to decide whether he wants to order server with or
 3. Go to <span class="notranslate"> _Module Settings_ </span> tab and select <span class="notranslate"> _CloudLinuxLicenses_ </span> from <span class="notranslate"> _Module Name_ </span> drop-down.
 4. Fill <span class="notranslate"> _Username_ </span> and <span class="notranslate"> _Password_ </span> with your CloudLinux API access (API secret key) details and select CloudLinux from <span class="notranslate"> _LicenseType_ </span> drop-down.
 5. Click <span class="notranslate"> _Save Changes_ </span> to confirm.
-![](/images/configurationofproductaddon_zoom70.png)  
+/images/configurationofproductaddon_zoom70.png)  
 _Fig 7: Configuration of product add-on with_ <span class="notranslate"> _Provisioning Modules_. </span>
 
 
@@ -210,10 +210,10 @@ _Fig 7: Configuration of product add-on with_ <span class="notranslate"> _Provis
 
 The only difference between two ways of setting up relation is the ability to order server without CloudLinux license.
 
-![](/images/orderingserverwithlicenseaddon_zoom70.png)  
+/images/orderingserverwithlicenseaddon_zoom70.png)  
 _Fig 8: Ordering server with license add-on._
 
-![](/images/orderingserverlinkeddirectly_zoom70.png)  
+/images/orderingserverlinkeddirectly_zoom70.png)  
 _Fig 9: Ordering server linked directly with license product._
 
 #### Admin area
@@ -225,7 +225,7 @@ Only change IP address feature has to be ordered manually.
 
 You can also view the details of created license.
 
-![](/images/cloudlinuxlicensesforwhmcsadminarea_zoom70.png)  
+/images/cloudlinuxlicensesforwhmcsadminarea_zoom70.png)  
 _Fig 10: CloudLinux Licenses For WHMCS Admin Area._
 
 #### Client area
@@ -233,12 +233,12 @@ _Fig 10: CloudLinux Licenses For WHMCS Admin Area._
 
 The clients are also able to view their servers license details. And as well as you, they are able to change IP address of their licenses.
 
-![](/images/cloudlinuxlicensesforwhmcsclientarea_zoom70.png)  
+/images/cloudlinuxlicensesforwhmcsclientarea_zoom70.png)  
 _Fig 11: CloudLinux Licenses For WHMCS Client Area._
 
 To change IP address click <span class="notranslate">_Change_</span> as shown on the screen above. Then specify IP address and click <span class="notranslate">_Save_</span>.
 
-![](/images/changinglicenseipaddress_zoom80.png)  
+/images/changinglicenseipaddress_zoom80.png)  
 _Fig 12: Changing License IP Address_.
 
 #### Licenses list
@@ -247,7 +247,7 @@ _Fig 12: Changing License IP Address_.
 You can view the list of all licenses owned by your client at our addon → <span class="notranslate"> _Licenses List_ </span>.  
 You can filter the list of licenses by client name, server provisioning products, license provisioning products and license IP address.
 
- ![](/images/fig13licenseslist_zoom70.png)  
+/images/fig13licenseslist_zoom70.png)  
 _Fig 13: Licenses list._
 
 #### Add-on licenses list
@@ -257,7 +257,7 @@ _[for WHMCS 7.2.x and later]_
 
 You can view a list of all product add-on with <span class="notranslate"> _Provisioning Modules_ </span> licenses owned by your client at our add-on → <span class="notranslate"> _Licenses List_ </span> .
 
-![](/images/fig14addonlicenseslist_zoom70.png)  
+/images/fig14addonlicenseslist_zoom70.png)  
 _Fig 14: Add-on Licenses List._
 
 
