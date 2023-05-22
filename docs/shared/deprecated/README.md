@@ -575,7 +575,7 @@ CREATE INDEX idx_history_gov_max_simultaneous_requests ON history_gov(max_simult
 CREATE INDEX idx_history_gov_server_id ON history_gov(server_id);
 ```
 </div>
-Upgrading from lve-stats < 0.9-20:
+Upgrading from lve-stats &lt; 0.9-20:
 
 <div class="notranslate">
 
