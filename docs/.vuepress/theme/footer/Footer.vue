@@ -1,6 +1,6 @@
 <template>
   <div class="footer" :class="{'footer-default-layout': !isGlobalLayout}">
-    <div>
+    <div class="footer__img">
       <a :href="cloudlinuxSite">
         <img :src="withBase(footerCustomLogo)"
              :alt="footerCustomAltText">
@@ -75,9 +75,9 @@ const isGlobalLayout = computed(() => frontmatter.value.layout === 'HomeLayout')
     color: $colorLink
 
   .footer-social-text
-    margin-right 13px
-    line-height 20px
-    padding-left 12px
+    margin-right 0.8125rem
+    line-height 1.25rem
+    padding-left 0.75rem
     border-left 1px solid #ccc
 
   &-icons-link
@@ -89,11 +89,29 @@ const isGlobalLayout = computed(() => frontmatter.value.layout === 'HomeLayout')
       height 100%
 
 .footer-default-layout
-  position absolute
-  bottom 0
+  position static
   width 100%
-  z-index 999
 
 .sidebar-width
   width $sidebarWidth + 2rem
+
+@media (max-width:$mobileBreakpoint)
+  .footer
+    flex-direction column
+    height fit-content
+    justify-content flex-start
+
+    &__img
+      order 4
+      margin-top 2.5rem
+
+    &-company-title
+      order 5
+    &-social-text
+      border-left none !important
+
+  .social
+    gap 1.5625rem
+    margin-top 1.25rem
+    flex-direction column
 </style>

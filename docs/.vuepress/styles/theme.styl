@@ -13,7 +13,7 @@ body
   font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  font-size 14px
+  font-size 0.875rem
   color $textColor
 
 #app
@@ -29,7 +29,7 @@ body
 
 .sidebar
   padding-bottom 204px;
-  font-size 15px
+  font-size 0.9375rem
   width $sidebarWidth
   background-color: $sidebarBgColor;
   position fixed
@@ -192,3 +192,16 @@ th, td
     .custom-layout
       padding-top 0
 
+.language-text
+  border-radius 6px
+  font-size 12px
+
+@media (max-width: $mobileBreakpoint)
+  .content:not(.custom)
+    width 100%
+    margin 0
+
+    & > h1:first-child
+      margin 0
+  a.header-anchor
+    font-size 0 !important

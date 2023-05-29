@@ -1,6 +1,5 @@
 import {provide} from "vue";
 import {defineClientConfig} from "@vuepress/client";
-import InstantSearch from 'vue-instantsearch/vue3/es/index.js';
 
 import Layout from "./theme/layouts/Layout.vue";
 import HomeLayout from "./theme/layouts/HomeLayout.vue";
@@ -15,9 +14,6 @@ export default defineClientConfig({
         Layout,
         HomeLayout
     },
-    enhance({app}) {
-        app.component('InstantSearch', InstantSearch)
-    },
     setup() {
         provide('themeConfig', {
             //general
@@ -26,10 +22,10 @@ export default defineClientConfig({
             githubBranch: "master",
             allowGithubEdit: true,
             githubMainDir: "docs",
-            sidebarDepth: 2,
             githubRepository: "cloudlinux/cloudlinux-documentation",
             submitRequestURL: "https://www.cloudlinux.com/support-portal/",
             tryFreeLink: "https://cloudlinux.com/trial",
+            MOBILE_BREAKPOINT: 767,
 
             //docs cards
             documents,
