@@ -1,15 +1,15 @@
 <template>
   <div class="drawer-tabs__wrapper">
     <div
-        v-for="(tab, index) in data"
+        v-for="(item, index) in data"
         :key="index"
         @click="selectTab(index)"
         :class="{ 'drawer-tab__active': modelValue === index }"
         class="drawer-tab"
     >
-      <p class="drawer-tab__text" :class="{ 'drawer-tab__text__active': modelValue === index }">
-        {{ tab }}
-      </p>
+      <div class="drawer-tab__text" :class="{ 'drawer-tab__text__active': modelValue === index }">
+        {{ item.title }} ({{ item?.numberResults }})
+      </div>
     </div>
   </div>
 </template>

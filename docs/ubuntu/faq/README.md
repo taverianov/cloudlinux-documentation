@@ -13,7 +13,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. At id laudantium quod 
 
 ### How to install the CloudLinux subsystem on Ubuntu?
 
-See [Installation](/installation/).
+See [Installation](/sub-system-ubuntu/installation/).
 
 ### Is the CloudLinux subsystem on Ubuntu paid/unpaid?
 
@@ -54,6 +54,14 @@ These are configuration steps:
 
     * Via MultiPHP Manager
 
+<<<<<<< Updated upstream
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
+=======
+   ![](./images/viaMultiPHP.png)
+
+2. Enable PHP-fpm handler for domain via MultiPHP Manager
+
+   ![](./images/enablephp-fpm.png)
+>>>>>>> Stashed changes
