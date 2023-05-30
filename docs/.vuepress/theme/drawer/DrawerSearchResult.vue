@@ -145,19 +145,24 @@ const getBreadcrumbsForArticle = (obj) => {
   display: flex;
   align-items center
   justify-content center
-  margin-top 56px
+  margin-top 3.5rem
   cursor pointer
 
   &__text
     font-size $drawerHiddenResultFontSize
     font-weight 500
-    line-height 16.31px
+    line-height 1.019rem
     color $drawerHiddenResultColor
 
 .no_results
-  font-size 25px
-  font-weight 700
+  font-size 1.5625rem
   &__link
     &:hover
       text-decoration underline
+
+@media (max-width: $mobileBreakpoint)
+  .hidden_results
+    margin-top 2.5rem
+    margin-bottom 0
+    font-size 1.25rem
 </style>

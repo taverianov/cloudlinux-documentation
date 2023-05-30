@@ -13,13 +13,20 @@
               alt="logo header"
           >
         </router-link>
-        <HeaderLayoutSearch v-if="!isGlobalLayout"/>
+        <HeaderLayoutSearch
+            v-if="!isGlobalLayout"
+            :closeSidebarDrawer="closeSidebarDrawer"
+            ref="headerLayoutSearch"
+            :class="{'header-mobile__hidden': !headerLayoutSearch?.mobileDrawerVisible}"
+            :isMobileWidth="isMobileWidth"
+        />
       </div>
       <div
           class="links"
           :style="{ 'max-width': linksWrapMaxWidth + 'px'}"
       >
-        <HeaderProducts/>
+        <img @click="openMobileAlgoliaDrawer" class="navbar-header__mobile-search" :src="withBase(headerDefaultSearchIcon)" alt="icon image"/>
+        <HeaderProducts :isMobileWidth="isMobileWidth"/>
         <a :href="submitRequestUrl" target="_blank" class="btn">
           {{ submitRequestTitle }}
         </a>
@@ -29,9 +36,13 @@
         </a>
       </div>
     </div>
-    <HeaderLayoutSearch v-if="isGlobalLayout"/>
+    <HeaderLayoutSearch
+        v-if="isGlobalLayout"
+        :closeSidebarDrawer="closeSidebarDrawer"
+        ref="headerLayoutSearch"
+        :isMobileWidth="isMobileWidth"
+        />
   </header>
-
 </template>
 
 <script setup>
@@ -40,12 +51,24 @@ import HeaderProducts from "./HeaderProducts.vue";
 import {computed, inject, ref} from "vue";
 import {usePageFrontmatter, useRouteLocale,withBase} from "@vuepress/client";
 
-const {siteLogo, locales, defaultURL, tryFreeLink, submitRequestURL} = inject('themeConfig');
+const props = defineProps({
+  isMobileWidth: {
+    type: Boolean,
+  },
+  closeSidebarDrawer: {
+    type: Function,
+  }
+})
+
+const {siteLogo, locales, defaultURL, tryFreeLink, submitRequestURL,headerDefaultSearchIcon} = inject('themeConfig');
 const linksWrapMaxWidth = ref(null)
 const frontmatter = usePageFrontmatter()
 const localePath = useRouteLocale()
+const headerLayoutSearch = ref(null)
 
 const tryFreeTitle = computed(() => locales.tryFreeLink || 'Try Free')
+
+const openMobileAlgoliaDrawer = () => headerLayoutSearch?.value?.openDrawer()
 
 const submitRequestTitle = computed(() => locales.submitRequest || 'Submit support request')
 
@@ -71,6 +94,9 @@ const submitRequestUrl = computed(() => submitRequestURL || "https://cloudlinux.
   flex-direction column
   margin-bottom 3.125rem
   z-index 99
+
+  &-header__mobile-search
+    display none
 
   &-header__logo-wrapper
     display flex
@@ -128,8 +154,23 @@ const submitRequestUrl = computed(() => submitRequestURL || "https://cloudlinux.
 .btn-free
   background-color: white;
   color black
-  font-size 15px
+  font-size 0.9375rem
   font-weight 500
-  line-height 16px
+  line-height 1rem
 
+
+@media (max-width: $mobileBreakpoint)
+  .navbar
+    padding  $layout-vertical-padding 1.25rem
+    margin-bottom 0
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.22);
+    z-index 9999
+
+    &-header__mobile-search
+      display block
+      margin-right 1.25rem
+  .links > a
+    display none !important
+  .header-mobile__hidden
+    display none !important
 </style>
