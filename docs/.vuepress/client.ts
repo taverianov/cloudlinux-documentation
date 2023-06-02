@@ -3,12 +3,12 @@ import {defineClientConfig} from "@vuepress/client";
 
 import Layout from "./theme/layouts/Layout.vue";
 import HomeLayout from "./theme/layouts/HomeLayout.vue";
+import NotFound from "./theme/layouts/NotFound.vue";
 
 import bottomLinks from "./config-client/bottomLinks";
 import documents from "./config-client/documents";
 import sidebar from "./config-client/sidebar";
 import social from "./config-client/social";
-import NotFound from "./theme/layouts/NotFound.vue";
 
 export default defineClientConfig({
     layouts: {

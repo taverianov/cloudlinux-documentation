@@ -17,12 +17,12 @@ onMounted(()=>{
 
   let haveSolution = false;
 
-  const getRecursiveLevelPath = (child, currentPath) => {
+  const getRecursiveLevelPath = (child, rootPath) => {
     if (haveSolution) return;
 
     if(child.children?.length > 0) {
       for (let h of child.children) {
-        const path = currentPath + "/" + h.link
+        const path = rootPath + "/" + h.link
 
         if (path.search(regex) !== -1){
           router.push(path)
@@ -31,7 +31,7 @@ onMounted(()=>{
         }
 
         if (child.children.length > 0) {
-          getRecursiveLevelPath(h, path)
+          getRecursiveLevelPath(h, rootPath)
         }
       }
     }
@@ -58,7 +58,7 @@ onMounted(()=>{
             return;
           }
 
-          getRecursiveLevelPath(h, path);
+          getRecursiveLevelPath(h, rootPath);
         }
       }
     }
