@@ -90,7 +90,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1,closeSideb
       }
     }, [
       renderLink(h, path + '#' + c.slug, c.title, active, c.children, depth,closeSidebarDrawer),
-      renderChildren(h, c.children, path, route, maxDepth, depth + 1,closeSidebarDrawer)
+      renderChildren(h, c.children, path + '#' + c.slug + '/', route, maxDepth, depth + 1,closeSidebarDrawer)
     ])
   }))
 }
