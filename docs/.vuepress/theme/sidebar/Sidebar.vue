@@ -53,7 +53,7 @@ const page = usePageData()
 const sidebarItems = computed(() => resolveSidebarItems(page.value, route, propsItems.value))
 
 
-const openGroupIndex = ref(0)
+ const openGroupIndex = ref(0)
 
 const refreshIndex = () => {
   const index = resolveOpenGroupIndex(
@@ -77,10 +77,6 @@ const isInViewport = (element) => {
   );
 }
 watch(() => route, refreshIndex)
-const getIdForHeaders = (link)=>{
-  const index = link.indexOf("/#");
-  return  link.substring(index + 2);
-}
 
 const checkIfScroll = () => {
   const pageAnchors = document.querySelectorAll('.header-anchor')
@@ -91,14 +87,7 @@ const checkIfScroll = () => {
 
   pageAnchors.forEach((a)=>{
     if(a.getAttribute('data-anchor')) return
-    const result = sidebarStringLinks.find((link)=> {
-      const index = link.lastIndexOf("/#");
-      const substring = link.substring(index + 2);
-      return ('#'+substring) === a.hash
-    })
-    a.setAttribute('data-anchor', result)
-    a.parentNode.setAttribute('id', getIdForHeaders(a.getAttribute('data-anchor')))
-    a.setAttribute('href', '#'+getIdForHeaders(a.getAttribute('data-anchor')))
+    a.setAttribute('data-anchor', page.value.path+a.hash)
   })
 
   pageAnchors.forEach(a => {

@@ -8,13 +8,11 @@ import bottomLinks from "./config-client/bottomLinks";
 import documents from "./config-client/documents";
 import sidebar from "./config-client/sidebar";
 import social from "./config-client/social";
-import NotFound from "./theme/layouts/NotFound.vue";
 
 export default defineClientConfig({
     layouts: {
         Layout,
-        HomeLayout,
-        NotFound
+        HomeLayout
     },
     setup() {
         provide('themeConfig', {
