@@ -53,7 +53,7 @@ export default {
                 "/cln/account_settings/",
                 "/cln/cln_for_resellers/",
                 "/cln/whmcs_plugin/",
-                "/cln/whmcs_awp_plugin/"
+                "/cln/whmcs_advantage/"
             ]
         },
     ],
