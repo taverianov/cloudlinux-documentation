@@ -197,14 +197,16 @@ If you cannot wait until the corresponding CloudLinux release, you have an optio
 For instance, AlmaLinux 8.8 can be converted to CloudLinux 8.7 in such a scenario.
 
 :::tip Note
+At the moment, the step-down conversion is only supported on systems with no panel, cPanel or Plesk.
+:::
+
+:::tip Note
 When performing a step-down conversion, cldeploy will add MySQL and MariaDB RPM packages to the Yum exclude list, in order to avoid downgrading them to CloudLinux-modified versions.
 
 Not doing so would risk rendering the databases non-functional, since MySQL explicitly does not support minor-version downgrades of its packages.
 
 If you want to update these packages on a step-down converted system, make sure to exclude/disable the CloudLinux package repositories while doing so.
 :::
-
-To allow for a conversion like this, pass **`--allow-lower-version`** to cldeploy's list of arguments.
 
 The cldeploy script will automatically detect the latest available CloudLinux version and, depending on the result, will either proceed normally or perform the step-down conversion.
 
