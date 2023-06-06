@@ -61,7 +61,7 @@ In the AccelerateWP group settings, you need to configure:
 * For the "accelerate_wp_cdn|AccelerateWP CDN" option, set the cost.
    * In the option price settings, there are options: Off, 50 GB, 100 GB etc. Adjust prices as you see fit. You can hide unwanted tariffs using the "Hide" checkbox.
 
-![](/images/whmcs-advantage-admin-config-option-price.png)
+![](./images/whmcs-advantage-admin-config-option-price.png)
 
 
 ### Product/Service setup
