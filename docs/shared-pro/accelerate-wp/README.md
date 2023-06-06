@@ -92,7 +92,7 @@ The second column `AccelerateWP` shows number of user's WordPress sites, optimiz
 
 To enable premium features, click on the "Activate premium features" link and select the options you want. To integrate functions with billing, you must specify the base URL for the purchase of the function by end users.
 
-![](./images/awp/AWPPremiumManage.png)
+![](./images/AWPPremiumManage.png)
 
 In case if both AccelerateWP and AccelerateWP Premium feature suites are enabled, 
 the statistics is extended with AccelerateWP Premium metrics.
