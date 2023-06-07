@@ -8,7 +8,7 @@
       <p v-if="card.description" class="docs-card-container__main-paragraph">{{ card.description }}</p>
     </div>
     <div class="docs-card-container__footer">
-      <button @click="goTo()" class="docs-card-container__footer-btn">View tutorial</button>
+      <button @click="goTo()" class="docs-card-container__footer-btn">View Documentation</button>
     </div>
   </div>
 </template>
