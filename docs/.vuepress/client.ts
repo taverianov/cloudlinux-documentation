@@ -68,7 +68,6 @@ export default defineClientConfig({
                 apiKey: "e6b9d79daf71aa98e2e2a51d4556f9d4",
                 indexName: "cloudlinuxos",
                 appId: "0TCNL6CGX8",
-                hitsPerPage: 20,
             },
 
             MAX_ALGOLIA_VISIBLE_RESULT: 20,
