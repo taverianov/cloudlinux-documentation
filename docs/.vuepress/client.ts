@@ -70,8 +70,8 @@ export default defineClientConfig({
                 appId: "0TCNL6CGX8"
             },
 
-            MAX_ALGOLIA_VISIBLE_RESULT: 10,
-            MAX_ALGOLIA_VISIBLE_ROWS: 5,
+            MAX_ALGOLIA_VISIBLE_RESULT: 20,
+            MAX_ALGOLIA_VISIBLE_ROWS: 15,
         })
     }
 })
