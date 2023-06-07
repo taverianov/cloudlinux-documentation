@@ -16,6 +16,8 @@
 <script setup>
 import {usePageFrontmatter, withBase} from "@vuepress/client";
 import {computed, inject, watch} from "vue";
+const { MAX_ALGOLIA_HITS_PER_PAGE } = inject('themeConfig')
+
 
 const {headerDefaultSearchIcon, headerSearchIcon, headerSearchPlaceholder} = inject('themeConfig')
 const props = defineProps({
@@ -73,6 +75,9 @@ const initialize = async (userOptions) => {
   docsearch(
       Object.assign({}, userOptions, {
         inputSelector: "#algolia-search-input",
+        algoliaOptions: {
+            hitsPerPage: MAX_ALGOLIA_HITS_PER_PAGE,
+        },
         handleSelected: () => {
           emit('openDrawer')
         },

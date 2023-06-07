@@ -72,6 +72,7 @@ export default defineClientConfig({
 
             MAX_ALGOLIA_VISIBLE_RESULT: 20,
             MAX_ALGOLIA_VISIBLE_ROWS: 15,
+            MAX_ALGOLIA_HITS_PER_PAGE: 20,
         })
     }
 })
