@@ -1234,20 +1234,16 @@ Information about working with Node.js Selector via UI can be found [here](./lve
 
 #### FAQ
 
-Q: My CloudLinux Manager-> options menu is empty.
-
+**Q: My CloudLinux Manager-> options menu is empty.**
 A: You don't have AccelerateWP enabled and PHP X-Ray enabled, so there is nothing to configure. Install and enable any of those features to see settings. This minor UI issue will be fixed in future updates.
 
-Q: Dashboard says both: that data is updated and that I need to refresh it and both panels never disappear.
-
+**Q: Dashboard says both: that data is updated and that I need to refresh it and both panels never disappear.**
 A: Just click the refresh button and reload the page, data will be loaded soon.
 
-Q: Website monitoring does not appear enabled after clicking the toggle.
-
+**Q: Website monitoring does not appear enabled after clicking the toggle.**
 A: Just reload the page, the feature will be displayed as active.
 
-Q: Website monitoring proposes me to enable autotracing while I disable it.
-
+**Q: Website monitoring proposes me to enable autotracing while I disable it.**
 A: Issue is known and will be fixed soon.
 
 
