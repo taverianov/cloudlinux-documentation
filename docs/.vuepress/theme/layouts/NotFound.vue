@@ -12,6 +12,13 @@ const route = useRoute()
 const router = useRouter()
 const allPages = ref([])
 
+const redirectList = [
+  {
+    from: "cloudlinux-os-plus",
+    to: "shared-pro"
+  }
+]
+
 onMounted(()=>{
   const regex = new RegExp(route.path + route.hash,'gi')
 
@@ -24,7 +31,7 @@ onMounted(()=>{
       for (let h of child.children) {
         const path = rootPath + "/" + h.link
 
-        if (path.search(regex) !== -1){
+        if (path.search(regex) !== -1) {
           router.push(path)
           haveSolution = true
           return;
@@ -39,6 +46,15 @@ onMounted(()=>{
 
   const redirectionURL = async () => {
     const values = Object?.values(pagesData);
+
+    for (let redirection of redirectList) {
+      if (route.path.search(redirection.from) !== -1) {
+        const path = route.path.replace(redirection.from, redirection.to) + route.hash;
+
+        router.push(path);
+        return;
+      }
+    }
 
     for (let value of values) {
       const res = await value();
