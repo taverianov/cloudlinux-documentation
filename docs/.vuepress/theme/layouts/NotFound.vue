@@ -18,7 +18,7 @@ const redirectList = [
     to: "shared-pro"
   },
   {
-    from: "shared-pro/#get-started",
+    from: "cloudlinux-os-plus/#get-started",
     to: "shared-pro/accelerate-wp/#get-started"
   }
 ]
