@@ -14,12 +14,12 @@ const allPages = ref([])
 
 const redirectList = [
   {
-    from: "cloudlinux-os-plus",
-    to: "shared-pro"
-  },
-  {
     from: "cloudlinux-os-plus/#get-started",
     to: "shared-pro/accelerate-wp/#get-started"
+  },
+  {
+    from: "cloudlinux-os-plus",
+    to: "shared-pro"
   }
 ]
 
