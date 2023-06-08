@@ -2110,7 +2110,6 @@ New mounting mode will be disabled automatically when "mounting base home direct
 :::
 
 #### How to hide directory inside mount point <Badge type="warning" text="CageFS 6.4.7-1 +"/>
-
 :::tip Note
 For files outside a mount point, use blacklisting, see: [Excluding files](./#excluding-files)
 :::

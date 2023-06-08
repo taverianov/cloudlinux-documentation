@@ -224,7 +224,7 @@ For more details, please go to the [ImunifyAV documentation](https://docs.imunif
 
 <div class="notranslate">
 
-#### Notifications color codes <sup><Badge type="info" text="CloudLinux Manager 5.3.7-1+"/></sup>
+#### Notifications color codes <Badge type="info" text="CloudLinux Manager 5.3.7-1+"/>
 
 In the CloudLinux Manager UI we use the following color codes for notifications:
 
