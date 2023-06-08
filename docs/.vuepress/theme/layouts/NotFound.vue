@@ -14,13 +14,18 @@ const allPages = ref([])
 
 const redirectList = [
   {
+    from: "cloudlinux-os-plus/#get-started",
+    to: "shared-pro/accelerate-wp/#get-started"
+  },
+  {
     from: "cloudlinux-os-plus",
     to: "shared-pro"
   }
 ]
 
 onMounted(()=>{
-  const regex = new RegExp(route.path + route.hash,'gi')
+  const fullPath = route.path + route.hash;
+  const regex = new RegExp(fullPath,'gi')
 
   let haveSolution = false;
 
@@ -48,8 +53,8 @@ onMounted(()=>{
     const values = Object?.values(pagesData);
 
     for (let redirection of redirectList) {
-      if (route.path.search(redirection.from) !== -1) {
-        const path = route.path.replace(redirection.from, redirection.to) + route.hash;
+      if (fullPath.search(redirection.from) !== -1) {
+        const path = fullPath.replace(redirection.from, redirection.to);
 
         router.push(path);
         return;
