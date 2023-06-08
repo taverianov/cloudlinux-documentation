@@ -134,7 +134,7 @@ $ sysctl -p
 _fs.symlinkown_gid_ parameter values for httpd service user and _fs.proc_super_gid_ for nagios service user is written to _/etc/sysctl.d/90-cloudlinux.conf_.
 :::
 
-#### **fs.protected_symlinks_create** <Badge text="cPanel"/>
+#### **fs.protected_symlinks_create** <Badge type="info" text="cPanel"/>
 
 :::warning Warning
 When used outside CageFS (from cPanel tools for instance), <span class="notranslate">`fs.protected_symlinks_create`</span> isn't sufficient for symlink protection.
@@ -165,7 +165,7 @@ Please read the known issues section before enabling this feature.
 
 * [Known issues with fs.protected_symlinks_create=1 on cPanel servers](./#known-issues-with-fs-protected-symlinks-create-1-on-cpanel-servers)
 
-#### **fs.process_symlinks_by_task** <Badge text="cPanel"/>
+#### **fs.process_symlinks_by_task** <Badge type="info" text="cPanel"/>
 
 ::: tip Note
 This option only available on CloudLinux 7 Hybrid or on CloudLinux 8 Shared and Admin editions.
@@ -1020,7 +1020,7 @@ To disable quota checking in <span class="notranslate">**XFS**</span> file syste
 ```
 </div>
 
-## Enter LVE when using cPanel utilities <Badge text="cPanel"/> <Badge text="CloudLinux OS Shared 7 hybrid"/> <Badge text="experimental" type="warn"/>
+## Enter LVE when using cPanel utilities <Badge type="info" text="cPanel"/> <Badge text="CloudLinux OS Shared 7 hybrid"/> <Badge text="experimental" type="warning"/>
 
 cPanel tools might use more resources than desired, so to limit resource usage, you might want to enter the corresponding LVE when using cPanel tools on-behalf of a non-root user.
 

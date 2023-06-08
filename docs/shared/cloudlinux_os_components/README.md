@@ -2109,8 +2109,7 @@ This new mounting mode is enabled by default. You can switch to old mounting mod
 New mounting mode will be disabled automatically when "mounting base home directory" mode is enabled <span class="notranslate"> (`mount_basedir=1` setting in _/etc/cagefs/cagefs.base.home.dirs_ </span> file).
 :::
 
-#### How to hide directory inside mount point <sup><Badge type="warning" text="CageFS 6.4.7-1 +"/></sup>
-
+#### How to hide directory inside mount point <Badge type="warning" text="CageFS 6.4.7-1 +"/>
 :::tip Note
 For files outside a mount point, use blacklisting, see: [Excluding files](./#excluding-files)
 :::
@@ -7011,7 +7010,7 @@ For more information on setting value **oom_score_adj**, see the page [https://m
 
 ---
 
-#### **lsapi_server_tweak** <Badge text="beta" />
+#### **lsapi_server_tweak** <Badge type="info" text="beta" />
 
 **Syntax**: lsapi_server_tweak [On/Off]
 

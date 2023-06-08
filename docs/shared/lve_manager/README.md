@@ -224,7 +224,7 @@ For more details, please go to the [ImunifyAV documentation](https://docs.imunif
 
 <div class="notranslate">
 
-#### Notifications color codes <sup><Badge text="CloudLinux Manager 5.3.7-1+"/></sup>
+#### Notifications color codes <Badge type="info" text="CloudLinux Manager 5.3.7-1+"/>
 
 In the CloudLinux Manager UI we use the following color codes for notifications:
 
@@ -739,7 +739,7 @@ Choose default modules from the list for a proper PHP version or for native.
 You can also use [PHP Selector CLI](/shared/command-line_tools/#php-selector)
 :::
 
-####  Selector tab additional features <Badge text="cPanel" /> <Badge text="CloudLinux Manager 6.0.1-2" />
+####  Selector tab additional features <Badge type="info" text="cPanel" /> <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
 
 Go to cPanel admin interface → CloudLinux manager → Selector
 
@@ -765,7 +765,7 @@ If an admin clicks <span class="notranslate">_Use PHP selector_</span> in the <s
 
 ![](./images/UsePHPSelector.png)
 
-#### PHP Selector troubleshooting <Badge text="cPanel"/> <Badge text="CloudLinux Manager 6.0.1-2" />
+#### PHP Selector troubleshooting <Badge type="info" text="cPanel"/> <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
 
 
 You can see the following errors in the <span class="notranslate">_Domains_</span> tab.
@@ -801,7 +801,7 @@ Enable CageFS in the Users tab (see [installation instructions](/shared/cloudlin
 
 If you cannot see Diagnostic tool notifications, you can restart it. Then you can fix the issues using [these instructions](./#php-selector-diagnostic-tool-and-notifications).
 
-#### PHP Selector diagnostic tool and notifications <Badge text="CloudLinux Manager 6.0.1-2" />
+#### PHP Selector diagnostic tool and notifications <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
 
 The diagnostic tool allows to catch some issues. You can start diagnostic by clicking <span class="notranslate">_Run diagnostic_</span> button.
 
@@ -1954,7 +1954,7 @@ All changes are saved automatically.
 * <span class="notranslate">`short_open_tag`</span>. Allows the short form of the PHP open tag.
 * <span class="notranslate">`upload_max_filesize`</span>. The maximum size in bytes of an uploaded file. Use shortcuts for byte values: K (kilo), M (mega), and G (giga). For example, 128M.
 
-#### PHP Selector. My Domains tab <Badge text="cPanel" /> <Badge text="CloudLinux Manager 6.0.1-2" />
+#### PHP Selector. My Domains tab <Badge type="info" text="cPanel" /> <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
 
 The <span class="notranslate">_My Domains_</span> tab contains a list of user’s domains to visualize which PHP Selector is used by domain.
 
