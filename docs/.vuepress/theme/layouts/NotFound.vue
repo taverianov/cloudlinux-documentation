@@ -18,6 +18,10 @@ const redirectList = [
     to: "shared-pro/accelerate-wp/#get-started"
   },
   {
+    from: "cloudlinux-os-plus/#setup-upgrade-url-for-acceleratewp-premium,
+    to: "shared-pro/accelerate-wp/#setup-upgrade-url-for-acceleratewp-premium"
+  },
+  {
     from: "cloudlinux-os-plus",
     to: "shared-pro"
   }
