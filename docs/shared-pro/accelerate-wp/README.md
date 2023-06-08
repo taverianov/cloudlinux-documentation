@@ -573,7 +573,8 @@ Here is an example of successful feature installation for reference:
 
     2023-02-14 11:01:14,696: (clwpos.daemon_base) [INFO] Running cloudlinux-awp-user enable --feature object_cache --domain wpujj.com --wp-path
     2023-02-14 11:01:15,081: (clwpos.daemon_base) [INFO] Command succeded with output:
-    `CompletedProcess(args=['/bin/cagefs_enter.proxied', 'cloudlinux-awp-user', 'enable', '--feature', 'object_cache', '--domain', 'wpujj.com', '--wp-path', ''], returncode=0, stdout='{\n    "context": {\n        "domain": "wpujj.com",\n        "feature": "object_cache"\n    },\n    "result": "success",\n    "timestamp": 1676372475.044419,\n \n}\n', stderr='')`
+    `CompletedProcess(args=['/bin/cagefs_enter.proxied', 'cloudlinux-awp-user', 'enable', '--feature', 'object_cache', '--domain', 'wpujj.com', '--wp-path', ''], returncode=0, 
+    stdout='{\n "context": {\n "domain": "wpujj.com",\n "feature": "object_cache"\n  },\n  "result": "success",\n "timestamp": 1676372475.044419,\n \n}\n', stderr='')`
     2023-02-14 11:01:15,086: (clwpos.daemon_base) [INFO] background process finished: pid=415368
 
 Also, some useful notes may be present in user's log located at `/home/<username>/.clwpos/main.log`.
