@@ -407,6 +407,7 @@ To summarize:
 * Check the pre-upgrade report (`/var/log/leapp/leapp-report.txt`) for packages that will not be upgraded.
 * For those packages that you want to see upgraded, [extend the Elevate configuration files](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#third-party-integration) with package repository mappings and package migration events.
 * If required, [add additional custom scripts](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#adding-complex-changes-custom-actors-for-migration) (Leapp actors) to handle any extra arbitrary actions during the upgrade.
+* Rerun the pre-upgrade procedure to ensure that your changes are integrated correctly, then test the upgrade process as desired.
 
 
 ## ELevate Scenario - CloudLinux 7 with no panel or a custom panel
