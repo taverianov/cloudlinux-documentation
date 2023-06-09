@@ -1266,14 +1266,14 @@ A: Issue is known and will be fixed soon.
    * ProtectHome
 
 3. Some servers require increasing `fs.ve-mount-nr` on the host node. If it wasn't done, then:
-   * CageFS will throw errors.
-   * on a host host node (but not in the container!) there will be errors `reached the limit on mounts` in `/var/log/messages` throwed by kernel
+   * CageFS will throw errors related to mounting e.g. `Can't mount jail for user`, `mount(2) system call failed: Cannot allocate memory` etc.
+   * on a host node (but not in the container!) there will be errors `reached the limit on mounts` in `/var/log/messages` throwed by kernel
 
-   To increase `fs.ve-mount-nr`, on a host node:
+   To increase `fs.ve-mount-nr` on a host node:
    * add <span class="notranslate">`fs.ve-mount-nr = 15000`</span> to <span class="notranslte">`/etc/sysctl.conf`</span>;<br/>
    * apply it with the <span class="notranslate">`sysctl -p`</span> command.
 
-   In very rare cases the value should be increased higher, up to 50000.
+   In some very rare cases the value should be increased higher, up to 50000.
 
 #### Virtuozzo 6 and OpenVZ 6
 
