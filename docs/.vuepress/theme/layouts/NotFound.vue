@@ -24,6 +24,14 @@ const redirectList = [
   {
     from: "cloudlinux-os-plus",
     to: "shared-pro"
+  },
+    {
+    from: "cagefs.html",
+    to: "shared/cloudlinux_os_components/#cagefs"
+  },
+    {
+    from: "mod_lsapi_troubleshooting.html",
+    to: "shared/cloudlinux_os_components/#troubleshooting-3"
   }
 ]
 
