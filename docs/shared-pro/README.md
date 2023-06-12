@@ -8,14 +8,14 @@ To activate the CloudLinux OS Shared Pro you have to purchase a Shared Pro licen
 
 ## AccelerateWP
 
-The [AccelerateWP](/accelerate-wp/) carries a suite of optimization features that can be enabled and automatically configured for the end-user's site.
+The [AccelerateWP](/shared-pro/accelerate-wp/) carries a suite of optimization features that can be enabled and automatically configured for the end-user's site.
 
 ## Centralized Monitoring
 
-[Centralized Monitoring](/centralized-monitoring/) is a tool that allows hosting administrators to monitor load for all their servers and users.
+[Centralized Monitoring](/shared-pro/centralized-monitoring/) is a tool that allows hosting administrators to monitor load for all their servers and users.
 
 ## X-Ray
 
-[X-Ray](/x-ray/) is a tool developed for website performance monitoring and performance issues detection. X-Ray can gather and visualize information about top N slowest system functions, external requests, software modules and database queries of the client’s website.
+[X-Ray](/shared-pro/x-ray/) is a tool developed for website performance monitoring and performance issues detection. X-Ray can gather and visualize information about top N slowest system functions, external requests, software modules and database queries of the client’s website.
 
 
