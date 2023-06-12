@@ -6,6 +6,7 @@ import HomeLayout from "./theme/layouts/HomeLayout.vue";
 import NotFound from "./theme/layouts/NotFound.vue";
 
 import bottomLinks from "./config-client/bottomLinks";
+import navbarLinks from "./config-client/navbarLinks";
 import documents from "./config-client/documents";
 import sidebar from "./config-client/sidebar";
 import social from "./config-client/social";
@@ -25,8 +26,6 @@ export default defineClientConfig({
             allowGithubEdit: true,
             githubMainDir: "docs",
             githubRepository: "cloudlinux/cloudlinux-documentation",
-            submitRequestURL: "https://www.cloudlinux.com/support-portal/",
-            tryFreeLink: "https://cloudlinux.com/trial",
             MOBILE_BREAKPOINT: 767,
 
             //docs cards
@@ -52,8 +51,7 @@ export default defineClientConfig({
                 sidebar,
                 siteTitle: "Documentation",
                 stayInTouch: "Stay in touch",
-                submitRequest: "Submit support request",
-                tryFree: "Try Free",
+                navbarLinks: navbarLinks,
             },
 
             // Products
