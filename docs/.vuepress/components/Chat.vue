@@ -20,8 +20,6 @@ import BotIcon from 'cl-doc-vue-bot-ui/src/assets/icons/bot.png'
 
 export default {
     components: {
-        // registering in client.ts without SSR support
-        // VueBotUI,
         BotIcon
     },
     data () {
@@ -39,7 +37,7 @@ export default {
                 msgBubbleBgUser: '#3f83f8',
                 inputPlaceholder: 'Ask a new question'
             },
-            docName: "tux-care-doc"
+            docName: "cloudlinux-documentation"
         }
     },
     mounted(){
@@ -49,7 +47,7 @@ export default {
         })
 
         console.log('Starting connection...')
-        this.connection = new WebSocket('ws://localhost:8765')
+        this.connection = new WebSocket('wss://doc-bot.cloudlinux.com:2096')
 
         this.connection.onmessage = (response) => {
             const event = JSON.parse(response.data)
@@ -69,12 +67,12 @@ export default {
             }, 1000)
         }
 
-        this.connection.onclose = (event) => {
+        this.connection.onclose = () => {
             console.log('Connection closed')
             this.isConnected = false
         }
         
-        this.connection.onopen = (event) => {
+        this.connection.onopen = () => {
             console.log('Successfully connected to the websocket server...')
             this.isConnected = true
         }
