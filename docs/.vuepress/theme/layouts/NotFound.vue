@@ -30,6 +30,10 @@ const redirectList = [
     to: "shared/cloudlinux_os_components/#cagefs"
   },
     {
+    from: "index.html?cagefs_installation.html",
+    to: "shared/cloudlinux_os_components/#installation-and-update-1"
+  },
+    {
     from: "mod_lsapi_troubleshooting.html",
     to: "shared/cloudlinux_os_components/#troubleshooting-3"
   }
