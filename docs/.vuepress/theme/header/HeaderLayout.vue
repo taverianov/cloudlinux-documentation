@@ -76,6 +76,14 @@ const homeUrl = computed(() => {
   return defaultUrl.replace(/\/+/g, '/');
 })
 
+const onClick = (event) => {
+  switch (event.type) {
+        case 'event':
+          var event = new CustomEvent(event.name);
+          document.dispatchEvent(event);
+      }
+}
+
 </script>
 
 <style src="../../styles/theme.styl" lang="stylus"></style>

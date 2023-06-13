@@ -1,5 +1,6 @@
 import {provide} from "vue";
 import {defineClientConfig} from "@vuepress/client";
+import mitt from 'mitt';
 
 import Layout from "./theme/layouts/Layout.vue";
 import HomeLayout from "./theme/layouts/HomeLayout.vue";
@@ -11,7 +12,15 @@ import documents from "./config-client/documents";
 import sidebar from "./config-client/sidebar";
 import social from "./config-client/social";
 
+import Chat from "./components/Chat.vue";
+
 export default defineClientConfig({
+    rootComponents: [
+        Chat,
+    ],
+    async enhance({ app }) {
+        app.config.globalProperties.$eventBus = mitt();
+    },
     layouts: {
         Layout,
         HomeLayout,
