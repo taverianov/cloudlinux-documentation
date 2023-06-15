@@ -61,6 +61,7 @@ export default {
         {
             collapsable: false,
             children: [
+                "/shared-pro/introduction/",
                 "/shared-pro/x-ray/",
                 "/shared-pro/centralized-monitoring/",
                 "/shared-pro/accelerate-wp/"
