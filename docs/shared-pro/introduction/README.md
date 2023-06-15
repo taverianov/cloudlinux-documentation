@@ -1,4 +1,4 @@
-# CloudLinux OS Shared Pro
+# Introduction
 
 CloudLinux OS Shared Hosting Pro was developed with shared hosting in mind. It’s a state-of-the-art operating system that gives shared hosting providers what they need: advanced automation, deep-look performance analytics, and centralized monitoring tools.
 
