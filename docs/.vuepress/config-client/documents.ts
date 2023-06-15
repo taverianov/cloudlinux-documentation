@@ -22,7 +22,7 @@ export default [
     {
         title: "CloudLinux OS Shared Pro",
         description: "CloudLinux OS Shared Pro extends your CloudLinux OS Shared functionality with even more useful features.",
-        link: "/shared-pro/",
+        link: "/shared-pro/introduction/",
     },
     {
         title: "CLN",
