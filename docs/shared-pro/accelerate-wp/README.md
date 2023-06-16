@@ -1,7 +1,7 @@
 
 # AccelerateWP
 
-## Get started
+## Geting started
 
 AccelerateWP carries a suite of optimization features that can be enabled and automatically configured for the end-user's site.
 
@@ -28,11 +28,12 @@ This is a basic suite which includes [AccelerateWP base feature](https://user-do
 a WordPress optimization plugin that provides full page caching, GZIP compression and some other useful optimizations.
 
 **AccelerateWP suite limitations**
-* the website must be served with Apache web server;
+* the website must be on an Apache or LiteSpeed web server;
+* the website must be on a server with CloudLinuxOS Shared Pro, Solo, or Admin license
 * the website must use PHP version 7.2 or higher.
 * the WordPress version must be 5.6 and higher.
-* the other WordPress Caching plugins must not be installed.
-* the WordPress should not run in Multisite mode.
+* no other WordPress Caching plugins must be installed.
+* the WordPress should not be running in Multisite mode.
 
 #### AccelerateWP Premium suite
 
@@ -48,17 +49,51 @@ requests come in and may be helpful in case when full page caching cannot be use
 
 **Premium suite limitations**
 
-* the website must be served with Apache web server;
+* the website must be on an Apache or a LiteSpeed web server;
+* the website must be on a server with CloudLinuxOS Shared Pro, Solo, or Admin license
 * the website must use one of the following PHP handlers:
   * [php-fpm](https://blog.cpanel.com/how-to-use-php-fpm-with-cpanel/)
   * [lsapi](/shared/cloudlinux_os_components/#apache-mod-lsapi-pro)
 * the website must use ea-PHP version 7.4 or 8.0.
 * the WordPress version must be 3.7 and higher.
-* the other WordPress Caching plugins must not be installed.
+* no other WordPress Caching plugins must be installed.
 * the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
-* the WordPress should not run in Multisite mode.
+* the WordPress should not be running in Multisite mode.
 
+#### Quick Start Guide (CLI)
+Enable AccelerateWP Free:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
+```
+Enable AccelerateWP Premium:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
+```
+Set Premium Upgrade URL:
+```
+cloudlinux-awp-admin set-options --upgrade-url https://plan.upgrade/splash 
+```
+Enable CDN Free for all users:
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all && cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
+```
+Enable CDN 50GB for all users (users become billable when they activate):
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --users all --allowed-for-all
+```
 
+Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
+
+*Note: Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.*
+
+Scan the server in background mode and activate AccelerateWP on those WordPress sites where it is possible:
+```
+cloudlinux-awp-admin enable-feature --all
+```
+Check activation status:
+```
+cloudlinux-awp-admin enable-feature --status
+```
 ## Administrator interface
 
 #### Overview
