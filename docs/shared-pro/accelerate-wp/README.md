@@ -71,7 +71,7 @@ cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
 ```
 Set Premium Upgrade URL:
 ```
-cloudlinux-awp-admin set-options --upgrade-url https://plan.upgrade/splash 
+cloudlinux-awp-admin set-options --upgrade-url "https://plan.upgrade/splash" 
 ```
 Enable CDN Free for all users:
 ```
@@ -79,7 +79,7 @@ cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all && c
 ```
 Enable CDN 50GB for all users (users become billable when they activate):
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --users all --allowed-for-all
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all
 ```
 
 Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
