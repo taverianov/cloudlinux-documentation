@@ -17,7 +17,7 @@ export default [
     {
         title: "AccelerateWP",
         description: "AccelerateWP carries a suite of optimization features that can be enabled and automatically configured for the end user's site.",
-        link: "/shared-pro/acceleratewp/",
+        link: "/shared-pro/accelerate-wp/",
     },
     {
         title: "CLN",
