@@ -21,5 +21,5 @@ export default [
     } as ContainerPluginOptions),
     registerComponentsPlugin({
         componentsDir: path.resolve(__dirname, './components'),
-    }),
+    })
 ]

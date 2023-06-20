@@ -77,11 +77,13 @@ const homeUrl = computed(() => {
 })
 
 const onClick = (event) => {
-  switch (event.type) {
+  if (event.type) {
+    switch (event.type) {
         case 'event':
           var event = new CustomEvent(event.name);
           document.dispatchEvent(event);
       }
+  }
 }
 
 </script>

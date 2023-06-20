@@ -10,17 +10,36 @@
             :input-disable="waitResponse"
             @msg-send="messageSendHandler"
             @msg-to-server="messageToServer">
+
+            <template #header>
+                <div class="qkb-board-header__title"> {{ botOptions.botTitle }} </div> 
+                <div class="qkb-board-header__select_field">
+                    <multiselect
+                        v-model="tags"
+                        :options="options"
+                        :multiple="true"
+                        :close-on-select="true"
+                        :limit="3"
+                        label="name"
+                        track-by="value"
+                        placeholder="Select section">
+                    </multiselect>
+                </div>
+            </template>
         </component>
     </div>
 </ClientOnly>
 </template>
 <script>
+import Multiselect from 'vue-multiselect'
+
 import { markRaw } from 'vue'
 import BotIcon from 'cl-doc-vue-bot-ui/src/assets/icons/bot.png'
 
 export default {
     components: {
-        BotIcon
+        BotIcon,
+        Multiselect
     },
     data () {
         return {
@@ -37,7 +56,33 @@ export default {
                 msgBubbleBgUser: '#3f83f8',
                 inputPlaceholder: 'Ask a new question'
             },
-            docName: "cloudlinux-documentation"
+            docName: "cloudlinux-documentation",
+            tags: null,
+            options: [{
+                name: 'CloudLinux OS Shared',
+                value:  ['level-0', 'shared']
+            },{
+                name: 'CloudLinux OS Shared Pro',
+                value: ['level-0', 'shared-pro']
+            },{
+                name: 'AccelerateWP',
+                value: ['level-1', 'accelerate-wp']
+            },{
+                name: 'CLN',
+                value: ['level-0', 'cln']
+            },{
+                name: 'CloudLinux Solo',
+                value: ['level-0', 'solo']
+            },{
+                name: 'CloudLinux OS Admin',
+                value: ['level-0', 'admin']
+            },{
+                name: 'CloudLinux Subsystem For Ubuntu',
+                value: ['level-0', 'ubuntu']
+            },{
+                name: 'End-user Documents',
+                value: ['level-0', 'user-docs']
+            }]
         }
     },
     mounted(){
@@ -47,7 +92,8 @@ export default {
         })
 
         console.log('Starting connection...')
-        this.connection = new WebSocket('wss://doc-bot.cloudlinux.com:2096')
+        // this.connection = new WebSocket('wss://doc-bot.cloudlinux.com:2096')
+        this.connection = new WebSocket('ws://localhost:8765')
 
         this.connection.onmessage = (response) => {
             const event = JSON.parse(response.data)
@@ -59,11 +105,11 @@ export default {
             this.waitResponse = false
 
             setTimeout(() => {
-            this.messages.push({
-                agent: 'bot',
-                type: 'rate',
-                id: event.id
-            })
+                this.messages.push({
+                    agent: 'bot',
+                    type: 'rate',
+                    id: event.id
+                })
             }, 1000)
         }
 
@@ -86,10 +132,16 @@ export default {
                 text: message.text
             })
 
+            let tags = this.tags.map((item) => { return item['value'] })
+            if (tags.length === this.options.length ) {
+                tags = [] // if all tags was selected let's search without tags for whole index
+            }
+
             this.connection.send(JSON.stringify({
                 'type': 'question',
                 'text': message.text,
-                'doc-name': this.docName
+                'doc-name': this.docName,
+                'tags': tags
             }))
             this.waitResponse = true
         },
@@ -101,6 +153,20 @@ export default {
 
 </script>
 <style lang="stylus">
+@import "vue-multiselect/dist/vue-multiselect.css";
+
+.multiselect__spinner::before,
+.multiselect__spinner::after,
+.multiselect__option--highlight::after,
+.multiselect__option--highlight,
+.multiselect__tag {
+  background: #3f83f8;
+}
+
+.qkb-board-header__select_field {
+  min-width: 300px;
+}
+
 #bot-ui {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
