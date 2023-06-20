@@ -57,7 +57,7 @@ export default {
                 inputPlaceholder: 'Ask a new question'
             },
             docName: "cloudlinux-documentation",
-            tags: null,
+            tags: [],
             options: [{
                 name: 'CloudLinux OS Shared',
                 value:  ['level-0', 'shared']
@@ -93,7 +93,7 @@ export default {
 
         console.log('Starting connection...')
         this.connection = new WebSocket('wss://doc-bot.cloudlinux.com:2096')
-        // this.connection = new WebSocket('ws://localhost:8765')
+        // dev -> this.connection = new WebSocket('ws://localhost:8765')
 
         this.connection.onmessage = (response) => {
             const event = JSON.parse(response.data)
@@ -132,9 +132,10 @@ export default {
                 text: message.text
             })
 
-            let tags = this.tags.map((item) => { return item['value'] })
-            if (tags.length === this.options.length ) {
-                tags = [] // if all tags was selected let's search without tags for whole index
+            let tags = [];
+            if (this.tags.length !== this.options.length ) {
+                // if all tags was selected let's search without tags for whole index
+                tags = this.tags.map((item) => { return item['value'] })
             }
 
             this.connection.send(JSON.stringify({
