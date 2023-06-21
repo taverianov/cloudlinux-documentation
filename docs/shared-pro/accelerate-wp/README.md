@@ -67,6 +67,10 @@ cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
 ```
 Enable AccelerateWP Premium:
 ```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
+```
+Enable AccelerateWP Premium for free for all users:
+```
 cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
 ```
 Set Premium Upgrade URL:
