@@ -440,7 +440,7 @@ The example output is given below:
 
 CloudLinux developed its own WHMCS plugin 
 which provides you with AccelerateWP billing integration out of the box. 
-Check out [the documentation](/cln/whmcs_awp_plugin/#cloudlinux-whmcs-awp-plugin) to find out how to install and use the plugin.
+Check out [the documentation](/cln/whmcs_advantage/#cloudlinux-whmcs-awp-plugin) to find out how to install and use the plugin.
 
 ## Other billing integration
 
