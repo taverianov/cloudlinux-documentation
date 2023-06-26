@@ -1,30 +1,3 @@
-<template>
-  <div class="header-products-wrapper">
-    <div ref="menu" class="dropdown">
-     <teleport v-if="isMobileWidth" to="body">
-       <div v-if="openedMenu" class="dropdown-wrapper">
-         <p class="dropdown-content__paragraph" v-for="product in productsList" :key="product">
-           <a class="dropdown-content__link" href="#">{{ product }}</a>
-         </p>
-       </div>
-     </teleport>
-      <div v-if="openedMenu && !isMobileWidth" class="dropdown-wrapper">
-        <p class="dropdown-content__paragraph" v-for="product in productsList" :key="product">
-          <a class="dropdown-content__link" href="#">{{ product }}</a>
-        </p>
-      </div>
-      <div @click="openedMenu = !openedMenu" class="header-products-container">
-        <img class="header-products-container__img" alt="hamburger menu" :src="withBase('/global/hamburger-menu.svg')">
-        <p class="header-products-wrapper-paragraph">{{ productsTitle }}</p>
-        <img class="products-icon__default"
-             :class="{'products-icon__rotate': openedMenu}"
-             width="10" height="8"
-             :src="withBase(arrowDownIcon)"
-             alt="arrow down icon"/>
-      </div>
-    </div>
-  </div>
-</template>
 <script setup>
 import {withBase} from "@vuepress/client";
 import {inject, onMounted, onUnmounted, ref} from "vue";
@@ -33,7 +6,7 @@ defineProps({
     type: Boolean,
   },
 })
-const {productsTitle, arrowDownIcon, productsList} = inject('themeConfig');
+const {productsTitle, arrowDownIcon, productsList, productsURLs} = inject('themeConfig');
 
 const openedMenu = ref(false)
 const menu = ref(null)
@@ -50,7 +23,33 @@ onUnmounted(() => {
   document.removeEventListener('click', clickOutside)
 })
 </script>
-
+<template>
+  <div class="header-products-wrapper">
+    <div ref="menu" class="dropdown">
+     <teleport v-if="isMobileWidth" to="body">
+       <div v-if="openedMenu" class="dropdown-wrapper">
+         <p class="dropdown-content__paragraph" v-for="(product, index) in productsList" :key="product">
+           <a class="dropdown-content__link" :href="productsURLs[index]">{{ product }}</a>
+         </p>
+       </div>
+     </teleport>
+      <div v-if="openedMenu && !isMobileWidth" class="dropdown-wrapper">
+        <p class="dropdown-content__paragraph" v-for="(product, index) in productsList" :key="product">
+          <a class="dropdown-content__link" :href="productsURLs[index]">{{ product }}</a>
+        </p>
+      </div>
+      <div @click="openedMenu = !openedMenu" class="header-products-container">
+        <img class="header-products-container__img" alt="hamburger menu" :src="withBase('/global/hamburger-menu.svg')">
+        <p class="header-products-wrapper-paragraph">{{ productsTitle }}</p>
+        <img class="products-icon__default"
+             :class="{'products-icon__rotate': openedMenu}"
+             width="10" height="8"
+             :src="withBase(arrowDownIcon)"
+             alt="arrow down icon"/>
+      </div>
+    </div>
+  </div>
+</template>
 <style lang="stylus">
 @import '../../styles/config.styl'
 
