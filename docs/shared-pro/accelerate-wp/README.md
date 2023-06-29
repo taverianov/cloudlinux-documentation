@@ -440,6 +440,42 @@ The example output is given below:
 }
 ```
 
+### AccelerateWP disable Redis Object Cache Pro banner
+
+Depending on the server settings, the `WP_REDIS_DISABLE_BANNERS` constant will be defined in the `wp-config.php` file when the module is activated, which affects the display of promotional materials.
+
+To change the display of promotional materials for all new installations of the Redis Object Cache module by default, you need to set the settings:
+
+To display (by default):  
+```cloudlinux-awp-admin set-options --enable-object-cache-banners```
+
+To hide:  
+```cloudlinux-awp-admin set-options --disable-object-cache-banners```
+
+To change the `WP_REDIS_DISABLE_BANNERS` constant for previously installed modules, you need to run a process to update the constant:
+
+Hide on websites where the module is installed
+- for all users:  
+  ```cloudlinux-awp-admin object-cache-banner --all --disable```
+- for specific users (users separated by commas):  
+  ```cloudlinux-awp-admin object-cache-banner --users foo,bar --disable```
+- for current user (run under the user):  
+  ```cloudlinux-awp-user object-cache-banner --all --disable```
+- for a specific website (run under the user):  
+  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --disable```
+
+Display on websites where the module is installed
+- for all users:  
+  ```cloudlinux-awp-admin object-cache-banner --all --enable```
+- for specific users (users separated by commas):  
+  ```cloudlinux-awp-admin object-cache-banner --users foo,bar --enable```
+- for current user (run under the user):  
+  ```cloudlinux-awp-user object-cache-banner --all --enable```
+- for a specific website (run under the user):  
+  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --enable```
+
+If the banner was previously disabled/enabled for the user/website, then for its subsequent activation of the ObjectCache module, the general settings at the server level will be applied. This means that for each user/website we do not store an individual banner disable/enable setting.
+
 ## WHMCS billing
 
 CloudLinux developed its own WHMCS plugin 
