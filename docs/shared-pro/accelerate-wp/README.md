@@ -101,6 +101,11 @@ cloudlinux-awp-admin enable-feature --status
 ## Administrator interface
 
 #### Overview
+
+:::tip Note
+Resellers' users are not allowed to use AccelerateWP features.
+:::
+
 In the _CloudLinux Manager → AccelerateWP_ tab an administrator has the opportunity to provide end-users with a suite of features, which on its turn could be activated by end-users.
 
 ![](./images/AWPAdmin.png)
