@@ -1233,17 +1233,17 @@ Use CLI commands to disable undesired optimization suites for a single user.
 
 To disable AccelerateWP suite:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp --disallowed --users=<username>
+cloudlinux-awp-admin set-suite --suites=accelerate_wp --disallowed --users=<username>
 ```
 
 To disable AccelerateWP Premium suite:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp_premium --disallowed --users=<username>
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --disallowed --users=<username>
 ```
 
 To disable both suites:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp,accelerate_wp_premium --disallowed --users=<username>
+cloudlinux-awp-admin set-suite --suites=accelerate_wp,accelerate_wp_premium --disallowed --users=<username>
 ```
 
 ### Useful AccelerateWP CLI commands
@@ -1434,6 +1434,40 @@ The example output is given below:
 }
 ```
 
+
+#### AccelerateWP disable Redis Object Cache Pro banner
+
+Depending on the server settings, the `WP_REDIS_DISABLE_BANNERS` constant will be defined in the `wp-config.php` file when the module is activated, which affects the display of promotional materials.
+
+To change the display of promotional materials for all new installations of the Redis Object Cache module by default, you need to set the settings:
+
+To display (by default):  
+```cloudlinux-awp-admin set-options --enable-object-cache-banners```
+
+To hide:  
+```cloudlinux-awp-admin set-options --disable-object-cache-banners```
+
+To change the `WP_REDIS_DISABLE_BANNERS` constant for previously installed modules, you need to run a process to update the constant:
+
+Hide on websites where the module is installed
+- for all websites:  
+  ```cloudlinux-awp-admin object-cache-banner --all --disable```  
+  or  
+  ```cloudlinux-awp-user object-cache-banner --all --disable```
+- for a specific website:  
+  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --disable```
+
+Display on websites where the module is installed
+- for all websites:  
+  ```cloudlinux-awp-admin object-cache-banner --all --enable```  
+  or  
+  ```cloudlinux-awp-user object-cache-banner --all --enable```
+- for a specific website:  
+  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --enable```
+
+If the banner was previously disabled/enabled for the website, then for its subsequent activation of the ObjectCache module, the general settings at the server level will be applied. This means that for each website we do not store an individual banner disable/enable setting.
+
+
 ### WHMCS billing
 
 CloudLinux developed it's own WHMCS plugin 
@@ -1453,7 +1487,7 @@ When AccelerateWP Premium is enabled in admin interface, users get proposal to u
 When user upgrades the subscription to the plan with AccelerateWP support, 
 billing must execute the following command on the server:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp_premium --allowed --source=BILLING_OVERRIDE --users=<username>
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed --source=BILLING_OVERRIDE --users=<username>
 ```
 
 This command makes two things:
@@ -1463,7 +1497,7 @@ This command makes two things:
 
 When user terminates or downgrades plan, the following command must be executed by the billing system:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp_premium --default --source=BILLING_OVERRIDE --users=<username>
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --default --source=BILLING_OVERRIDE --users=<username>
 ```
 
 ### Setup upgrade URL for AccelerateWP Premium
