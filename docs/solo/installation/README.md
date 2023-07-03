@@ -6,7 +6,7 @@
 ## Hardware compatibility
 
 CloudLinux OS Solo supports all the hardware supported by RHEL/CentOS, with few exceptions. 
-Exceptions are usually hardware that require binary drivers, and that doesn't have any open source alternatives.
+Exceptions are usually hardware that requires binary drivers, and that doesn't have any open-source alternatives.
 
 :::warning
 CloudLinux OS Solo does not support ARM-based CPUs (e.g. Graviton)
@@ -27,12 +27,12 @@ CloudLinux OS Solo on your server using [this link](https://repo.cloudlinux.com/
 There are multiple ISO types available:
 
 * `CloudLinux-*-boot.iso` - this ISO is made specifically for network installation and does not contain any packages inside.
-* `CloudLinux-*-dvd1.iso` - this one contains all packages from network installation repository, 
+* `CloudLinux-*-dvd1.iso` - this one contains all packages from the network installation repository, 
   so you can set up any possible configuration without network access.
-* `CloudLinux-*-minimal.iso` - this one contains only minimal set of packages to set up light server without GUI and Development tools.
+* `CloudLinux-*-minimal.iso` - this one contains only a minimal set of packages to set up a light server without GUI and Development tools.
 
 :::tip Note
-Once you install server from the ISO, make sure you [register your system](/shared/cloudlinux_installation/#license-activation) 
+Once you install a server from the ISO, make sure you [register your system](/shared/cloudlinux_installation/#license-activation) 
 and then run the `yum update` command to get all recent updates.
 :::
 
@@ -50,8 +50,8 @@ The first screen displayed is the language selection page.
 
 ![Welcome page screenshot](./images/welcome_page.png)
 
-First, find your preferred language in the left column and than select locale in the right one.
-Selected language will be used during installation and also as a default language of the installed system.
+First, find your preferred language in the left column and then select locale in the right one.
+The selected language will be used during installation and also as a default language of the installed system.
 
 After you select your language and locale, click `Continue` to confirm your selection 
 and proceed to the [Installation Summary](/solo/installation/#installation-summary). 
@@ -66,13 +66,13 @@ Most of the options which can be configured during the installation can be acces
 The summary screen displays links to other configuration screens, those links can be in 
 several different states, which are graphically indicated:
 
-- Grayed out link means that the installer is currently updating this sections. 
+- Grayed-out link means that the installer is currently updating this section. 
   Please wait a little before accessing this section. 
 
 - A warning symbol next to an icon means that a screen requires your attention before you start the installation.
 
-- Links without warning symbol mean that screen does not require your attention. 
-  You can still change your settings in these screens, but it is not required to start installation.
+- Links without a warning symbol mean that the screen does not require your attention. 
+  You can still change your settings in these screens, but it is not required to start the installation.
 
 #### Installation source
 
@@ -100,14 +100,14 @@ The correct installation URL for CloudLinux OS Solo is
 https://repo.cloudlinux.com/cloudlinux/8/BaseOS/x86_64/kickstart/
 ```
 
-Type in installation URL in the corresponding field, configure proxy if needed and press the `Done` button.
+Type in the installation URL in the corresponding field, configure the proxy if needed and press the `Done` button.
 
 ![](./images/installation_source_network_address.png)
 
 
 #### ISO file source
 
-This option is primary used as an alternative when you don't have internet connection on a target server.
+This option is primarily used as an alternative when you don't have an internet connection on a target server.
 It is only available if you downloaded Minimal or DVD ISO which contains some bundled packages in.
 
 ![](./images/installation_iso_source.png)
@@ -183,7 +183,7 @@ Next, [activate your installation](/solo/manager/#activation) in order to get up
 ## Converting existing servers
 
 :::warning
-Only CenOS 8/AlmaLinux 8 can be converted to the CloudLinux OS Solo 8. 
+Only CentOS 8/AlmaLinux 8 can be converted to the CloudLinux OS Solo 8. 
 :::
 
 Sometimes it is required to convert already existing servers with `CentOS` or `AlmaLinux` and make them `CloudLinux OS Solo`.
@@ -191,8 +191,8 @@ Sometimes it is required to convert already existing servers with `CentOS` or `A
 It is easy to convert your existing installation by cldeploy script. The process takes a few minutes and replaces just a handful of RPMs.
 
 :::warning
-Unlike [Fresh installation](/solo/installation/#fresh-installation), converting requires CloudLinux OS Solo license. 
-Please refer to the [guide](/solo/activation/) to get activation key.
+Unlike [Fresh installation](/solo/installation/#fresh-installation), converting requires a CloudLinux OS Solo license. 
+Please refer to the [guide](/solo/activation/) to get the activation key.
 :::
 
 ### Downloading and running conversion script
@@ -205,9 +205,9 @@ wget https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
 bash cldeploy -k ACTIVATION_KEY
 ```
 
-Where `ACTIVATION_KEY` is the one that you got on previous step.
+Where `ACTIVATION_KEY` is the one that you got in the previous step.
 
-If you want to get IP-based license, run the following commands:
+If you want to get an IP-based license, run the following commands:
 
 ```
 yum install wget -y
@@ -215,7 +215,7 @@ wget https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
 bash cldeploy -i --to-solo-edition
 ```
 
-After successful conversion, reboot your system by running the following command:
+After the successful conversion, reboot your system by running the following command:
 
 ```
 reboot
@@ -224,13 +224,13 @@ reboot
 The script automatically detects and supports the following control panels:
 * cPanel with Easy Apache 4
 
-Unfortunately, for now it is not possible to convert servers with:
+Unfortunately, for now, it is not possible to convert servers with:
 
 * Plesk
 * DirectAdmin
 * Other control panels that use [CloudLinux OS Shared integration](https://docs.cloudlinux.com/control_panel_integration/#introduction).
 
-Please subscribe to [our blog](https://blog.cloudlinux.com/), check news and receive updates. 
+Please subscribe to [our blog](https://blog.cloudlinux.com/), check the news and receive updates. 
 
 #### The cldeploy explanation
 
@@ -248,17 +248,17 @@ Here's what the cldeploy script does when you run it:
 * Detects OVH servers and fixes the mkinitrd issues.
 * Detects Linode servers and fixes the grub issues.
 * Checks if LES is installed.
-* Checks that the `/etc/fstab` has correct `/dev/root`.
+* Checks that the `/etc/fstab` has the correct `/dev/root`.
 * Checks for efi.
 * Installs CloudLinux Manager for cPanel Solo.
 
 #### Next steps
 
-Reboot your system, login and check EULA which is located in the `/usr/share/cloudlinux-release/EULA`.
+Reboot your system, log in and check EULA which is located in the `/usr/share/cloudlinux-release/EULA`.
 
 :::tip Note
 ISO installation provisions server with outdated packages. 
-It is highly recommended to run `yum update` right after first boot.
+It is highly recommended to run `yum update` right after the first boot.
 :::
 
 ## Uninstalling
@@ -286,15 +286,15 @@ wget -O cldeploy https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
 sh cldeploy -c
 ```
 
-Now you have converted back and it is the time to install kernel.
+Now you have converted back and it is time to install the kernel.
 
-To delete CloudLinux kernel, run the following command (change the kernel package name to the one you've been using):
+To delete the CloudLinux kernel, run the following command (change the kernel package name to the one you've been using):
 
 ```
 rpm -e --nodeps kernel-2.6.32-673.26.1.lve1.4.27.el6.x86_64
 ```
 
-To install new CentOS or AlmaLinux kernel once you deleted CloudLinux kernel, run the following command:
+To install a new CentOS or AlmaLinux kernel once you deleted the CloudLinux kernel, run the following command:
 
 ```
 yum install kernel
@@ -324,6 +324,6 @@ Before the reboot, the following command should be executed for restoring Apache
 ```
 
 :::tip Note
-Some packages from CloudLinux repo will still remain. They are the same as CentOS or AlmaLinux packages, and don't have to be removed. 
+Some packages from the CloudLinux repo will still remain. They are the same as CentOS or AlmaLinux packages and don't have to be removed. 
 They will be updated in the future from CentOS repositories, as new versions come out.
 :::
