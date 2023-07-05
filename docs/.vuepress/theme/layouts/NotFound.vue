@@ -8,99 +8,93 @@
 import {useRoute, useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import {pagesData} from "../../.temp/internal/pagesData.js";
+import redirects from './redirects.json';
+
 const route = useRoute()
 const router = useRouter()
 const allPages = ref([])
 
-const redirectList = [
-  {
-    from: "cloudlinux-os-plus/#get-started",
-    to: "shared-pro/accelerate-wp/#get-started"
-  },
-  {
-    from: "cloudlinux-os-plus/#setup-upgrade-url-for-acceleratewp-premium",
-    to: "shared-pro/accelerate-wp/#setup-upgrade-url-for-acceleratewp-premium"
-  },
-  {
-    from: "cloudlinux-os-plus",
-    to: "shared-pro"
-  },
-    {
-    from: "cagefs.html",
-    to: "shared/cloudlinux_os_components/#cagefs"
-  },
-    {
-    from: "index.html?cagefs_installation.html",
-    to: "shared/cloudlinux_os_components/#installation-and-update-1"
-  },
-    {
-    from: "mod_lsapi_troubleshooting.html",
-    to: "shared/cloudlinux_os_components/#troubleshooting-3"
+// Function to escape special characters in a string for use in a regular expression
+function escapeRegExp(string) {
+  return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
+}
+
+const redirectionURL = async () => {
+  // Check if the route starts with /index.html?
+  if (route.path.startsWith('/index.html?')) {
+    // Extract the part after the ?
+    const key = route.path.split('?')[1];
+    // Check if this key exists in the redirects
+    if (key in redirects) {
+      // If it does, redirect to the associated path
+      router.push(redirects[key]);
+      return true;
+    }
   }
-]
+  
+  for (let [from, to] of Object.entries(redirects)) {
+    // Existing code for paths without special characters
+    const escapedFrom = escapeRegExp(from);
+    if (route.path.search(escapedFrom) !== -1) {
+      const path = route.path.replace(new RegExp(escapedFrom, 'g'), to);
+      router.push(path);
+      return true;
+    }
+  }
+  return false;
+};
 
-onMounted(()=>{
-  const fullPath = route.path + route.hash;
-  const regex = new RegExp(fullPath,'gi')
 
+const getRecursiveLevelPath = (child, rootPath) => {
   let haveSolution = false;
 
-  const getRecursiveLevelPath = (child, rootPath) => {
-    if (haveSolution) return;
+  if (haveSolution) return;
 
-    if(child.children?.length > 0) {
-      for (let h of child.children) {
-        const path = rootPath + "/" + h.link
+  if(child.children?.length > 0) {
+    for (let h of child.children) {
+      const path = rootPath + "/" + h.link
 
-        if (path.search(regex) !== -1) {
-          router.push(path)
-          haveSolution = true
-          return;
-        }
+      if (path.search(route.path) !== -1) {
+        router.push(path)
+        haveSolution = true
+        return;
+      }
 
-        if (child.children.length > 0) {
-          getRecursiveLevelPath(h, rootPath)
-        }
+      if (child.children.length > 0) {
+        getRecursiveLevelPath(h, rootPath)
       }
     }
   }
+}
 
-  const redirectionURL = async () => {
-    const values = Object?.values(pagesData);
+onMounted(async ()=>{
+  // If a redirect was performed, stop checking the other techniques
+  if (await redirectionURL()) {
+    return;
+  }
 
-    for (let redirection of redirectList) {
-      if (fullPath.search(redirection.from) !== -1) {
-        const path = fullPath.replace(redirection.from, redirection.to);
+  // If no match found in JSON redirects, then check the existing techniques
+  const values = Object?.values(pagesData);
 
-        router.push(path);
-        return;
-      }
-    }
+  for (let value of values) {
+    const res = await value();
 
-    for (let value of values) {
-      const res = await value();
+    let rootPath = res.path;
 
-      let rootPath = res.path;
+    if (rootPath.at(-1) === "/")
+      rootPath = rootPath.slice(0, -1);
 
-      if (rootPath.at(-1) === "/")
-        rootPath = rootPath.slice(0, -1);
+    if(res.headers?.length > 0) {
+      for (let h of res.headers) {
+        const path = rootPath + "/" + h.link
 
-      if(res.headers?.length > 0) {
-        for (let h of res.headers) {
-          const path = rootPath + "/" + h.link
-
-          if (path.search(regex) !== -1){
-            router.push(path)
-            haveSolution = true
-            return;
-          }
-
-          getRecursiveLevelPath(h, rootPath);
+        if (path.search(route.path) !== -1){
+          router.push(path)
+          return;
         }
+        getRecursiveLevelPath(h, rootPath);
       }
     }
-  };
-
-  redirectionURL();
+  }
 })
 </script>
