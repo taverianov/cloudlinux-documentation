@@ -1,7 +1,7 @@
-// config.ts
 import { defineUserConfig, viteBundler } from "vuepress";
 import theme from "./theme";
 import plugins from "./config-user/plugins";
+import routes from './routes.json';
 
 export default defineUserConfig({
   theme,
@@ -48,5 +48,20 @@ export default defineUserConfig({
       })(window,document,'script','dataLayer','GTM-T538N4K');
       `,
     ],
+    [
+      "script",
+      {},
+      `
+      (function() {
+        var routes = ${JSON.stringify(routes)};
+    
+        for (var route_url in routes) {
+          if (window.location.href.indexOf(route_url) !== -1) {
+            window.location.href = routes[route_url];
+          }
+        }
+      })();
+      `,
+    ]     
   ],
 });
