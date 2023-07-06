@@ -20,19 +20,8 @@ function escapeRegExp(string) {
 }
 
 const redirectionURL = async () => {
-  // Check if the route starts with /index.html?
-  console.log(route.path)
-  console.log(route.query)
-  let path = route.path + '?';
-  let flag = 0;
-  for (const keyyy in route.query) {
-    if (flag)
-      path = path + '&';
-    path += `${keyyy}${route.query[keyyy] ? `=${route.query[keyyy]}` : ''}`;
-    flag = 1;
-  }
   // if (route.path.startsWith('/index.html?')) {
-  if (path.startsWith('/index.html?')) {
+  if (route.path.startsWith('/index.html?')) {
     // Extract the part after the ?
     const key = route.path.split('?')[1];
     // Check if this key exists in the redirects
