@@ -218,10 +218,33 @@ It is recommended to disable VMEM limits (set them to 0) in your system at all b
 
 Physical memory limit corresponds to the amount of memory actually used by end customer's processes. You can see individual process physical memory usage by monitoring RES column in top output for the process. Because similar processes (like PHP) share a lot of their memory, physical memory usage is often much lower then virtual memory usage.
 
-Additionally physical memory includes shared memory used by the customer, as well as disk cache.
+Additionally physical memory includes shared memory used by the customer, as well as disk cache (*disk cache may not be accounted in the statistics, see [Disable Page Cache accounting](/shared/limits/#disable-page-cache-accounting) below*).
 In case of disk cache – if a user is starting to lack physical memory, the memory used for disk cache will be freed up, without causing any memory faults.
 
 When LVE goes over physical memory limit, CloudLinux OS Shared will first free up memory used for disk cache, and if that is not enough, it will kill some of the processes within that LVE, and increment fPMEM counter. This will usually cause web server to serve 500 and 503 errors. Physical memory limit is a much better way to limit memory for shared hosting.
+
+#### Disable Page Cache accounting
+
+Since kmod-lve 2.0-53 (for CL8) and 2.1-17 (for CL9) we have released the new sysctl param `kernel.memstat_nocache`. 
+
+By default the LVE kernel module includes page cache amount when it accounts a physical memory consumption per-LVE. It can lead to the following case:
+![](./images/PhysicalMemoryUsageDisablePageCacheAccounting.png)
+
+The page cache stays in the memory after the processes that triggered him ended their work. It potentially confuses end customers.
+
+You can check the statistics by the following CLI command:
+```
+lveps
+```
+or see the statistics in your Hosting Panel web-interface: [Cloudlinux manager -> Statistics](/shared/lve_manager/#statistics).
+
+To make the statistics doesn’t count the page cache you could just enable the new `sysctl` option:
+```
+sysctl -w kernel.memstat_nocache=1
+```
+:::tip Note
+This option is enabled by default for new customers since the release of kmod-lve 2.0-53 (for CL8) and 2.1-17 (for CL9).
+:::
 
 ### Troubleshooting
 
