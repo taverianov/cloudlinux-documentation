@@ -4,18 +4,18 @@ sidebarDepth: 4
 
 # Limits
 
-* [Understanding limits](/limits/#understanding-limits)
-* [SPEED limit](/limits/#speed-limit)
-* [Memory limit](/limits/#memory-limit)
-* [IO](/limits/#io)
-* [IOPS](/limits/#iops)
-* [Entry processes](/limits/#entry-processes)
-* [Number of processes](/limits/#number-of-processes)
-* [Inodes](/limits/#inodes)
-* [Network traffic bandwidth control and accounting system](/limits/#network-traffic-bandwidth-control-and-accounting-system)
-* [Limits validation](/limits/#limits-validation)
-* [Compatibility matrix](/limits/#compatibility-matrix)
-* [Reseller Limits](/limits/#reseller-limits)
+* [Understanding limits](/shared/limits/#understanding-limits)
+* [SPEED limit](/shared/limits/#speed-limit)
+* [Memory limit](/shared/limits/#memory-limit)
+* [IO](/shared/limits/#io)
+* [IOPS](/shared/limits/#iops)
+* [Entry processes](/shared/limits/#entry-processes)
+* [Number of processes](/shared/limits/#number-of-processes)
+* [Inodes](/shared/limits/#inodes)
+* [Network traffic bandwidth control and accounting system](/shared/limits/#network-traffic-bandwidth-control-and-accounting-system)
+* [Limits validation](/shared/limits/#limits-validation)
+* [Compatibility matrix](/shared/limits/#compatibility-matrix)
+* [Reseller Limits](/shared/limits/#reseller-limits)
 * [WEB interface resource limiting modes](/limits/#web-interface-resource-limiting-modes)
 
 CloudLinux OS Shared has support for the following limits:
@@ -23,15 +23,15 @@ CloudLinux OS Shared has support for the following limits:
 | |  |  |  | |
 |--|---|--|--|--|
 |Limits | Units | Default Value | Description | Supported Kernels / OS|
-|<span class="notranslate"> [SPEED](/limits/#speed-limit) </span> | % of a core, or HZ | 100% | <span class="notranslate"> CPU </span> speed limit, relative to a single core, or specified in HZ (portable across <span class="notranslate"> CPU </span> s) | all|
-|<span class="notranslate">[CPU](/deprecated/#cpu-limits)</span> [deprecated] | % of <span class="notranslate"> CPU </span> | 25% | <span class="notranslate"> CPU </span> Limit (smallest of <span class="notranslate"> CPU </span> & NCPU is used) | all|
-|[NCPU](/deprecated/#cpu-limits) [deprecated] | number of cores | 1 CORE | Max number of cores (smallest of <span class="notranslate"> CPU </span> & NCPU used) | all|
-|[PMEM](/limits/#physical-memory-limit) | KB | 1024MB | Physical memory limit (RSS field in ps/RES in top). Also includes shared memory and disk cache | all|
-|[VMEM](/limits/#virtual-memory-limit) | KB | 0 | Virtual memory limit (VSZ field in ps/VIRT in top) | all|
-|[IO](/limits/#io) | KB/sec | 1024KB/sec | IO throughput - combines both read & write operations | CL8, CL7, CL6 lve1.1.9+ kernel|
-|[IOPS](/limits/#iops) [lve1.3+] | Operations per second | 1024 | Restricts total number of read/write operations per second. | all|
-|[NPROC](/limits/#number-of-processes) | number | 100 | Max number of processes within LVE | all|
-|[EP](/limits/#entry-processes) | number | 20 | Limit on entry processes. Usually represents max number of concurrent connections to apache dynamic scripts as well as SSH and cron jobs running simultaneously. | all|
+|<span class="notranslate"> [SPEED](/shared/limits/#speed-limit) </span> | % of a core, or HZ | 100% | <span class="notranslate"> CPU </span> speed limit, relative to a single core, or specified in HZ (portable across <span class="notranslate"> CPU </span> s) | all|
+|<span class="notranslate">[CPU](/shared/deprecated/#cpu-limits)</span> [deprecated] | % of <span class="notranslate"> CPU </span> | 25% | <span class="notranslate"> CPU </span> Limit (smallest of <span class="notranslate"> CPU </span> & NCPU is used) | all|
+|[NCPU](/shared/deprecated/#cpu-limits) [deprecated] | number of cores | 1 CORE | Max number of cores (smallest of <span class="notranslate"> CPU </span> & NCPU used) | all|
+|[PMEM](/shared/limits/#physical-memory-limit) | KB | 1024MB | Physical memory limit (RSS field in ps/RES in top). Also includes shared memory and disk cache | all|
+|[VMEM](/shared/limits/#virtual-memory-limit) | KB | 0 | Virtual memory limit (VSZ field in ps/VIRT in top) | all|
+|[IO](/shared/limits/#io) | KB/sec | 1024KB/sec | IO throughput - combines both read & write operations | CL8, CL7, CL6 lve1.1.9+ kernel|
+|[IOPS](/shared/limits/#iops) [lve1.3+] | Operations per second | 1024 | Restricts total number of read/write operations per second. | all|
+|[NPROC](/shared/limits/#number-of-processes) | number | 100 | Max number of processes within LVE | all|
+|[EP](/shared/limits/#entry-processes) | number | 20 | Limit on entry processes. Usually represents max number of concurrent connections to apache dynamic scripts as well as SSH and cron jobs running simultaneously. | all|
 
 
 
@@ -63,9 +63,9 @@ Bellow you can find recommendations for your typical shared hosting setup. The r
 
 ## Understanding limits
 
-* [Checking if LVE is installed](/limits/#checking-if-lve-is-installed)
-* [Controlling LVE limits](/limits/#controlling-lve-limits)
-* [Checking LVE usage](/limits/#checking-lve-usage)
+* [Checking if LVE is installed](/shared/limits/#checking-if-lve-is-installed)
+* [Controlling LVE limits](/shared/limits/#controlling-lve-limits)
+* [Checking LVE usage](/shared/limits/#checking-lve-usage)
 
 LVE is a kernel level technology developed by the CloudLinux team. The technology has common roots with container based virtualization and uses cgroups in its latest incarnation. It is lightweight and transparent. The goal of LVE is to make sure that no single web site can bring down your web server.
 
@@ -483,9 +483,9 @@ Network limits are supported only for processes inside LVE. By default it does n
 
 ## Limits validation
 
-* [Exceptions list (validation is not supported)](./#exceptions-list-validation-is-not-supported)
-* [Existing limits validation](./#existing-limits-validation)
-* [Best practice](./#best-practice)
+* [Exceptions list (validation is not supported)](/shared/limits/#exceptions-list-validation-is-not-supported)
+* [Existing limits validation](/shared/limits/#existing-limits-validation)
+* [Best practice](/shared/limits/#best-practice)
 
 Starting from <span class="notranslate">**lve-utils**</span> **version 3.1-1**, the validation of EP and NPROC limits is supported. If an administrator sets the NPROC limit less than (EP + 15), the following warning is shown:
 
@@ -610,12 +610,12 @@ Reseller limits feature also enables hosters to give their resellers controls ov
 Reseller cannot manage INODE or MYSQL limits. Neither his own, nor for his users.
 :::
 
-- [Design](./#design)
-- [Requirements](./#requirements)
-- [Configuration](./#configuration)
-    - [Enabling Reseller limits](./#enabling-reseller-limits)
-    - [How to disable Reseller limits](./#how-to-disable-reseller-limits)
-    - [More resources](./#more-resources)
+- [Design](/shared/limits/#design)
+- [Requirements](/shared/limits/#requirements)
+- [Configuration](/shared/limits/#configuration)
+    - [Enabling Reseller limits](/shared/limits/#enabling-reseller-limits)
+    - [How to disable Reseller limits](/shared/limits/#how-to-disable-reseller-limits)
+    - [More resources](/shared/limits/#more-resources)
 
 ### Design
 
@@ -650,7 +650,7 @@ As you probably have already understood, the reseller will technically be able t
 
 If you have decided to jump on board and enable Reseller limits for your resellers you should do the following:
 
-1. Make sure that you run CloudLinux OS Shared with the kernel and lvemanager that meets the [necessary requirements](./#requirements). 
+1. Make sure that you run CloudLinux OS Shared with the kernel and lvemanager that meets the [necessary requirements](/shared/limits/#requirements). 
 2. Log in with a hoster access.
 3. You can create a new reseller account or configure an existing reseller account to have Reseller limits enabled. Consult your control panel documentation on how to do that.
 4. For cPanel servers when creating an account, make sure to tick two checkboxes **Make this account a reseller** and **Make the account own itself** in the _Reseller Settings_ box.
