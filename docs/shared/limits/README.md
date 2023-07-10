@@ -1,3 +1,7 @@
+---
+sidebarDepth: 4
+---
+
 # Limits
 
 * [Understanding limits](/limits/#understanding-limits)
