@@ -87,7 +87,7 @@ Each LVE limits amount of entry processes (Apache processes entering into LVE) t
 * If the site is limited by <span class="notranslate"> CPU </span> or <span class="notranslate">IO</span>, then the site will start responding slower.
 * If the site is limited by memory or number of processes limits, then the user will receive 500 or 503 errors that server cannot execute the script.
 
-#### Checking if LVE is installed
+### Checking if LVE is installed
 
 To use LVE you should have CloudLinux OS Shared kernel installed, and LVE module loaded. You can check the kernel by running the following command:
 
@@ -118,7 +118,7 @@ Starting from kernels lve1.4.x iolimits module is a part of kmod-lve and could n
 
 You need to reboot the server, after you set this option to make the changes live.
 
-#### Controlling LVE limits
+### Controlling LVE limits
 
 The best way to control LVE limits is using <span class="notranslate">LVE Manager</span> in your favorite control panel. Alternatively, you can use command line tool `lvectl` to control limits.
 The limits are saved in <span class="notranslate">`/etc/container/ve.cfg`</span> 
@@ -149,7 +149,7 @@ Example:
 
 Sets <span class="notranslate">CPU</span> limit to 25%, <span class="notranslate">IO</span> limit to 1024KB/s, <span class="notranslate">virtual memory</span> limit to 1GB (memory limit is set as a number of 4096 bytes pages), <span class="notranslate">physical memory</span> limit to 1GB, <span class="notranslate"> CPU</span> cores per LVE to 1, maximum entry processes to 200 and no limit for number of processes for all LVEs. It also sets the limit of 30% and number of processes limit to 5 for LVE with ID 532.
 
-#### Checking LVE usage
+### Checking LVE usage
 
 
 One of the best way to monitor current usage is [lvetop](/shared/command-line_tools/#lvetop):
