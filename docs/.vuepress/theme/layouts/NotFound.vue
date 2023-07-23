@@ -1,18 +1,57 @@
 <template>
-  <div class="theme-container">
-    Not found
+  <div class="custom-container">
+    <h1>404</h1>
+    <p class="custom-text">The page you are looking for does not exist. It might have been moved or deleted.</p>
+    <a class="custom-btn" href="./">Home</a>
   </div>
 </template>
 
+<style>
+/* Custom styles for the container */
+.custom-container {
+  padding: 40px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.custom-img {
+  color: white;
+}
+
+.custom-text {
+  color: white;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.custom-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: blue;
+  background-color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  cursor: pointer;
+}
+</style>
+
+
 <script setup>
-import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
-import {pagesData} from "../../.temp/internal/pagesData.js";
+import { useRoute, useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
+import { pagesData } from "../../.temp/internal/pagesData.js";
 import redirects from './redirects.json';
 
-const route = useRoute()
-const router = useRouter()
-const allPages = ref([])
+const route = useRoute();
+const router = useRouter();
+const allPages = ref([]);
 
 // Function to escape special characters in a string for use in a regular expression
 function escapeRegExp(string) {
@@ -20,7 +59,6 @@ function escapeRegExp(string) {
 }
 
 const redirectionURL = async () => {
-  // if (route.path.startsWith('/index.html?')) {
   if (route.path.startsWith('/index.html?')) {
     // Extract the part after the ?
     const key = route.path.split('?')[1];
@@ -44,7 +82,6 @@ const redirectionURL = async () => {
   return false;
 };
 
-
 const getRecursiveLevelPath = (child, rootPath) => {
   let haveSolution = false;
 
@@ -65,9 +102,9 @@ const getRecursiveLevelPath = (child, rootPath) => {
       }
     }
   }
-}
+};
 
-onMounted(async ()=>{
+onMounted(async () => {
   // If a redirect was performed, stop checking the other techniques
   if (await redirectionURL()) {
     return;
@@ -96,5 +133,5 @@ onMounted(async ()=>{
       }
     }
   }
-})
+});
 </script>
