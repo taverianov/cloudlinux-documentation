@@ -1,46 +1,8 @@
 <template>
   <div class="custom-container">
-    <h1>404</h1>
-    <p class="custom-text">The page you are looking for does not exist. It might have been moved or deleted.</p>
-    <a class="custom-btn" href="./">Home</a>
+    <p class="custom-text">Not found</p>
   </div>
 </template>
-
-<style>
-/* Custom styles for the container */
-.custom-container {
-  padding: 40px;
-  margin: 0 auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: blue;
-}
-
-.custom-img {
-  color: white;
-}
-
-.custom-text {
-  color: white;
-  margin-top: 18px;
-  text-align: center;
-}
-
-.custom-btn {
-  padding: 10px 20px;
-  border-radius: 6px;
-  color: blue;
-  background-color: white;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-top: 15px;
-  cursor: pointer;
-}
-</style>
 
 
 <script setup>
