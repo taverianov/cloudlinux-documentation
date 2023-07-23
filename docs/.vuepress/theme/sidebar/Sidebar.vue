@@ -88,7 +88,6 @@ const checkIfScroll = () => {
   const sidebarAnchors = sidebar.querySelectorAll('a')
   const sidebarAnchorsContainer = sidebar.querySelectorAll('.collapsible.sidebar-sub-header')
   const sidebarStringLinks = Array.from(sidebarAnchors).map(a => a.getAttribute('data-anchor'))
-  var found = false;
 
   pageAnchors.forEach((a)=>{
     if(a.getAttribute('data-anchor')) return
@@ -96,13 +95,12 @@ const checkIfScroll = () => {
   })
 
   pageAnchors.forEach(a => {
-    if (isInViewport(a) && !found) {
+    if (isInViewport(a)) {
       const currentLink = sidebarStringLinks.find(link => link === a.getAttribute('data-anchor'))
       sidebarAnchorsContainer.forEach(container => {
         container.querySelectorAll('.sidebar-link-container').forEach(cl => {
           if (container.querySelector(`a[data-anchor="${currentLink}"]`)) {
             cl.classList.remove("collapsed")
-            //found = true
           }
           else cl.classList.add("collapsed")
         })
