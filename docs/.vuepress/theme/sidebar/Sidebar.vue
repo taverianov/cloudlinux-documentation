@@ -71,11 +71,15 @@ const toggleGroup = (index) => {
 
 const isInViewport = (element) => {
   const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
   return (
-      rect.top >= 0 &&
-      rect.bottom <= window.innerHeight - 650
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
-}
+};
 watch(() => route, refreshIndex)
 
 const checkIfScroll = () => {
@@ -95,11 +99,13 @@ const checkIfScroll = () => {
       const currentLink = sidebarStringLinks.find(link => link === a.getAttribute('data-anchor'))
       sidebarAnchorsContainer.forEach(container => {
         container.querySelectorAll('.sidebar-link-container').forEach(cl => {
-          if (container.querySelector(`a[data-anchor="${currentLink}"]`)) cl.classList.remove("collapsed")
+          if (container.querySelector(`a[data-anchor="${currentLink}"]`)) {
+            cl.classList.remove("collapsed")
+          }
           else cl.classList.add("collapsed")
         })
       })
-
+        
       if (sidebar.querySelector(`a[data-anchor="${currentLink}"]`)) {
         sidebarAnchors.forEach(a => a.classList.remove("active"))
         sidebar.querySelector(`a[data-anchor="${currentLink}"]`).classList.add("active")
@@ -118,12 +124,41 @@ const resolveOpenGroupIndex = (route, items) => {
   return -1
 }
 
-onMounted(() => {
-  refreshIndex()
-  !props.isMobileWidth ? window.addEventListener("scroll", checkIfScroll) : null
-})
+const handleHashChange = () => {
+  // Get the current hash from the URL
+  const currentHash = window.location.hash;
 
-onUnmounted(() => window.removeEventListener("scroll", checkIfScroll))
+  // Find the corresponding anchor link in the sidebar
+  const sidebarAnchors = document.querySelectorAll('.sidebar a');
+  sidebarAnchors.forEach((a) => {
+    if (a.getAttribute('data-anchor') === currentHash) {
+      // Remove the "active" class from all sidebar links and add it only to the current one
+      sidebarAnchors.forEach((link) => link.classList.remove('active'));
+      a.classList.add('active');
+
+      // Expand the parent collapsible sidebar item, if any
+      const parentCollapsible = a.closest('.collapsible');
+      if (parentCollapsible) {
+        parentCollapsible.classList.remove('collapsed');
+      }
+    }
+  });
+};
+
+onMounted(() => {
+  refreshIndex();
+  !props.isMobileWidth ? window.addEventListener('scroll', checkIfScroll) : null;
+  !props.isMobileWidth ? window.addEventListener('resize', checkIfScroll) : null;
+
+  // Listen to the "hashchange" event to handle direct anchor link access
+  window.addEventListener('hashchange', handleHashChange);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkIfScroll);
+  window.removeEventListener('resize', checkIfScroll);
+  window.removeEventListener('hashchange', handleHashChange);
+});
 
 </script>
 

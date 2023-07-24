@@ -1,18 +1,19 @@
 <template>
-  <div class="theme-container">
-    Not found
+  <div class="custom-container">
+    <p class="custom-text">Not found</p>
   </div>
 </template>
 
+
 <script setup>
-import {useRoute, useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
-import {pagesData} from "../../.temp/internal/pagesData.js";
+import { useRoute, useRouter } from "vue-router";
+import { onMounted, ref } from "vue";
+import { pagesData } from "../../.temp/internal/pagesData.js";
 import redirects from './redirects.json';
 
-const route = useRoute()
-const router = useRouter()
-const allPages = ref([])
+const route = useRoute();
+const router = useRouter();
+const allPages = ref([]);
 
 // Function to escape special characters in a string for use in a regular expression
 function escapeRegExp(string) {
@@ -20,7 +21,6 @@ function escapeRegExp(string) {
 }
 
 const redirectionURL = async () => {
-  // if (route.path.startsWith('/index.html?')) {
   if (route.path.startsWith('/index.html?')) {
     // Extract the part after the ?
     const key = route.path.split('?')[1];
@@ -44,7 +44,6 @@ const redirectionURL = async () => {
   return false;
 };
 
-
 const getRecursiveLevelPath = (child, rootPath) => {
   let haveSolution = false;
 
@@ -65,9 +64,9 @@ const getRecursiveLevelPath = (child, rootPath) => {
       }
     }
   }
-}
+};
 
-onMounted(async ()=>{
+onMounted(async () => {
   // If a redirect was performed, stop checking the other techniques
   if (await redirectionURL()) {
     return;
@@ -96,5 +95,5 @@ onMounted(async ()=>{
       }
     }
   }
-})
+});
 </script>
