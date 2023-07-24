@@ -76,7 +76,7 @@ const isInViewport = (element) => {
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom <= (window.innerHeight / 2 || document.documentElement.clientHeight / 2) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
