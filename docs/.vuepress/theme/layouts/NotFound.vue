@@ -1,6 +1,5 @@
 <template>
   <div class="custom-container">
-    <p class="custom-text">Not found</p>
   </div>
 </template>
 
@@ -37,10 +36,12 @@ const redirectionURL = async () => {
     const escapedFrom = escapeRegExp(from);
     if (route.path.search(escapedFrom) !== -1) {
       const path = route.path.replace(new RegExp(escapedFrom, 'g'), to);
+      // If match is found, return true
       router.push(path);
       return true;
     }
   }
+  // If no match is found, return false
   return false;
 };
 
@@ -94,6 +95,9 @@ onMounted(async () => {
         getRecursiveLevelPath(h, rootPath);
       }
     }
+  }
+  if (!await redirectionURL()) {
+    window.location.href = '/404.html';
   }
 });
 </script>
