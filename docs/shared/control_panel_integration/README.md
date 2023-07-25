@@ -16,7 +16,7 @@
 * [CloudLinux OS Shared and Admin LVE and CageFS patches](./#cloudlinux-os-shared-lve-and-cagefs-patches)
 * [Hardened PHP](./#hardened-php)
 * [CloudLinux OS kernel set-up](./#cloudlinux-os-shared-kernel-set-up)
-* [How to integrate X-Ray with a conrol panel](./#how-to-integrate-x-ray-with-a-control-panel)
+* [How to integrate X-Ray and AccelerateWP with a conrol panel](./#how-to-integrate-x-ray-with-a-control-panel)
 
 :::tip Note
 We encourage you to create a pull request with your feedback at the bottom of the page.
@@ -2127,17 +2127,23 @@ Some of CloudLinux OS Shared utilities (`cagefsctl`, `selectorctl`, `cloudlinux-
 So they are subject to the disk quotas if any are set for the user. The utilities can override these quotas to avoid failures.
 See [File system quotas](/shared/cloudlinux_os_kernel/#file-system-quotas) for kernel parameters controlling these permissions. This parameter is used only for XFS file system.
 
-## How to integrate X-Ray with a control panel
+## How to integrate X-Ray and AccelerateWP with a control panel
 
 :::warning WARNING!
-Please note that cPanel, Plesk and DirectAdmin are already supported by X-Ray and do not require any integration effort.
+Please note that cPanel, Plesk and DirectAdmin are already supported by X-Ray and AccelerateWP and do not require any integration effort.
 :::
 
 :::tip Note
-X-Ray support is available since API v1.2 (see [versioning](./#versioning))
+X-Ray and AccelerateWP support is available since API v1.2 (see [versioning](./#versioning))
 :::
 
-In order to integrate X-Ray into your panel, you should follow two simple steps.
+:::tip Note
+AccelerateWP has following known limitaions:
+- only alt-php and native php's are supported by integration
+- only cgi and fpm handlers are supported
+:::
+
+In order to integrate X-Ray or AccelerateWP into your panel, you should follow two simple steps.
 
 1. Extend the output of your existing [domains integration script](./#domains) as follows:
 
@@ -2151,7 +2157,7 @@ domains = /opt/cpvendor/bin/vendor_integration_script domains
 ```
 </div>
 
-in <span class="notranslate">`[integration_scripts]`</span> section, X-Ray would call this script as
+in <span class="notranslate">`[integration_scripts]`</span> section, X-Ray and AccelerateWP would call this script as
 <div class="notranslate">
 
 ```
@@ -2159,7 +2165,7 @@ in <span class="notranslate">`[integration_scripts]`</span> section, X-Ray would
 ```
 </div>
 
-1.2. In order to enable X-Ray support, the script output should return a representation of all domains on the server: a key-value object, where a key is a domain (or subdomain) and a value is a key-value object contains the owner name (UNIX users) and PHP interpreter configuration. **If you are extending the existing domains integration script, you just include the PHP configuration.**
+1.2. In order to enable X-Ray or AccelerateWP support, the script output should return a representation of all domains on the server: a key-value object, where a key is a domain (or subdomain) and a value is a key-value object contains the owner name (UNIX users) and PHP interpreter configuration. **If you are extending the existing domains integration script, you just include the PHP configuration.**
 
 PHP interpreter configuration for each domain is to be placed in the nested key-value object of the following format:
 
