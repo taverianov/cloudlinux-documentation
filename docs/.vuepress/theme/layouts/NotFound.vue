@@ -97,7 +97,7 @@ onMounted(async () => {
     }
   }
   if (!await redirectionURL()) {
-    window.location.href = '/404.html';
+    window.location.href = '/not-found.html';
   }
 });
 </script>
