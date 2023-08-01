@@ -126,6 +126,8 @@ CLI commands for managing AccelerateWP are provided by those utilities:
 - `cloudlinux-awp-admin` - for administrator-side actions;
 - `cloudlinux-awp-user` - for user-side actions;
 
+[Smart Advice CLI for managing optimization advices](/shared-pro/x-ray/#smart-advice-cli-commands)
+
 Starting from `accelerate-wp-1.6-6` AccelerateWP CLI utilities provide CLI versioning which is defined via `--api-version` option. 
 
 :::tip Note
@@ -451,8 +453,8 @@ cloudlinux-awp-admin --api-version 1 enable-feature (--all | --status)
 
 Use the that command to ensure the best performance for every end-user. CLI command
 scans a server for all WordPress sites and activates the AccelerateWP
-feature suite. It can take up to 2 minutes for a single site. CLI command skips activation for WordPress sites with
-page caching or feature incompatibilities.
+free feature suite. It can take up to 2 minutes for a single site. 
+CLI command skips activation for WordPress sites with page caching or feature incompatibilities.
 
 :::tip Note
 Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.
