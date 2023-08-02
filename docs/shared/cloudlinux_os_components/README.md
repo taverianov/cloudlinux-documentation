@@ -5844,7 +5844,7 @@ yum install lve-utils lvemanager alt-python-virtualenv alt-mod-passenger
 * We recommend use CageFS for better security. See [CageFS documentation for details](./#cagefs).
 
 
-* See also [Python Selector UI](/shared/lve_manager/#python-selector-2).
+* See also [Python Selector UI](/shared/lve_manager/#python-selector).
 * See also [Python Selector CLI](/shared/command-line_tools/#python-selector).
 
 ## Ruby Selector
