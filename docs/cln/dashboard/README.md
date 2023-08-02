@@ -377,6 +377,14 @@ There are no trials available for the ELS subscription
 
 ### CloudLinux Backup
 
+:::warning
+We regret to inform you that our CL Backup will be reaching its End of Life (EOL) phase soon, effective Oct 1st, 2023. This decision has been made after careful consideration and is in line with our commitment to focus on developing new and innovative solutions for our valued customers.
+ 
+Outlined below are important details regarding the EOL process:
+1. _End of Sales_: As of Jun 2023, we will no longer be accepting new orders for the CL Backup. 
+2. _Support_: We will continue to provide technical support until Sep 30th, 2023. However, after this date, we will no longer be able to offer support for the product.
+3. Make sure that you moved backups to other providers before Sep 30th, 2023.
+:::
 
 Available only if CLoudLinux Backup is purchased and activated.
 
