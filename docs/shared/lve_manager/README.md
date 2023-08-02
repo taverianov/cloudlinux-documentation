@@ -1738,6 +1738,11 @@ There are several columns in the list:
 
 #### Create application
 
+:::warning
+**NB!** 
+Do not use "python37", "python38", "python311" (i.e. **"python{version number}"**) as names for your applications as this causes unexpected errors.
+:::
+
 1. Click <span class="notranslate">_Create Application_</span> to create an application. The Create Application tab opens.
 
     ![](./images/PythonCreateApp1.png)
