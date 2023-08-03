@@ -1006,8 +1006,25 @@ After renaming a domain (or any equivalent domain removal operation with transfe
 |<span class="notranslate">--include-subdomains</span>|No |False |If set, all subdomains are renamed as well, i.e. when renaming domain.com → domain.eu the corresponding subdomain will be renamed as well test.domain.com → test.domain.eu.|
 
 ## Web UI integration
+UI integration can be configured in `lvemanager_config` section of the `/opt/cpvendor/etc/integration.ini`:
 
-### ui-user-info script
+Example:
+<div class="notranslate">
+
+```
+[lvemanager_config]
+ui_user_info = /panel/path/ui_user_info.sh
+base_path = /panel/path/lvemanager
+
+run_service = 1
+service_port = 9000
+use_ssl = 1
+ssl_cert = /path/to/domain_srv.crt
+ssl_key = /path/to/domain_srv.key
+```
+</div>
+
+### ui_user_info script
 
 * [Known issues for GUI unification](./#known-issues-for-gui-unification)
 
@@ -1031,7 +1048,7 @@ This script should return information about the current user opening Web UI. It 
 ```
 </div>
 
-* **<span class="notranslate">userName</span>** is used in queries to Selectors.
+* **<span class="notranslate">userName</span>** is used in queries to Selectors and Resource Usage plugin.
 * **<span class="notranslate">userId</span>** - system user ID if exist.
 * **<span class="notranslate">userType</span>** - can have the following values: “user”, “reseller”, “admin”
 * **<span class="notranslate">lang</span>** - used to identify a current locale in the user interface (‘en’, ‘ru’ - two-character language code)
@@ -1110,6 +1127,56 @@ vendor_php = /opt/cpvendor/etc/vendor.php
 ```
 
 Queries to the backend are created separately in the points (PHP files) which are located in the LVE Manager catalog.
+
+### Implement logic to show or hide plugin’s.
+Vendor can implement logic to show or hide the end-user's plugin inside his control panel. Current UI settings are stored in the config file `/usr/share/l.v.e-manager/lvemanager-config.json`.
+
+<div class="notranslate">
+
+```
+{
+    "ui_config": {
+    "inodeLimits": {
+        "showUserInodesUsage": false
+    },
+    "uiSettings": {
+        "hideRubyApp": true,
+        "hideLVEUserStat": false,
+        "hidePythonApp": false,
+        "hideNodeJsApp": false,
+        "hidePHPextensions": false,
+        "hideDomainsTab": false,
+        "hidePhpApp": false,
+        "hideXrayApp": true,
+        "hideAccelearteWPApp": false
+        }
+    }
+}
+```
+</div>
+
+List of available to use options from `ui_config.uiSettings`:
+
+`hideLVEUserStat` - show or hide “Resource Usage” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+`hidePhpApp` - show or hide “PHP Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+`hidePythonApp` - show or hide “Python Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+`hideNodeJsApp` - show or hide “Nodejs Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+`hideXrayApp` - show or hide “X-Ray” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+`hideAccelerateWPApp` - show or hide “AccelerateWP” plugin for end-user (hide if value is `true`, show if value is `false`).
+
+
+*Brand assets* located in  `/usr/share/l.v.e-manager/commons/brand-assets`. In the `images` folder present icons which vendor can use while embeds plugin into control panel.
+There are icons for the following plugins:
+* Cloudlinux Manager;
+* Resource Usage;
+* Python/NodeJS,PHP Selectors;
+* X-Ray;
+* AccelerateWP;
 
 ### UI with CageFS enabled
 
