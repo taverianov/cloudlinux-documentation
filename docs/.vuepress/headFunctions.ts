@@ -1,3 +1,5 @@
+import routes from './routes.json';
+
 export default [
     [
       "script",
@@ -32,6 +34,21 @@ export default [
       "script",
       {},
       `
+      (function() {
+        var routes = ${JSON.stringify(routes)};
+    
+        for (var route_url in routes) {
+          if (window.location.href.indexOf(route_url) !== -1) {
+            window.location.href = routes[route_url];
+          }
+        }
+      })();
+      `,
+    ],
+    [
+      "script",
+      {},
+      `
         (function() {
           // Trigger the scroll event without actually scrolling
           function triggerScrollEvent() {
@@ -49,6 +66,6 @@ export default [
           });
         })();
       `,
-    ],
+    ]
   ];
   
