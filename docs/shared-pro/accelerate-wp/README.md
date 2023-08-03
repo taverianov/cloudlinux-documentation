@@ -152,6 +152,10 @@ supported commands for `--api-version 1`:
 - `enable-feature` - activate free AccelerateWP feature to all users on the server;
 - `object-cache-banner` - manage Redis Object Cache Pro banner visibility in WordPress (hide or show banner for specific WordPress site);
 
+All CLI responses contain `result` field which says was call successful or not.
+- `{"result": "success"}`  - in case of successful call
+- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details
+
 #### Manage AccelerateWP optimization suites
 
 `--api-version 1`
@@ -406,6 +410,8 @@ cloudlinux-awp-admin --api-version 1 get-stat
 
 This CLI command returns the following information:
 * number of `allowed_users` in `total` and per feature
+* * number of `visible_users` in `total` and per feature
+* number of `allowed_suites` per suite
 * number of sites with enabled features in `total` and per feature -- `enabled_sites`
 * number of users with visible features in `total` and per feature -- `visible_users`
 * features which are currently allowed -- `features_allowed_by_default`
@@ -415,33 +421,79 @@ The example output is given below:
 
 ```
 {
+    "accelerate_wp_suite_enabled_premium_suite_disallowed": 0,
+    "accelerate_wp_suite_enabled_premium_suite_visible": 0,
+    "allowed_suites": {
+        "accelerate_wp": 1,
+        "accelerate_wp_cdn_free": 1,
+        "accelerate_wp_cdn_pro": 0,
+        "accelerate_wp_premium": 1
+    },
     "allowed_users": {
-        "object_cache": 0,
+        "cdn_free": 1,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 1,
+        "object_cache": 1,
         "site_optimization": 1,
         "total": 1
     },
     "enabled_sites": {
+        "cdn_free": 0,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 0,
         "object_cache": 0,
-        "site_optimization": 1,
+        "site_optimization": 0,
         "total": 1
     },
+    "enabled_suites": {
+        "accelerate_wp": 0,
+        "accelerate_wp_cdn_free": 0,
+        "accelerate_wp_cdn_pro": 0,
+        "accelerate_wp_premium": 1
+    },
+    "enabled_users": {
+        "cdn_free": 0,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 0,
+        "object_cache": 0,
+        "site_optimization": 0
+    },
     "features_allowed_by_default": [
+        "cdn",
+        "critical_css",
+        "image_optimization",
+        "object_cache",
         "site_optimization"
     ],
     "features_visible_by_default": [
+        "cdn",
+        "critical_css",
+        "image_optimization",
         "object_cache",
         "site_optimization"
     ],
     "is_accelerate_wp_flag_enabled": false,
     "is_accelerate_wp_icon_enabled": true,
     "result": "success",
-    "timestamp": 1681208259.19426,
+    "timestamp": 1690979440.5282295,
+    "upgrade_urls": {
+        "accelerate_wp_cdn_pro": null,
+        "accelerate_wp_premium": null
+    },
     "visible_users": {
-        "object_cache": 22,
-        "site_optimization": 22,
-        "total": 23
+        "cdn_free": 1,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 1,
+        "object_cache": 1,
+        "site_optimization": 1,
+        "total": 1
     }
 }
+
 ```
 
 #### Activate free AccelerateWP for all WordPress sites on the server
@@ -530,6 +582,10 @@ supported commands:
 
 Use the following CLI command **_on behalf of a user_**
 
+All CLI responses contain `result` field which says was call successful or not.
+- `{"result": "success"}`  - in case of successful call
+- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details
+
 #### Enable optimization feature
 
 `--api-version 1`
@@ -554,6 +610,18 @@ cloudlinux-awp-user --api-version 1 enable --feature object_cache --wp-path "use
 
 Please, make sure `--wp-path` is same as in `"path"` key of `cloudlinux-awp-user get` json output.
 
+Successful response example of enabling feature:
+rely on `feature.enabled` field to identify that feature was enabled
+```
+{
+    "feature": {
+        "enabled": true
+    },
+    "result": "success",
+    "timestamp": 1690975273.8860605
+}
+```
+
 #### Disable optimization feature
 
 `--api-version 1`
@@ -575,6 +643,20 @@ cloudlinux-awp-user --api-version 1 disable --feature object_cache --wp-path "us
 ```
 
 Please, make sure `--wp-path` is same as in `"path"` key of `cloudlinux-awp-user get` json output.
+
+
+Successful response example of enabling feature:
+rely on `feature.enabled` field to identify that feature was enabled
+```
+{
+    "feature": {
+        "enabled": true,
+        "visible": true
+    },
+    "result": "success",
+    "timestamp": 1690975273.8860605
+}
+```
 
 #### AccelerateWP features detailed statistics
 
