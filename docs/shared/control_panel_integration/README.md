@@ -1013,9 +1013,11 @@ Example:
 
 ```
 [lvemanager_config]
+# Required
 ui_user_info = /panel/path/ui_user_info.sh
-base_path = /panel/path/lvemanager
 
+# Can be optional or required depend on vendor implementation
+base_path = /panel/path/lvemanager
 run_service = 1
 service_port = 9000
 use_ssl = 1
@@ -1058,13 +1060,13 @@ This script should return information about the current user opening Web UI. It 
 
 The following configuration file parameters are used to determine the location of the plugin UI part.
 
-* **<span class="notranslate">base_path</span>** - the path to copy file assets to make them available from the control panel. Optional if <span class="notranslate">`/usr/share/l.v.e-manager/commons`</span> and <span class="notranslate">`/usr/share/l.v.e-manager/panelless-version/lvemanager`</span> are available from the control panel and the paths to this directory in web server are set.
-Files are copied or replaced by <span class="notranslate">`yum update lvemanager`</span> command.
-* **<span class="notranslate">run_service</span>** - enable LVE Manager web server. If it is set to 1 when installing or updating LVE Manager, we enable and run the web server with LVE Manager
-* **<span class="notranslate">service_port</span>** - a port used for running a web server for access LVE Manager without the control panel
-* **<span class="notranslate">use_ssl</span>** - use HTTPS for LVE Manager web server.
-* **<span class="notranslate">ssl_cert</span>** - path to domain ssl cert file
-* **<span class="notranslate">ssl_key</span>** - path to domain ssl cert key file
+* **<span class="notranslate">`base_path`</span>** - directory where file assets are copied for accessibility from the control panel. This is optional if the default directories `/usr/share/l.v.e-manager/commons` and `/usr/share/l.v.e-manager/panelless-version/lvemanager` are accessible from the control panel and correctly configured in the web server. The command `yum update lvemanager` performs file copying or replacement.
+* **<span class="notranslate">`run_service`</span>** - parameter that activates the LVE Manager web server. Set it to 1 during the installation or updating of LVE Manager to run the web server automatically.
+* **<span class="notranslate">`service_port`</span>** - port used for running a web server for access LVE Manager without the control panel (required if `run_service = 1`)
+* **<span class="notranslate">`use_ssl`</span>** - optional parameter that mandates the use of HTTPS for the LVE Manager web server when set to 1.
+* **<span class="notranslate">`ssl_cert`</span>** - conditional parameter that becomes essential when `use_ssl` is activated. Identifies the path to the SSL certificate file for the domain.
+* **<span class="notranslate">`ssl_key`</span>** - conditional parameter that becomes mandatory when `use_ssl` is enabled. Specifies the path to the SSL certificate key file for the domain.
+
 #### Known issues for GUI unification
 
 :::warning Known issues for GUI unification
@@ -1128,55 +1130,50 @@ vendor_php = /opt/cpvendor/etc/vendor.php
 
 Queries to the backend are created separately in the points (PHP files) which are located in the LVE Manager catalog.
 
-### Implement logic to show or hide plugin’s.
-Vendor can implement logic to show or hide the end-user's plugin inside his control panel. Current UI settings are stored in the config file `/usr/share/l.v.e-manager/lvemanager-config.json`.
+### Implementing Logic for Plugin Visibility Control
+
+Vendors can implement logic to control the visibility of end-user plugins within their control panel. The current UI settings are stored in the read-only config file located at `/usr/share/l.v.e-manager/lvemanager-config.json`. **Note: This file is read-only and cannot be modified by vendors. Vendors should read this file and implement logic in their own systems to show or hide icons based on the settings in this config file.**
 
 <div class="notranslate">
 
 ```
 {
     "ui_config": {
-    "inodeLimits": {
-        "showUserInodesUsage": false
-    },
-    "uiSettings": {
-        "hideRubyApp": true,
-        "hideLVEUserStat": false,
-        "hidePythonApp": false,
-        "hideNodeJsApp": false,
-        "hidePHPextensions": false,
-        "hideDomainsTab": false,
-        "hidePhpApp": false,
-        "hideXrayApp": true,
-        "hideAccelearteWPApp": false
+        "inodeLimits": {
+            "showUserInodesUsage": false
+        },
+        "uiSettings": {
+            "hideRubyApp": true,
+            "hideLVEUserStat": false,
+            "hidePythonApp": false,
+            "hideNodeJsApp": false,
+            "hidePHPextensions": false,
+            "hideDomainsTab": false,
+            "hidePhpApp": false,
+            "hideXrayApp": true,
+            "hideAccelerateWPApp": false
         }
     }
 }
 ```
 </div>
 
-List of available to use options from `ui_config.uiSettings`:
+The following options are available under `ui_config.uiSettings`:
 
-`hideLVEUserStat` - show or hide “Resource Usage” plugin for end-user (hide if value is `true`, show if value is `false`).
+- `hideLVEUserStat` - control the visibility of the “Resource Usage” plugin for end-users (hide if value is `true`, show if value is `false`).
+- `hidePhpApp` - control the visibility of the “PHP Selector” plugin for end-users (hide if value is `true`, show if value is `false`).
+- `hidePythonApp` - control the visibility of the “Python Selector” plugin for end-users (hide if value is `true`, show if value is `false`).
+- `hideNodeJsApp` - control the visibility of the “Nodejs Selector” plugin for end-users (hide if value is `true`, show if value is `false`).
+- `hideXrayApp` - control the visibility of the “X-Ray” plugin for end-users (hide if value is `true`, show if value is `false`).
+- `hideAccelerateWPApp` - control the visibility of the “AccelerateWP” plugin for end-users (hide if value is `true`, show if value is `false`).
 
-`hidePhpApp` - show or hide “PHP Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
+*Brand assets* located in  `/usr/share/l.v.e-manager/commons/brand-assets`. In the `images` folder present icons which vendor can use while embeds plugin into control panel. Icons for the following plugins are available:
 
-`hidePythonApp` - show or hide “Python Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
-
-`hideNodeJsApp` - show or hide “Nodejs Selector” plugin for end-user (hide if value is `true`, show if value is `false`).
-
-`hideXrayApp` - show or hide “X-Ray” plugin for end-user (hide if value is `true`, show if value is `false`).
-
-`hideAccelerateWPApp` - show or hide “AccelerateWP” plugin for end-user (hide if value is `true`, show if value is `false`).
-
-
-*Brand assets* located in  `/usr/share/l.v.e-manager/commons/brand-assets`. In the `images` folder present icons which vendor can use while embeds plugin into control panel.
-There are icons for the following plugins:
-* Cloudlinux Manager;
-* Resource Usage;
-* Python/NodeJS,PHP Selectors;
-* X-Ray;
-* AccelerateWP;
+- CloudLinux Manager
+- Resource Usage
+- Python/NodeJS, PHP Selectors
+- X-Ray
+- AccelerateWP
 
 ### UI with CageFS enabled
 
