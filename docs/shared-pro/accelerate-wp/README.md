@@ -154,7 +154,18 @@ supported commands for `--api-version 1`:
 
 All CLI responses contain `result` field which says was call successful or not.
 - `{"result": "success"}`  - in case of successful call
-- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details
+- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details. 
+Response also could have `context` field to provide additional error info, e.g: username, optimization suite or feature, etc.
+Example:
+```
+{
+    "context": {
+        "suite": "accelerate_wp_cdn"
+    },
+    "result": "Suite %(suite)s is not visible for users and so cannot be allowed in billing. Activate the suite on server first. Contact your hoster if you don`t have an access to the server.",
+    "timestamp": 1691136964.3719108
+}
+```
 
 #### Manage AccelerateWP optimization suites
 
@@ -410,7 +421,7 @@ cloudlinux-awp-admin --api-version 1 get-stat
 
 This CLI command returns the following information:
 * number of `allowed_users` in `total` and per feature
-* * number of `visible_users` in `total` and per feature
+* number of `visible_users` in `total` and per feature
 * number of `allowed_suites` per suite
 * number of sites with enabled features in `total` and per feature -- `enabled_sites`
 * number of users with visible features in `total` and per feature -- `visible_users`
