@@ -60,44 +60,6 @@ requests come in and may be helpful in cases when full-page caching cannot be us
 * the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
 * WordPress should not be running in Multisite mode.
 
-#### Quick Start Guide (CLI)
-Enable AccelerateWP Free:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
-```
-Enable AccelerateWP Premium:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
-```
-Enable AccelerateWP Premium for free for all users:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
-```
-Set Premium Upgrade URL:
-```
-cloudlinux-awp-admin set-options --upgrade-url "https://plan.upgrade/splash" 
-```
-Enable CDN Free for all users:
-```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all && cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
-```
-Enable CDN 50GB for all users (users become billable when they activate):
-```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all
-```
-
-Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
-
-*Note: Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.*
-
-Scan the server in background mode and activate AccelerateWP on those WordPress sites where it is possible:
-```
-cloudlinux-awp-admin enable-feature --all
-```
-Check activation status:
-```
-cloudlinux-awp-admin enable-feature --status
-```
 ## Administrator interface
 
 #### Overview
@@ -157,96 +119,247 @@ You may use the following filters to browse AccelerateWP statistics slices.
 * `Users with CDN Pro only` filter will show statistics for users who utilize the AccelerateWP CDN Pro feature
 
 
-## Activate free AccelerateWP for all WordPress sites on the server
-Use the `cloudlinux-awp-admin enable-feature` CLI command to
-ensure the best performance for every end-user. CLI command
-scans a server for all WordPress sites and activates the AccelerateWP
-feature suite. It can take up to 2 minutes for a single site. CLI command skips activation for WordPress sites with
-page caching or feature incompatibilities.
+## AccelerateWP CLI
+
+CLI commands for managing AccelerateWP are provided by those utilities:
+
+- `cloudlinux-awp-admin` - for administrator-side actions;
+- `cloudlinux-awp-user` - for user-side actions;
+
+[Smart Advice CLI for managing optimization advices](/shared-pro/x-ray/#smart-advice-cli-commands)
+
+Starting from `accelerate-wp-1.6-6` AccelerateWP CLI utilities provide CLI versioning which is defined via `--api-version` option. 
 
 :::tip Note
-Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.
+It is highly recommended to specify CLI version explicitly via --api-version, otherwise CLI will rely on default settings, 
+which cannot guarantee backward compatability.
 :::
 
-Scan the server in background mode and activate AccelerateWP
-on those WordPress sites where it is possible:
-```
-cloudlinux-awp-admin enable-feature --all
-```
-The output will state the number of users for the scan and the
-progress state of the process.
 
-Check activation status:
-```
-cloudlinux-awp-admin enable-feature --status
-```
-The output will be either:
-* Activation is still in progress,
-* Activation is done. The message will state how many users
-were initially for the scan, a number of WordPress sites with
-successfully activated suite and the total number of WordPress sites
-scanned.
+### cloudlinux-awp-admin
 
-### Enable AccelerateWP CDN Pro
-
-To enable CDN Pro for all users:
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --users all --allowed-for-all
+cloudlinux-awp-admin --api-version <api_version> <command>
 ```
 
-To enable CDN Pro for a particular user:
+supported commands for `--api-version 1`:
+
+- `set-suite` - manage optimization suites;
+- `set-options` - manage server wide settings;
+- `get-report` - get per user information about optimization suites statuses (allowed/disallowed) and usage of specific suites;
+- `generate-report` - generate information, that is obtained via `get-report` command;
+- `get-stat` - get total information about suites statuses (allowed/disallowed/visible) and usage of optimization features;
+- `enable-feature` - activate free AccelerateWP feature to all users on the server;
+- `object-cache-banner` - manage Redis Object Cache Pro banner visibility in WordPress (hide or show banner for specific WordPress site);
+
+All CLI responses contain `result` field which says was call successful or not.
+- `{"result": "success"}`  - in case of successful call
+- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details. 
+Response also could have `context` field to provide additional error info, e.g: username, optimization suite or feature, etc.
+Example:
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --allowed --users=<username>
+{
+    "context": {
+        "suite": "accelerate_wp_cdn"
+    },
+    "result": "Suite %(suite)s is not visible for users and so cannot be allowed in billing. Activate the suite on server first. Contact your hoster if you don`t have an access to the server.",
+    "timestamp": 1691136964.3719108
+}
 ```
 
-## Disable AccelerateWP for a particular user
-Use CLI commands to disable undesired optimization suites for a single user.
+#### Manage AccelerateWP optimization suites
+
+`--api-version 1`
+
+supported suites:
+- `accelerate_wp` - AccelerateWP Free features;
+- `accelerate_wp_premium` - AccelerateWP Premium features;
+- `accelerate_wp_cdn` - AccelerateWP CDN 1 GB;
+- `accelerate_wp_cdn_pro` - AccelerateWP CDN Pro (50GB by default);
+
+supported actions for specific user(s):
+- `--allowed` - make features of optimization suite ALLOWED to be activated by end-user;
+- `--disallowed` - make features optimization suite DISALLOWED to be activated by end-user;
+
+```
+cloudlinux-awp-admin --api-version 1 set-suite --suites=<suites_comma_separated> --users=<usernames_comma_separated> (--allowed | --disallowed) [--attrs=<json_string>]
+```
+
+Examples of CLI commands to disable undesired optimization suite(s) for a single user.
 
 To disable the AccelerateWP suite:
 ```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp --disallowed --users=<username>
+cloudlinux-awp-admin --api-version 1 set-suite --suites=accelerate_wp --disallowed --users=<username>
 ```
 
 To disable the AccelerateWP Premium suite:
 ```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --disallowed --users=<username>
+cloudlinux-awp-admin --api-version 1 set-suite --suites=accelerate_wp_premium --disallowed --users=<username>
 ```
 
 To disable the AccelerateWP CDN suite:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp_cdn --disallowed --users=<username>
+cloudlinux-awp-admin --api-version 1 set-suite --suite=accelerate_wp_cdn --disallowed --users=<username>
 ```
 
 To disable the AccelerateWP CDN Pro suite:
 ```
-cloudlinux-awp-admin set-suite --suite=accelerate_wp_cdn_pro --disallowed --users=<username>
+cloudlinux-awp-admin --api-version 1 set-suite --suite=accelerate_wp_cdn_pro --disallowed --users=<username>
+```
+
+To enable CDN Pro for a particular user:
+```
+cloudlinux-awp-admin --api-version 1 set-suite --suites accelerate_wp_cdn_pro --allowed --users=<username>
 ```
 
 To disable all suites:
 ```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp,accelerate_wp_premium,accelerate_wp_cdn,accelerate_wp_cdn_pro --disallowed --users=<username>
+cloudlinux-awp-admin --api-version 1 set-suite --suites=accelerate_wp,accelerate_wp_premium,accelerate_wp_cdn,accelerate_wp_cdn_pro --disallowed --users=<username>
 ```
 
-## Useful AccelerateWP CLI commands
-Use CLI commands to check AccelerateWP features status.
+To define CDN traffic limit for AccelerateWP CDN Pro optimization suite (50GB limit is by default):
+```
+cloudlinux-awp-admin --api-version 1 set-suite --suites accelerate_wp_cdn_pro --allowed --users username1 --attrs='{"traffic_limit": "100 GB"}'
+```
 
-If you are also interested in the Smart Advice CLI command, they could be found [here](./#useful-smart-advice-cli-commands).
+supported traffic limits:
+- `50 GB` - default traffic limit, if no `--attrs` passed on `set-suite`;
+- `100 GB`
+- `250 GB`
+- `500 GB`
+- `1 TB`
+- `2.5 TB`
+- `5 TB`
+- `10 TB`
 
-:::warning Warning!
-This is an experimental feature. The backwards compatibility is not guaranteed.
+For *_all_* users on the server:
+
+Supported actions for all users:
+- `--allowed-for-all` - make features of optimization suite ALLOWED to be activated for all end-users (and newly created);
+- `--disallowed-for-all` - make features optimization suite DISALLOWED to be activated for all end-users (and newly created);
+- `--visible-for-all` - make features of optimization suite VISIBLE for all end-users (and newly created);
+
+```
+cloudlinux-awp-admin --api-version 1 set-suite --suites=<suites_comma_separated> (--allowed-for-all | --disallowed-for-all | --visible-for-all)
+```
+
+Example of command to enable CDN Pro for all users:
+```
+cloudlinux-awp-admin --api-version 1 set-suite --suites accelerate_wp_cdn_pro --users all --allowed-for-all
+```
+
+#### Manage AccelerateWP server wide settings
+
+`cloudlinux-awp-admin --api-version <api_version> set-options`
+
+`--api-version 1`
+
+```
+cloudlinux-awp-admin --api-version 1 set-options (--icon-visible=<on/off>) | (--object-cache-banner-visible=<on/off>) | (--suite="feature_suite" --upgrade-url="link_to_url") | (--features="optimization_features_comma_separated" --feature-visible=<on/off>)
+```
+
+To make AccelerateWP icon visible or invisible in end-user UI:
+
+```
+cloudlinux-awp-admin --api-version 1 set-options --icon-visible=on
+```
+
+```
+cloudlinux-awp-admin --api-version 1 set-options --icon-visible=off
+```
+
+To change the display of promotional materials for all new installations of the Redis Object Cache module by default, 
+you need to set the visibility setting
+
+```
+cloudlinux-awp-admin --api-version 1 set-options --object-cache-banner-visible=on
+```
+
+```
+cloudlinux-awp-admin --api-version 1 set-options --object-cache-banner-visible=off
+```
+
+To make specific AccelerateWP feature visible or invisible to all users:
+
+:::tip Note
+Added in accelerate-wp >= 1.6-6
 :::
 
+supported features:
+- `critical_css`
+- `image_optimization`
+- `object_cache`
+- `cdn`
 
-### AccelerateWP suites statistics
+```
+cloudlinux-awp-admin --api-version 1 set-options --feature-visible=on --features="<features_comma_separated>"
+```
+
+```
+cloudlinux-awp-admin --api-version 1 set-options --feature-visible=off --features="<features_comma_separated>"
+```
+
+
+To set subscription upgrade url for specific AccelerateWP optimization suite:
+
+for AccelerateWP Premium
+```
+cloudlinux-awp-admin --api-version 1 set-options --suite accelerate_wp_premium --upgrade-url="http://mybilling1.com"
+```
+
+for AccelerateWP CDN Pro
+```
+cloudlinux-awp-admin --api-version 1 set-options --suite accelerate_wp_cdn_pro --upgrade-url="http://mybilling2.com"
+```
+
+#### Generate AccelerateWP suites report for all users on server
+
+`--api-version 1`
+
+```
+ cloudlinux-awp-admin --api-version <api_version> generate-report (--all | --status)
+```
+
+Start report generation:
+
+```
+ cloudlinux-awp-admin --api-version 1 generate-report --all
+```
+
+It starts data collection in background, so check status of generation by separate command:
+
+```
+ cloudlinux-awp-admin --api-version 1 generate-report --status
+```
+
+Rely on `scan_status` key to ensure scanning is over, for example if it is still in progress:
+```
+ {
+    "last_scan_time": 1690198116,
+    "result": "success",
+    "scan_status": "in_progress",
+    "timestamp": 1690199148.6370175,
+    "total_users_scanned": 0,
+    "total_users_to_scan": 1
+}
+```
+
+#### AccelerateWP suites statistics
+
+`--api-version 1`
+
+```
+cloudlinux-awp-admin --api-version <api_version> get-report (--all | --users=<usernames_comma_separated>)
+```
 
 Get suites statistics for all users:
 ```
-cloudlinux-awp-admin get-report --all
+cloudlinux-awp-admin --api-version 1 get-report --all
 ```
 
 or for a particular user:
 ```
-cloudlinux-awp-admin get-report --users=<username>
+cloudlinux-awp-admin --api-version 1 get-report --users=<username>
 ```
 
 This CLI command returns the following information:
@@ -296,16 +409,20 @@ The example output for a single user is given below:
 }
 ```
 
-### AccelerateWP features statistics
+#### AccelerateWP features statistics
 
 Get overall AccelerateWP features usage statistics for a server with:
 
+`--api-version 1`
+
 ```
-cloudlinux-awp-admin get-stat
+cloudlinux-awp-admin --api-version 1 get-stat
 ```
 
 This CLI command returns the following information:
 * number of `allowed_users` in `total` and per feature
+* number of `visible_users` in `total` and per feature
+* number of `allowed_suites` per suite
 * number of sites with enabled features in `total` and per feature -- `enabled_sites`
 * number of users with visible features in `total` and per feature -- `visible_users`
 * features which are currently allowed -- `features_allowed_by_default`
@@ -315,43 +432,249 @@ The example output is given below:
 
 ```
 {
+    "accelerate_wp_suite_enabled_premium_suite_disallowed": 0,
+    "accelerate_wp_suite_enabled_premium_suite_visible": 0,
+    "allowed_suites": {
+        "accelerate_wp": 1,
+        "accelerate_wp_cdn_free": 1,
+        "accelerate_wp_cdn_pro": 0,
+        "accelerate_wp_premium": 1
+    },
     "allowed_users": {
-        "object_cache": 0,
+        "cdn_free": 1,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 1,
+        "object_cache": 1,
         "site_optimization": 1,
         "total": 1
     },
     "enabled_sites": {
+        "cdn_free": 0,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 0,
         "object_cache": 0,
-        "site_optimization": 1,
+        "site_optimization": 0,
         "total": 1
     },
+    "enabled_suites": {
+        "accelerate_wp": 0,
+        "accelerate_wp_cdn_free": 0,
+        "accelerate_wp_cdn_pro": 0,
+        "accelerate_wp_premium": 1
+    },
+    "enabled_users": {
+        "cdn_free": 0,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 0,
+        "object_cache": 0,
+        "site_optimization": 0
+    },
     "features_allowed_by_default": [
+        "cdn",
+        "critical_css",
+        "image_optimization",
+        "object_cache",
         "site_optimization"
     ],
     "features_visible_by_default": [
+        "cdn",
+        "critical_css",
+        "image_optimization",
         "object_cache",
         "site_optimization"
     ],
     "is_accelerate_wp_flag_enabled": false,
     "is_accelerate_wp_icon_enabled": true,
     "result": "success",
-    "timestamp": 1681208259.19426,
+    "timestamp": 1690979440.5282295,
+    "upgrade_urls": {
+        "accelerate_wp_cdn_pro": null,
+        "accelerate_wp_premium": null
+    },
     "visible_users": {
-        "object_cache": 22,
-        "site_optimization": 22,
-        "total": 23
+        "cdn_free": 1,
+        "cdn_pro": 0,
+        "critical_css": 1,
+        "image_optimization": 1,
+        "object_cache": 1,
+        "site_optimization": 1,
+        "total": 1
     }
+}
+
+```
+
+#### Activate free AccelerateWP for all WordPress sites on the server
+`--api-version 1`:
+
+```
+cloudlinux-awp-admin --api-version 1 enable-feature (--all | --status)
+```
+
+Use the that command to ensure the best performance for every end-user. CLI command
+scans a server for all WordPress sites and activates the AccelerateWP
+free feature suite. It can take up to 2 minutes for a single site. 
+CLI command skips activation for WordPress sites with page caching or feature incompatibilities.
+
+:::tip Note
+Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.
+:::
+
+Scan the server in background mode and activate free AccelerateWP plugin
+on those WordPress sites where it is possible:
+```
+cloudlinux-awp-admin --api-version 1 enable-feature --all
+```
+The output will state the number of users for the scan and the
+progress state of the process.
+
+Check activation status:
+```
+cloudlinux-awp-admin --api-version 1 enable-feature --status
+```
+The output will be either:
+* Activation is still in progress,
+* Activation is done. The message will state how many users
+were initially for the scan, a number of WordPress sites with
+successfully activated suite and the total number of WordPress sites
+scanned.
+
+#### AccelerateWP disable Redis Object Cache Pro banner
+
+`--api-version 1`
+
+```
+cloudlinux-awp-admin --api-version 1 object-cache-banner (--enable | --disable) (--all | --users=<usernames_comma_separated>)
+```
+
+Depending on the server settings, the `WP_REDIS_DISABLE_BANNERS` constant will be defined in the `wp-config.php` 
+file when the module is activated, which affects the display of promotional materials.
+
+To change the `WP_REDIS_DISABLE_BANNERS` constant for previously installed modules, you need to run a process to update the constant:
+
+Hide on websites where the module is installed
+- for all users:  
+  ```cloudlinux-awp-admin --api-version 1 object-cache-banner --all --disable```
+- for specific users (users separated by commas):  
+  ```cloudlinux-awp-admin --api-version 1 object-cache-banner --users foo,bar --disable```
+- for current user (run under the user):  
+  ```cloudlinux-awp-user --api-version 1 object-cache-banner --all --disable```
+- for a specific website (run under the user):  
+  ```cloudlinux-awp-user --api-version 1 object-cache-banner --wp-path "" --domain "demo.com" --disable```
+
+Display on websites where the module is installed
+- for all users:  
+  ```cloudlinux-awp-admin --api-version 1 object-cache-banner --all --enable```
+- for specific users (users separated by commas):  
+  ```cloudlinux-awp-admin --api-version 1 object-cache-banner --users foo,bar --enable```
+- for current user (run under the user):  
+  ```cloudlinux-awp-user --api-version 1 object-cache-banner --all --enable```
+- for a specific website (run under the user):  
+  ```cloudlinux-awp-user --api-version 1 object-cache-banner --wp-path "" --domain "demo.com" --enable```
+
+If the banner was previously disabled/enabled for the user/website, 
+then for its subsequent activation of the ObjectCache module, the general settings at the server level will be applied. 
+This means that for each user/website we do not store an individual banner disable/enable setting.
+
+
+### cloudlinux-awp-user
+
+```
+cloudlinux-awp-user --api-version=<api_version> <command>
+```
+
+supported commands:
+- `enable` - activate specific optimization feature on WordPress site;
+- `disable` - deactivate specific optimization feature on WordPress site;
+- `get` - get information of optimization features on all user`s WordPress sites;
+
+Use the following CLI command **_on behalf of a user_**
+
+All CLI responses contain `result` field which says was call successful or not.
+- `{"result": "success"}`  - in case of successful call
+- `{"result": "ERROR_STRING"}` - in case of unsuccessful call, `result` contains string with error details
+
+#### Enable optimization feature
+
+`--api-version 1`
+
+supported features:
+
+- `accelerate_wp`
+- `object_cache`
+- `critical_css`
+- `image_optimization`
+
+```
+cloudlinux-awp-user --api-version 1 enable --feature <feature> --wp-path <path_to_wordpress> --domain <user_domain> [--ignore-errors]
+```
+
+Use `--ignore-errors` to ignore WordPress site web-checks after enabling optimization features.
+
+example of enabling Object Caching feature
+```
+cloudlinux-awp-user --api-version 1 enable --feature object_cache --wp-path "userwordpresssite" --domain username1.com
+```
+
+Please, make sure `--wp-path` is same as in `"path"` key of `cloudlinux-awp-user get` json output.
+
+Successful response example of enabling feature:
+rely on `feature.enabled` field to identify that feature was enabled
+```
+{
+    "feature": {
+        "enabled": true
+    },
+    "result": "success",
+    "timestamp": 1690975273.8860605
 }
 ```
 
-### AccelerateWP features detailed statistics
+#### Disable optimization feature
 
-AccelerateWP features detailed statistics are available in the user's environment only.
+`--api-version 1`
 
-Use the following CLI command **_on behalf of a user_**:
+supported features:
+
+- `accelerate_wp`
+- `object_cache`
+- `critical_css`
+- `image_optimization`
 
 ```
-cloudlinux-awp-user get
+cloudlinux-awp-user --api-version 1 disable --feature <feature> --wp-path <path_to_wordpress> --domain <user_domain>
+```
+
+example of disabling Object Caching feature
+```
+cloudlinux-awp-user --api-version 1 disable --feature object_cache --wp-path "userwordpresssite" --domain username1.com
+```
+
+Please, make sure `--wp-path` is same as in `"path"` key of `cloudlinux-awp-user get` json output.
+
+
+Successful response example of enabling feature:
+rely on `feature.enabled` field to identify that feature was enabled
+```
+{
+    "feature": {
+        "enabled": true,
+        "visible": true
+    },
+    "result": "success",
+    "timestamp": 1690975273.8860605
+}
+```
+
+#### AccelerateWP features detailed statistics
+
+`--api-version 1`
+
+```
+cloudlinux-awp-user --api-version 1 get
 ```
 
 The command reports:
@@ -444,42 +767,6 @@ The example output is given below:
     }
 }
 ```
-
-### AccelerateWP disable Redis Object Cache Pro banner
-
-Depending on the server settings, the `WP_REDIS_DISABLE_BANNERS` constant will be defined in the `wp-config.php` file when the module is activated, which affects the display of promotional materials.
-
-To change the display of promotional materials for all new installations of the Redis Object Cache module by default, you need to set the settings:
-
-To display (by default):  
-```cloudlinux-awp-admin set-options --enable-object-cache-banners```
-
-To hide:  
-```cloudlinux-awp-admin set-options --disable-object-cache-banners```
-
-To change the `WP_REDIS_DISABLE_BANNERS` constant for previously installed modules, you need to run a process to update the constant:
-
-Hide on websites where the module is installed
-- for all users:  
-  ```cloudlinux-awp-admin object-cache-banner --all --disable```
-- for specific users (users separated by commas):  
-  ```cloudlinux-awp-admin object-cache-banner --users foo,bar --disable```
-- for current user (run under the user):  
-  ```cloudlinux-awp-user object-cache-banner --all --disable```
-- for a specific website (run under the user):  
-  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --disable```
-
-Display on websites where the module is installed
-- for all users:  
-  ```cloudlinux-awp-admin object-cache-banner --all --enable```
-- for specific users (users separated by commas):  
-  ```cloudlinux-awp-admin object-cache-banner --users foo,bar --enable```
-- for current user (run under the user):  
-  ```cloudlinux-awp-user object-cache-banner --all --enable```
-- for a specific website (run under the user):  
-  ```cloudlinux-awp-user object-cache-banner --wp-path "/" --domain "demo.com" --enable```
-
-If the banner was previously disabled/enabled for the user/website, then for its subsequent activation of the ObjectCache module, the general settings at the server level will be applied. This means that for each user/website we do not store an individual banner disable/enable setting.
 
 ## WHMCS billing
 
