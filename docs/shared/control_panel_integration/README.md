@@ -86,11 +86,9 @@ Summary: added AccelerateWP integration.
 3. New script `php` description added.
 4. New field `php_version_id` in [domains](#domains) script added.
 
-:::tip
 In order to integrate AccelerateWP, you should implement new script [php](#php), 
 follow [integration guide of X-RAY](./#how-to-integrate-x-ray-with-a-control-panel) 
 and add extra field `php_version_id` in [domains](#domains) script. 
-:::
 
 Version 1.3
 
@@ -109,7 +107,6 @@ Version 1.1
 1. Added `Provides public_cp_vendors_api = 1.1` to rpm spec of alt-python27-cllib package (see [versioning](./#versioning)).
 2. New `supported_cl_features` key added to [`panel_info` script](./#panel-info). You can specify CloudLinux OS features that you want to show in LVE Manager, Wizard, Dashboard and other UI and hide others.
 :::
-
 
 #### Example of the integration config
 
