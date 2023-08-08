@@ -2207,7 +2207,10 @@ Please note that cPanel, Plesk and DirectAdmin are already supported by X-Ray an
 :::
 
 :::tip Note
-X-Ray and AccelerateWP support is available since API v1.2 (see [versioning](./#versioning))
+X-Ray support is available since API v1.2
+AccelerateWP support is available since API v1.4
+
+See [versioning](./#versioning) for changelog.
 :::
 
 :::tip Note
