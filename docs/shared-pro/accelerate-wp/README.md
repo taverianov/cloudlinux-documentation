@@ -60,6 +60,47 @@ requests come in and may be helpful in cases when full-page caching cannot be us
 * the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
 * WordPress should not be running in Multisite mode.
 
+#### Quick Start Guide (CLI)
+
+More CLI commands are described in [this section](/shared-pro/accelerate-wp/#acceleratewp-cli)
+
+Enable AccelerateWP Free:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
+```
+Enable AccelerateWP Premium:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
+```
+Enable AccelerateWP Premium for free for all users:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
+```
+Set Premium Upgrade URL:
+```
+cloudlinux-awp-admin set-options --upgrade-url "https://plan.upgrade/splash" 
+```
+Enable CDN Free for all users:
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all && cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
+```
+Enable CDN 50GB for all users (users become billable when they activate):
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --allowed-for-all
+```
+
+Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
+*Note: Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.*
+Scan the server in background mode and activate AccelerateWP on those WordPress sites where it is possible:
+```
+cloudlinux-awp-admin enable-feature --all
+```
+Check activation status:
+```
+cloudlinux-awp-admin enable-feature --status
+```
+
 ## Administrator interface
 
 #### Overview
@@ -776,7 +817,8 @@ required modules: `redis`, `igbinary`, `json`.
 
 By default, it modifies global php.ini and enables required extensions there.
 
-To prevent this script of modifying global php.ini - create marker file: `/var/clwpos/admin/do_not_modify_global_php.flag`.
+Starting from `accelerate-wp >= 1.6-7` - to prevent this script of modifying 
+global php.ini - create marker file: `/var/clwpos/admin/do_not_modify_global_php.flag`.
 In that case, additional custom php ini with required php extension will be created and global php.ini remains unmodified.
 
 ## WHMCS billing
