@@ -768,6 +768,17 @@ The example output is given below:
 }
 ```
 
+## Configure redis extension for alt-php
+
+Object cache optimization feature requires several php extensions to be enabled, so there is a script 
+`/usr/share/cloudlinux/wpos/enable_redis_for_alt_php.py` which does configuration of
+required modules: `redis`, `igbinary`, `json`.
+
+By default, it modifies global php.ini and enables required extensions there.
+
+To prevent this script of modifying global php.ini - create marker file: `/var/clwpos/admin/do_not_modify_global_php.flag`.
+In that case, additional custom php ini with required php extension will be created and global php.ini remains unmodified.
+
 ## WHMCS billing
 
 CloudLinux developed its own WHMCS plugin 
