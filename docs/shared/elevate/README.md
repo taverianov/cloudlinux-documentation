@@ -419,7 +419,7 @@ This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on n
 2. After that, download and install "elevate-release" package to configure necessary RPM repositories:
 
 ```
-sudo yum install https://repo.cloudlinux.com/elevate/7/x86_64/elevate-release-1.0-1.el7.noarch.rpm
+sudo yum install https://repo.cloudlinux.com/elevate/elevate-release-latest-el7.noarch.rpm
 ```
 
 3. Install leapp packages and migration data for the CloudLinux OS.
