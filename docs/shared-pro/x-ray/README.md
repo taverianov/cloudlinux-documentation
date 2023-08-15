@@ -624,6 +624,45 @@ Failed output example of `cl-smart-advice --api-version=1 rollback --advice_id=1
 {"result": "Malformed API response"}
 ```
 
+## Advanced performance analytics
+
+By enabling this feature, X-Ray will add JavaScript profiling code to each WordPress site during the tracing process. This will allow X-Ray to provide highly detailed insights into each website’s performance (greatly enhancing the quality and accuracy of SmartAdvice). The performance metrics that will be collected include TTFB (Time To First Byte), Total Blocking Time, First Contentful Paint, and more. The profiling code does not collect any user or visitor data nor sensitive data of any kind. The sole purpose of this profiling code is to gather performance-related metrics to better optimize the website.
+
+### How to enable/disable via UI
+
+You can manage the setting in several interfaces:  
+
+**X-Ray settings:**
+
+![](./images/XRayAdvancedMetrics.ui.xray.png)
+
+**AccelerateWP settings:**  
+
+![](./images/XRayAdvancedMetrics.ui.awp.png)
+
+### How to enable/disable via CLI
+
+```
+cloudlinux-xray-manager advanced-metrics --enable
+```  
+
+```
+cloudlinux-xray-manager advanced-metrics --disable
+```
+
+### How it works
+
+To start advanced performance monitoring, you can enable tracing tasks that involve adding a JavaScript snippet to the bottom of your WordPress page. This snippet facilitates performance monitoring and allows X-Ray to gather valuable insights.
+
+Once tracing tasks are enabled, the JavaScript snippet will periodically send POST requests to our secure analytics service.
+
+![](./images/XRayAdvancedMetrics.request.png)
+
+These requests capture anonymous data about page load time and resources.
+
+![](./images/XRayAdvancedMetrics.data.png)
+
+
 ## End-user X-Ray plugin
 
 :::warning Warning
