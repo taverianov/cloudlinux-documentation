@@ -2396,6 +2396,10 @@ Some software has to run outside CageFS to be able to complete its job. It inclu
 Do not edit the existing <span class="notranslate">`/etc/cagefs/proxy.commands`</span> file as it will be overwritten with the next CageFS update.
 :::
 
+::: tip Note
+Executing by proxy can only execute binaries that are not mounted in cagefs
+:::
+
 The syntax of the <span class="notranslate">`/etc/cagefs/[*.]proxy.commands`</span> file is as follows:
 
 <div class="notranslate">
