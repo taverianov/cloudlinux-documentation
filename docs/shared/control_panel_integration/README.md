@@ -81,13 +81,13 @@ That means that you can add `Conflicts: public_cp_vendors_api < VERSION` to the 
 Version 1.4
 
 Summary: added AccelerateWP integration.
-1. `Provides public_cp_vendors_api = 1.4` added to rpm spec of alt-python27-cllib package (see [versioning](/control_panel_integration/#versioning)).
-2. New feature `accelerate_wp` added to `supported_cl_features` of [`panel_info` script](/control_panel_integration/#panel-info). This feature defines if your panel supports AccelerateWP integration.
+1. `Provides public_cp_vendors_api = 1.4` added to rpm spec of alt-python27-cllib package (see [versioning](./control_panel_integration/#versioning)).
+2. New feature `accelerate_wp` added to `supported_cl_features` of [`panel_info` script](./control_panel_integration/#panel-info). This feature defines if your panel supports AccelerateWP integration.
 3. New script `php` description added.
 4. New field `php_version_id` in [domains](#domains) script added.
 
 In order to integrate AccelerateWP, you should implement new script [php](#php), 
-follow [integration guide of X-RAY](./#how-to-integrate-x-ray-with-a-control-panel) 
+follow [integration guide of X-RAY](./control_panel_integration/#how-to-integrate-x-ray-and-acceleratewp-with-a-control-panel) 
 and add extra field `php_version_id` in [domains](#domains) script. 
 
 Version 1.3
