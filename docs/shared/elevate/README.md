@@ -424,7 +424,9 @@ sudo yum install https://repo.cloudlinux.com/elevate/elevate-release-latest-el7.
 
 3. Install leapp packages and migration data for the CloudLinux OS.
 
-:::tip Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work. :::
+:::tip
+Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work.
+:::
 
 ```
 sudo yum install -y leapp-upgrade leapp-data-cloudlinux
