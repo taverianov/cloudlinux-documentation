@@ -85,6 +85,7 @@ Summary: added AccelerateWP integration.
 2. New feature `accelerate_wp` added to `supported_cl_features` of [`panel_info` script](/shared/control_panel_integration/#panel-info). This feature defines if your panel supports AccelerateWP integration.
 3. New script `php` description added.
 4. New field `php_version_id` in [domains](#domains) script added.
+5. New field 'handler` in [domains](#domains) script added.
 
 In order to integrate AccelerateWP, you should implement a new script [php](#php), 
 follow [integration guide of X-RAY](/shared/control_panel_integration/#how-to-integrate-x-ray-and-acceleratewp-with-a-control-panel) 
@@ -666,7 +667,7 @@ Returns key-value object, where a key is a domain (or subdomain) and a value is 
 
 X-Ray support is available since API v1.2 (see [versioning](./#versioning)). In order to enable X-Ray support, the value for each domain should include php configuration. Full X-Ray integration documentation can be found [here](./#how-to-integrate-x-ray-with-a-control-panel)
 AccelerateWP support is available since API v1.4 (see [versioning](./#versioning)). In order to enable AccelerateWP support, 
-the `php_version_id` fields should be included in php configuration. `php_version_id` should match unique identifier retured by [php](#php) script.
+the `php_version_id` fields should be included in php configuration. `php_version_id` should match unique identifier retured by [php](#php) script and `handler` must be specified, one of the following: `fpm`, `cgi`, `lsapi`.
 
 ::: warning WARNING
 To make Python/Node.js/Ruby/PHP Selector workable, this script should be executed with user access and inside CageFS. When running this script as the user, you must limit answer scope to values, allowed for the user to view.
@@ -716,7 +717,7 @@ E.g. if the control panel has two domains: <span class="notranslate">`user1.com`
 ```
 </div>
 
-**Output example with optional flag --with-php (X-Ray support only)**
+**Output example with optional flag --with-php (X-Ray and Accelerate WP support only)**
 
 <div class="notranslate">
 
@@ -731,7 +732,8 @@ E.g. if the control panel has two domains: <span class="notranslate">`user1.com`
         "php_version_id": "alt-php56",
         "version": "56",
         "ini_path": "/opt/alt/php56/link/conf",
-        "is_native": true
+        "is_native": true,
+        "handler": "lsapi"
        }
     },
     "subdomain.domain.com": {
@@ -742,7 +744,8 @@ E.g. if the control panel has two domains: <span class="notranslate">`user1.com`
         "php_version_id": "alt-php72",
         "version": "72",
         "ini_path": "/opt/alt/php72/link/conf",
-        "fpm": "alt-php72-fpm"
+        "fpm": "alt-php72-fpm",
+        "handler": "fpm"
       }
     }
   },
@@ -2298,8 +2301,7 @@ See [versioning](./#versioning) for changelog.
 
 :::tip Note
 AccelerateWP has following known limitaions:
-- only alt-php and native php's are supported by integration
-- only cgi and fpm handlers are supported
+- only cgi, fpm, and lsapi handlers are supported
 :::
 
 In order to integrate X-Ray or AccelerateWP into your panel, you should follow two simple steps.
