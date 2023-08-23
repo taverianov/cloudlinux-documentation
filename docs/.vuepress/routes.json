@@ -4,5 +4,7 @@
     "/cloudlinux_os_components/#installation-and-update-2": "/shared/cloudlinux_os_components/#installation-and-update-1",
     "/?cagefs_installation.html": "/shared/cloudlinux_os_components/#installation-and-update-1",
     "/mysql_governor.html": "/shared/cloudlinux_os_components/#mysql-governor",
-    "?backing_up_mysql.html": "/shared/cloudlinux_os_components/#backing-up-mysql"
+    "?backing_up_mysql.html": "/shared/cloudlinux_os_components/#backing-up-mysql",
+    "/mod_lsapi_troubleshooting.html": "/shared/cloudlinux_os_components/#troubleshooting-3",
+    "/cloudlinux_installation/#registering-cloudlinux-server": "/shared/cloudlinux_installation/#license-activation"
 }

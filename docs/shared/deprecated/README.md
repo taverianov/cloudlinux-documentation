@@ -166,6 +166,111 @@ If you are using cPanel/WHM, you can also configure hide/show <span class="notra
 For that, you’d need to first uncheck <span class="notranslate">`Hide Python App in web-interface`</span> in the <span class="notranslate">LVE Manager</span>. This will make the menu appear for all accounts. After that, you are free to disable this app in <span class="notranslate">WHM | Feature Manager</span> for the required feature lists. 
 :::
 
+### CLI options for old Python Selector
+
+:::warning Warning!
+selectorctl command line tool is not supported in the new Python Selector. You can use cloudlinux-selector command line tool instead.
+:::
+
+To create application run:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python --version=VERSION [--user=USER] [--print-summary] [--json] --create-webapp <FOLDER_NAME> <URI>
+```
+</div>
+
+To delete application:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --destroy-webapp <FOLDER_NAME>
+```
+</div>
+
+To change application folder name:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --relocate-webapp <FOLDER_NAME> <NEW_FOLDER_NAME>
+```
+</div>
+
+To change application <span class="notranslate"> URI </span>:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=<python|ruby> [--user=USER] [--print-summary] [--json] --transit-webapp <FOLDER_NAME> <NEW_URI>
+```
+</div>
+
+To change application interpreter version:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --set-user-current --version=<NEW VERSION> <FOLDER_NAME>
+```
+</div>
+
+To set application <span class="notranslate"> WSGI </span> handler ( <span class="notranslate"> Python </span> only):
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --setup-wsgi=<file_path:callable> <FOLDER_NAME>
+```
+</div>
+
+To install modules to application environment:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --enable-user-extensions=<module1[,module2...]> <FOLDER_NAME>
+```
+</div>
+
+To remove modules from application environment:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --disable-user-extensions=<module1[,module2...]> <FOLDER_NAME>
+```
+</div>
+
+To list modules installed in application environment:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--print-summary] [--json] --list-user-extensions <FOLDER_NAME>
+```
+</div>
+
+To print applications summary for a user:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--json] --user-summary
+```
+</div>
+
+To list available interpreters:
+
+<div class="notranslate">
+
+```
+/usr/bin/selectorctl --interpreter=python [--user=USER] [--json] --list
+```
+</div>
+
 
 ## Git for cPanel
 

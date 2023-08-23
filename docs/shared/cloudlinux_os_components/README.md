@@ -3156,10 +3156,6 @@ See also [CageFS CLI tools](/shared/command-line_tools/#cagefs).
 
 ### General information and requirements
 
-:::tip Note
-<span class="notranslate">MySQL Governor</span> 0.8-32+
-:::
-
 :::warning Warning
 The "All" mode will be deprecated starting from September 1, 2021. You can read more [here.](https://blog.cloudlinux.com/mysql-governor-moving-from-all-to-abusers)
 :::
@@ -5848,7 +5844,7 @@ yum install lve-utils lvemanager alt-python-virtualenv alt-mod-passenger
 * We recommend use CageFS for better security. See [CageFS documentation for details](./#cagefs).
 
 
-* See also [Python Selector UI](/shared/lve_manager/#python-selector-2).
+* See also [Python Selector UI](/shared/lve_manager/#python-selector).
 * See also [Python Selector CLI](/shared/command-line_tools/#python-selector).
 
 ## Ruby Selector

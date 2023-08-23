@@ -454,28 +454,51 @@ Q: Why I can't see new advice on the *Smart Advice* tab?
 
 A: For the generating of advice, it is necessary to run X-Ray tracing tasks, the best way to do it without manual interaction is to use X-Ray Autoracing. You can find more information on how to enable X-Ray Autotracing [here](/cloudlinux-os-plus/#how-to-enable-x-ray-autotracing).
 
-### Useful Smart Advice CLI commands
+### Smart Advice CLI commands
 
-:::warning Warning!
-This is an experimental feature. The backwards compatibility is not guaranteed.
+CLI commands for managing feature advices
+
+- `cl-smart-advice` - for managing advices;
+
+Starting from `alt-php-xray-0.5-25` Smart Advice CLI utilities provide CLI versioning which is defined via `--api-version` option. 
+
+:::tip Note
+It is highly recommended to specify CLI version explicitly via --api-version, otherwise CLI will rely on default settings, 
+which cannot guarantee backward compatability.
 :::
 
-To obtain the full list of advice generated for your server use the following CLI command:
+```
+cl-smart-advice --api-version <api_version> <command>
+```
+
+supported commands for `--api-version=1`:
+
+- `list` - shows list of all advices;
+- `apply` - applies specific advice;
+- `rollback` - rollbacks specific advice;
+
+#### Advices list
+
+`--api-version=1`
 
 ```
-cl-smart-advice list
+cl-smart-advice --api-version=<api_version> list
 ```
 
 For each advice in the list the CLI command returns the following information:
 * `metadata`, which includes information about `username`, `domain` and `website` for which the advice is issued
 * `advice` information:
-  * its identifier `id`
-  * its `type`
-  * its `status` -- `review` or `applied`
-  * if advice is Premium `is_premium`
+  * its identifier `id` (id, that should be used in apply and rollback commands)
+  * its `type` (optimization feature identifier)
+  * its `status` - current status: `review` or `applied`
+  * `module_name` - name of optimization feature
+  * `is_premium` - if advice is for optimization feature from AccelerateWP Premium suite
+  * `subscription` - info about optimization suite subscription (only if advice requires subscription)
+  * `description` and `detailed_description` - human-readable descriptions of advice
   * other internal informational fields
+* `result` - result of command: it may have `success` or error details
 
-The example output is given below:
+Successful output example of  `cl-smart-advice --api-version=1 list`:
 
 ```
 {
@@ -530,6 +553,115 @@ tly for the most valuable URLs of your site."
   "timestamp": 1681203110
 }
 ```
+
+Failed output example of `cl-smart-advice --api-version=1 list`:
+```
+{"result": "Malformed API response"}
+```
+
+#### Apply advice
+
+`--api-version=1`
+
+```
+cl-smart-advice --api-version=<api_version> apply --advice_id=<id_of_advice> [ --accept_license_terms ] [ --ignore-errors ]
+```
+`--accept_license_terms` - accept license terms on applying CDN type advice;
+`--ignore-errors` - ignore WordPress site web-checks after enabling optimization features;
+
+`advice_id` from `cl-smart-advice --api-version=<api_version> list` output
+
+Successful output example of `cl-smart-advice --api-version=1 apply --advice_id=12345`:
+```
+{
+    "feature": {
+        "enabled": true
+    },
+    "result": "success",
+    "timestamp": 1690806590.0494235
+}
+```
+
+* `feature`: status of optimization to be applied via advice
+  * `enabled`: true or false value meaning feature is enabled or not
+* `result`:  result of command: it may have `success` or error details
+
+Failed output example of `cl-smart-advice --api-version=1 apply --advice_id=12345`:
+```
+{"result": "Malformed API response"}
+```
+
+#### Rollback advice
+
+`--api-version=1`
+
+```
+cl-smart-advice --api-version=<api_version> rollback --advice_id=<id_of_advice>
+```
+
+`advice_id` from `cl-smart-advice --api-version=<api_version> list` output
+
+Successful output example of `cl-smart-advice --api-version=1 rollback --advice_id=12345`:
+```
+{
+    "feature": {
+        "enabled": false,
+        "visible": true
+    },
+    "result": "success",
+    "timestamp": 1690806844.9735684
+}
+
+```
+
+* `feature`: status of optimization to be applied via advice
+  * `enabled`: true or false value meaning feature is enabled or not
+  * `visible`: true or false value meaning feature is visible or not
+* `result`:  result of command: it may have `success` or error details
+
+Failed output example of `cl-smart-advice --api-version=1 rollback --advice_id=12345`:
+```
+{"result": "Malformed API response"}
+```
+
+## Advanced performance analytics
+
+By enabling this feature, X-Ray will add JavaScript profiling code to each WordPress site during the tracing process. This will allow X-Ray to provide highly detailed insights into each website’s performance (greatly enhancing the quality and accuracy of SmartAdvice). The performance metrics that will be collected include TTFB (Time To First Byte), Total Blocking Time, First Contentful Paint, and more. The profiling code does not collect any user or visitor data nor sensitive data of any kind. The sole purpose of this profiling code is to gather performance-related metrics to better optimize the website.
+
+### How to enable/disable via UI
+
+You can manage the setting in several interfaces:  
+
+**X-Ray settings:**
+
+![](./images/XRayAdvancedMetrics.ui.xray.png)
+
+**AccelerateWP settings:**  
+
+![](./images/XRayAdvancedMetrics.ui.awp.png)
+
+### How to enable/disable via CLI
+
+```
+cloudlinux-xray-manager advanced-metrics --enable
+```  
+
+```
+cloudlinux-xray-manager advanced-metrics --disable
+```
+
+### How it works
+
+To start advanced performance monitoring, you can enable tracing tasks that involve adding a JavaScript snippet to the bottom of your WordPress page. This snippet facilitates performance monitoring and allows X-Ray to gather valuable insights.
+
+Once tracing tasks are enabled, the JavaScript snippet will periodically send POST requests to our secure analytics service.
+
+![](./images/XRayAdvancedMetrics.request.png)
+
+These requests capture anonymous data about page load time and resources.
+
+![](./images/XRayAdvancedMetrics.data.png)
+
 
 ## End-user X-Ray plugin
 

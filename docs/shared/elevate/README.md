@@ -388,25 +388,25 @@ Look for unknown/unsigned package reports in the list of the resulting messages.
 
 If you want to upgrade these packages during the Elevate process, you need to integrate them into the Elevate configuration files.
 
-Please check the [Third-party integration](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#third-party-integration) section in the linked README for instructions on integrating new repositories and packages into the process.
+Please check the [Third-party integration](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#third-party-integration) section in the linked README for instructions on integrating new repositories and packages into the process.
 
-In the typical case, you’ll want to [map](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#repository-mapping-file) all of your old package repositories (those present in CL7/RHEL7) to the new package repositories that will be present in the new upgraded system (CL8/RHEL8).
+In the typical case, you’ll want to [map](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#repository-mapping-file) all of your old package repositories (those present in CL7/RHEL7) to the new package repositories that will be present in the new upgraded system (CL8/RHEL8).
 
 When linked like this, the new repositories will be used by Leapp during the upgrade, and any present packages associated with these repositories will be upgraded.
 
 The package signatures should be added to the corresponding file for them to be accepted into the upgrade process.
 
-When there are discrepancies between the packages between the old and new OS versions (e.g. a single package was split into two, or two merged into one), they should be added into the [package migration event list](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#package-migration-event-list) in order for Elevate to correctly upgrade them during the process.
+When there are discrepancies between the packages between the old and new OS versions (e.g. a single package was split into two, or two merged into one), they should be added into the [package migration event list](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#package-migration-event-list) in order for Elevate to correctly upgrade them during the process.
 
-Note that Elevate only uses the provided information about new repositories during the upgrade. The state of yum/dnf configuration on the system after the upgrade depends on the repository configuration files brought by the updated packages. If your package repository configs aren’t connected to the packages being upgraded, you should consider adding a [custom script](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#adding-complex-changes-custom-actors-for-migration) to modify them for the new OS version.
+Note that Elevate only uses the provided information about new repositories during the upgrade. The state of yum/dnf configuration on the system after the upgrade depends on the repository configuration files brought by the updated packages. If your package repository configs aren’t connected to the packages being upgraded, you should consider adding a [custom script](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#adding-complex-changes-custom-actors-for-migration) to modify them for the new OS version.
 
-If mapping package repositories from old to new (CL7 repositories -> CL8 repositories), as well as mapping the package changes, is not sufficient for a successful upgrade of your system, consider adding [custom Python scripts](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#adding-complex-changes-custom-actors-for-migration) (called Leapp actors) that handle your upgrade scenario, e.g. configuration migrations, system modifications, etc.
+If mapping package repositories from old to new (CL7 repositories -> CL8 repositories), as well as mapping the package changes, is not sufficient for a successful upgrade of your system, consider adding [custom Python scripts](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#adding-complex-changes-custom-actors-for-migration) (called Leapp actors) that handle your upgrade scenario, e.g. configuration migrations, system modifications, etc.
 
 To summarize:
 * [Install CloudLinux Elevate](/shared/elevate/#elevate-scenario-cloudlinux-7-with-no-panel-or-a-custom-panel) and run `leapp preupgrade`.
 * Check the pre-upgrade report (`/var/log/leapp/leapp-report.txt`) for packages that will not be upgraded.
-* For those packages that you want to see upgraded, [extend the Elevate configuration files](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#third-party-integration) with package repository mappings and package migration events.
-* If required, [add additional custom scripts](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#adding-complex-changes-custom-actors-for-migration) (Leapp actors) to handle any extra arbitrary actions during the upgrade.
+* For those packages that you want to see upgraded, [extend the Elevate configuration files](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#third-party-integration) with package repository mappings and package migration events.
+* If required, [add additional custom scripts](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#adding-complex-changes-custom-actors-for-migration) (Leapp actors) to handle any extra arbitrary actions during the upgrade.
 * Rerun the pre-upgrade procedure to ensure that your changes are integrated correctly, then test the upgrade process as desired.
 
 
@@ -416,19 +416,17 @@ This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on n
 
 1. First of all, make sure that your CloudLinux 7 is fully upgraded and on the latest kernel version.
 
-2. After that, download the elevate-testing.repo file with the project testing repo:
+2. After that, download and install "elevate-release" package to configure necessary RPM repositories:
 
 ```
-sudo curl https://repo.almalinux.org/elevate/testing/elevate-testing.repo -o /etc/yum.repos.d/elevate-testing.repo
+sudo yum install https://repo.cloudlinux.com/elevate/elevate-release-latest-el7.noarch.rpm
 ```
 
-3. Import the ELevate GPG key:
+3. Install leapp packages and migration data for the CloudLinux OS.
 
-```
-sudo rpm --import https://repo.almalinux.org/elevate/RPM-GPG-KEY-ELevate
-```
-
-4. Install leapp packages and migration data for the CloudLinux OS.
+:::tip
+Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work.
+:::
 
 ```
 sudo yum install -y leapp-upgrade leapp-data-cloudlinux
@@ -473,7 +471,7 @@ Should any packages or package repositories that are unknown to Leapp be detecte
 If the packages listed as unknown in the report are critical for your system, proceeding with the upgrade is **extremely likely** to damage its functionality, up to making the machine unaccessible.
 :::
 
-If you'd like to perform an upgrade on a system with unknown packages/repositories reported, and you're confident about all the potential risks, consider first adding the unknown repositories to Leapp's database, as described [here](https://github.com/AlmaLinux/leapp-repository/tree/almalinux#third-party-integration).
+If you'd like to perform an upgrade on a system with unknown packages/repositories reported, and you're confident about all the potential risks, consider first adding the unknown repositories to Leapp's database, as described [here](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#third-party-integration).
 
 
 ### Transaction Configuration Files
