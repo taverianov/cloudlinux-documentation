@@ -5,8 +5,7 @@ CloudLinux OS Admin is very close to the regular CloudLinux Shared edition, whic
 
 The exclusions are:
 
- - [MySQL Governor](/shared/control_panel_integration/#mysql-governor) is not available 
- - NodeJS, Python and Ruby selectors aren't available, however, [PHP Selector](/shared/cloudlinux_os_components/#php-selector) is available
+ - [MySQL Governor](/shared/control_panel_integration/#mysql-governor) is not available
  - [X-Ray](/shared-pro/x-ray/#x-ray) is available like with CloudLinux Shared Pro
  - [Accelerate WP](/shared-pro/accelerate-wp/#acceleratewp) is available like with CloudLinux Shared Pro
 
