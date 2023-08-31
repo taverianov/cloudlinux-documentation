@@ -1061,6 +1061,24 @@ After removing the user, you should call the following command:
 |Argument |Default |Description |
 |<span class="notranslate">--username, -u</span>| - |The name of the removed account |
 
+After restoring the user fron backup, you should call the following command:
+
+<div class="notranslate">
+
+```
+/usr/share/cloudlinux/hooks/post_modify_user.py restore --username user
+```
+</div>
+
+| | | |
+|-|-|-|
+|Argument |Default |Description |
+|<span class="notranslate">--username, -u</span>| - |The name of the restored account |
+
+::: tip Note
+If you don't have a capability to create user backups or restore users from backups, there is no need to implement the `/usr/share/cloudlinux/hooks/post_modify_user.py restore` hook.
+:::
+
 ### Managing domains
 
 We expect that all domain-related data is stored inside the user's home directory. If your control panel stores domain-related data outside the user's home directory and that data can potentially change, please contact us so we can add support for this to our integration mechanism.
