@@ -14,7 +14,7 @@ Apache2Nginx is only supported on Solo, Admin and Shared Pro editions of CloudLi
 To use Apache2Nginx, first install the `apache2nginx` package:
 
 ```
-yum install apache2nginx
+yum --enablerepo=cloudlinux-updates-testing install apache2nginx
 ```
 
 ## Convert to NGINX hosting
