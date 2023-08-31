@@ -64,7 +64,8 @@ export default {
                 "/shared-pro/introduction/",
                 "/shared-pro/x-ray/",
                 "/shared-pro/centralized-monitoring/",
-                "/shared-pro/accelerate-wp/"
+                "/shared-pro/accelerate-wp/",
+                "/shared-pro/apache2nginx/"
             ]
         },
     ],
