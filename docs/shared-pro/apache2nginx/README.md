@@ -7,6 +7,7 @@ configuration.
 
 :::tip
 Apache2Nginx is only supported on Solo, Admin and Shared Pro editions of CloudLinux.
+Apache2Nginx is supported on cPanel servers only.
 :::
 
 ## Installation
