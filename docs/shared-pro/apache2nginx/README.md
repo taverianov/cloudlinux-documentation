@@ -5,8 +5,7 @@
 Apache2Nginx sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
 configuration.
 
-:::tip
-Apache2Nginx is only supported on Solo, Admin and Shared Pro editions of CloudLinux.  
+:::tip  
 Apache2Nginx is supported on cPanel servers only.
 :::
 
