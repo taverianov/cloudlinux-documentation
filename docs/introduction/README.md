@@ -60,7 +60,7 @@ to avoid security breaches. This way, unstable scripts or malware are not able t
 causing severe harm.
 
 Purchasing CloudLinux OS Shared Pro license extends your CloudLinux OS Shared 
-functionality with even more useful [features](/shared-pro/). 
+functionality with even more useful [features](/shared-pro/introduction/). 
 
 
 ## CloudLinux OS components
