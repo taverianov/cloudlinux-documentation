@@ -5775,6 +5775,7 @@ You can find more info about <span class="notranslate">New Relic License Key</sp
   * <span class="notranslate">`alt-python 3.8`</span>
   * <span class="notranslate">`alt-python 3.9`</span>
   * <span class="notranslate">`alt-python 3.10`</span>
+  * <span class="notranslate">`alt-python 3.11`</span>
   
 ### Installation
 
