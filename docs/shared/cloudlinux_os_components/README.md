@@ -6405,7 +6405,7 @@ Once completed, run a command to setup mod_lsapi PRO:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --setup
+$ /opt/rh/httpd24/root/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO is enabled:
