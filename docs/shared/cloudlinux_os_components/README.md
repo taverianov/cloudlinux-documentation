@@ -6412,7 +6412,7 @@ Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO i
 <div class="notranslate">
 
 ```
-$ service httpd24 restart
+$ service httpd24-httpd restart
 ```
 </div>
 
