@@ -5787,7 +5787,7 @@ After installation, please make sure that you have set appropriate checkboxes in
 
 Here you can find the installation steps for supported control panels:
 
-* [cPanel](./#cpanel-2)
+* [cPanel](./#cpanel-1)
 * [DirectAdmin](./#directadmin)
 
 #### cPanel
