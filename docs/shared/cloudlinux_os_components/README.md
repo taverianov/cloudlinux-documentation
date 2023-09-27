@@ -3424,7 +3424,7 @@ The script will install original MySQL server, and remove <span class="notransla
 
 ### Configuration and operation
 
-* [Configuration](./#configuration-3)
+* [Configuration](./#configuration-2)
 * [Modes of operation](./#modes-of-operation)
 * [MySQL Governor limits](./#mysql-governor-limits)
 * [Starting and stopping](./#starting-and-stopping)
