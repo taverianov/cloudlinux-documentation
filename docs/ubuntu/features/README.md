@@ -1,6 +1,6 @@
 # Features
 
-Below, you can find the list of supported features with the links to the documentation available.
+Below you can find the list of supported features with the links to the documentation available.
 
 ## LVE limits
 

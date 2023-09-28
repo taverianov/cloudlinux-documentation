@@ -1,4 +1,4 @@
-# Troubleshooting and Knows Issues
+# Troubleshooting and Known Issues
 
 ## Troubleshooting
 
@@ -12,7 +12,7 @@ To troubleshoot and resolve issues, you can use the following log files:
 
 ## Knows Issues
 
-1. Please take into account that if one of the [`alt-python37*` packages](/sub-system-ubuntu/troubleshooting/#list-of-alt-python37-packages) is updated you should execute the following command to ensure the proper work of the LVE-stats daemon:
+1. Please take into account that if one of the [`alt-python37*` packages](/sub-system-ubuntu/troubleshooting/#list-of-alt-python37-packages) is updated, you should execute the following command to ensure the proper functionality of the LVE-stats daemon:
 
 ```
 # /sbin/service lvestats try-restart
@@ -37,9 +37,9 @@ To troubleshoot and resolve issues, you can use the following log files:
 * alt-python37-psycopg2
 * alt-sqlite
 
-Such behavior will be fixed in the upcoming versions.
+Behavior like this will be fixed in the upcoming versions.
 
-2. LVE statistics works only with SQLite, other databases (MySQL, postgreSQL) will be available in the next releases.
-3. `alt-php*-zts` are not available yet.
-4. The `tmpreaper package` is using instead of `tmpwatch`.
+2. LVE statistics work only with SQLite, other databases (e.g. MySQL, postgreSQL) will be available in the following releases.
+3. `alt-php*-zts` packages are not available yet.
+4. The `tmpreaper package` is used instead of `tmpwatch`.
 5. PNG format for LVE Charts does not work correctly on CloudLinux subsystem on Ubuntu (lvechart utility may produce broken images).
