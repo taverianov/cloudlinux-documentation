@@ -623,16 +623,14 @@ This means that for each user/website we do not store an individual banner disab
 
 #### SmartAdvice email notifications and reminders
 
-`--api-version 1`
+This section outlines the process of managing email notifications from the SmartAdvice plugins. It applies to all users and it is a global (server-wide) setting.  
 
-Managing email notification activity (global setting for all users):  
-
-_Sending any emails from the SmartAdvice plugin_  
+_Sending any notifications (including reminders) related to advices_  
 ```
 cloudlinux-awp-admin --api-version 1 set-options --smart-advice-notifications=<on/off>
 ```
 
-_Reminder about non-activated advice once a month:_  
+_Sending reminder notifications for not activated advices once a month:_  
 ```
 cloudlinux-awp-admin --api-version 1 set-options --smart-advice-reminders=<on/off>
 ```
