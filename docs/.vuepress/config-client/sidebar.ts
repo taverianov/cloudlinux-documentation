@@ -64,8 +64,7 @@ export default {
                 "/shared-pro/introduction/",
                 "/shared-pro/x-ray/",
                 "/shared-pro/centralized-monitoring/",
-                "/shared-pro/accelerate-wp/",
-                "/shared-pro/apache2nginx/"
+                "/shared-pro/accelerate-wp/"
             ]
         },
     ],
@@ -92,6 +91,7 @@ export default {
                 "/shared/lve_manager/",
                 "/shared/cloudlinux_os_components/",
                 "/shared/command-line_tools/",
+                "/shared/apache2nginx/",
                 "/shared/control_panel_integration/",
                 "/shared/cloudlinux_os_kernel/",
                 "/shared/for_cloudlinux_partners/",
