@@ -283,6 +283,28 @@ Restore and override files from backup folder:
 
 ![AWPImageOptimizationSaaSServiceNotAvailable](https://github.com/cloudlinux/user-docs-solo-cloudlinux/assets/71260515/5f73a64d-bd82-482e-9a72-29dbb92ab676)
 
+**Some WebP images not loading on nginx**
+
+1. Insert this block **before** the server directive, which creates the `$webp_suffix` if the browser supports WebP:
+```
+map $http_accept $webp_suffix {
+    default "";
+    "~*webp" ".webp";
+}
+```
+2. Insert this block **inside** the server directive:
+```
+location ~* ^(/wp-content/.+)\.(png|jpe?g)$ {
+    set $base $1;
+    set $webp_uri $base$webp_suffix;
+    set $webp_old_uri $base.$2$webp_suffix;
+    set $root "<<FULL PATH OF WP-CONTENT PARENT>>";
+    root $root;
+    add_header Vary Accept;
+    try_files $webp_uri $webp_old_uri $uri =404;
+}
+```
+3. Make sure to replace `<<FULL PATH OF WP-CONTENT PARENT>>` with the actual **absolute path** to the wp-content folder, without the folder itself. Example: `/home/john/public_html/`.
 
 #### Preload
 **Preload Cache**
