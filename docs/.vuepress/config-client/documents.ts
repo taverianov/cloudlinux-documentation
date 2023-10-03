@@ -17,7 +17,7 @@ export default [
     {
         title: "Apache2Nginx (BETA)",
         description: "Apache2Nginx sets up Nginx hosting with .htaccess support.",
-        link: "/shared-pro/apache2nginx/",
+        link: "/shared/apache2nginx/",
     },
     {
         title: "AccelerateWP",
