@@ -1061,6 +1061,24 @@ After removing the user, you should call the following command:
 |Argument |Default |Description |
 |<span class="notranslate">--username, -u</span>| - |The name of the removed account |
 
+After restoring the user fron backup, you should call the following command:
+
+<div class="notranslate">
+
+```
+/usr/share/cloudlinux/hooks/post_modify_user.py restore --username user
+```
+</div>
+
+| | | |
+|-|-|-|
+|Argument |Default |Description |
+|<span class="notranslate">--username, -u</span>| - |The name of the restored account |
+
+::: tip Note
+If you don't have a capability to create user backups or restore users from backups, there is no need to implement the `/usr/share/cloudlinux/hooks/post_modify_user.py restore` hook.
+:::
+
 ### Managing domains
 
 We expect that all domain-related data is stored inside the user's home directory. If your control panel stores domain-related data outside the user's home directory and that data can potentially change, please contact us so we can add support for this to our integration mechanism.
@@ -1091,7 +1109,7 @@ After renaming a package, the following command should be run:
 <div class="notranslate">
 
 ```
-/usr/share/cloudlinux/hooks/post_modify_package.py rename --name package_name --new_name new_package_name
+/usr/share/cloudlinux/hooks/post_modify_package.py rename --name package_name --new-name new_package_name
 ```
 </div>
 
@@ -2178,6 +2196,32 @@ Then  apply this patch in the <span class="notranslate">`%setup`</span> section:
 </div>
 
 If no errors appear during the build, the patch has been successfully applied.
+
+Instead of patching the apr library, you can build your custom Apache with one of the libapr-devel packages provided by CloudLinux OS Shared. Every version of CloudLinux OS Shared provides two versions of libapr - the system library as a package named `apr` and the alternative library as a package named `alt-apr`. Their versions are listed in the following table:
+
+|-|-|-|
+|CloudLinux OS Shared version |apr version |alt-apr version |
+|6 |1.3.9 |1.7.4 |
+|7 |1.4.8 |1.7.4 |
+|8 |1.6.3 |1.7.4 |
+|9 |1.7.0 |1.7.4 |
+
+If your custom Apache is already linked with a non-patched apr library with the major version equal to one provided by `apr` or `alt-apr` package, you can just change the library symlink. For example, if your Apache binary `/usr/local/apps/apache2/bin/httpd` is linked with `/usr/local/apps/apache2/lib/libapr-1.so.0` library which, in turn, is a link to `libapr` library with version 1.7.4, you can install the `alt-apr` package and change the symlink - it should link to the patched library provided by `alt-apr` package instead of the original one.
+<div class="notranslate">
+
+```
+[root@cloudlinux ~]# ldd /usr/local/apps/apache2/bin/httpd | grep libapr-1.so.0
+        libapr-1.so.0 => /usr/local/apps/apache2/lib/libapr-1.so.0 (0x00007f191e35c000)
+[root@cloudlinux ~]#
+[root@cloudlinux ~]# ls -l /usr/local/apps/apache2/lib/libapr-1.so.0
+lrwxrwxrwx 1 root root 17 Feb 10  2023 /usr/local/apps/apache2/lib/libapr-1.so.0 -> libapr-1.so.0.7.4
+[root@cloudlinux ~]#
+[root@cloudlinux ~]# rpm -ql alt-apr | grep libapr-1.so.0.7.4
+/opt/alt/alt-apr17/lib64/libapr-1.so.0.7.4
+[root@cloudlinux ~]#
+[root@cloudlinux ~]# ln -sf /opt/alt/alt-apr17/lib64/libapr-1.so.0.7.4 libapr-1.so.0
+```
+</div>
 
 ## Hardened PHP
 

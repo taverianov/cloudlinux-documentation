@@ -5,7 +5,7 @@
 * [Inodes limits](/shared/limits/#inodes)
 * [Control panel integration guide](./#control-panel-integration-guide)
 
-<span class="notranslate">CloudLinux Manager</span> is a plugin for most popular control panels including cPanel, Plesk, DirectAdmin and ISPmanager (InterWorx coming soon). It allows you to control and monitor limits, and set limits on per package bases.
+<span class="notranslate">CloudLinux Manager</span> is a plugin for most popular control panels including cPanel, Plesk, DirectAdmin, InterWorx, and CyberPanel. It allows you to control and monitor limits, and set limits on per package bases.
 
 <span class="notranslate">CloudLinux Manager</span> is installed by default on most servers. If it is missing you can always install it by running:
 

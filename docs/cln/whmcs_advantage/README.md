@@ -1,4 +1,4 @@
-# CloudLinux WHMCS AWP Plugin
+# CloudLinux Advantage
 
 ## Overview
 
@@ -88,7 +88,7 @@ Module page contains information about the state of active features
 
 ![](./images/whmcs-advantage-admin-addon-menu.png)
 
-In case the configurable options "AccelerateWP" were accidentally removed, you can re-install them on the CloudLinuxAdvantage settings page.
+In case the configurable options were accidentally removed, you can re-install them on the CloudLinuxAdvantage settings page.
 
 ![](./images/whmcs-advantage-admin-addon-page.png)
 
@@ -98,20 +98,27 @@ The table shows the queue and history of requests to the servers for which the A
 Deactivating the addon will delete the table with the history of AccelerateWP activity on the servers.
 :::
 
-| Column  | Description                                                                                                                                                                                                                                                                                               |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Service | What customer service does the zarpos refer to.                                                                                                                                                                                                                                                           |
+| Column  | Description                                                                                                                                                                                                                                                                                             |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Service | What customer service does the zarpos refer to.                                                                                                                                                                                                                                                         |
 | Suite   | For which product the status will be changed.<br/>* Last status: previous status<br/> * Current status: current service status<br/>* Will set status: What status will be set. Depending on the selected configurable option "AccelerateWP" and the status of the users's service, the status may differ. |
-| Message | The last message about the operation. A detailed error may be displayed.                                                                                                                                                                                                                                  |
-| Queue   | Availability of a queue for executing a cron request                                                                                                                                                                                                                                                      |
-| Action  | Send request manually                                                                                                                                                                                                                                                                                     |
+| Message | The last message about the operation. A detailed error may be displayed.                                                                                                                                                                                                                                |
+| Queue   | Availability of a queue for executing a cron request                                                                                                                                                                                                                                                    |
+| Action  | Send request manually<br/>Delete log entry from module table                                                                                                                                                                                                                                            |
 
-An example of a request that will be executed by cron
+An example of sending requests to the server for selected options for the user.
+Each line is a report of sending a request to the server for each module that the user enabled or disabled.
+In case of an error, the response from the server will be displayed in the "Message" column. In this case, you need to fix the problem and manually start sending the request using the "Retry now" button.
+
 ![](./images/whmcs-advantage-admin-addon-page-example-cron.png)
 
-An example of a request that failed
-![](./images/whmcs-advantage-admin-addon-page-example-error.png)
+The "PUSH" button is displayed for "MyImunify - Account Protection" for a bulk operation to enable/disable the module on services for which the "MyImunify - Account Protection" option is linked.  
 
+By default, the first sorted sub-option for the "MyImunify - Account Protection" option will be sent to all users, and if the user has previously independently changed the sub-option for "MyImunify - Account Protection" using the WHMCS interface, his choice will be saved and also added to the request.  
+
+More details: [https://docs.imunify360.com/myimunify/#what-is-myimunify-for-hosting-admin](https://docs.imunify360.com/myimunify/#what-is-myimunify-for-hosting-admin)
+
+![](./images/whmcs-advantage-admin-addon-page-push-modal.png)
 
 ### FAQ
 
@@ -221,6 +228,10 @@ The Plesk extension is available since accelerate-wp-1.3-2 version
 
 ## Changelog
 
+* 0.0.3
+  * Added the ability to purchase [MyImunify - Account protection](https://docs.imunify360.com/myimunify/#what-is-myimunify-for-hosting-admin)
+  * Add the ability to bulk send the statuses of custom options "MyImunify - Account protection" to the servers
+
 * 0.0.2
   * Module renamed from Accelerate WP to CloudLinux Advantage
   * Added the ability to purchase AccelerateWP CDN
@@ -232,6 +243,9 @@ The Plesk extension is available since accelerate-wp-1.3-2 version
   * Beta release
 
 ## Requirements
+
+* 0.0.3
+  * Imunify360 ^7.4.0
 
 * 0.0.2
   * WHMCS ^8.0

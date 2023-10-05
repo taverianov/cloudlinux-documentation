@@ -19,11 +19,11 @@ No registration required! You can start working right after the installation.
 
 ## Ubuntu2Cloudlinux explained
 
-The `ubuntu2cloudlinux.py` script gives an opportunity to install CloudLinux Subsystem For Ubuntu. It is much more simplier script than the CLdeploy script for CentOS and AlmaLinux. For example, it doesn't replace the linux kernel, only adds a dynamic module to it. Here is a list of actions done by the `ubuntu2cloudlinux`:
+The `ubuntu2cloudlinux.py` script gives an opportunity to install CloudLinux Subsystem For Ubuntu. It is a simplier script compared to the CLdeploy script for CentOS and AlmaLinux. For example, it doesn't replace the Linux kernel, only adds a dynamic module to it. Here is a list of actions done by the `ubuntu2cloudlinux`:
 
 * It checks that you are running the latest available version of the `ubuntu2cloudlinux.py script`, and updates itself if necessary.
 * Upgrades all installed packages to the latest versions (unless the `--skip-full-update` option is passed).
-* Adds to your system CloudLinux repositories for Ubuntu and a corresponding gpg key.
+* Adds CloudLinux repositories for Ubuntu and a corresponding gpg key to your system.
 * Installs a minimum set of CloudLinux OS components: lve, kernel module kmodlve-dkms, lve-utils, lve-stats, alt-python.
 * Installs CloudLinux Manager (currently works with cPanel on Ubuntu).
 * Installs the mod_hostinglimits Apache module.

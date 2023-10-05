@@ -2,8 +2,8 @@
 
 ### What is the CloudLinux subsystem on Ubuntu?
 
-CloudLinux subsystem on Ubuntu is a scope of deb-packages which allows using CloudLinux features on Ubuntu OS.
-The main goal of this subsystem is to allow operating the already existed CloudLinux functionality on another OS.
+CloudLinux subsystem on Ubuntu is a scope of deb-packages that allows using CloudLinux features on Ubuntu OS.
+The main goal of this subsystem is to allow using the already existing CloudLinux functionality on another OS.
 
 ### How to install the CloudLinux subsystem on Ubuntu?
 
@@ -27,8 +27,8 @@ Feel free to contact Support via [Support Portal](https://www.cloudlinux.com/sup
 
 ### Can I use other CloudLinux products (Imunify360, KernelCare) with the CloudLinux subsystem on Ubuntu?
 
-During the first beta release you cannot use other CloudLinux products (Imunify360, KernelCare) with the CloudLinux
-subsystem on Ubuntu We're planning to add them in the upcoming releases.
+During the first beta release you cannot use other CloudLinux products (Imunify360, KernelCare) with the CloudLinux subsystem on Ubuntu.
+We're planning to add them in the upcoming releases.
 
 ### Can I use Docker with the CloudLinux subsystem on Ubuntu?
 
@@ -40,7 +40,7 @@ Yes, it is available.
 
 ### How to set up a PHP-fpm handler for the domain?
 
-Since the PHP-fpm handler is required to use WP Optimization Suite, you may need to configure it manually.
+Since the PHP-fpm handler is required to use the WP Optimization Suite, you may need to configure it manually.
 
 These are configuration steps:
 
@@ -48,14 +48,8 @@ These are configuration steps:
 
     * Via MultiPHP Manager
 
-<<<<<<< Updated upstream
-
-2. Enable PHP-fpm handler for domain via MultiPHP Manager
-
-=======
    ![](./images/viaMultiPHP.png)
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
    ![](./images/enablephp-fpm.png)
->>>>>>> Stashed changes

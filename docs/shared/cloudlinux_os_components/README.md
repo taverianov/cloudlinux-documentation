@@ -2396,6 +2396,12 @@ Some software has to run outside CageFS to be able to complete its job. It inclu
 Do not edit the existing <span class="notranslate">`/etc/cagefs/proxy.commands`</span> file as it will be overwritten with the next CageFS update.
 :::
 
+Also you should create a [config file](./#file-system-templates) in <span class="notranslate">`/etc/cagefs/conf.d/`</span> and define there a path to the binary or to one of it's parent directories.
+
+::: tip Warning
+Binary shouldn't be located in one of the directories specified in <span class="notranslate">/etc/cagefs/cagefs.mp</span>. Binaries from directories in <span class="notranslate">/etc/cagefs/cagefs.mp</span> are always executed inside cagefs.
+:::
+
 The syntax of the <span class="notranslate">`/etc/cagefs/[*.]proxy.commands`</span> file is as follows:
 
 <div class="notranslate">
@@ -3418,7 +3424,7 @@ The script will install original MySQL server, and remove <span class="notransla
 
 ### Configuration and operation
 
-* [Configuration](./#configuration-3)
+* [Configuration](./#configuration-2)
 * [Modes of operation](./#modes-of-operation)
 * [MySQL Governor limits](./#mysql-governor-limits)
 * [Starting and stopping](./#starting-and-stopping)
@@ -5769,6 +5775,7 @@ You can find more info about <span class="notranslate">New Relic License Key</sp
   * <span class="notranslate">`alt-python 3.8`</span>
   * <span class="notranslate">`alt-python 3.9`</span>
   * <span class="notranslate">`alt-python 3.10`</span>
+  * <span class="notranslate">`alt-python 3.11`</span>
   
 ### Installation
 
@@ -5780,7 +5787,7 @@ After installation, please make sure that you have set appropriate checkboxes in
 
 Here you can find the installation steps for supported control panels:
 
-* [cPanel](./#cpanel-2)
+* [cPanel](./#cpanel-1)
 * [DirectAdmin](./#directadmin)
 
 #### cPanel
@@ -6398,14 +6405,14 @@ Once completed, run a command to setup mod_lsapi PRO:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --setup
+$ /opt/rh/httpd24/root/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO is enabled:
 <div class="notranslate">
 
 ```
-$ service httpd24 restart
+$ service httpd24-httpd restart
 ```
 </div>
 
