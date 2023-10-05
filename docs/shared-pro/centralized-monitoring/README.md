@@ -8,6 +8,7 @@
 
 * View system metrics for all clients’ end servers
 * View the LVE statistics per user for all clients’ end servers
+* Enable AccelerateWP Free on all compatible servers
 
 ## Installation
 
@@ -16,7 +17,7 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
 :::
 
 1. Make sure you have a CloudLinux OS Shared Pro subscription.
-2. Make sure you have installed the **lve-utils** package version 4.2.21-2 or later. You can install or update it with the following commands:
+2. Make sure you have installed the latest **lve-utils** package. You can install or update it with the following commands:
     * installation
     ```
     yum install lve-utils
@@ -26,9 +27,9 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
     yum update lve-utils
     ```
 3. Log in to the [https://cm.cloudlinux.com/](https://cm.cloudlinux.com/) using CLN credentials (if you are already logged in via CLN, authorization via CM is not necessary, it uses SSO).
-4. Activate statistics collection on all your servers via the Centralized Monitoring UI ([https://cm.cloudlinux.com](https://cm.cloudlinux.com)) or via the CLN UI [https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring).
+4. Activate statistics collection on all your servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). Optionally, activate the [AccelerateWP Free](/shared-pro/accelerate-wp/#acceleratewp-suite)* for all of your compatible servers.
     ![](./images/CMInstallationProd.png)
-5. Within 5 hours from the activation, statistics collection and sending to the central server will be set up automatically: all required packages and components will be installed. For new, just registered servers, statistics collection and sending will be set up automatically within 5 hours.
+5. Within couple minutes after the activation, statistics collection and sending to the central server or [AccelerateWP Free](/shared-pro/accelerate-wp/#acceleratewp-suite)* will be set up automatically: all required packages and components will be installed. For new, just registered servers, actions can take up to 5 hours.
 6. Make sure you have activated statistics collection (see paragraph 4) otherwise you will not be able to set up your servers. For instant set up of a registered server after statistics collection was enabled, run the following commands for all servers:
     ```
     # rhn_check	
@@ -42,6 +43,10 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
     :::tip Note
     User statistics will be available only for users that were loaded starting from connecting the server to the Centralized Monitoring.
     :::
+
+
+\* AccelerateWP Free activation also automatically installs and configures 
+[Autotracing](/shared/command-line_tools/#x-ray-autotracing) on server.
 
 
 ## Centralized Monitoring: mode without session expired
