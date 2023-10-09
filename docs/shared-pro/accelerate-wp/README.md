@@ -621,6 +621,16 @@ then for its subsequent activation of the ObjectCache module, the general settin
 This means that for each user/website we do not store an individual banner disable/enable setting.
 
 
+#### SmartAdvice email reminders
+
+This section outlines the process of managing email notifications from the SmartAdvice plugins. It applies to all users and it is a global (server-wide) setting.  
+
+_Sending reminder notifications for not activated advices once a month:_  
+```
+cloudlinux-awp-admin --api-version 1 set-options --smart-advice-reminders=<on/off>
+```
+  
+
 ### cloudlinux-awp-user
 
 ```
