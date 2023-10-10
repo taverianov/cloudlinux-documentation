@@ -8,6 +8,14 @@ We don't recommend to use or test this tool on your production servers unless yo
 :::
 
 :::warning
+Please note that the CloudLinux Elevate tool is intended specifically for upgrading the CloudLinux OS.
+Upgrading to CloudLinux directly from a non-CloudLinux OS is **not supported**.
+
+While it is possible, it requires additional steps to be taken.
+Refer to [this documentation section](#i-have-a-centos-7-system-i-want-to-migrate-to-cloudlinux-8-can-i-use-your-tool-to-do-so) for details.
+:::
+
+:::warning
 We disclaim responsibility for incorrect or improper use of the tool. The support team will not be able to help you if you have not followed all the steps described in the documentation or converted a server with a non-cPanel control panel present.
 
 In addition, support will not be provided if you have any third-party utilities that do not function after the upgrade, according to [Support policy](https://www.cloudlinux.com/CloudLinux-and-Imunify-support-policy.pdf). Examples: webservers, DNS servers, mail servers, database servers and other utilities that do not belong to our product line.
@@ -53,7 +61,7 @@ Ideally, perform a trial run in a disposable environment, like a VM or a sandbox
 
 ### Will it upgrade everything I have on my system?
 
-It depends. ELevate will not upgrade arbitrary software, especially one that isn't related to CloudLinux or a supported panel.
+It depends. ELevate will not upgrade arbitrary software, especially one that isn't related to CloudLinux or a supported control panel.
 
 The ELevate project only supports a subset of package repositories it's aware of - that is, package repositories that are included in its configuration files.
 
@@ -66,7 +74,7 @@ It's possible to add missing repositories and packages to ELevate yourself, if y
 
 Yes.
 
-One of the major steps of the upgrade process involves rebooting into a special `initramfs` environment, from which the system's software is upgraded. During that period of time, the system will be mostly non-functional and inaccessible.
+One of the major steps of the upgrade process involves rebooting into a custom `initramfs` environment, from which the system's software is upgraded. During that period of time, the system will be mostly non-functional and inaccessible.
 
 This stage may take **up to an hour**, so schedule the upgrade accordingly.
 
@@ -116,6 +124,19 @@ Please refer to the following documentation links for instructions on how to do 
 * [How to Restore PHP Selector Options](https://cloudlinux.zendesk.com/hc/en-us/articles/115004517465)
 * [How to obtain activation keys, register and migrate servers ](https://cloudlinux.zendesk.com/hc/en-us/articles/115003888573-How-to-obtain-activation-keys-register-and-migrate-servers)
 
+#### I have a CentOS 7 system I want to migrate to CloudLinux 8, can I use your tool to do so?
+
+Not in a single step. The CloudLinux Elevate tool specifically targets the upgrade path of CloudLinux 7 to CloudLinux 8, and trying to use a different OS as a starting point is unlikely to end well.
+
+If you have a non-CloudLinux OS you wish to upgrade, you have the following options available:
+
+* [Convert your system to CloudLinux 7 normally](/shared/cloudlinux_installation/#converting-existing-servers), then use the CloudLinux Elevate tool to migrate it to CloudLinux 8.
+* If you're using a CentOS 7 system without a panel, use the [AlmaLinux Elevate](https://almalinux.org/elevate/) tool to upgrade it to AlmaLinux 8, then [convert it to CloudLinux normally](/shared/cloudlinux_installation/#converting-existing-servers).
+* If you're using cPanel, you'll need to use the [cPanel Elevate](https://cpanel.github.io/elevate/) tool instead. Use it to upgrade your system to AlmaLinux 8 + cPanel, then [convert it to CloudLinux normally](/shared/cloudlinux_installation/#converting-existing-servers).
+
+:::warning
+Please note that the Elevate variants (AlmaLinux, cPanel) mentioned above are maintained by third parties. As such, should you encounter problems when using them, you should direct your questions/support requests to the maintainers of the tool you're using.
+:::
 
 ### I ran into a problem during the upgrade process, what do I do?
 
