@@ -10,6 +10,12 @@ There are AccelerateWP, AccelerateWP Premium and AccelerateWP CDN feature suites
 AccelerateWP suite is always enabled when AccelerateWP is turned on. Choose whether you want to offer AccelerateWP Premium 
 offer AccelerateWP Premium or CDN (Content Delivery Network) for your users (by opting in) and click "Turn on" to start exploring AccelerateWP. 
 
+
+:::tip Note
+AccelerateWP Free suite is enabled by default on all new servers. Proceed to [suites configuration](/shared-pro/accelerate-wp/#suites-usage-statistics) if your server has AccelerateWP already turned on.
+:::
+
+
 ![](./images/AWPGettingStarted.png)
 
 Once the AccelerateWP suite is enabled by an administrator,

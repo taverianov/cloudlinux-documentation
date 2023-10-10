@@ -16,6 +16,10 @@ Once <span class="notranslate">X-Ray</span> tracing task is running for the site
 
 ## Installation
 
+:::tip Note
+X-Ray Autotracing is installed and enabled by default on all new compatible servers.
+:::
+
 1. Make sure you have CloudLinux OS Shared Pro subscription (only non-reseller accounts apply)
 
 2. Make sure you have installed **LVE Manager version 6.2 or later**. You can install or update it with the following commands:
