@@ -4008,14 +4008,16 @@ ImportError: libexample_stubs.so: cannot open shared object file: No such file o
 
 The recommended approach to resolving such issues involves three primary steps:
 
-1) #### Verify the Presence of the Library:
+1) Verify the Presence of the Library.</br>
+
 Use the command to ascertain the library's presence in the current version:
 
 ```bash
 yum provides '*/libexample_stubs.so'
 ```
 
-2) #### Recompiling the Affected Package:
+2) Recompiling the Affected Package.</br>
+
 Recompile the affected package for each user, especially if using Python's mysql package (`mysqlclient`):
 
 ```bash
@@ -4023,7 +4025,8 @@ pip install mysqlclient --force --no-cache-dir
 ```
 However, this is not the ideal solution since sites that are functional may break after a system update.
 
-3) #### Using Utilities to Modify Binary:
+3) Using Utilities to Modify Binary.</br>
+
 If recompilation isn't feasible, `patchelf` utility can help remove references to the missing library in the binary:
 
 ```bash
