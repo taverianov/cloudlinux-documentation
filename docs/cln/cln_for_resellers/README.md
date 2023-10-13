@@ -103,7 +103,7 @@ Click ![](./images/clnarrow.png) near invoice id to show detailed bill informati
 * SubTotal — the price for that number of licenses
 
 
-## AccelerateWP Features Management for IPR Customers
+## AccelerateWP Permissions Management for IPR Customers
 
 Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. 
 
