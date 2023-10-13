@@ -3992,6 +3992,49 @@ The command updates credentials in MySQL <span class="notranslate">Governor</spa
 
 After applying the command MySQL <span class="notranslate">Governor</span> successfully connects to MySQL.
 
+
+**Handling Missing Libraries in cl-MariaDB-libs for MySQL Governor (libgovernor_stubs.so)**
+
+During the update of latest `cl-MariaDB-libs`, issues related to the addition or removal of certain shared libraries in cl-MySQL/cl-MariaDB packages may arise. The presence or absence of these libraries can disrupt the functioning of clients' systems.
+
+When you encounter errors pointing towards missing or newly added libraries after updating the cl-MySQL/cl-MariaDB packages, it's crucial to adjust and address the configurations to restore normalcy.
+
+For instance, the error might resemble the following message:
+
+```
+ImportError: libexample_stubs.so: cannot open shared object file: No such file or directory
+```
+</div>
+
+The recommended approach to resolving such issues involves three primary steps:
+
+1) #### Verify the Presence of the Library:
+Use the command to ascertain the library's presence in the current version:
+
+```bash
+yum provides '*/libexample_stubs.so'
+```
+
+2) #### Recompiling the Affected Package:
+Recompile the affected package for each user, especially if using Python's mysql package (`mysqlclient`):
+
+```bash
+pip install mysqlclient --force --no-cache-dir
+```
+However, this is not the ideal solution since sites that are functional may break after a system update.
+
+3) #### Using Utilities to Modify Binary:
+If recompilation isn't feasible, `patchelf` utility can help remove references to the missing library in the binary:
+
+```bash
+patchelf --remove-needed libexample_stubs.so path/to/affected/binary.so
+```
+
+Applying the aforementioned steps should rectify the issues, allowing MySQL <span class="notranslate">Governor</span> to function correctly with the updated libraries in cl-MySQL/cl-MariaDB packages.
+
+Always remember to back up your data and configurations before making any changes to ensure a safety net in case of any inadvertent errors. If you continue to face challenges, please reach out to our support team for assistance.
+
+
 ### Known limitations
 
 #### I/O LVE limits don't work for user’s SQL queries
