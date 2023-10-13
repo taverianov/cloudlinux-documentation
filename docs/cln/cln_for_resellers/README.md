@@ -103,3 +103,28 @@ Click ![](./images/clnarrow.png) near invoice id to show detailed bill informati
 * SubTotal — the price for that number of licenses
 
 
+## AccelerateWP Features Management for IPR Customers
+
+Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. 
+
+Default state for different Cloudlinux OS editions:
+* Solo, Admin - disabled
+* Pro - enabled 
+
+For managing these features via CLN:
+
+1. Login to the CLN account
+2. Go to the 'CloudLinux' tab
+3. Go to the IP Licenses section 
+
+![](./images/cln-ip-licenses-section.png) 
+
+4. Press edit
+5. Choose new permissions 
+
+![](./images/cln-choose-permissions.png)
+
+6. Save permissions
+
+
+

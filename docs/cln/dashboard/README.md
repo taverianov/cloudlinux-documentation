@@ -515,7 +515,37 @@ The _Server groups_ feature allows you to add servers in one group and perform g
 
     ![](./images/move_to_another_group.png)
 
-* The server(s) will be moved to another group 
+* The server(s) will be moved to another group  
+
+### AccelerateWP Features Management for Regular Customers
+
+The Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers.
+
+Default state for Cloudlinux OS editions:
+* Solo, Admin - disabled
+* Pro - enabled 
+
+For managing these features via CLN:
+
+1. Login to the CLN account 
+
+2. Go to the 'CloudLinux' tab 
+
+![](./images/cln_shared-pro_activation-keys.png)
+
+3. Press a key when you want to enable/ disable Premium or CDN 
+
+4. Press Edit key 
+
+![](./images/cln_shared-pro_edit_key.png) 
+
+5. Choose new permissions 
+
+![](./images/cln_edit-activation_key_permissions.png) 
+
+6. Save permissions 
+
+Permission will apply to all registered under these key servers.
 
 
 
