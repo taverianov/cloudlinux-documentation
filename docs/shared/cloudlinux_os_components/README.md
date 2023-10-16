@@ -4004,7 +4004,6 @@ For instance, the error might resemble the following message:
 ```
 ImportError: libexample_stubs.so: cannot open shared object file: No such file or directory
 ```
-</div>
 
 The recommended approach to resolving such issues involves three primary steps:
 
