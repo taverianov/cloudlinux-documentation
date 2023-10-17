@@ -105,7 +105,7 @@ Click ![](./images/clnarrow.png) near invoice id to show detailed bill informati
 
 ## AccelerateWP Permissions Management for IPR Customers
 
-Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. 
+Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. In cases where hosting users have root access to the server (e.g. VPS users), this permission ensures the license holder retains control over access to billable features. 
 
 Default state for different Cloudlinux OS editions:
 * Solo, Admin - disabled
