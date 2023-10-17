@@ -519,7 +519,7 @@ The _Server groups_ feature allows you to add servers in one group and perform g
 
 ### AccelerateWP Features Management for Regular Customers
 
-The Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers.
+The Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. In cases where hosting users have root access to the server (e.g. VPS users), this permission ensures the license holder retains control over access to billable features. 
 
 Default state for Cloudlinux OS editions:
 * Solo, Admin - disabled
