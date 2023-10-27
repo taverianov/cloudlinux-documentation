@@ -1,4 +1,3 @@
-
 # AccelerateWP
 
 ## Getting started
@@ -65,47 +64,6 @@ requests come in and may be helpful in cases when full-page caching cannot be us
 * no other WordPress Caching plugins must be installed.
 * the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
 * WordPress should not be running in Multisite mode.
-
-#### Quick Start Guide (CLI)
-
-More CLI commands are described in [this section](/shared-pro/accelerate-wp/#acceleratewp-cli)
-
-Enable AccelerateWP Free:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
-```
-Enable AccelerateWP Premium:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
-```
-Enable AccelerateWP Premium for free for all users:
-```
-cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
-```
-Set Premium Upgrade URL:
-```
-cloudlinux-awp-admin set-options --upgrade-url "https://plan.upgrade/splash" 
-```
-Enable CDN Free for all users:
-```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all && cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
-```
-Enable CDN 50GB for all users (users become billable when they activate):
-```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --allowed-for-all
-```
-
-Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
-*Note: Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.*
-Scan the server in background mode and activate AccelerateWP on those WordPress sites where it is possible:
-```
-cloudlinux-awp-admin enable-feature --all
-```
-Check activation status:
-```
-cloudlinux-awp-admin enable-feature --status
-```
 
 ## Administrator interface
 
@@ -181,6 +139,108 @@ Starting from `accelerate-wp-1.6-6` AccelerateWP CLI utilities provide CLI versi
 It is highly recommended to specify CLI version explicitly via --api-version, otherwise CLI will rely on default settings, 
 which cannot guarantee backward compatability.
 :::
+
+### Frequently used commands
+
+#### Find all enabled premium users
+*Note: this can also be viewed from the **AccelerateWP** tab in CloudLinux Manager*
+```
+cloudlinux-awp-admin get-stat
+```
+
+#### Enable AccelerateWP Free
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
+```
+
+#### Enable AccelerateWP Premium
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
+```
+
+#### Enable AccelerateWP Premium for free for all users:
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
+```
+
+#### Set Premium Upgrade URL
+```
+cloudlinux-awp-admin set-options --upgrade-url "https://plan.upgrade/splash" 
+```
+
+#### Enable AccelerateWP CDN free
+
+**All users**
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn --allowed-for-all
+```
+
+**Single user or group of users**
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_cdn --allowed --users=<username1>,<username2>
+```
+
+#### Enable AccelerateWP CDN 50GB (example)
+*Important note: each of these users will become billable to you as soon as you grant this entitlement*
+
+**All users**
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro  --attrs='{"traffic_limit": "50 GB"}' --allowed-for-all
+```
+
+**Single user or group of users*
+```
+cloudlinux-awp-admin set-suite --allowed --users <username>,<username2> --suites accelerate_wp_cdn_pro  --attrs='{"traffic_limit": "50 GB"}'
+```
+
+### Revoke access to CDN
+
+**All users**
+```
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
+```
+
+**Single user or group of users**
+```
+cloudlinux-awp-admin set-suite --visible --users <username>,<username2> --suites accelerate_wp_cdn_pro
+```
+
+#### Grant users access to ALL premium features
+*Note - this is the most common and fundamentally the same as the users upgrading using the WHMCS plugin - you will only be billed for the users that activate at least one premium feature*
+
+**All users**
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed-for-all
+```
+
+**Single user or group of users**
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed --users=<username1>,<username2>
+```
+
+#### Completely disallow access to premium features (including premium SmartAdvice)
+**All users**
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --disallowed-for-all
+```
+
+**Single user or group of users**
+```
+cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --disallowed --users=<username1>,<username2>
+```
+
+#### Enable all features
+Use the cloudlinux-awp-admin enable-feature CLI command to ensure the best performance for every WordPress user. This CLI command scans the server for all WordPress sites, then activates the AccelerateWP feature suite. Activation is skipped for any sites with existing page caching or feature incompatibilities.
+*Note: Please make sure your AccelerateWP version is >= 1.2-2 before proceeding.*
+Scan the server in background mode and activate AccelerateWP on those WordPress sites where it is possible:
+```
+cloudlinux-awp-admin enable-feature --all
+```
+
+#### Check feature activation status
+```
+cloudlinux-awp-admin enable-feature --status
+```
 
 
 ### cloudlinux-awp-admin
