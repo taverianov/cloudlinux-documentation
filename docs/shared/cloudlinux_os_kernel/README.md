@@ -630,10 +630,9 @@ Starting from **lve-utils-3.0-23.7**  fs.proc_super_gid and fs.symlinkown_gid wi
 For **lve-utils** versions from 3.0-21.2 to 3.0-23.7 the migration was performed the same way, but during every package install/update.
 Variables setting guidelines are the same as for CageFS (see above).
 
-By default the CL kernel with the lve module restricts an access to all files in /proc/net/* except the ones in the following whitelist:
-`tcp, tcp6, udp, udp6, assocs, raw, raw6, unix, dev` 
-To disable the restrictions you can set `kernel.proc_disable_net2 = 0`. 
-Also, if you want to restrict an access even to those that are in the whitelist you should set `kernel.proc_disable_net = 1` (by default it’s disabled).
+By default the CL kernel with the lve module restricts an access to all files in /proc/net/* except the ones in the following whitelist:  
+`tcp, tcp6, udp, udp6, assocs, raw, raw6, unix, dev`  
+To disable the restrictions you can set `kernel.proc_disable_net2 = 0`. Also, if you want to restrict an access even to those that are in the whitelist you should set `kernel.proc_disable_net = 1` (by default it’s disabled).
 
 ## Virtualized /proc filesystem
 
