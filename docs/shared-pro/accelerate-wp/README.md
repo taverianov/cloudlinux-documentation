@@ -185,12 +185,12 @@ cloudlinux-awp-admin set-suite --suites=accelerate_wp_cdn --allowed --users=<use
 
 **All users**
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro  --attrs='{"traffic_limit": "50 GB"}' --allowed-for-all
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --attrs='{"traffic_limit": "50 GB"}' --allowed-for-all
 ```
 
-**Single user or group of users*
+**Single user or group of users**
 ```
-cloudlinux-awp-admin set-suite --allowed --users <username>,<username2> --suites accelerate_wp_cdn_pro  --attrs='{"traffic_limit": "50 GB"}'
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --attrs='{"traffic_limit": "50 GB"}' --allowed --users <username>,<username2>
 ```
 
 ### Revoke access to CDN
@@ -202,7 +202,12 @@ cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
 
 **Single user or group of users**
 ```
-cloudlinux-awp-admin set-suite --visible --users <username>,<username2> --suites accelerate_wp_cdn_pro
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible --users <username>,<username2>
+```
+
+#### Set Upgrade URL for CDN
+```
+cloudlinux-awp-admin set-options --suite accelerate_wp_cdn_pro --upgrade-url="https://plan.upgrade/cdn-boost"
 ```
 
 #### Grant users access to ALL premium features
