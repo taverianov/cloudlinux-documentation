@@ -198,12 +198,12 @@ cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --attrs='{"traffic
 
 **All users**
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible-for-all
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --disallowed-for-all
 ```
 
 **Single user or group of users**
 ```
-cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --visible --users <username>,<username2>
+cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --disallowed --users <username>,<username2>
 ```
 
 #### Set Upgrade URL for CDN
