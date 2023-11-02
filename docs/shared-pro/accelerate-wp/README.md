@@ -194,7 +194,7 @@ cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --attrs='{"traffic
 cloudlinux-awp-admin set-suite --suites accelerate_wp_cdn_pro --attrs='{"traffic_limit": "50 GB"}' --allowed --users <username>,<username2>
 ```
 
-### Revoke access to CDN
+#### Revoke access to CDN
 
 **All users**
 ```
