@@ -3305,8 +3305,8 @@ Please make sure to specify your current <span class="notranslate"> MariaDB </sp
 * 105 - MariaDB v10.5 [requires <span class="notranslate">MySQL Governor</span> 1.2-62+]
 * 106 - MariaDB v10.6 [requires <span class="notranslate">MySQL Governor</span> 1.2-76+]
 
-:::tip Note
-MariaDB version 10.4 is not available for CloudLinux OS Shared 6.
+:::tip Updated note
+MariaDB version 10.4 is available for CloudLinux OS Shared 6.
 :::
 
 Installation for <span class="notranslate"> Percona Server 5.6 </span> [requires <span class="notranslate"> MySQL Governor </span> 1.1-22+ or 1.2-21+]:
@@ -4077,6 +4077,10 @@ Here are some instructions for different control panels:
 
 After installing native PHP, please run the `cloudlinux-selector setup --interpreter=php --json` command in order to reconfigure CageFS and LVE Manager.
 :::
+
+### Supported versions
+
+![](./images/PHP_supported_versions.png)
 
 ### Installation and update
 
@@ -5809,18 +5813,7 @@ You can find more info about <span class="notranslate">New Relic License Key</sp
 
 ### Supported versions
 
-* Python Selector supports the following alt-python versions for all actual CloudLinux OS Shared versions:
-
-  * <span class="notranslate">`alt-python 2.7`</span>
-  * <span class="notranslate">`alt-python 3.3`</span>
-  * <span class="notranslate">`alt-python 3.4`</span>
-  * <span class="notranslate">`alt-python 3.5`</span>
-  * <span class="notranslate">`alt-python 3.6`</span>
-  * <span class="notranslate">`alt-python 3.7`</span>
-  * <span class="notranslate">`alt-python 3.8`</span>
-  * <span class="notranslate">`alt-python 3.9`</span>
-  * <span class="notranslate">`alt-python 3.10`</span>
-  * <span class="notranslate">`alt-python 3.11`</span>
+![](./images/Python_supported_versions.png)
   
 ### Installation
 
@@ -5907,14 +5900,9 @@ We have the ability to deploy <span class="notranslate">Ruby</span> applications
 
 Ruby Selector works only on cPanel/WHM servers.
 
-You can find a list of supported <span class="notranslate">`alt-ruby`</span> versions using the following commands.
+### Supported versions
 
-<div class="notranslate">
-
-```
-yum grouplist | grep alt-ruby
-```
-</div>
+![](./images/Ruby_supported_versions.png)
 
 
 ### Installation and update
@@ -6029,9 +6017,12 @@ See also [Ruby Selector CLI tools](/shared/command-line_tools/#ruby-selector).
 
 <span class="notranslate"> Node.js Selector </span>  is a CloudLinux OS Shared component that allows each user to easily create Node.js applications, choose Node.js version and other parameters for applications based on their needs.
 
+### Supported versions
+
+![](./images/Nodejs_supported_versions.png)
+
 #### **Requirements**
 
-* <span class="notranslate"> Node.js Selector </span>  supports Node.js versions 6.x, 8.x, 9.x, 10.x, 11.x, 12.x, 14.x, 16.x, 18.x, 19.x.
 * <span class="notranslate"> Node.js Selector requires LVE Manager 4.0 </span> or later.
 * It supports cPanel and DirectAdmin servers as well as non-panel installations (Plesk is not supported as it already has Node.js support.) For more details, please go to Plesk & Node.js documentation [here](https://www.plesk.com/blog/product-technology/node-js-plesk-onyx/) and [here](https://docs.plesk.com/en-US/onyx/administrator-guide/website-management/nodejs-support.76652/) .
 * Node.js Selector uses <span class="notranslate">`mod_passenger`</span> to host Node.js. For more details about <span class="notranslate"> mod_passenger </span>  and Node.js, please read documentation  [here](https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/)  and  [here](https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/apache/oss/el7/deploy_app.html) .
