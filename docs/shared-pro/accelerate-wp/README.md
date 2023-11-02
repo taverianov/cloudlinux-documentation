@@ -140,6 +140,7 @@ It is highly recommended to specify CLI version explicitly via --api-version, ot
 which cannot guarantee backward compatability.
 :::
 
+<!----><a name="quick-start-guide-cli"></a>
 ### Frequently used commands
 
 #### Find all enabled premium users
