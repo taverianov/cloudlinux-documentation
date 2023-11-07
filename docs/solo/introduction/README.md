@@ -67,7 +67,7 @@ to resolve any issues related to CloudLinux OS, its unique components and kernel
 
 ### CloudLinux OS Solo features
  
-We've pre-installed a couple of useful features in our distribution.
+We've pre-installed a couple of useful features in our distribution. The complete list of supported features is available in the [table above](/introduction/#cloudlinux-os-editions-comparison).
 
 * **CloudLinux Manager**
 
