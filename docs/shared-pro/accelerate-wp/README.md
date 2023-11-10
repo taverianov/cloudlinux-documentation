@@ -59,7 +59,7 @@ requests come in and may be helpful in cases when full-page caching cannot be us
 * the website must use one of the following PHP handlers:
   * [php-fpm](https://blog.cpanel.com/how-to-use-php-fpm-with-cpanel/)
   * [lsapi](/shared/cloudlinux_os_components/#apache-mod-lsapi-pro)
-* the website must use PHP version 7.2 or higher.s
+* the website must use PHP version 7.2 or higher.
 * the WordPress version must be 3.7 and higher.
 * no other WordPress Caching plugins must be installed.
 * the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
