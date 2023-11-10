@@ -112,10 +112,10 @@ Page caching will be enabled by default. Click the "Settings" link below the plu
 
 
 #### Limitations
-* Website must use PHP version 7.2 or higher.
-* WordPress version must be 5.6 and higher.
-* Other WordPress Caching plugins must not be installed.
-* WordPress should not run in Multisite mode.
+* the website must use PHP version 7.2 or higher.
+* the WordPress version must be 5.7 and higher.
+* the other WordPress Caching plugins must not be installed.
+* the WordPress should not run in Multisite mode.
 
 
 ### AccelerateWP feature additional options
@@ -489,11 +489,11 @@ Object caching does not require any additional configuration.
 
 #### Limitations
 There are the following requirements to activate Object Caching:
-* Website must use ea-PHP version 7.4 or 8.0.
-* WordPress version must be 3.7 and higher.
-* Other WordPress Caching plugins must not be installed.
-* [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
-* WordPress should not run in Multisite mode.
+* the website must use PHP version 7.2 or higher.
+* the WordPress version must be 3.7 and higher.
+* the other WordPress Caching plugins must not be installed.
+* the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
+* the WordPress should not run in Multisite mode.
 
 
 ### FAQ

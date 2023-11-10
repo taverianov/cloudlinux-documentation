@@ -83,10 +83,10 @@ Page caching will be enabled by default. Click the "Settings" link below the plu
 
 
 #### Limitations
-* Website must use PHP version 7.2 or higher.
-* WordPress version must be 5.6 and higher.
-* Other WordPress Caching plugins must not be installed.
-* WordPress should not run in Multisite mode.
+* the website must use PHP version 7.2 or higher.
+* the WordPress version must be 5.7 and higher.
+* the other WordPress Caching plugins must not be installed.
+* the WordPress should not run in Multisite mode.
 
 
 ### AccelerateWP feature additional options
@@ -164,7 +164,7 @@ Critical Path CSS eliminates render-blocking CSS on your website and improves br
 This feature can only be activated in the AccelerateWP hosting panel interface or in the SmartAdvice WordPress plugin. Once activated, you will be able to manage the options in the AccelerateWP WordPress plugin.
 :::
 
-![AWPCriticalCSSEnabled](https://github.com/cloudlinux/user-docs-solo-cloudlinux/assets/71260515/66788efe-0c22-4310-a11b-572b6647f3b0)
+![](./images/AWPCriticalCSSEnabled.png)
 
 The function starts automatically after switching on. It takes some time to generate the Critical CSS. You will see a notification with the generation status. If necessary, you can add additional styles to the Critical CSS in the fallback CSS field.
 
@@ -484,11 +484,11 @@ Object caching does not require any additional configuration.
 
 #### Limitations
 There are the following requirements to activate Object Caching:
-* Website must use ea-PHP version 7.4 or 8.0.
-* WordPress version must be 3.7 and higher.
-* Other WordPress Caching plugins must not be installed.
-* [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
-* WordPress should not run in Multisite mode.
+* the website must use PHP version 7.2 or higher.
+* the WordPress version must be 3.7 and higher.
+* the other WordPress Caching plugins must not be installed.
+* the [Snuffleupagus](https://snuffleupagus.readthedocs.io/) must be turned off.
+* the WordPress should not run in Multisite mode.
 
 
 ### FAQ
