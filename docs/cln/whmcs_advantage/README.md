@@ -55,7 +55,7 @@ Don't change the name of the group, options and sub-options!
 ![](./images/whmcs-advantage-admin-config-option.png)
 
 In the AccelerateWP group settings, you need to configure:
-* Choose for which products (cPanel/Plesk) you can additionally order the service.
+* Choose for which products (cPanel/Plesk/DirectAdmin) you can additionally order the service.
 * For the "accelerate_wp_premium|AccelerateWP Premium" option, set the cost.
   * In the option price settings, there are two options, On and Off. Adjust prices as you see fit.
 * For the "accelerate_wp_cdn|AccelerateWP CDN" option, set the cost.
