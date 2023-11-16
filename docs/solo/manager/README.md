@@ -1589,13 +1589,10 @@ In case if AccelerateWP Premium is active, the auxiliary monitoring daemon `clwp
 
 #### With which panel can I use AccelerateWP?
 
-Currently AccelerateWP is compatible with cPanel and Plesk only.
-
-If you are interested in supporting DirectAdmin control panel, please record your demand on our feature portal respectively:
-* [AccelerateWP for DirectAdmin](https://features.cloudlinux.com/c/15-acceleratewp-for-directadmin?utm_medium=social&utm_source=portal_share)
+Currently AccelerateWP is compatible with cPanel, Plesk, and DirectAdmin only.
 
 #### Is it possible to use AccelerateWP on a non-control panel server?
-No, AccelerateWP is compatible with cPanel and Plesk only.
+Yes, if a custom integration mechanism is used: [custom control panel integration](https://blog.cloudlinux.com/acceleratewp-is-now-supporting-custom-control-panel-integration).
 
 
 #### Do you plan to enable support of Nginx server?

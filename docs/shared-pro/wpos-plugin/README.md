@@ -14,6 +14,10 @@ If you use Plesk control panel, (1) trigger the side panel and (2) choose the Ac
 
 ![](/AWPPlesk.png)
 
+If you use DirectAdmin control panel, hover over the main menu and choose the AccelerateWP in the Extra Features group.
+
+![](/AWPDirectAdmin.png)
+
 Click the application button and get into the AccelerateWP interface.
 
 ![](/AWPUserUI.png)
