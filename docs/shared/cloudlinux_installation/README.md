@@ -242,6 +242,10 @@ This procedure shows how to do it
 * mokutil package installed
 * Access to server's BIOS options menu and boot screen
 
+:::tip **Note!**  
+Starting from kernel 5.14.0-362.8.1.el9_3 and kmod_lve-2.1-20 the secure boot is available without importing CloudLinux key.  
+:::
+
 #### Procedure
 1. Download CloudLinux key:
     ```
