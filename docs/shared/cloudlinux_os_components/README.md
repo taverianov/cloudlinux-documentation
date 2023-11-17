@@ -1782,7 +1782,7 @@ You can also use [CageFS CLI](/shared/command-line_tools/#cagefs)
 
 #### File system templates
 
-:::warning Note
+:::warning Warning
 Please do not modify any existing files in the <span class="notranslate">`/etc/cagefs/conf.d`</span> directory because they may be overwritten while updating CageFS package. You should create a new file with a unique name instead.
 :::
 
@@ -1860,6 +1860,10 @@ $ cagefsctl --update
 
 ::: tip Note
 ffmpeg RPM should be installed on the system already.
+:::
+
+::: warning Warning
+If adding a symlink to CageFS, make sure that the file to which this symlink points is also present within CageFS to avoid creating broken symlinks.
 :::
 
 
