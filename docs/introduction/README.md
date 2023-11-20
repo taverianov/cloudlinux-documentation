@@ -146,50 +146,37 @@ and allows to collect the usage data.
 
 [See more](/shared/cloudlinux_os_components/#lve-stats-2).
 
-## CloudLinux 9 beta
+## CloudLinux 9
 
-The first release of CloudLinux 9 is available as Shared and Shared Pro editions.\
-Admin and Solo editions temporarily unavailable to install or activate because of no panel/custom panel release only.\
-Other editions support will be extended once major control panels add support of CL9.
+| CloudLinux 9 version             | Editions                                                                 | Hosting Panels                                                         | Virtuozzo Support |
+|----------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------|-------------------|
+| CloudLinux 9 Beta                | CloudLinux Shared CloudLinux Shared Pro                                  | - Non-panel<br /> - Custom panel integration                                 | No                |
+| [CloudLinux 9.2](https://blog.cloudlinux.com/cloudlinux-os-9.2-is-now-available-for-non-panel-and-custom-panel-installations)                   | CloudLinux Shared CloudLinux Shared Pro                                  | - Non-panel<br /> - Custom panel integration<br /> - cPanel with experimental key | No                |
+| [CloudLinux 9.3](https://blog.cloudlinux.com/cloudlinux-os-9-introducing-the-latest-9.3-version-now-accessible-for-non-panel-custom-panel-and-cpanel-users-from-version-11.116.0.1-onwards) [Current Version] | CloudLinux Shared<br /> CloudLinux Shared Pro<br /> CloudLinux Solo<br />CloudLinux Admin | - Non-panel<br /> - Custom panel integration<br />  - cPanel >=  11.116.0.1        | No                |
 
-### CloudLinux 9 beta limitations
+:::tip Note!
+Starting from v11.116.0.1, cPanel is fully integrated with CloudLinux 9 (9.2+), and the flag `--experimental-os=almalinux-9.2` no longer necessary.
+:::
 
-In the non-panel environment, for now, we can guarantee all of the following CloudLinux Shared components functionality:
+:::tip Note!
+If you have a server with cPanel + CloudLinux already installed via the experimental flag `--experimental-os=almalinux-9.2`, as described here, it is highly recommended to reinstall the server from scratch to avoid unexpected behavior.
+:::
 
-* LVE limits
-* LVE Stats
-* MySQL Governor
-* CageFS
-* PHP Selector
-* HardenedPHP
-* Apache mod_lsapi PRO
+:::tip Note!
+While the cPanel version 11.116.0.1 is not in the Stable Release, use the following instructions to install cPanel on the latest versions of CloudLinux 9. 
+:::
 
-Due to integration restrictions with some panels, we are unable to retrieve panel-related information
-(e.g. a list of domains or handlers used).\
-As a result, we are currently unable to provide the following components:
+1. Update the `/etc/cpupdate.conf` as described here, and set the config value:  
 
-* PHP X-Ray
-* Slow Site Analyzer
-* Website Monitoring Tool
-* Ruby selector
-* Centralized Monitoring
+```
+CPANEL=current
+```
 
-For the custom panel installations, once integration with the CloudLinux components is set, the following components
-will work in the CloudLinux OS 9 environment:
+2. Start the cPanel installation process:
 
-* LVE limits
-* LVE Stats
-* MySQL Governor
-* CageFS
-* PHP Selector
-* HardenedPHP
-* Python Selector
-* NodeJS Selector
-* Apache mod_lsapi PRO
-* PHP X-Ray
-* Slow Site Analyzer
-* Reseller limits
-
+```
+cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
+```
 
 ## CloudLinux OS life cycle
 
