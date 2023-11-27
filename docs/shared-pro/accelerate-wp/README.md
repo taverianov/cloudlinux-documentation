@@ -35,8 +35,8 @@ a WordPress optimization plugin that provides full page caching, GZIP compressio
 **AccelerateWP suite limitations**
 * the website must be on an Apache or LiteSpeed web server;
 * the website must be on a server with CloudLinuxOS Shared Pro, Solo, or Admin license
-* the website must use PHP version 7.2 or higher.
-* the WordPress version must be 5.7 and higher.
+* the website must use PHP version 7.3 or higher.
+* the WordPress version must be 5.8 and higher.
 * no other WordPress Caching plugins must be installed.
 * WordPress should not be running in Multisite mode.
 
