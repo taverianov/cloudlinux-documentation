@@ -44,7 +44,7 @@ Bellow you can find recommendations for your typical shared hosting setup. The r
 **Typical Hosting Account**
 
 * <span class="notranslate">SPEED=100%</span>
-* <span class="notranslate">PMEM=512MB</span>
+* <span class="notranslate">PMEM=1GB</span>
 * <span class="notranslate">VMEM=0</span>
 * <span class="notranslate">IO=1024KB/s</span>
 * <span class="notranslate">IOPS=1024</span>
@@ -54,11 +54,11 @@ Bellow you can find recommendations for your typical shared hosting setup. The r
 **High End Hosting Account**
 
 * <span class="notranslate">SPEED=200%</span>
-* <span class="notranslate">PMEM=1GB</span>
+* <span class="notranslate">PMEM=2GB</span>
 * <span class="notranslate">VMEM=0</span>
 * <span class="notranslate">IO=4096KB/s</span>
 * <span class="notranslate">IOPS=1024</span>
-* <span class="notranslate">NPROC=100</span>
+* <span class="notranslate">NPROC=150</span>
 * <span class="notranslate">EP=40</span>
 
 ## Understanding limits
