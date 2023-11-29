@@ -66,10 +66,10 @@ You will get a key that looks like: `12314-d34463a182fede4f4d7e140f1841bcf2`.
 
 Sometimes it is required to convert already existing servers with **`CentOS`** or **`AlmaLinux`** and make them **`CloudLinux OS`**.
 
-It is easy to convert your existing installation by cldeploy script. The process takes a few minutes and replaces just a handful of RPMs.
+It is easy to convert your existing installation through the cldeploy script. The process takes a few minutes and replaces just a handful of RPMs.
 
 :::warning
-Unlike [Fresh installation](#installing-new-servers), converting immediately requires CloudLinux OS license. 
+Unlike [Fresh installation](#installing-new-servers), converting immediately requires a CloudLinux OS license.
 Please refer to the [guide](#license-activation) to get an activation key.
 :::
 
@@ -97,13 +97,13 @@ Supported control panels:
 
 
 :::warning Other control panels:
-Control panels not mentioned in the list of supported panels have native integration or integration by the developer of such a panel.
+Control panels not mentioned in the list of supported panels have native integration or integration done by the developer of the panel.
 We cannot guarantee the stability or correct operation of CloudLinux components on such panels.
 :::
 
 :::warning Warning:
 Some CloudLinux components may not be supported by the control panel itself or the control panel can have its own analog of such a component.
-You can verify this information when reviewing the system requirements for installing a particular CloudLinux component.
+You can verify this information when reviewing the system requirements for installing a specific CloudLinux component.
 :::
 
 
@@ -216,25 +216,23 @@ Once the previously missing minor CloudLinux release becomes available, you will
 
 To do so, you need to do the following:
 
-* Remove the automatically created excludes for MySQL and MariaDB packages from **`/etc/yum.conf`**.
-   * Specifically, remove **`mysql* mariadb*`** from excludes in your **`yum.conf`**.
-   * Any other excluded packages except mysql and mariadb are unrelated to cldeploy and should remain in the configuration.
 * Install the newest available **`cloudlinux-release`** package over the previous one.
    * This will replace the AlmaLinux and CloudLinux package repository configuration files that were modified by cldeploy step-down conversion.
-   * Make sure the new files replace the old ones - check for presence of **`.rpmnew`** files.
+   * Make sure the new files replace the old ones - check for presence of **`.rpmnew`** files in **/etc/yum.repos.d/**. If there are, replace old files with them.
 * Update the system normally.
+* If you encounter problems with updating MySQL or MariaDB packages, make sure the automatically created excludes were removed from **`/etc/yum.conf`** and/or **`/etc/dnf/dnf.conf`**.
 
-### Troubleshooting 
+### Troubleshooting
 
 If you receive any troubles during the conversion process,
-please feel free to search our [knowledge base](https://cloudlinux.zendesk.com/hc/en-us) 
+please feel free to search our [knowledge base](https://cloudlinux.zendesk.com/hc/en-us)
 or contact our support and attach the conversion log (/var/log/cldeploy.log).
 
 ### How to enable secure boot for CloudLinux 9
 
 #### Overview
-CloudLinux 9 uses non-modified AlmaLinux 9 kernel.\
-To make secure boot work with CloudLinux's kernel module you need to enroll CloudLinux secure boot key to your server.\
+CloudLinux 9 uses a non-modified AlmaLinux 9 kernel.\
+To make secure boot work with CloudLinux's kernel module you need to enroll the CloudLinux secure boot key to your server.\
 This procedure shows how to do it
 
 #### Requirements
@@ -242,7 +240,7 @@ This procedure shows how to do it
 * mokutil package installed
 * Access to server's BIOS options menu and boot screen
 
-:::tip **Note!**  
+:::tip **Note!**
 Starting from kernel 5.14.0-362.8.1.el9_3 and kmod_lve-2.1-20 the secure boot is available without importing CloudLinux key.  
 :::
 
