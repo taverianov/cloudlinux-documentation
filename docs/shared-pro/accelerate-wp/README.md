@@ -9,6 +9,14 @@ There are AccelerateWP, AccelerateWP Premium and AccelerateWP CDN feature suites
 AccelerateWP suite is always enabled when AccelerateWP is turned on. Choose whether you want to offer AccelerateWP Premium 
 offer AccelerateWP Premium or CDN (Content Delivery Network) for your users (by opting in) and click "Turn on" to start exploring AccelerateWP. 
 
+#### Activate AccelerateWP Free on all servers via Centralized Monitoring
+
+It is possible to activate AccelerateWP Free on all compatible servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) 
+or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). 
+Once Activate button is clicked - AccelerateWP Free will be set up automatically on all compatible servers within couple of minutes.
+
+![](./images/CMInstallationProd.png)
+
 
 :::tip Note
 AccelerateWP Free suite is enabled by default on all new servers. Proceed to [suites configuration](/shared-pro/accelerate-wp/#suites-usage-statistics) if your server has AccelerateWP already turned on.
