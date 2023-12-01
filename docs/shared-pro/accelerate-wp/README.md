@@ -9,13 +9,17 @@ There are AccelerateWP, AccelerateWP Premium and AccelerateWP CDN feature suites
 AccelerateWP suite is always enabled when AccelerateWP is turned on. Choose whether you want to offer AccelerateWP Premium 
 offer AccelerateWP Premium or CDN (Content Delivery Network) for your users (by opting in) and click "Turn on" to start exploring AccelerateWP. 
 
-
 :::tip Note
 AccelerateWP Free suite is enabled by default on all new servers. Proceed to [suites configuration](/shared-pro/accelerate-wp/#suites-usage-statistics) if your server has AccelerateWP already turned on.
 :::
 
+#### Activate AccelerateWP for a single server
 
 ![](./images/AWPGettingStarted.png)
+
+Enable AccelerateWP Free for all users on the server via [CLI](#enable-acceleratewp-free)
+
+Enable AccelerateWP Premium for all users on the server via [CLI](#enable-acceleratewp-premium)
 
 Once the AccelerateWP suite is enabled by an administrator,
 end-users will see an AccelerateWP tab in their control panel interface and be able to activate the optimization feature.
@@ -27,6 +31,15 @@ purchasing a CDN plan using [WHMCS or 3'd party billing](#whmcs-billing).
 When the AccelerateWP Premium suite is enabled by the administrator, 
 end-users will see the Object Caching, Image Optimization and Critical CSS features in their interface, 
 but cannot activate the feature unless they purchase the feature using [WHMCS or 3'd party billing](#whmcs-billing).
+
+#### Activate AccelerateWP Free on all servers via Centralized Monitoring
+
+It is possible to activate AccelerateWP Free on all compatible servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) 
+or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). 
+Once Activate button is clicked - AccelerateWP Free will be set up automatically on all compatible servers within couple of minutes.
+
+![](./images/CMInstallationProd.png)
+
 
 #### AccelerateWP suite
 This is a basic suite which includes [AccelerateWP base feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-feature-wordpress-optimization-plugin): 
