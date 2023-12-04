@@ -1010,12 +1010,34 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     ```
     </div>
 
+## X-Ray serverwide mode
+
+With X-Ray v0.6-11 we introduced global X-Ray mode which enables tracing extensions for all PHP versions on the servers. This
+mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) 
+in different folders and trace websites located in those folders.
+
+In order to enable this mode, type the following command:
+```
+cloudlinux-xray-manager enable-serverwide-mode
+```
+
+In order to get back to default:
+```
+cloudlinux-xray-manager disable-serverwide-mode
+```
+
 ## FAQ
 
 ### Does X-Ray affect website performance?
 
 <span class="notranslate">X-Ray</span> affects website performance. Our tests show 5-10 % overhead from a website loading time with <span class="notranslate">X-Ray</span> tracing enabled.
 <span class="notranslate">X-Ray</span> allows you to find website performance issues and should not be enabled permanently. If your website is very slow, you can enable <span class="notranslate">X-Ray</span> to find the cause and then disable it.
+
+
+### My customers [override php versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) in different folders and X-Ray does not trace those websites, what should I do?
+
+You should turn on the [X-Ray serverwide mode](#x-ray-serverwide-mode) which allows X-Ray to trace website regardless of their PHP version.
+
 
 ### What should I do if I see the warning "Task is duplicated by URL"?
 
