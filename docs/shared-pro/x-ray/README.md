@@ -81,6 +81,24 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
 
 ![](./images/XRayStartTracing.png)
 
+## X-Ray serverwide mode
+
+With X-Ray v0.6-11 we introduced global X-Ray mode which enables tracing extension for all PHP versions on the servers. This
+mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) 
+in different folders and trace websites located in those folders.
+
+In order to enable this mode, type the following command:
+```
+cloudlinux-xray-manager enable-serverwide-mode
+```
+
+In order to get back to default:
+```
+cloudlinux-xray-manager disable-serverwide-mode
+```
+
+Enable and disable commands do not stop or remove tracing tasks.
+
 ## How to manage X-Ray
 
 X-Ray provides several options for monitoring domain requests speed: Manual Tracing task, X-Ray Autotracing and Continuous tracing.
@@ -1010,21 +1028,6 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     ```
     </div>
 
-## X-Ray serverwide mode
-
-With X-Ray v0.6-11 we introduced global X-Ray mode which enables tracing extensions for all PHP versions on the servers. This
-mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) 
-in different folders and trace websites located in those folders.
-
-In order to enable this mode, type the following command:
-```
-cloudlinux-xray-manager enable-serverwide-mode
-```
-
-In order to get back to default:
-```
-cloudlinux-xray-manager disable-serverwide-mode
-```
 
 ## FAQ
 
