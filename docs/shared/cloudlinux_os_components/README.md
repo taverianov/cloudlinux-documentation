@@ -6264,6 +6264,17 @@ This is a much more convenient approach to developing an application and debuggi
 
 In this case, there is no useful information for debugging errors and this is suitable for production mode. More information about [PassengerFriendlyErrorPages](https://www.phusionpassenger.com/library/config/apache/reference/#passengerfriendlyerrorpages) and [PassengerAppEnv](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappenv).
 
+#### Known Restrictions and Issues
+1. In some cases running commands e.g. `npm build` can produce an Out Of Memory error.
+
+   When the error is encountered in Nodejs Selector UI or in terminal in web browser, check physical and virtual memory LVE limits. Also check process limits through `ulimit -v -m` command in Terminal UI or inside `/proc/<process_id>/limits` file. Increase the limits if necesarry.
+
+   On cPanel, increase the default process memory limit:
+   ```
+   whmapi1 set_tweaksetting key=maxmem value=8192
+   /usr/local/cpanel/scripts/restartsrv_cpsrvd
+   ```
+   In some cases, due to bugs in underlying Node.js frameworks (e.g. [Out of memory: wasm memory](https://github.com/webpack/webpack/issues/15584#issuecomment-1104603420)) it could be necessarily to increase `maxmem` upto 50 Gb (`51200`) or even to `unlimited`.
 
 ## Apache mod_lsapi PRO
 
