@@ -1862,10 +1862,6 @@ $ cagefsctl --update
 ffmpeg RPM should be installed on the system already.
 :::
 
-::: warning Warning
-If adding a symlink to CageFS, make sure that the file to which this symlink points is also present within CageFS to avoid creating broken symlinks.
-:::
-
 
 #### Excluding files
 
