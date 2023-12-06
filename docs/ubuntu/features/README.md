@@ -167,10 +167,6 @@ The documentation is available [here](/shared/lve_manager/#cloudlinux-manager).
 
 ### Dashboard
 
-:::warning Attention!
-MySQL Governor is not available in the current version. We're planning to add it in the upcoming releases.
-:::
-
 Dashboard provides a quick overview of statistics and all administrative information for server administrators.
 
 Go to _CloudLinux Manager_ | _Dashboard_.
@@ -222,7 +218,7 @@ available [here](/shared/control_panel_integration/#running-commands-inside-cage
 
 ## Hardened PHP
 
-* alt-php versions 5.6 - 8.0
+* alt-php versions 5.5 - 8.2
 
 ## Mod_hostinglimits
 
@@ -256,11 +252,6 @@ other users.
 * If the site is limited by memory or number of processes limits, then the user will receive 500 or 503 errors that
   server cannot execute the script.
 
-:::warning Attention!
-In the current version ONLY the following combinations are available: **ea-php81 with php-fpm** and **alt-php with
-suphp, cgi**
-:::
-
 #### ea-php81 with php-fpm
 
 To install, run the following command:
@@ -287,13 +278,6 @@ To install, follow these steps:
 #### PHP Selector installation instructions
 
 The documentation is available [here](/shared/cloudlinux_os_components/#php-selector).
-
-:::warning Attention!
-Only the following handlers can be used:
-
-* suphp
-* cgi
-  :::
 
 To install, run the following commands:
 
