@@ -5,8 +5,7 @@
 * [Ubuntu](https://ubuntu.com/) is a registered trademark of Canonical Ltd.
 :::
 
-CloudLinux subsystem on Ubuntu is a scope of deb-packages which allows using CloudLinux features on Ubuntu OS.
-For the first beta release we were focusing on the major CloudLinux features for hosting providers: isolation of each customer into a separate “Lightweight Virtualized Environment” (LVE) and “caging” tenants from one another to avoid security breaches.
+CloudLinux subsystem on Ubuntu is a scope of deb-packages which allows using CloudLinux features on Ubuntu OS. It is a Stable version of a free extension designed exclusively for Ubuntu® 20.04 LTS users. 
 
 ## Supported version of Ubuntu
 
@@ -20,7 +19,7 @@ We support Ubuntu 20.04 LTS.
 |Maximum amount of hosting accounts|1|5|unlimited|unlimited|**<font color="#2c98f0">unlimited</font>**|
 |Resource Limits (LVE)|No|**Yes***|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Cage FS|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|MySQL Governor|No|No|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
+|MySQL Governor|No|No|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |PHP Selector|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Other Selectors (Python, Node.js, Ruby)|No|**Yes****|**Yes****|**Yes****|**<font color="#2c98f0">No</font>**|
 |HardenedPHP|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
