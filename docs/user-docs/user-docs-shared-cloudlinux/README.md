@@ -116,8 +116,8 @@ Page caching will be enabled by default. Click the "Settings" link below the plu
 
 
 #### Limitations
-* the website must use PHP version 7.2 or higher.
-* the WordPress version must be 5.7 and higher.
+* the website must use PHP version 7.3 or higher.
+* the WordPress version must be 5.8 and higher.
 * the other WordPress Caching plugins must not be installed.
 * the WordPress should not run in Multisite mode.
 

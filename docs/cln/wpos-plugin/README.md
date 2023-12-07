@@ -70,8 +70,8 @@ options.
 
 ### Limitations
 
-* Website must use PHP version 7.2 or higher.
-* WordPress version must be 5.6 and higher.
+* Website must use PHP version 7.3 or higher.
+* WordPress version must be 5.8 and higher.
 * Other WordPress Caching plugins must not be installed.
 * WordPress should not run in Multisite mode.
 
@@ -194,6 +194,7 @@ the `<style>` tag or via `Elementor` will not be affected by the LazyLoad.
 The following options allows working with LazyLoad
 
 * Enable LazyLoad for images
+* Enable for CSS background images
 * Enable LazyLoad for iframes and videos
 * Excluded images or iframes
 
