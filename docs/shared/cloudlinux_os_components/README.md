@@ -6263,14 +6263,27 @@ In this case, there is no useful information for debugging errors and this is su
 #### Known Restrictions and Issues
 1. In some cases running commands e.g. `npm build` can produce an Out Of Memory error.
 
-   When the error is encountered in Nodejs Selector UI or in terminal in web browser, check physical and virtual memory LVE limits. Also check process limits through `ulimit -v -m` command in Terminal UI or inside `/proc/<process_id>/limits` file. Increase the limits if necesarry.
+   When the error is encountered in Nodejs Selector UI or in the web browser terminal, check the physical and virtual memory LVE limits. Also check the process limits through `ulimit -v -m` command in Terminal UI or "Max data size", "Max address space" or "Max resident set" values inside the `/proc/<process_id>/limits` file. Increase the limits if necessary.
 
    On cPanel, increase the default process memory limit:
    ```
    whmapi1 set_tweaksetting key=maxmem value=8192
    /usr/local/cpanel/scripts/restartsrv_cpsrvd
    ```
-   In some cases, due to bugs in underlying Node.js frameworks (e.g. [Out of memory: wasm memory](https://github.com/webpack/webpack/issues/15584#issuecomment-1104603420)) it could be necessarily to increase `maxmem` upto 50 Gb (`51200`) or even to `unlimited`.
+   Due to bug CPANEL-43590 a server reload might be required for the new maxmem value to become applied.
+
+   In some cases, due to bugs in underlying Node.js frameworks (e.g. [Out of memory: wasm memory](https://github.com/nodejs/node/issues/41319#issuecomment-1001025128)) it could be necessary to increase `maxmem` up to 50 Gb (`value=51200`) or even to `unlimited`.
+
+2. Sometimes an Out Of Memory error appears in the web browser terminal in cPanel. Because of CPANEL-39397 bug terminal inherences limits of `cpsrvd` process. As a workaround, you could increase `maxmem` value as described above.
+
+   Alternetive workaround: override soft and hard virtual memory limit only for the user encountering the problem. Override hard limit by adding the following line to the `/etc/security/limits.conf` file:
+   ```
+   username	hard	as	unlimited
+   ```
+   Override soft limit by adding into `$USER_HOME/.bashrc`:
+   ```
+   ulimit -S -v unlimited
+   ```
 
 ## Apache mod_lsapi PRO
 
