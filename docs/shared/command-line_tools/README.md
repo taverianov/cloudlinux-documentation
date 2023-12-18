@@ -3092,7 +3092,7 @@ Fails if <span class="notranslate">`/etc/cl.selector/php.conf`</span> has incorr
 
 Checks compatibility for the <span class="notranslate">PHP Selector</span>
 
-Detecting which PHP handler has been configured on the server and checking its compatibility with the <span class="notranslate">CloudLinux OS Shared PHP Selector</span> according to [this table](/shared/shared/limits/#compatibility-matrix) and displaying the corresponding message with the link to the documentation in case of a problem detected. No checks are performed for EasyApache3.
+Detecting which PHP handler has been configured on the server and checking its compatibility with the <span class="notranslate">CloudLinux OS Shared PHP Selector</span> according to [this table](/shared/limits/#compatibility-matrix) and displaying the corresponding message with the link to the documentation in case of a problem detected. No checks are performed for EasyApache3.
 
 Failure reasons:
   * The installed <span class="notranslate">`mod_ruid`</span> package is incompatible with the <span class="notranslate">PHP Selector</span>
