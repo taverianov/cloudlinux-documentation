@@ -483,7 +483,7 @@ Group: alt-php72
 ```
 </div>
 
-#### For Ubuntu-based Systems (Using APT-GET):
+#### For Debian-based Systems (Using APT-GET):
 
 Each version of PHP individually or all versions at once can be installed.
 
@@ -690,7 +690,7 @@ package: alt-php73-1:7.3.15-2.2.el8.x86_64
 ```
 </div>
 
-#### For Ubuntu-based Systems (Using APT):
+#### For Debian-based Systems (Using APT):
 
 Use the command `sudo apt-cache depends alt-phpXY` (XY is a version of PHP) to view dependencies for a specific package.
 
@@ -863,7 +863,7 @@ Is this ok [y/N]:
 ```
 </div>
 
-#### For Ubuntu-based Systems (Using APT):
+#### For Debian-based Systems (Using APT):
 
 1. Update the Package Lists:
 
@@ -958,17 +958,18 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo apt-get upgrade alt-php73
+# sudo apt-get upgrade alt-php83
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-alt-php73 is already the newest version (7.3.33-19).
 Calculating upgrade... Done
+The following NEW packages will be installed:
+  alt-php83 alt-php83-cli alt-php83-common
 The following packages will be upgraded:
-  alt-python27-cllib curl libcurl3-gnutls libcurl4 libcurl4-openssl-dev librados2 librbd1 mod-hostinglimits
-8 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-Need to get 6,215 kB of archives.
-After this operation, 4,096 B of additional disk space will be used.
+  alt-python27-cllib curl libcurl3-gnutls libcurl4 libcurl4-openssl-dev libpq5 librados2 librbd1 mod-hostinglimits
+9 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 12.3 MB of archives.
+After this operation, 44.7 MB of additional disk space will be used.
 Do you want to continue? [Y/n]
 ```
 </div>
@@ -1027,9 +1028,9 @@ alt-php73-firebird/unknown,now 7.3.33-19 amd64 [installed]
 When using these commands, replace "alt-package-name" with the specific name of the package you are looking for or want to install.
 
 
-## How to use PHP-ELS
+## How to use alt-php
 
-When you deploy an updated version of PHP through PHP ELS, using your system’s regular update tool (yum, dnf, apt), 
+When you deploy an updated version of PHP, using your system’s regular update tool (yum, dnf, apt), 
 the new version will be installed under `/opt/alt/php[version]/`. This means that all modules, configurations and additional files pertaining to this version will be contained inside that path. 
 Different versions of PHP will each have their own path and can coexist without issues on the same system. Below you will find the location of all the relevant files, should you want to make any changes.
 
@@ -1243,3 +1244,85 @@ The information will be added later.
 ## alt-nodejs
 
 The information will be added later.
+
+
+## alt-php/python/ruby/nodejs End Of Life
+
+CloudLinux provides additional security support time of 
+php, python, ruby and nodejs after the end of support from the vendor.
+Below are tables with information about the time of security support from the vendor and from CloudLinux.
+
+*EOL - end of life
+
+*SST - security support time
+
+### alt-php EOL
+
+| Version | Released | EOL by vendor | SST by vendor (years) | EOL by CloudLinux | SST by Cloudlinux after vendor's EOL (years) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 4.4 | 07.11.2005 | 08.07.2008 | 2.7 | [01.07.2023](https://blog.cloudlinux.com/php-4.4-end-of-life-0) | 14.9 |
+| 5.1 | 23.11.2005 | 24.08.2006 | 0.8 | [01.04.2024](https://blog.cloudlinux.com/php-5.1-end-of-life) | 17.6 |
+| 5.2 | 01.11.2006 | 06.01.2011 | 4.2 | 
+| 5.3 | 29.06.2009 | 14.08.2014 | 5.1 |
+| 5.4 | 29.02.2012 | 14.09.2015 | 3.5 |
+| 5.5 | 19.06.2013 | 21.07.2016	| 3.1 |
+| 5.6 |	27.08.2014 | 31.12.2018	| 4.3 |
+| 7.0 | 12.01.2015 | 10.01.2019	| 3.9 |
+| 7.1 | 30.11.2016 | 01.12.2019	| 3.0 |
+| 7.2 | 28.11.2017 | 30.11.2020	| 3.0 |
+| 7.3 | 04.12.2018 | 06.12.2021	| 3.0 |
+| 7.4 | 26.11.2019 | 28.11.2022	| 3.0 |
+| 8.0 | 24.11.2020 | 26.11.2023	| 3.0 |
+| 8.1 | 23.11.2021 | 25.11.2024	| 3.0 |
+| 8.2 | 08.12.2022 | 08.12.2025	| 3.0 |
+
+
+### alt-python EOL
+
+| Version | Released | EOL by vendor | SST by vendor (years) | EOL by CloudLinux | SST by Cloudlinux after vendor's EOL (years) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 2.7 |	29.09.2012 | 29.09.2017 | 5.0 |
+| 3.3 | 29.09.2012 | 29.09.2017	| 5.0 |
+| 3.4 | 15.03.2014 | 18.03.2019	| 5.0 |
+| 3.5 | 12.09.2015 | 13.09.2020	| 5.0 |
+| 3.6 | 22.12.2016 | 23.12.2021	| 5.0 |
+| 3.7 | 26.06.2018 | 27.06.2023	| 5.0 |
+| 3.8 | 14.10.2019 | 14.10.2024	| 5.0 |
+| 3.9 | 05.10.2020 | 05.10.2025	| 5.0 |
+| 3.10 | 05.04.2021	| 04.10.2026 | 5.4 |
+| 3.11 | 24.10.2022 | 24.10.2027 | 5.0 |
+| 3.12 | 02.10.2023	| 02.10.2028 | 5.0 |
+
+### alt-ruby EOL
+
+| Version | Released | EOL by vendor | SST by vendor (years) | EOL by CloudLinux | SST by Cloudlinux after vendor's EOL (years) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1.8 | 24.02.2013 | 24.02.2016 | 3.0 |
+| 1.9 | 24.02.2013 | 24.02.2016 | 3.0 |
+| 2.0 | 24.02.2013 | 24.02.2016 | 3.0 |
+| 2.1 | 25.12.2013 | 31.03.2017 | 3.3 |
+| 2.2 | 25.12.2014 | 31.03.2018	| 3.3 |
+| 2.3 | 24.12.2015 | 31.03.2019	| 3.3 |
+| 2.4 | 23.12.2016 | 31.03.2020	| 3.3 |
+| 2.5 | 25.12.2017 | 31.03.2021	| 3.3 |
+| 2.6 | 25.12.2018 | 31.03.2022	| 3.3 |
+| 2.7 | 25.12.2019 | 31.03.2023	| 3.3 |
+| 3.0 | 25.12.2020 | 31.03.2024	| 3.3 |
+| 3.1 | 25.12.2021 | 31.03.2025	| 3.3 |
+| 3.2 | 25.12.2022 | 31.03.2026	| 3.3 |
+
+### alt-nodejs EOL
+
+| Version | Released | EOL by vendor | SST by vendor (years) | EOL by CloudLinux | SST by Cloudlinux after vendor's EOL (years) |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 6	| 26.04.2016 | 30.04.2019 | 3.0 |
+| 8	| 30.03.2017 | 31.12.2019 | 2.8 |
+| 9	| 31.10.2017 | 30.06.2018 | 0.6 |
+| 10 | 24.04.2018 | 30.04.2021 | 3.0 |
+| 11 | 23.10.2018 | 30.06.2019 | 0.7 |
+| 12 | 23.04.2019 | 30.04.2022 | 3.0 |
+| 14 | 21.04.2020 | 30.04.2023 | 3.0 |
+| 16 | 20.04.2021 | 11.09.2023 | 2.3 |
+| 18 | 19.04.2022 | 30.04.2025 | 3.0 |
+| 19 | 18.10.2022 | 01.06.2023 | 0.6 |
+| 20 | 18.04.2023 | 30.04.2026 | 3.0 |
