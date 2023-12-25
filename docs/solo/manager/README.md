@@ -1138,6 +1138,13 @@ a WordPress optimization plugin that provides full page caching, GZIP compressio
 * the other WordPress Caching plugins must not be installed.
 * the WordPress should not run in Multisite mode.
 
+:::tip Note
+Some AccelerateWP functions depend on external services. For the functions to work properly, the following URLs and IPs need to be allowed at all security levels:
+
+* https://awp-saas.cloudlinux.com
+* 213.239.192.204
+:::
+
 #### AccelerateWP Premium suite
 
 :::warning Attention

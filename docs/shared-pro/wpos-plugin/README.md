@@ -75,6 +75,13 @@ options.
 * Other WordPress Caching plugins must not be installed.
 * WordPress should not run in Multisite mode.
 
+:::tip Note
+Some AccelerateWP functions depend on external services. For the functions to work properly, the following URLs and IPs need to be allowed at all security levels:
+
+* https://awp-saas.cloudlinux.com
+* 213.239.192.204
+:::
+
 ## AccelerateWP feature additional options
 
 Find more additional options in WordPress admin page.
