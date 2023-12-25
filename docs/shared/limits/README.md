@@ -246,8 +246,12 @@ To make the statistics doesn’t count the page cache you could just enable the 
 ```
 sysctl -w kernel.memstat_nocache=1
 ```
-:::tip Note
+:::tip Note:
 This option is enabled by default for new customers since the release of kmod-lve 2.0-53 (for CL8) and 2.1-17 (for CL9).
+:::
+
+:::tip Note: 
+Kernel memory accounting is disabled by default on CloudLinux OS 7/8/9 systems due to incompatibility with the kmodlve kernel module. This feature may trigger long timeouts in the kernel in highly loaded systems that can lead to kernel crashes. CloudLinux OS 7 kernel is compiled without it, while in the 8 and 9 systems we use `cgroup.memory=nokmem` kernel parameter in the CL’s tuned profiles and you can enable it by changing our profile (may be overwritten after update) or supporting your own one.
 :::
 
 ### Troubleshooting
