@@ -1,4 +1,4 @@
-# alt-ea packages
+# alt/ea packages
 
 [[toc]]
 
@@ -104,23 +104,77 @@ alt-php provides a more flexible and convenient environment for working with dif
 
 ### A list of alt-php versions that we support for different operating systems.
 
+x - supported
+
 #### 1. CloudLinux
 
-|    CL 6     |    CL 7     |    CL 8     |    CL 9     |
-|:-----------:|:-----------:|:-----------:|:-----------:|
-| alt-php 5.1 <br>alt-php 5.2 <br>alt-php 5.3 <br>alt-php 5.4 <br>alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 | alt-php 5.1 <br>alt-php 5.2 <br>alt-php 5.3 <br>alt-php 5.4 <br>alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 |  alt-php 5.1 <br>alt-php 5.2 <br>alt-php 5.3 <br>alt-php 5.4 <br>alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 | alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 |
+
+|             | Cloudlinux 6 | Cloudlinux 7 | Cloudlinux 8 | Cloudlinux 9 |
+|:-----------:|:------------:|:------------:|:------------:|:------------:|
+| alt-php 5.1 |       x      |       x      |       x      |              |
+| alt-php 5.2 |       x      |       x      |       x      |              |
+| alt-php 5.3 |       x      |       x      |       x      |              |
+| alt-php 5.4 |       x      |       x      |       x      |              |
+| alt-php 5.5 |       x      |       x      |       x      |              |
+| alt-php 5.6 |       x      |       x      |       x      |       x      |
+| alt-php 7.0 |       x      |       x      |       x      |       x      |
+| alt-php 7.1 |       x      |       x      |       x      |       x      |
+| alt-php 7.2 |       x      |       x      |       x      |       x      |
+| alt-php 7.3 |       x      |       x      |       x      |       x      |
+| alt-php 7.4 |       x      |       x      |       x      |       x      |
+| alt-php 8.0 |       x      |       x      |       x      |       x      |
+| alt-php 8.1 |       x      |       x      |       x      |       x      |
+| alt-php 8.2 |       x      |       x      |       x      |       x      |
+| alt-php 8.3 |              |              |              |              |
+
+
 
 #### 2. Debian
 
-| Debian 10 | Debian 11 | Debian 12 |
-|:---------:|:---------:|:---------:|
-| alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 | alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 | alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 <br>alt-php 8.2 <br>alt-php 8.3 |
+|             | Debian 10 | Debian 11 | Debian 12 |
+|:-----------:|:---------:|:---------:|:---------:|
+| alt-php 5.1 |           |           |           |
+| alt-php 5.2 |           |           |           |
+| alt-php 5.3 |           |           |           |
+| alt-php 5.4 |           |           |           |
+| alt-php 5.5 |     x     |           |           |
+| alt-php 5.6 |     x     |           |           |
+| alt-php 7.0 |     x     |     x     |     x     |
+| alt-php 7.1 |     x     |     x     |     x     |
+| alt-php 7.2 |     x     |     x     |     x     |
+| alt-php 7.3 |     x     |     x     |     x     |
+| alt-php 7.4 |     x     |     x     |     x     |
+| alt-php 8.0 |     x     |     x     |     x     |
+| alt-php 8.1 |     x     |     x     |     x     |
+| alt-php 8.2 |     x     |     x     |     x     |
+| alt-php 8.3 |           |           |     x     |
+
+
+
+
+
 
 #### 3. Ubuntu
 
-| Ubuntu 16.04 | Ubuntu 18.04 | Ubuntu 20.04 | Ubuntu 22.04 |
-|:------------:|:------------:|:------------:|:------------:|
-| alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 | alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 | alt-php 5.5 <br>alt-php 5.6 <br>alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 | alt-php 7.0 <br>alt-php 7.1 <br>alt-php 7.2 <br>alt-php 7.3 <br>alt-php 7.4 <br>alt-php 8.0 <br>alt-php 8.1 |
+
+|             | Ubuntu 16.04 | Ubuntu 18.04 | Ubuntu 20.04 | Ubuntu 22.04 |
+|:-----------:|:------------:|:------------:|:------------:|:------------:|
+| alt-php 5.1 |              |              |              |              |
+| alt-php 5.2 |              |              |              |              |
+| alt-php 5.3 |              |              |              |              |
+| alt-php 5.4 |              |              |              |              |
+| alt-php 5.5 |       x      |       x      |       x      |              |
+| alt-php 5.6 |       x      |       x      |       x      |              |
+| alt-php 7.0 |       x      |       x      |       x      |       x      |
+| alt-php 7.1 |       x      |       x      |       x      |       x      |
+| alt-php 7.2 |       x      |       x      |       x      |       x      |
+| alt-php 7.3 |       x      |       x      |       x      |       x      |
+| alt-php 7.4 |       x      |       x      |       x      |       x      |
+| alt-php 8.0 |       x      |       x      |       x      |       x      |
+| alt-php 8.1 |       x      |       x      |       x      |       x      |
+| alt-php 8.2 |              |              |              |              |
+| alt-php 8.3 |              |              |              |              |
+
 
 
 ### Bundled PHP extensions
@@ -562,9 +616,9 @@ Dependencies:
 ```
 </div>
 
-### *Important!*
+#### *Important!*
 
-*When executing the `apt` command, a warning may appear:*
+#### *When executing the `apt` command, a warning may appear:*
 
 <div class="notranslate">
 
@@ -573,10 +627,11 @@ WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 ```
 </div>
 
-*The `apt` commandline is designed as an end-user tool and it may change behavior between versions. 
-While it tries not to break backward compatibility this is not guaranteed either if a change seems beneficial for interactive use.
-All features of `apt` are available in dedicated APT tools like `apt-get` and `apt-cache` as well. 
-`apt` just changes the default value of some options. Therefore, we recommend using these commands (potentially with some additional options enabled) as they keep backward compatibility as much as possible.*
+#### *The `apt` commandline is designed as an end-user tool and it may change behavior between versions.* 
+#### *While it tries not to break backward compatibility this is not guaranteed either if a change seems beneficial for interactive use.*
+#### *All features of `apt` are available in dedicated APT tools like `apt-get` and `apt-cache` as well.* 
+#### *`apt` just changes the default value of some options. Therefore, we recommend using these commands (potentially with some additional options enabled) as they keep backward compatibility as much as possible.*
+
 
 ### How can I check which versions of PHP are already installed?
 
