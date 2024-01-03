@@ -616,9 +616,8 @@ Dependencies:
 ```
 </div>
 
-#### *Important!*
-
-#### *When executing the `apt` command, a warning may appear:*
+::: tip Important!
+When executing the `apt` command, a warning may appear:
 
 <div class="notranslate">
 
@@ -627,11 +626,11 @@ WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 ```
 </div>
 
-#### *The `apt` commandline is designed as an end-user tool and it may change behavior between versions.* 
-#### *While it tries not to break backward compatibility this is not guaranteed either if a change seems beneficial for interactive use.*
-#### *All features of `apt` are available in dedicated APT tools like `apt-get` and `apt-cache` as well.* 
-#### *`apt` just changes the default value of some options. Therefore, we recommend using these commands (potentially with some additional options enabled) as they keep backward compatibility as much as possible.*
-
+The `apt` commandline is designed as an end-user tool and it may change behavior between versions. 
+While it tries not to break backward compatibility this is not guaranteed either if a change seems beneficial for interactive use.
+All features of `apt` are available in dedicated APT tools like `apt-get` and `apt-cache` as well. 
+`apt` just changes the default value of some options. Therefore, we recommend using these commands (potentially with some additional options enabled) as they keep backward compatibility as much as possible.
+:::
 
 ### How can I check which versions of PHP are already installed?
 
