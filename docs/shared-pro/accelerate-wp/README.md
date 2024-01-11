@@ -916,24 +916,31 @@ Starting from `accelerate-wp >= 1.6-7` - to prevent this script of modifying
 global php.ini - create marker file: `/var/clwpos/admin/do_not_modify_global_php.flag`.
 In that case, additional custom php ini with required php extension will be created and global php.ini remains unmodified.
 
-## WHMCS billing
+## Billing Integration (upsell automation for premium features)
+The premium features of AccelerateWP are intended to generate revenue for CloudLinux hosting customers by adding high-end performance value to WordPress that meets or exceeds the value of premium WordPress Hosting/Managed WordPress market leaders. AccelerateWP premium features are suggested to hosting end-users (and WordPress administrators) when substantial data supports a significant performance boost will be achived upon activation. 
 
-CloudLinux developed its own WHMCS plugin 
-which provides you with AccelerateWP billing integration out of the box. 
-Check out [the documentation](/cln/whmcs_advantage/#cloudlinux-whmcs-awp-plugin) to find out how to install and use the plugin.
+### Setting the upgrade URL
+When a premium feature is suggested to the user/admin through our SmartAdvice utility, they will be prompted to upgrade. The upgrade URL is where the user will be sent when they click "upgrade" and this is customizable per server (or fleet). There are 2 common upgrade packaging models that will dictate how this URL is set and you will need to make this decision and configure the upgrade URL before offering AccelerateWP premium. The 2 packaging models are:
+1. Include AccelerateWP Premium features in your highest tier hosting plans
+2. Offer as an add-on subscription to existing hosting plans
 
-## Other billing integration
+Once you have made this decision, you will need to integrate your billing platform.
 
-As AccelerateWP Premium is a feature that works on a subscription basis, 
-we made it possible for hosters to integrate their existing billing systems with our plugin and sell the 
+### WHMCS billing
+
+If you use WHMCS, AccelerateWP Premium billing integration is quite simple. CloudLinux developed its own WHMCS plugin which provides this out of the box. 
+View our [documentation](/cln/whmcs_advantage/#cloudlinux-whmcs-awp-plugin) to learn how to install and use the plugin.
+
+### Other billing integration
+
+As AccelerateWP Premium is a feature that works on a subscription basis, we made it possible for hosters to integrate their existing billing systems with our plugin and sell the 
 feature for their users.
 
 When AccelerateWP Premium is enabled in the admin interface, users get a proposal to upgrade their subscription.
 
 ![](./images/AWPUpgradeNoLink.png)
 
-When a user upgrades the subscription to the plan with AccelerateWP support, 
-billing must execute the following command on the server:
+When a user upgrades the subscription to the plan with AccelerateWP support, billing must execute the following command on the server:
 ```
 cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --allowed --source=BILLING_OVERRIDE --users=<username>
 ```
