@@ -1155,7 +1155,7 @@ Useful links:
 
 #### Python Selector 
 
-Python Ыelector for Virtuozzo is available starting from the following packages version:
+Python Selector for Virtuozzo is available starting from the following packages version:
 
 * lve-2.1-14
 * alt-python27-cllib-3.2.47-1
