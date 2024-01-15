@@ -606,6 +606,7 @@ Ensure that you have the package `ea-cpanel-tools >= 1.0-67.el7.cloudlinux` inst
 Download the cPanel ELevate script.
 
 `wget -O /scripts/elevate-cpanel https://raw.githubusercontent.com/cloudlinux/elevate/cloudlinux-release/elevate-cpanel`
+
 `chmod 700 /scripts/elevate-cpanel`
 
 Run a preupgrade check. No rpm packages will be installed during this phase.
