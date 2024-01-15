@@ -5558,6 +5558,10 @@ You can find this information in the section [List of extensions supported by th
 * Apache or LiteSpeed webserver. Apache + Nginx (as a reverse proxy) combination is also supported.
 * Python Selector uses <span class="notranslate">`mod_passenger`</span> to host Python. For more details about <span class="notranslate">`mod_passenger`</span>, please read [documentation](https://www.phusionpassenger.com/). The needed version will be installed along with Python Selector.
 
+:::tip Note!
+OpenLiteSpeed is not compatible with Python Selector due to lack of `.htaccess` support.
+:::
+
 ### Supported versions
 
 ![](./images/Python_supported_versions.png)
@@ -5774,6 +5778,10 @@ See also [Ruby Selector CLI tools](/shared/command-line_tools/#ruby-selector).
 * It supports cPanel and DirectAdmin servers as well as non-panel installations (Plesk is not supported as it already has Node.js support.) For more details, please go to Plesk & Node.js documentation [here](https://www.plesk.com/blog/product-technology/node-js-plesk-onyx/) and [here](https://docs.plesk.com/en-US/onyx/administrator-guide/website-management/nodejs-support.76652/) .
 * Node.js Selector uses <span class="notranslate">`mod_passenger`</span> to host Node.js. For more details about <span class="notranslate"> mod_passenger </span>  and Node.js, please read documentation  [here](https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/)  and  [here](https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/apache/oss/el7/deploy_app.html) .
 * <span class="notranslate"> Node.js Selector </span> supports both EasyApache 3 and EasyApache 4.
+
+:::tip Note!
+OpenLiteSpeed is not compatible with Node.js Selector due to lack of `.htaccess` support.
+:::
 
 #### **Limitations**
 
