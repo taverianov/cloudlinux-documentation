@@ -40,6 +40,15 @@ Once Activate button is clicked - AccelerateWP Free will be set up automatically
 
 ![](./images/CMInstallationProd.png)
 
+#### Activate AccelerateWP Premium on all servers via Centralized Monitoring
+
+Starting from ```lve-utils-6.5.11-1``` it is possible to activate AccelerateWP Premium via Centralized Monitoring as well.
+
+![](./images/CMInstallationPremium.png)
+
+AccelerateWP Premium will be activated on all compatible servers once activation button is clicked and upgrade url is provided.
+Before using AccelerateWP Premium features - all end-users will be requested to upgrade to Premium plan using provided upgrade url. 
+
 
 #### AccelerateWP suite
 This is a basic suite which includes [AccelerateWP base feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-feature-wordpress-optimization-plugin): 
