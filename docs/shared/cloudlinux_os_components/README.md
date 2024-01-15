@@ -6115,7 +6115,7 @@ $ service httpd restart
 </div>
 Now the lsapi handler is available for managing through cPanel MultiPHP Manager.
 
-For more details about swith_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
 
 
 #### Installing on Plesk servers
@@ -6148,7 +6148,7 @@ Now LSPHPXY alt-php PHP handlers are available for managing through Plesk PHP Se
 
 ![](./images/plesk-php-settings.png)
 
-For more details about swith_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
 
 
 #### Installing on DirectAdmin servers
@@ -6223,7 +6223,7 @@ $ service httpd24-httpd restart
 ```
 </div>
 
-For more details about swith_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
 
 
 ### Uninstalling

@@ -623,7 +623,7 @@ Reseller cannot manage INODE or MYSQL limits. Neither his own, nor for his users
 
 ### Design
 
-To understand the qwirks of how Reseller Limits operate, we need to look more closely into the four types of users that a typical shared hosting server has:
+To understand the quirks of how Reseller Limits operate, we need to look more closely into the four types of users that a typical shared hosting server has:
 
 ![](./images/ResellerLimits-diagram.png)
 
