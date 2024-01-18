@@ -5132,7 +5132,8 @@ To install run:
 <div class="notranslate">
 
 ```
-yum groupinstall alt-phpyum install cagefs lvemanager
+yum groupinstall alt-php
+yum install cagefs lvemanager
 ```
 </div>
 
