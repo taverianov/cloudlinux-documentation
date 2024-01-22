@@ -103,7 +103,11 @@ Enable and disable commands do not stop or remove tracing tasks.
 ## X-Ray phpinfo mode
 
 With X-Ray v0.6-18 we introduced new X-Ray mode which gathers website php version using information from phpinfo. This
-mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) 
+mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi)
+
+:::warning
+In order to use this mode, websites should be reachable through http or https.
+:::
 
 In order to enable this mode, type the following command:
 ```
