@@ -3434,7 +3434,7 @@ When installing/reading the limits, the following peculiarities are applied:
 
 2. Limit value -1 for the packages (see below) is displayed as dash (-).
 
-3. If <span class="notranslate"> cl-quota </span> is running under <span class="notranslate"> root </span>, it will display the limits returned by <span class="notranslate"> repquota </span> utility with no changes. If it is running under some other user, it will return data from a special cache file, see [Quotas cache and synchronization](/shared/lve_manager/#caching-and-synchronizing-the-limits).
+3. If <span class="notranslate"> cl-quota </span> is running under <span class="notranslate"> root </span>, it will display the limits returned by <span class="notranslate"> repquota </span> utility with no changes. If it is running under some other user, it will return data from a special cache file, see [Quotas cache and synchronization](./#caching-and-synchronizing-the-limits).
 
 4. Limits setting only works for panel users, for all other users limits are not set (the command is ignored). The only exception - <span class="notranslate"> uid=0 </span> . The limits are never set for the <span class="notranslate"> root </span> user <span class="notranslate"> (uid=0) </span> , but they are stored in <span class="notranslate"> DB </span> file and are used by inheritance mechanism. See [Limits Inheritance](./#limits-inheritance).
 
@@ -3442,15 +3442,13 @@ When installing/reading the limits, the following peculiarities are applied:
 
 <span class="notranslate"> cl-quota </span> utility also supports package limits set/read. When setting package limits, they are set for all users of a particular package except for those whose limits are set individually. See also [Limits Inheritance](./#limits-inheritance).
 
-If package name is <span class="notranslate"> "default" </span> , then setting limits command is ignored. If some limits are set for this package in <span class="notranslate"> DB </span> file, they will be displayed along with all the others, but will not be used. See also [Limits inheritance](./#limits-inheritance).
-
 Any positive numbers are allowed as limit values. <span class="notranslate"> cl-quota </span> neither controls nor changes these values except the following cases:
 
-negative values are taken modulo;
+* negative values are taken modulo;
 
-fractional values are converted to integers by discarding the fractional part;
+* fractional values are converted to integers by discarding the fractional part;
 
-if the transferred value can not be turned into a number (for example, 67wg76), it is completely ignored and the limit is not set at all.
+* if the transferred value can not be turned into a number (for example, 67wg76), it is completely ignored and the limit is not set at all.
 
 Then these values are transmitted directly to <span class="notranslate"> setquota </span> system utility for the actual setting of the limits.
 
@@ -3460,13 +3458,13 @@ Thus <span class="notranslate"> cl-quota </span> has two limit values, which are
 
 * -1: The real limits are set to 0, which means no limits, literally "unlimited". This is legit both for individual and for package limits. Limit value -1 is stored in the database as well as any other but is never displayed.
 
-You can use the words <span class="notranslate"> “default” </span> and <span class="notranslate"> “unlimited” </span> instead of 0 and -1 respectively, they are fully interchangeable. See also [DB File](/shared/lve_manager/#quotas-db-file) and [CLI Options](/shared/lve_manager/#cli-options-examples).
+You can use the words <span class="notranslate"> “default” </span> and <span class="notranslate"> “unlimited” </span> instead of 0 and -1 respectively, they are fully interchangeable. See also [DB File](./#quotas-db-file) and [CLI Options](./#cli-options-examples).
 
 Individual and package limits are always saved in DB file. Limits from there are used when synchronizing <span class="notranslate"> quotas </span> . Please find more details in [Limits Synchronization](/shared/lve_manager/#caching-and-synchronizing-the-limits).
 
-Also, find detailed information on DB file itself in [Quotas DB File](/shared/lve_manager/#quotas-db-file) section.
+Also, find detailed information on DB file itself in [Quotas DB File](./#quotas-db-file) section.
 
-Utility options are described in [CLI Options](/shared/lve_manager/#cli-options-examples) section.
+Utility options are described in [CLI Options](./#cli-options-examples) section.
 
 #### Limits inheritance
 
@@ -3476,8 +3474,6 @@ When setting package limits to the package users, the inheritance principle is a
 * If no individual limit is set to a user, then he inherits the limits of the package he belongs to.
 
 * If no limit is set to a package (=0), then the users inherit uid=0 limits.
-
-Limits of the package named <span class="notranslate"> “default” </span> (if found in the <span class="notranslate"> DB </span> file) will always be ignored and all the users of this package will get <span class="notranslate"> uid=0 </span> limits.
 
 
 #### Caching and synchronizing the limits
@@ -3492,7 +3488,7 @@ Caching - is writing current limits to <span class="notranslate"> _/etc/containe
 
 When installing <span class="notranslate"> LVE Manager </span> package, a special <span class="notranslate"> cron job </span> is installed, which performs synchronization and caching ( <span class="notranslate"> cl-quota -YC </span> ) every 5 minutes. Therefore, the correct limits will be set for the user within 5 minutes from the moment of its creation.
 
-Caching and synchronization can also be performed separately, see ["CLI Options"](/shared/lve_manager/#cli-options-examples) section.
+Caching and synchronization can also be performed separately, see ["CLI Options"](./#cli-options-examples) section.
 
 To disable this feature add to the config file _/etc/sysconfig/cloudlinux_.
 
@@ -3531,7 +3527,7 @@ pack1 = 5000:-1
 </div>
 It follows that:
 
-* uid=0 limits are set to 1000:2000 - all users in the default package will obtain these limits.
+* uid=0 limits are set to 1000:2000 - default for all panel users
 
 * Both limits are set as unlimited for a user with uid=500, which means that its real limits will always be 0:0. The package limits do not affect this user.
 
