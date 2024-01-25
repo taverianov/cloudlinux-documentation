@@ -99,6 +99,26 @@ cloudlinux-xray-manager disable-serverwide-mode
 
 Enable and disable commands do not stop or remove tracing tasks.
 
+
+## X-Ray phpinfo mode
+
+With X-Ray v0.6-18 we introduced new X-Ray mode which gathers website php version using information from phpinfo. This
+mode allows your customers to [override PHP versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi)
+
+:::warning
+In order to use this mode, websites should be reachable through http or https.
+:::
+
+In order to enable this mode, type the following command:
+```
+touch /opt/cloudlinux/flags/enabled-flags.d/xray-per-domain-php-version-mode.flag
+```
+
+In order to get back to default:
+```
+rm -f /opt/cloudlinux/flags/enabled-flags.d/xray-per-domain-php-version-mode.flag
+```
+
 ## How to manage X-Ray
 
 X-Ray provides several options for monitoring domain requests speed: Manual Tracing task, X-Ray Autotracing and Continuous tracing.
@@ -1039,7 +1059,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
 
 ### My customers [override php versions](https://cloudlinux.zendesk.com/hc/en-us/articles/115004537805-Different-PHP-versions-per-directories-using-mod-lsapi) in different folders and X-Ray does not trace those websites, what should I do?
 
-You should turn on the [X-Ray serverwide mode](#x-ray-serverwide-mode) which allows X-Ray to trace website regardless of their PHP version.
+You should turn on the [X-Ray serverwide mode](#x-ray-serverwide-mode) or the [X-Ray phpinfo mode](#x-ray-phpinfo-mode).
 
 
 ### What should I do if I see the warning "Task is duplicated by URL"?
