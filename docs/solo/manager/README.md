@@ -129,7 +129,7 @@ The `wmt-api-solo` utility allows managing Website Monitoring tool via CLI.
 Example of the `/usr/share/web-monitoring-tool/wmtbin/wmt-api-solo` command usage:
 
 ```
-# /usr/share/web-monitoring-tool/wmtbin/wmt-api-solo --config-change "{\"ping_timeout\":10,\"ping_interval\":5,\"report_email\":\"user@example.com\"}"
+/usr/share/web-monitoring-tool/wmtbin/wmt-api-solo --config-change "{\"ping_timeout\":10,\"ping_interval\":5,\"report_email\":\"user@example.com\"}"
 ```
 
 This way you can set all or only certain parameters.
@@ -194,7 +194,7 @@ The `cloudlinux-ssa-manager` utility allows to manage Slow Site analyzer via CLI
 **Usage**
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager [command] [--optional arguments]
+/usr/sbin/cloudlinux-ssa-manager [command] [--optional arguments]
 ```
 
 **Optional arguments**:
@@ -219,7 +219,8 @@ You can use the `-h`, `--help` option with commands to get a full list of availa
 Example of the `/usr/sbin/cloudlinux-ssa-manager get-report | json_reformat` command output:
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager get-report | json_reformat
+/usr/sbin/cloudlinux-ssa-manager get-report | json_reformat  
+
 {
     "result": "success",
     "date": "18.05.2021",
@@ -262,7 +263,8 @@ Example of the `/usr/sbin/cloudlinux-ssa-manager get-report | json_reformat` com
 Example of the `/usr/sbin/cloudlinux-ssa-manager set-config --requests-duration 2.5` command output:
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager set-config --requests-duration 2.5
+/usr/sbin/cloudlinux-ssa-manager set-config --requests-duration 2.5 
+
 {"result": "success"}
 ```
 
@@ -583,7 +585,7 @@ X-Ray Autotracing automatically creates tracing tasks for slow URLs that were fo
 :::warning Warning
 To use X-Ray Autotracing, update your alt-php-ssa and alt-php-xray packages to versions alt-php-ssa-0.2-1 and alt-php-xray-0.4-1 or higher by running the following command:
 ```
-# yum update alt-php-ssa alt-php-xray --enablerepo=cloudlinux-updates-testing
+yum update alt-php-ssa alt-php-xray --enablerepo=cloudlinux-updates-testing
 ```
 :::
 
@@ -592,8 +594,8 @@ To use X-Ray Autotracing, update your alt-php-ssa and alt-php-xray packages to v
 To enable X-Ray Autotracing, run the following commands via SSH:
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager enable-ssa
-# /usr/sbin/cloudlinux-xray-autotracing enable --all
+/usr/sbin/cloudlinux-ssa-manager enable-ssa
+/usr/sbin/cloudlinux-xray-autotracing enable --all
 ```
 
 Check [CLI documentation](/solo/manager/#x-ray-autotracing-cli) for a description of the `/usr/sbin/cloudlinux-xray-autotracing` CLI utility.
@@ -632,7 +634,7 @@ The `cloudlinux-xray-autotracing` utility allows to manage the X-Ray Autotracing
 **Usage**
 
 ```
-# /usr/sbin/cloudlinux-xray-autotracing [command] [--optional arguments]
+/usr/sbin/cloudlinux-xray-autotracing [command] [--optional arguments]
 ```
 
 **Commands**:
@@ -659,21 +661,24 @@ You can use the `-h`, `--help` option with commands to get a full list of availa
 Disable user1:
 	
 ```
-# /usr/sbin/cloudlinux-xray-autotracing disable user1
+/usr/sbin/cloudlinux-xray-autotracing disable user1  
+
 {"result": "success"}
 ```
 
 Show list of disabled users:
 	
 ```
-# /usr/sbin/cloudlinux-xray-autotracing status --list-disabled
+/usr/sbin/cloudlinux-xray-autotracing status --list-disabled  
+
 {"result": "success", "disabled_users": ["user1"]}
 ```
 	
 Enable all:
 
 ```
-# /usr/sbin/cloudlinux-xray-autotracing enable --all
+/usr/sbin/cloudlinux-xray-autotracing enable --all  
+
 {"result": "success"}
 ```
 
@@ -691,7 +696,7 @@ At the moment, Smart Advice is focused only on WordPress sites.
 :::warning Warning
 To use X-Ray Smart Advice, update your alt-php-ssa and alt-php-xray packages to versions alt-php-ssa-0.2-3 and alt-php-xray-0.5-1 or higher by running the following command:
 ```
-# yum update alt-php-ssa alt-php-xray lve-utils lvemanager --enablerepo=cloudlinux-updates-testing
+yum update alt-php-ssa alt-php-xray lve-utils lvemanager --enablerepo=cloudlinux-updates-testing
 ```
 :::
 
@@ -1030,7 +1035,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent start
+    service xray-agent start
     ```
     </div>
 
@@ -1039,7 +1044,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent stop
+    service xray-agent stop
     ```
     </div>
 
@@ -1048,7 +1053,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent restart
+    service xray-agent restart
     ```
     </div>
 
@@ -1102,7 +1107,7 @@ If you managed to create a tracing task, this means that the <span class="notran
     <div class="notranslate">
 
     ```
-    # cat /usr/share/alt-php-xray/manager.log | grep ini_location
+    cat /usr/share/alt-php-xray/manager.log | grep ini_location
     ```
     </div>
 
@@ -1659,7 +1664,8 @@ It is killed after AccelerateWP Premium Object Caching has been deactivated for 
 
 Look through the processes list to check Redis status for a particular user:
 ```
- $ ps aux | grep redis
+ ps aux | grep redis  
+
  awpuser  2662517  0.0  0.5 101096  8512 ?        Sl   15:33   0:00 /opt/alt/redis/bin/redis-server unixsocket:/home/awpuser/.clwpos/redis.sock
 ```
 In case if AccelerateWP Premium is active, the auxiliary monitoring daemon `clwpos_monitoring` is also activated. It checks Redis instances each 5 minutes, starts new instances, restart failed ones and kills the “garbage” instances if needed.
@@ -1750,7 +1756,7 @@ All errors will be displayed in standard output and logged into `/var/log/clwpos
     ```
     Consider the example for checking alt-php74 redis.so:
     ```
-    # ls /opt/alt/php74/usr/lib64/php/modules | grep redis.so
+    ls /opt/alt/php74/usr/lib64/php/modules | grep redis.so
     redis.so
     ```
 2. If the Redis module is missing:
@@ -1796,13 +1802,16 @@ Reinstall broken packages if found.
 
 Consider the example issue (presented at the picture above) with broken `mbstring.so` for `ea-php80`:
 ```
-# /opt/cpanel/ea-php80/root/usr/bin/php -i
-Segmentation fault (core dumped)
-# rpm -V ea-php80
-# rpm -V ea-php80-php-mbstring
+/opt/cpanel/ea-php80/root/usr/bin/php -i 
+Segmentation fault (core dumped)  
+
+rpm -V ea-php80  
+
+rpm -V ea-php80-php-mbstring
 S.5....T.    /opt/cpanel/ea-php80/root/usr/lib64/php/modules/mbstring.so
-......G..  a /usr/lib/.build-id/9c/38ed78a6d401ff6dce059ccea51c95870d98c5
-# yum reinstall ea-php80-php-mbstring
+......G..  a /usr/lib/.build-id/9c/38ed78a6d401ff6dce059ccea51c95870d98c5  
+
+yum reinstall ea-php80-php-mbstring
 ```
 
 

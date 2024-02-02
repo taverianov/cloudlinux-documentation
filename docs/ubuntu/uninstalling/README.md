@@ -5,16 +5,16 @@
 You can uninstall CloudLinux Subsystem For Ubuntu by running the following commands:
 
 ```
-# apt install python3
+apt install python3
 ```
 ```
-# wget https://repo.cloudlinux.com/cloudlinux-ubuntu/sources/cln/ubuntu2cloudlinux.py
+wget https://repo.cloudlinux.com/cloudlinux-ubuntu/sources/cln/ubuntu2cloudlinux.py
 ```
 ```
-# python3 ubuntu2cloudlinux.py --uninstall
+python3 ubuntu2cloudlinux.py --uninstall
 ```
 ```
-# reboot
+reboot
 ```
 
 

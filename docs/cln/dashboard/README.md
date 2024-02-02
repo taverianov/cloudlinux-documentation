@@ -211,7 +211,7 @@ The date in _Sticky tag_ field can be any date from May 28, 2018 up to one day b
 To use Sticky Tag feature on the servers to be patched, run:
 
 ```
-$ /usr/bin/kcarectl --set-sticky-patch=KEY
+/usr/bin/kcarectl --set-sticky-patch=KEY
 ```
 
 Alternatively, you can do the same by adding ` STICKY_PATCH=KEY` to `/etc/sysconfig/kcare/kcare.conf` file.

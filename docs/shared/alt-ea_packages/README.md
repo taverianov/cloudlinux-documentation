@@ -474,7 +474,9 @@ Example:
 <div class="notranslate">
 
 ```
-# sudo yum group list
+sudo yum group list 
+............ 
+
 Available Environment Groups:
    Server with GUI
    Server
@@ -520,7 +522,9 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo yum groupinfo alt-php72
+sudo yum groupinfo alt-php72 
+............ 
+
 Group: alt-php72
  Description: PHP 7.2.x packages for CloudLinux OS PHP Selector
  Default Packages:
@@ -573,7 +577,8 @@ For example:
 <div class="notranslate">
 
 ```
-# apt list -a | grep alt-php
+apt list -a | grep alt-php 
+............
 alt-php-config/unknown 1-51.1 amd64
 alt-php-internal-bcmath/unknown 7.4.33-13.1 amd64
 alt-php-internal-bcmath/unknown 7.4.13-3 amd64
@@ -607,7 +612,7 @@ For example:
 <div class="notranslate">
 
 ```
-# apt-cache showpkg alt-php72
+apt-cache showpkg alt-php72
 ............
 Dependencies:
 7.2.34-34 - alt-php72-cli (5 7.2.34-34) alt-php72-common (5 7.2.34-34) libcurl4-openssl-dev (0 (null)) libreadline-dev (0 (null)) libwebp-dev (0 (null))
@@ -654,7 +659,8 @@ For example (CL 8 after installing alt-php73):
 <div class="notranslate">
 
 ```
-# sudo yum list installed | grep php
+sudo yum list installed | grep php 
+............
 alt-php-config.noarch                       1-54.el8                                               @cloudlinux-updates-testing
 alt-php-internal.x86_64                     7.4.33-6.el8                                           @cloudlinux-updates-testing
 alt-php-internal-cli.x86_64                 7.4.33-6.el8                                           @cloudlinux-updates-testing
@@ -692,7 +698,8 @@ For example (Ubuntu 20.04 after installing alt-php73):
 <div class="notranslate">
 
 ```
-# dpkg -l | grep php
+dpkg -l | grep php  
+............
 ii  alt-php-internal-cli                  7.4.33-13.1                       amd64        command-line interpreter for the PHP scripting language
 ii  alt-php-internal-common               7.4.33-13.1                       amd64        documentation, examples and common module for PHP
 ii  alt-php-internal-intl                 7.4.33-13.1                       amd64        Internationalisation module for PHP
@@ -726,7 +733,8 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo yum deplist alt-php73
+sudo yum deplist alt-php73  
+............
 package: alt-php73-1:7.3.15-1.2.el8.x86_64
   dependency: /bin/sh
    provider: bash-4.4.20-4.el8_6.x86_64
@@ -753,7 +761,8 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo apt-cache depends alt-php74
+sudo apt-cache depends alt-php74  
+............
 alt-php74
   Depends: alt-php74-cli
   Depends: alt-php74-common
@@ -790,7 +799,8 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo yum list installed | grep alt-php73-firebird
+sudo yum list installed | grep alt-php73-firebird  
+............
 alt-php73-firebird.x86_64                   1:7.3.33-18.el8                                        @cloudlinux-updates-testing
 alt-php73-firebird-debuginfo.x86_64         1:7.3.31-2.el8                                         @cloudlinux-updates-testing
 ```
@@ -812,7 +822,9 @@ For example:
 <div class="notranslate">
 
 ```
-# dpkg -l | grep alt-php73-firebird
+dpkg -l | grep alt-php73-firebird  
+............ 
+
 ii  alt-php73-firebird                    7.3.33-19                         amd64        firebird module for PHP
 ```
 </div>
@@ -841,7 +853,9 @@ Example:
 <div class="notranslate">
 
 ```
-# sudo yum check-update
+sudo yum check-update  
+............ 
+
 kernel.x86_64                                    1:4.18.0-513.9.1.lve.el8                    cloudlinux-x86_64-server-8
 kernel-core.x86_64                               1:4.18.0-513.9.1.lve.el8                    cloudlinux-x86_64-server-8
 kernel-modules.x86_64                            1:4.18.0-513.9.1.lve.el8                    cloudlinux-x86_64-server-8
@@ -890,7 +904,9 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo yum groupupdate alt-php74
+sudo yum groupupdate alt-php74  
+............ 
+
 Dependencies resolved.
 ========================================================================================================================
  Package                           Architecture    Version                    Repository                           Size
@@ -942,7 +958,9 @@ Example:
 <div class="notranslate">
 
 ```
-# sudo apt-get update
+sudo apt-get update  
+............  
+
 Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
 Hit:2 http://us.archive.ubuntu.com/ubuntu focal InRelease
 Get:3 http://us.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
@@ -963,7 +981,9 @@ Get:17 https://repo.cloudlinux.com/cloudlinux-ubuntu/cloudlinux/testing/20.04 fo
 Fetched 11.0 MB in 5s (2,182 kB/s)
 Reading package lists... Done
 
-# apt list --upgradable
+apt list --upgradable  
+ 
+............
 Listing... Done
 alt-python27-cllib/unknown 3.3.9-1 amd64 [upgradable from: 3.3.8-1]
 curl/focal-updates,focal-security 7.68.0-1ubuntu2.21 amd64 [upgradable from: 7.68.0-1ubuntu2.20]
@@ -1012,7 +1032,8 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo apt-get upgrade alt-php83
+sudo apt-get upgrade alt-php83  
+............
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -1047,7 +1068,9 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo yum search alt-php73-firebird
+sudo yum search alt-php73-firebird  
+............ 
+
 ========================================================= Name Exactly Matched: alt-php73-firebird =========================================================
 alt-php73-firebird.x86_64 : Firebird and Interbase extensions
 ======================================================== Name & Summary Matched: alt-php73-firebird ========================================================
@@ -1071,7 +1094,9 @@ For example:
 <div class="notranslate">
 
 ```
-# sudo apt search alt-php73-firebird
+sudo apt search alt-php73-firebird  
+............ 
+
 Sorting... Done
 Full Text Search... Done
 alt-php73-firebird/unknown,now 7.3.33-19 amd64 [installed]
@@ -1104,7 +1129,8 @@ dbunit           lsphp            peardev          phar             php         
 <div class="notranslate">
 
 ```
-ls /opt/alt/phpXY/usr/lib64/php/modules/
+ls /opt/alt/phpXY/usr/lib64/php/modules/  
+
 ZendGuardLoader.so  imagick.so         oci8.so          stem.so
 amqp.so             imap.so            odbc.so          stomp.so
 apc.so              inclued.so         opcache.so       suhosin.so

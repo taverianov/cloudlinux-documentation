@@ -12,7 +12,7 @@
 <div class="notranslate">
 
 ```
-$ yum install lvemanager
+yum install lvemanager
 ```
 </div>
 

@@ -28,7 +28,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
    <div class="notranslate">
 
     ```
-    # yum install lvemanager
+    yum install lvemanager
     ```
     </div>
 
@@ -37,7 +37,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
    <div class="notranslate">
 
     ```
-    # yum update lvemanager
+    yum update lvemanager
     ```
     </div>
 3. X-Ray will be activated on all your servers during 4 hours. You will see the X-Ray tab in the LVE Manager UI.
@@ -47,7 +47,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
    <div class="notranslate">
 
     ```
-    # rhn_check
+    rhn_check
     ```
     </div>
 
@@ -56,7 +56,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
     <div class="notranslate">
 
     ```
-    # yum install rhn-check rhn-setup
+    yum install rhn-check rhn-setup
     ```
     </div>
 
@@ -73,7 +73,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
     <div class="notranslate">
 
     ```
-    # yum install lvemanager alt-php-xray
+    yum install lvemanager alt-php-xray
     ```
     </div>
 
@@ -378,7 +378,7 @@ X-Ray Autotracing automatically creates tracing tasks for slow URLs that were fo
 :::warning Warning
 To use X-Ray Autotracing, update your alt-php-ssa and alt-php-xray packages to versions alt-php-ssa-0.2-1 and alt-php-xray-0.4-1 or higher by running the following command:
 ```
-# yum update alt-php-ssa alt-php-xray --enablerepo=cloudlinux-updates-testing
+yum update alt-php-ssa alt-php-xray --enablerepo=cloudlinux-updates-testing
 ```
 :::
 
@@ -387,8 +387,8 @@ To use X-Ray Autotracing, update your alt-php-ssa and alt-php-xray packages to v
 To enable X-Ray Autotracing, run the following commands via SSH:
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager enable-ssa
-# /usr/sbin/cloudlinux-autotracing enable --all
+/usr/sbin/cloudlinux-ssa-manager enable-ssa
+/usr/sbin/cloudlinux-autotracing enable --all
 ```
 
 Check [CLI documentation](/command-line_tools/#x-ray-autotracing) for a description of the `/usr/sbin/cloudlinux-autotracing` CLI utility.
@@ -431,7 +431,7 @@ At the moment, Smart Advise is focused only on WordPress sites.
 :::warning Warning
 To use X-Ray Smart Advice, update your alt-php-ssa and alt-php-xray packages to versions alt-php-ssa-0.2-3 and alt-php-xray-0.5-1 or higher by running the following command:
 ```
-# yum update alt-php-ssa alt-php-xray lve-utils lvemanager --enablerepo=cloudlinux-updates-testing
+yum update alt-php-ssa alt-php-xray lve-utils lvemanager --enablerepo=cloudlinux-updates-testing
 ```
 :::
 
@@ -710,7 +710,7 @@ These requests capture anonymous data about page load time and resources.
 :::warning Warning
 To use the end-user X-Ray plugin, update your LVE Manager and X-Ray packages to the `lvemanager-6.3.9-1` (or later) and `alt-php-xray-0.3-1` (or later) by running the following command:
 ```
-# yum update lvemanager alt-php-xray
+yum update lvemanager alt-php-xray
 ```
 :::
 
@@ -1026,7 +1026,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent start
+    service xray-agent start
     ```
     </div>
 
@@ -1035,7 +1035,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent stop
+    service xray-agent stop
     ```
     </div>
 
@@ -1044,7 +1044,7 @@ The <span class="notranslate">X-Ray</span> agent is managed by the <span class="
     <div class="notranslate">
 
     ```
-    # service xray-agent restart
+    service xray-agent restart
     ```
     </div>
 
@@ -1099,7 +1099,7 @@ If you managed to create a tracing task, this means that the <span class="notran
     <div class="notranslate">
 
     ```
-    # cat /usr/share/alt-php-xray/manager.log | grep ini_location
+    cat /usr/share/alt-php-xray/manager.log | grep ini_location
     ```
     </div>
 

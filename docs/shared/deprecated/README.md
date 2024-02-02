@@ -284,7 +284,7 @@ Please note that this package is no longer needed, as since cPanel 11.38, you ca
 <div class="notranslate">
 
 ```
-$ yum install git
+yum install git
 ```
 </div>
 
@@ -294,7 +294,7 @@ To install [git](https://git-scm.com/) on cPanel servers:
 <div class="notranslate">
 
 ```
-$ yum install git-cpanel
+yum install git-cpanel
 ```
 </div>
 
@@ -313,7 +313,7 @@ To install, run:
 <div class="notranslate">
 
 ```
-$ yum install lve-stats
+yum install lve-stats
 ```
 </div>
 
@@ -323,7 +323,7 @@ If you are already running lve-stats (in case you are running cPanel LVE plugin)
 <div class="notranslate">
 
 ```
-$ yum update lve-stats
+yum update lve-stats
 ```
 </div>
 
@@ -335,7 +335,7 @@ The package installs lvestats-server. You can re-start the server by running:
 <div class="notranslate">
 
 ```
-$ service lvestats restart
+service lvestats restart
 ```
 </div>
 
@@ -449,7 +449,8 @@ Display top 10 users, by max <span class="notranslate"> CPU </span> usage, from 
 <div class="notranslate">
 
 ```
-$ lveinfo --from='2010-10-10' --to='2010-10-15' -o cpu_max --display-username 
+lveinfo --from='2010-10-10' --to='2010-10-15' -o cpu_max --display-username  
+
 ID        aCPU       mCPU     lCPU      aEP      mEP      lEP       aMem       mMem      lMem      MemF     MepF 
 777         7        9        10        0        0        25        10M        15M       1G        0        0 
 300         2        8        10        0        1        25        1M         3M        1G        0        0 
@@ -463,7 +464,8 @@ Display LVE info about user <span class="notranslate"> web2 </span> , from Oct 1
 <div class="notranslate">
 
 ```
-$ lveinfo --from='2010-10-10' --to='2010-10-15' --user=web2 --display-username
+lveinfo --from='2010-10-10' --to='2010-10-15' --user=web2 --display-username  
+
 ID        aCPU       mCPU     lCPU      aEP      mEP      lEP       aMem       mMem       lMem      MemF     MepF 
 web2        1        6        10        0        0        25        10M        15M        1G        0        0
 ```
@@ -480,7 +482,7 @@ LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/shared/cloudlinu
 <div class="notranslate">
 
 ```
-$ yum install MySQL-python
+yum install MySQL-python
 ```
 </div>
 
@@ -490,7 +492,7 @@ If you have MySQL 5.3+ installed on CloudLinux OS Shared 5 server, and there is 
 <div class="notranslate">
 
 ```
-$ yum --enablerepo=cloudlinux-updates-testing install mysqlclient15
+yum --enablerepo=cloudlinux-updates-testing install mysqlclient15
 ```
 </div>
 
@@ -615,7 +617,7 @@ If you use central database to store lvestats data, on each server, execute:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve-stats/save_users_to_database.py 
+/usr/share/lve-stats/save_users_to_database.py 
 ```
 </div>
 
@@ -705,7 +707,7 @@ On each server execute:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve-stats/save_users_to_database.py 
+/usr/share/lve-stats/save_users_to_database.py 
 ```
 </div>
 
@@ -724,7 +726,7 @@ Run:
 <div class="notranslate">
 
 ```
-$ yum install postgresql-python
+yum install postgresql-python
 ```
 </div>
 
@@ -844,7 +846,7 @@ If you use central database to store lvestats data, on each server, execute:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve-stats/save_users_to_database.py 
+/usr/share/lve-stats/save_users_to_database.py 
 ```
 </div>
 You just need to execute it once, as it will be later executed via <span class="notranslate"> cron job </span> . That script will store usernames from each server, so that lve-stats would later be able to correctly identify each user.
@@ -902,7 +904,7 @@ OPTIMUMCACHE IS NO LONGER SUPPORTED
 <div class="notranslate">
 
 ```
-# yum install optimumcache
+yum install optimumcache
 ```
 </div>
 
@@ -929,7 +931,7 @@ Allocating OptimumCache disk space for ploop on a fast drives (like SSD) will pr
 <div class="notranslate">
 
 ```
-# occtl --move-ploop /path/to/new/image/file [new size[KMGT]]
+occtl --move-ploop /path/to/new/image/file [new size[KMGT]]
 ```
 </div>
 
@@ -940,7 +942,7 @@ Example:
 <div class="notranslate">
 
 ```
-# occtl --move-ploop /var/ssh/optimumcache.image
+occtl --move-ploop /var/ssh/optimumcache.image
 ```
 </div>
 
@@ -953,7 +955,7 @@ To turn on ploop:
 <div class="notranslate">
 
 ```
-# occtl --init-ploop
+occtl --init-ploop
 ```
 </div>
 
@@ -962,7 +964,7 @@ To disable ploop:
 <div class="notranslate">
 
 ```
-# occtl --disable-ploop
+occtl --disable-ploop
 ```
 </div>
 
@@ -977,7 +979,7 @@ To resize ploop:
 <div class="notranslate">
 
 ```
-# occtl --resize-ploop [new size[KMGT]]
+occtl --resize-ploop [new size[KMGT]]
 ```
 </div>
 
@@ -988,7 +990,7 @@ A common reason for resizing ploop is reacting to OptimumCache syslog message li
 <div class="notranslate">
 
 ```
-# occtl --delete-ploop
+occtl --delete-ploop
 ```
 </div>
 
@@ -1028,7 +1030,7 @@ OPTIMUMCACHE IS NO LONGER SUPPORTED
 <div class="notranslate">
 
 ```
-# occtl --mark-dir /path/to/site/on/filesystem --recursive
+occtl --mark-dir /path/to/site/on/filesystem --recursive
 ```
 </div>
 
@@ -1037,7 +1039,7 @@ In common scenario admin marks for caching user directories:
 <div class="notranslate">
 
 ```
-# occtl --mark-dir /home /home2 /home3 --recursive
+occtl --mark-dir /home /home2 /home3 --recursive
 ```
 </div>
 
@@ -1054,7 +1056,7 @@ You can set a regexp mask for directories that you would like to ignore using:
 <div class="notranslate">
 
 ```
-$ occtl --add-skip-mask REGEX
+occtl --add-skip-mask REGEX
 ```
 </div>
 
@@ -1063,7 +1065,7 @@ To list skip masks:
 <div class="notranslate">
 
 ```
-$ occtl --list-skip-mask
+occtl --list-skip-mask
 ```
 </div>
 
@@ -1072,7 +1074,7 @@ To remove skip mask:
 <div class="notranslate">
 
 ```
-$ occtl --remove-skip-mask ID\|Tag
+occtl --remove-skip-mask ID\|Tag
 ```
 </div>
 
@@ -1081,7 +1083,7 @@ At the very end, for those changes to take effect:
 <div class="notranslate">
 
 ```
-$ occtl --check
+occtl --check
 ```
 </div>
 
@@ -1363,7 +1365,7 @@ Installing this package automatically starts system load statistics collection i
 <div class="notranslate">
 
 ```
-# yum install cloudlinux-collect --enablerepo=cloudlinux-updates-testing
+yum install cloudlinux-collect --enablerepo=cloudlinux-updates-testing
 ```
 </div>
 
@@ -1380,7 +1382,7 @@ Start monitoring new URL:
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --addurl <alias> <http://url
+cloudlinux-collect --addurl <alias> <http://url
 ```
 </div>
 
@@ -1389,7 +1391,7 @@ Example:
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --addurl localhost http://127.0.0.1/index.php
+cloudlinux-collect --addurl localhost http://127.0.0.1/index.php
 ```
 </div>
 
@@ -1401,7 +1403,7 @@ Try <span class="notranslate">`cloudlinux-collectl --help`</span> for more optio
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --test
+cloudlinux-collect --test
 ```
 </div>
 
@@ -1414,7 +1416,7 @@ To monitor what statistics are being collected, try command:
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --test
+cloudlinux-collect --test
 ```
 </div>
 
@@ -1427,7 +1429,7 @@ Along with common statistics blocks as <span class="notranslate">CPU</span> , di
 <div class="notranslate">
 
 ```
-# optimumcache stat
+optimumcache stat
 ```
 </div>
 
@@ -1457,7 +1459,7 @@ The next goes <span class="notranslate">`URLSTATTRACKER DETAIL`</span> block wit
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --info
+cloudlinux-collect --info
 ```
 </div>
 
@@ -1478,7 +1480,7 @@ To add another URL for monitoring:
 <div class="notranslate">
 
 ```
-## cloudlinux-collect --addurl alt http://192.168.0.102/
+cloudlinux-collect --addurl alt http://192.168.0.102/
 ```
 </div>
 
@@ -1487,7 +1489,7 @@ To display URLs being monitored list:
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --info
+cloudlinux-collect --info
 ```
 </div>
 
@@ -1511,7 +1513,7 @@ To skip URL from being tracked run command:
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --skip <url short name>
+cloudlinux-collect --skip <url short name>
 ```
 </div>
 
@@ -1524,7 +1526,8 @@ As it was mentioned, collectl-optimumcache daemon starts automatically on packag
 <div class="notranslate">
 
 ```
-# service cloudlinux-collect status
+service cloudlinux-collect status  
+
 collectl-optimumcache (pid  1745) is running…
 ```
 </div>
@@ -1534,7 +1537,7 @@ To start /stop:
 <div class="notranslate">
 
 ```
-# service cloudlinux-collect < start | stop >
+service cloudlinux-collect < start | stop >
 ```
 </div>
 
@@ -1547,7 +1550,7 @@ To convert those info format suitable for loading into Excel, LibreOffice Calc, 
 <div class="notranslate">
 
 ```
-# cloudlinux-collect --genplotfiles
+cloudlinux-collect --genplotfiles
 ```
 </div>
 
@@ -1589,9 +1592,9 @@ For OptimumCache version prior 0.2-11, uninstalling via rpm package manager does
 <div class="notranslate">
 
 ```
-# rm /var/share/optimumcache/optimumcache.image
-# rm /var/share/optimumcache/DiskDescriptor.xml
-# rm /var/share/optimumcache/DiskDescriptor.xml.lck
+rm /var/share/optimumcache/optimumcache.image
+rm /var/share/optimumcache/DiskDescriptor.xml
+rm /var/share/optimumcache/DiskDescriptor.xml.lck
 ```
 </div>
  or
@@ -1599,9 +1602,9 @@ For OptimumCache version prior 0.2-11, uninstalling via rpm package manager does
 <div class="notranslate">
 
 ```
-# rm /path/to/ploop/image/file
-# rm /path/to/ploop/image/DiskDescriptor.xml
-# rm /path/to/ploop/image/DiskDescriptor.xml.lck
+rm /path/to/ploop/image/file
+rm /path/to/ploop/image/DiskDescriptor.xml
+rm /path/to/ploop/image/DiskDescriptor.xml.lck
 ```
 </div>
 
@@ -1632,11 +1635,8 @@ For now Ext4 is the only supported file system type. If a host has no Ext4 files
 
 ```
 Preparing packages for installation...
-
 Cannot continue: Ext4 partition is the only supported by OptimiumCache, there is no one in fstab
-
 error: %pre(optimumcache-0.1-22.el6.cloudlinux.x86_64) scriptlet failed, exit status 1
-
 error:   install: %pre scriptlet failed (2), skipping
 ```
 </div>
@@ -1646,12 +1646,10 @@ Also, an attempt to add for caching directory, which does not reside on Ext4, wi
 <div class="notranslate">
 
 ```
-# occtl --mark-dir /home --recursive
+occtl --mark-dir /home --recursive
 
 mount: / not mounted already, or bad option
-
 optimumcache: Can not mount device. rc[8192]
-
 Error: mark[1]: /usr/bin/optimumcache mark --recursive /home
 ```
 </div>
@@ -1690,7 +1688,7 @@ Most probably you have excluded <span class="notranslate">`perl*`</span> package
 <div class="notranslate">
 
 ```
-# yum install optimumcache --disableexcludes=all
+yum install optimumcache --disableexcludes=all
 ```
 </div>
 
@@ -1701,7 +1699,7 @@ This is well-known ploop problem, which may result in failing such actions as re
 <div class="notranslate">
 
 ```
-# occtl --move-ploop --ignore-unmount-failure
+occtl --move-ploop --ignore-unmount-failure
 ```
 </div>
 
@@ -1710,7 +1708,7 @@ As for resizing ploop, use flavor of <span class="notranslate">`--move-ploop`</s
 <div class="notranslate">
 
 ```
-# occtl --move-ploop /path/to/new/image/file [size GB] --ignore-unmount-failure
+occtl --move-ploop /path/to/new/image/file [size GB] --ignore-unmount-failure
 ```
 </div>
 
@@ -1739,7 +1737,7 @@ To update to version 0.2-6, run:
 <div class="notranslate">
 
 ```
-# yum update optimumcache --enablerepo=cloudlinux-updates-testing
+yum update optimumcache --enablerepo=cloudlinux-updates-testing
 ```
 </div>
 
@@ -1752,7 +1750,7 @@ Can be checked in <span class="notranslate">`/var/log/messages`</span>
 <div class="notranslate">
 
 ```
-# grep Reindexing /var/log/messages
+grep Reindexing /var/log/messages
 
 Feb  4 17:00:55 CL-default-2 occtl[2654]: Reindexing started
 ```
@@ -1765,7 +1763,9 @@ Also, can be checked via command <span class="notranslate">`occtl --report`</spa
 <div class="notranslate">
 
 ```
-# occtl --report
+occtl --report  
+  
+
 - Period starts at: 2015-02-04 17:00
 Period Stat:
 
@@ -1792,7 +1792,7 @@ Uninstalling OptimumCache takes time because of files unmark process, which last
 <div class="notranslate">
 
 ```
-# occtl --cancel-pending-jobs
+occtl --cancel-pending-jobs
 ```
 </div>
 
@@ -1805,7 +1805,7 @@ Rather rare problem, try to forcibly update `optimumcache_s` with ploop status.
 <div class="notranslate">
 
 ```
-# occtl --remount-cached-points
+occtl --remount-cached-points
 ```
 </div>
 
@@ -1839,7 +1839,7 @@ And do:
 <div class="notranslate">
 
 ```
-# sysctl -p
+sysctl -p
 ```
 </div>  
 
@@ -1975,7 +1975,7 @@ Detecting if system is running CloudLinux OS Shared/CloudLinux kernel:
 <div class="notranslate">
 
 ```
-$ uname -r|grep lve 
+uname -r|grep lve 
 ```
 </div>
 
@@ -1988,7 +1988,7 @@ Check if CageFS is enabled (as <span class="notranslate"> root </span> ):
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --cagefs-status
+/usr/sbin/cagefsctl --cagefs-status
 ```
 </div>
 
@@ -1997,7 +1997,7 @@ Check if CageFS is enabled for a particular user (as <span class="notranslate">`
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --user-status _USER_NAME_
+/usr/sbin/cagefsctl --user-status _USER_NAME_
 ```
 </div>
 
@@ -2074,13 +2074,13 @@ The compilation requires hiredis library.
 <div class="notranslate">
 
 ```
-$ wget https://repo.cloudlinux.com/cloudlinux/sources/da/mod_hostinglimits.tar.gz
-$ yum install cmake
-$ tar -zxvf mod_hostinglimits*.tar.gz
-$ cd mod_hostinglimits*
-$ cmake -DREDIS:BOOL=TRUE .
-$ make
-$ make install
+wget https://repo.cloudlinux.com/cloudlinux/sources/da/mod_hostinglimits.tar.gz
+yum install cmake
+tar -zxvf mod_hostinglimits*.tar.gz
+cd mod_hostinglimits*
+cmake -DREDIS:BOOL=TRUE .
+make
+make install
 ```
 </div>
 

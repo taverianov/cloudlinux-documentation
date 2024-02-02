@@ -137,12 +137,12 @@ If your reseller provides you with an IP-based license, run the following comman
 
 To convert server into the CloudLinux OS Shared edition:
 ```
-$ sh cldeploy -i
+sh cldeploy -i
 ```
 
 To convert server into the CloudLinux OS Admin edition:
 ```
-$ sh cldeploy -i --to-admin-edition
+sh cldeploy -i --to-admin-edition
 ```
 
 ### Next steps
@@ -157,7 +157,7 @@ Once you reboot - your server should be running with CloudLinux OS LVE kernel.
 You may check the booted kernel with the following command:
 
 ```
-$ uname -r
+uname -r
 ```
 
 :::warning Note
@@ -526,8 +526,8 @@ Next, [activate your installation](#license-activation) in order to get updates.
 To register your **CloudLinux OS** server with CloudLinux Network using activation key, run the following command:
 
 ```
-$ yum install rhn-setup
-$ /usr/sbin/rhnreg_ks --activationkey=<activation key>
+yum install rhn-setup
+/usr/sbin/rhnreg_ks --activationkey=<activation key>
 ```
 
 Where &lt;activation key&gt; is like `1231-2b48feedf5b5a0e0609ae028d9275c93`
@@ -535,8 +535,8 @@ Where &lt;activation key&gt; is like `1231-2b48feedf5b5a0e0609ae028d9275c93`
 If you have IP based license, use the `clnreg_ks` command instead:
 
 ```
-$ yum install rhn-setup
-$ /usr/sbin/clnreg_ks --force
+yum install rhn-setup
+/usr/sbin/clnreg_ks --force
 ```
 
 
@@ -611,7 +611,7 @@ There is no need to install mod_hostinglimits – it comes built in with H-Spher
 You can check if LVE is enabled by running:
 <span class="notranslate"> </span>
 ```
-$ ps aux | grep httpd | grep DLIBLVE
+ps aux | grep httpd | grep DLIBLVE
 ```
 
 If you see no output, it means that Apache didn't pick up LVE. Try checking file <span class="notranslate">` /hsphere/shared/scripts/apache-get-env.sh`</span>
@@ -674,7 +674,7 @@ H-Sphere 3.6.3+
 <div class="notranslate">
 
 ```
-$ wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/fcgi.conf
+wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/fcgi.conf
 ```
 </div>
 
@@ -715,13 +715,13 @@ Include /hsphere/local/config/httpd2/fcgi.conf
 <div class="notranslate">
 
 ```
-$ yum install gcc liblve-devel zlib-devel openssl-devel 
-$ wget https://apache.osuosl.org//httpd/mod_fcgid/mod_fcgid-2.3.9.tar.gz
-$ tar zxvf mod_fcgid-2.3.9.tar.gz
-$ cd mod_fcgid-2.3.9/
-$ APXS=/hsphere/shared/apache2/bin/apxs ./configure.apxs 
-$ make
-$ mv modules/fcgid/.libs/mod_fcgid.so /hsphere/shared/apache2/modules
+yum install gcc liblve-devel zlib-devel openssl-devel 
+wget https://apache.osuosl.org//httpd/mod_fcgid/mod_fcgid-2.3.9.tar.gz
+tar zxvf mod_fcgid-2.3.9.tar.gz
+cd mod_fcgid-2.3.9/
+APXS=/hsphere/shared/apache2/bin/apxs ./configure.apxs 
+make
+mv modules/fcgid/.libs/mod_fcgid.so /hsphere/shared/apache2/modules
 ```
 </div>
 
@@ -730,8 +730,8 @@ $ mv modules/fcgid/.libs/mod_fcgid.so /hsphere/shared/apache2/modules
  <div class="notranslate">
 
 ```
-$ wget https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/usemodule.phpmode.patch 
-$ patch /hsphere/local/config/scripts/usemodule.phpmode usemodule.phpmode.patch
+wget https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/usemodule.phpmode.patch 
+patch /hsphere/local/config/scripts/usemodule.phpmode usemodule.phpmode.patch
 ```
 
 </div>
@@ -741,7 +741,7 @@ $ patch /hsphere/local/config/scripts/usemodule.phpmode usemodule.phpmode.patch
 <div class="notranslate">
 
 ```
-$ cp -rp /hsphere/local/config/httpd2/httpd.conf.tmpl /hsphere/local/config/httpd2/httpd.conf.tmpl.custom
+cp -rp /hsphere/local/config/httpd2/httpd.conf.tmpl /hsphere/local/config/httpd2/httpd.conf.tmpl.custom
 ```
 </div>
 
@@ -750,8 +750,8 @@ Download and apply patch [https://repo.cloudlinux.com/cloudlinux/sources/mod_fcg
 <div class="notranslate">
 
 ```
-$ wget https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/httpd.conf.tmpl.patch 
-$ patch --fuzz=3 /hsphere/local/config/httpd2/httpd.conf.tmpl.cusom  httpd.conf.tmpl.patch
+wget https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/httpd.conf.tmpl.patch 
+patch --fuzz=3 /hsphere/local/config/httpd2/httpd.conf.tmpl.cusom  httpd.conf.tmpl.patch
 ```
 
 </div>
@@ -761,7 +761,7 @@ $ patch --fuzz=3 /hsphere/local/config/httpd2/httpd.conf.tmpl.cusom  httpd.conf.
 <div class="notranslate">
 
 ```
-$ wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/fcgi.conf
+wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/fcgi.conf
 ```
 
 </div>
@@ -771,8 +771,8 @@ $ wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/clo
 <div class="notranslate">
 
 ```
-$ wget -O /hsphere/shared/php5/bin/php-wrapper https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper
-$ chmod 755 /hsphere/shared/php5/bin/php-wrapper
+wget -O /hsphere/shared/php5/bin/php-wrapper https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper
+chmod 755 /hsphere/shared/php5/bin/php-wrapper
 ```
 
 </div>
@@ -782,7 +782,7 @@ $ chmod 755 /hsphere/shared/php5/bin/php-wrapper
 <div class="notranslate">
 
 ```
-$ chmod 755 /hsphere/local/home
+chmod 755 /hsphere/local/home
 ```
 
 </div>
@@ -1294,8 +1294,8 @@ Please make sure you have <span class="notranslate">`vzkernel-headers`</span> an
 ```
 yum install vzkernel-headers vzkernel-devel
 
-$ wget -P /etc/yum.repos.d/ https://repo.cloudlinux.com/vzlve/vzlve.repo
-$ yum install lve-kernel-module
+wget -P /etc/yum.repos.d/ https://repo.cloudlinux.com/vzlve/vzlve.repo
+yum install lve-kernel-module
 ```
 
 </div>
@@ -1311,7 +1311,7 @@ To make CloudLinux OS Shared work inside VZ container, VZ node has to be enabled
 <div class="notranslate">
 
 ```
-$ vzctl set CT_ID --devnodes lve:rw --save
+vzctl set CT_ID --devnodes lve:rw --save
 ```
 
 </div>
@@ -1321,7 +1321,7 @@ To disable LVE support for Container:
 <div class="notranslate">
 
 ```
-$ vzctl set CT_ID --devnodes lve:none --save
+vzctl set CT_ID --devnodes lve:none --save
 ```
 
 </div>
@@ -1370,7 +1370,9 @@ mv /etc/lilo.conf /etc/lilo.conf.bak
  <div class="notranslate">
 
  ```
- # cat /boot/grub/grub.conf
+ cat /boot/grub/grub.conf  
+ ............ 
+
 default=0
 timeout=5
  title CloudLinux Server (2.6.18-294.8.1.el5.lve0.7.33)
@@ -1417,8 +1419,8 @@ Do not forget to free up a CloudLinux OS Shared license by removing the server f
 To uninstall CloudLinux OS, run:
 
 ```
-$ wget -O cldeploy https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
-$ sh cldeploy -c
+wget -O cldeploy https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
+sh cldeploy -c
 ```
 
 Now you have converted back to AlmaLinux or CentOS* and it is the time to install kernel.

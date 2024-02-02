@@ -9,10 +9,10 @@ This is a beta version! We strongly don't recommend using it on the production s
 To install the CloudLinux subsystem, run the following command:
 
 ```
-# apt install python3
-# wget https://repo.cloudlinux.com/cloudlinux-ubuntu/sources/cln/ubuntu2cloudlinux.py
-# python3 ubuntu2cloudlinux.py
-# reboot
+apt install python3
+wget https://repo.cloudlinux.com/cloudlinux-ubuntu/sources/cln/ubuntu2cloudlinux.py
+python3 ubuntu2cloudlinux.py
+reboot
 ```
 
 No registration required! You can start working right after the installation.

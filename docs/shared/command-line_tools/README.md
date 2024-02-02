@@ -123,14 +123,14 @@ If a user has shell enabled - you can simply use:
 <div class="notranslate">
 
 ```
-$ /bin/su - $USERNAME  -c _command_
+/bin/su - $USERNAME  -c _command_
 ```
 </div>
 Yet, if a user have they shell disabled, it wouldn't work. To solve this issue, we have added command:
 <div class="notranslate">
 
 ```
-$ /sbin/cagefs_enter_user [--root] [--no-fork] $USERNAME _command_
+/sbin/cagefs_enter_user [--root] [--no-fork] $USERNAME _command_
 ```
 </div>
 
@@ -644,7 +644,9 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-top --json 
+cloudlinux-top --json 
+```
+```
 {
   "context": {
       "error_text": "Very bad error"
@@ -664,7 +666,7 @@ The format of the error message is the same as in the other <span class="notrans
   <div class="notranslate">
 
   ```
-  # cloudlinux-top --json --order-by cpu --max=100
+  cloudlinux-top --json --order-by cpu --max=100
   ```
   </div>
 
@@ -673,7 +675,7 @@ The format of the error message is the same as in the other <span class="notrans
   <div class="notranslate">
 
   ```
-  # cloudlinux-top --json -u username
+  cloudlinux-top --json -u username
   ```
   </div>
 
@@ -682,7 +684,7 @@ The format of the error message is the same as in the other <span class="notrans
   <div class="notranslate">
 
   ```
-  # cloudlinux-top --json --for-reseller=reseller_name
+  cloudlinux-top --json --for-reseller=reseller_name
   ```
   </div>
 
@@ -691,7 +693,7 @@ The format of the error message is the same as in the other <span class="notrans
   <div class="notranslate">
 
   ```
-  # cloudlinux-top --json --show=io
+  cloudlinux-top --json --show=io
   ```
   </div>
 
@@ -826,7 +828,9 @@ There are two different JSON formats used for **summary statistics** and **detai
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json
+cloudlinux-statistics --json
+```
+```
  {
  "resellers": [
    {
@@ -860,7 +864,9 @@ There are two different JSON formats used for **summary statistics** and **detai
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --id=20001
+cloudlinux-statistics --json --id=20001
+```
+```
  {
  "timestamp": 1523011550,
  "mySqlGov": "enabled",           # possible values: ”enabled”, “error”
@@ -945,7 +951,9 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json 
+cloudlinux-statistics --json 
+```
+```
 {
   "context": {
       "error_text": "Very bad error"
@@ -964,7 +972,7 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --order-by=cpu --period=today --limit=10
+cloudlinux-statistics --json --order-by=cpu --period=today --limit=10
 ```
 </div>
 
@@ -973,7 +981,7 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --period=today --by-fault=io --threshold=10
+cloudlinux-statistics --json --period=today --by-fault=io --threshold=10
 ```
 </diV>
 
@@ -982,7 +990,7 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --by-usage=cpu --percentage=80 --period=24h
+cloudlinux-statistics --json --by-usage=cpu --percentage=80 --period=24h
 ```
 </div>
 
@@ -991,7 +999,7 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --for-reseller=reseller_name
+cloudlinux-statistics --json --for-reseller=reseller_name
 ```
 </div>
 
@@ -1000,7 +1008,7 @@ The format of the error message is the same as in the other <span class="notrans
 <div class="notranslate">
 
 ```
-# cloudlinux-statistics --json --show=cpu,io
+cloudlinux-statistics --json --show=cpu,io
 ```
 </div>
 
@@ -1139,7 +1147,7 @@ Examples:
 <div class="notranslate">
 
 ```
-$ dbctl set test2 --cpu=150,100,70,50 --read=2048,1500,1000,800
+dbctl set test2 --cpu=150,100,70,50 --read=2048,1500,1000,800
 ```
 </div>
 
@@ -1147,7 +1155,7 @@ sets individual limits for <span class="notranslate"> cpu (current, short, middl
 <div class="notranslate">
 
 ```
-$ dbctl set default --cpu=70,60,50,40
+dbctl set default --cpu=70,60,50,40
 ```
 </div>
 
@@ -1159,7 +1167,7 @@ To unrestrict user:
 <div class="notranslate">
 
 ```
-$ dbctl unrestrict username
+dbctl unrestrict username
 ```
 </div>
 
@@ -1167,7 +1175,7 @@ To unrestrict all users:
 <div class="notranslate">
 
 ```
-$ dbctl unrestrict-all 
+dbctl unrestrict-all 
 ```
 </div>
 
@@ -1175,7 +1183,7 @@ To restrict user:
 <div class="notranslate">
 
 ```
-$ dbctl restrict dbgov
+dbctl restrict dbgov
 ```
 </div>
 
@@ -1183,7 +1191,7 @@ To restrict user to level 2 restriction:
 <div class="notranslate">
 
 ```
-$ dbctl restrict dbgov --level=2
+dbctl restrict dbgov --level=2
 ```
 </div>
 
@@ -1191,7 +1199,7 @@ To make <span class="notranslate"> Governor </span> to ignore user:
 <div class="notranslate">
 
 ```
-$ dbctl ignore username
+dbctl ignore username
 ```
 </div>
 
@@ -1199,7 +1207,7 @@ Delete user's limits, and use defaults instead:
 <div class="notranslate">
 
 ```
-$ dbctl delete username
+dbctl delete username
 ```
 </div>
 
@@ -1207,7 +1215,7 @@ Show limits as bytes:
 <div class="notranslate">
 
 ```
-$dbctl list --bb
+dbctl list --bb
 ```
 </div>
 
@@ -1216,7 +1224,7 @@ $dbctl list --bb
 <div class="notranslate">
 
 ```
-$ lveinfo --dbgov --help
+lveinfo --dbgov --help
 ```
 </div>
 
@@ -2392,8 +2400,9 @@ This command changes prompt to
 <div class="notranslate">
 
 ```
-[newusr@192-168-245-108 ~]$ source /home/newusr/nodevenv/newapp4/newapp3/8/bin/activate
-[newapp4/newapp3 (8)] [newusr@192-168-245-108 ~]$
+[newusr@test ~]$ source /home/newusr/nodevenv/newapp4/newapp3/8/bin/activate
+[newapp4/newapp3 (8)]  
+[newusr@test ~]$
 ```
 </div>
 
@@ -2464,7 +2473,7 @@ The `cloudlinux-ssa-manager` utility allows to manage Slow Site analyzer via CLI
 **Usage**
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager [command] [--optional arguments]
+/usr/sbin/cloudlinux-ssa-manager [command] [--optional arguments]
 ```
 
 **Optional arguments**:
@@ -2489,7 +2498,9 @@ You can use the `-h`, `--help` option with commands to get a full list of availa
 Example of the `/usr/sbin/cloudlinux-ssa-manager set-config --help` command output:
 
 ```
-# /usr/sbin/cloudlinux-ssa-manager set-config --help
+/usr/sbin/cloudlinux-ssa-manager set-config --help  
+............ 
+
 usage: cloudlinux-ssa-manager set-config [-h]
                                          [--domains-number DOMAINS_NUMBER]
                                          [--urls-number URLS_NUMBER]
@@ -2528,7 +2539,7 @@ The `wmt-api` utility allows to manage Website Monitoring tool via CLI.
 **Usage**
 
 ```
-# /usr/share/web-monitoring-tool/wmtbin/wmt-api [command] [--optional arguments]
+/usr/share/web-monitoring-tool/wmtbin/wmt-api [command] [--optional arguments]
 ```
 
 **Optional arguments**:
@@ -2553,7 +2564,7 @@ The `wmt-api` utility allows to manage Website Monitoring tool via CLI.
 Example of the `/usr/share/web-monitoring-tool/wmtbin/wmt-api` command usage:
 
 ```
-# /usr/share/web-monitoring-tool/wmtbin/wmt-api -config-change "{\"ping_connections\":8,\"report_top\":5,\"report_email\":\"user@example.com\"}"
+/usr/share/web-monitoring-tool/wmtbin/wmt-api -config-change "{\"ping_connections\":8,\"report_top\":5,\"report_email\":\"user@example.com\"}"
 ```
 
 This way you can set all or only certain parameters.
@@ -2567,7 +2578,7 @@ The `cloudlinux-autotracing` utility allows to manage the X-Ray Autotracing via 
 **Usage**
 
 ```
-# /usr/sbin/cloudlinux-autotracing [command] [--optional arguments]
+/usr/sbin/cloudlinux-autotracing [command] [--optional arguments]
 ```
 
 **Commands**:
@@ -2594,21 +2605,21 @@ You can use the `-h`, `--help` option with commands to get a full list of availa
 Disable user1:
 	
 ```
-# /usr/sbin/cloudlinux-autotracing disable user1
+/usr/sbin/cloudlinux-autotracing disable user1
 {"result": "success"}
 ```
 
 Show list of disabled users:
 	
 ```
-# /usr/sbin/cloudlinux-autotracing status --list-disabled
+/usr/sbin/cloudlinux-autotracing status --list-disabled
 {"result": "success", "disabled_users": ["user1"]}
 ```
 	
 Enable all:
 
 ```
-# /usr/sbin/cloudlinux-autotracing enable --all
+/usr/sbin/cloudlinux-autotracing enable --all
 {"result": "success"}
 ```
 
@@ -2681,11 +2692,11 @@ Examples:
 <div class="notranslate">
 
 ```
-$ cldeploy --key xx-xxxxxx                            # convert RHEL/CentOS to CL by using activation key, install control panel components
-$ cldeploy --key xx-xxxxxx --force-hybridize           # convert RHEL/CentOS 7 to CL7h by using activation key, install control panel components (from v1.61)
-$ cldeploy --byip --conversion-only                   # convert RHEL/CentOS to CL by ip, don't install control panel components
-$ cldeploy --components-only                          # install control panel components on already converted system
-$ cldeploy --hostinglimits                            # update httpd and install mod_hostinglimits 
+cldeploy --key xx-xxxxxx                            # convert RHEL/CentOS to CL by using activation key, install control panel components
+cldeploy --key xx-xxxxxx --force-hybridize           # convert RHEL/CentOS 7 to CL7h by using activation key, install control panel components (from v1.61)
+cldeploy --byip --conversion-only                   # convert RHEL/CentOS to CL by ip, don't install control panel components
+cldeploy --components-only                          # install control panel components on already converted system
+cldeploy --hostinglimits                            # update httpd and install mod_hostinglimits 
 ```
 </div>
 
@@ -2763,7 +2774,7 @@ $ cldeploy --hostinglimits                            # update httpd and install
     <div class="notranslate">
 
     ```
-    $ lvectl apply all
+    lvectl apply all
     ```
     </div>
 
@@ -2772,7 +2783,7 @@ $ cldeploy --hostinglimits                            # update httpd and install
     <div class="notranslate">
 
     ```
-    $ lvectl set default --speed=100% --pmem=256m
+    lvectl set default --speed=100% --pmem=256m
     ```
     </div>
 
@@ -2781,7 +2792,7 @@ $ cldeploy --hostinglimits                            # update httpd and install
     <div class="notranslate">
 
     ```
-    $ lvectl destroy all
+    lvectl destroy all
     ```
     </div>
 
@@ -2790,7 +2801,7 @@ $ cldeploy --hostinglimits                            # update httpd and install
     <div class="notranslate">
 
     ```
-    $ lvectl list
+    lvectl list
     ```
     </div>
 
@@ -2961,7 +2972,7 @@ For example:
 <div class="notranslate"> 
 
 ```
-# cldiag --symlinksifowner --json
+cldiag --symlinksifowner --json
 
 {"total_errors": 0, "Check fs.enforce_symlinksifowner is correctly enabled in /etc/sysctl.conf": {"res": "OK", "msg": "fs.enforce_symlinksifowner = 1"}}
 ```
@@ -3360,7 +3371,7 @@ Options marked with `*` are for reseller use only
 <div class="notranslate">
 
 ```
-$ cloudlinux-config set --json --data '{"options":{"uiSettings":{"hideRubyApp":false, "hidePythonApp":false}}}'
+cloudlinux-config set --json --data '{"options":{"uiSettings":{"hideRubyApp":false, "hidePythonApp":false}}}'
 ```
 </div>
 
@@ -3411,7 +3422,7 @@ Error messages sent back to the console are extremely rare, to receive error mes
 <div class="notranslate">
 
 ```
-# cat /var/log/messages | grep clquota
+cat /var/log/messages | grep clquota
 ```
 </div>
 
@@ -3586,8 +3597,8 @@ _Examples:_
 <div class="notranslate">
 
 ```
-# cl-quota
-# cl-quota --csv
+cl-quota
+cl-quota --csv
 ```
 </div>
 
@@ -3596,10 +3607,10 @@ _Examples:_
 <div class="notranslate">
 
 ```
-# cl-quota --package-limits
-# cl-quota --all-package-limits
-# cl-quota --package-limits --csv
-# cl-quota --all-package-limits --csv
+cl-quota --package-limits
+cl-quota --all-package-limits
+cl-quota --package-limits --csv
+cl-quota --all-package-limits --csv
 ```
 </div>
 
@@ -3608,10 +3619,10 @@ _Examples:_
 <div class="notranslate">
 
 ```
-# cl-quota --user-id=500 --soft-limit=0 --hard-limit=0
-# cl-quota --user-id=500 --soft-limit=unlimited
-# cl-quota --user-id=500 --soft-limit=0 --hard-limit=-1
-# cl-quota --user-id=958 --hard-limit=20000 --soft-limit=0 --force
+cl-quota --user-id=500 --soft-limit=0 --hard-limit=0
+cl-quota --user-id=500 --soft-limit=unlimited
+cl-quota --user-id=500 --soft-limit=0 --hard-limit=-1
+cl-quota --user-id=958 --hard-limit=20000 --soft-limit=0 --force
 ```
 </div>
 
@@ -3620,9 +3631,9 @@ _Examples:_
 <div class="notranslate">
 
 ```
-# cl-quota --package pack1 --hard-limit=-1 --soft-limit=5000
-# cl-quota --package pack1 --hard-limit=10000
-# cl-quota --package pack1 --soft-limit=default
+cl-quota --package pack1 --hard-limit=-1 --soft-limit=5000
+cl-quota --package pack1 --hard-limit=10000
+cl-quota --package pack1 --soft-limit=default
 ```
 </div>
 
@@ -3631,7 +3642,7 @@ _Examples:_
 <div class="notranslate">
 
 ```
-# cl-quota --user-id=500 --check
+cl-quota --user-id=500 --check
 Quota disabled for user id 500 (home directory /home/cltest1); quotaon: Mountpoint (or device) / not found or has no quota enabled.
 ```
 </div>
@@ -3641,7 +3652,7 @@ Quota disabled for user id 500 (home directory /home/cltest1); quotaon: Mountpoi
 <div class="notranslate">
 
 ```
-# cl-quota -YC
+cl-quota -YC
 ```
 </div>
 
