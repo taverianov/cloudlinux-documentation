@@ -94,7 +94,7 @@ To use LVE you should have CloudLinux OS Shared kernel installed, and LVE module
 <div class="notranslate">
 
 ```
-$ uname -r
+uname -r
 ```
 </div>
 
@@ -103,7 +103,8 @@ You should see something like 2.6.32-896.16.1.lve1.4.53.el6.x86_64. The kernel s
 <div class="notranslate">
 
 ```
-$ lsmod|grep lve
+lsmod|grep lve  
+
 lve                    46496  0
 ```
 </div>
@@ -157,7 +158,8 @@ One of the best way to monitor current usage is [lvetop](/shared/command-line_to
 <div class="notranslate">
 
 ```
-$ lvetop
+lvetop  
+
          ID     EP    PNO    TNO    CPU    MEM    I/O
          test    1     2            2     2%    728     0   
 ```
@@ -168,7 +170,8 @@ You can also check the content of <span class="notranslate">`/proc/lve/list`</sp
 <div class="notranslate">
 
 ```
-[root@localhost tests]$ cat /proc/lve/list 
+cat /proc/lve/list  
+
 4:LVE        EP        lCPU        lIO        CPU        MEM        IO        lMEM        lEP        nCPU        fMEM        fEP
 0        0        75        25        0        0        0        262144        20        2        0        0
 500        0        75        25        0        0        0        4294967 20        3        2        1        

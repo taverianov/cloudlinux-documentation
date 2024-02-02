@@ -33,12 +33,12 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
 5. Within couple minutes after the activation, statistics collection and sending to the central server, [AccelerateWP Free](/shared-pro/accelerate-wp/#acceleratewp-suite)* and [AccelerateWP Premium](/shared-pro/accelerate-wp/#acceleratewp-premium-suite) * will be set up automatically: all required packages and components will be installed. For new, just registered servers, actions can take up to 5 hours.
 6. Make sure you have activated statistics collection (see paragraph 4) otherwise you will not be able to set up your servers. For instant set up of a registered server after statistics collection was enabled, run the following commands for all servers:
     ```
-    # rhn_check	
-    # /usr/share/cloudlinux/cl_plus/manage_clplus enable
+    rhn_check	
+    /usr/share/cloudlinux/cl_plus/manage_clplus enable
     ```
     **Note**: If the `rhn_check` command is not found, run the following command:
     ```
-    # yum install/update rhn-check rhn-setup
+    yum install/update rhn-check rhn-setup
     ```
    AccelerateWP Premium activation support was added in ```lve-utils-6.5.11-1```.
 7. After 5 hours (or after the manual setup), check that statistics for all registered servers is collected via [https://cm.cloudlinux.com/#/servers](https://cm.cloudlinux.com/#/servers). And check that user statistics on the servers is collected via [https://cm.cloudlinux.com/#/users](https://cm.cloudlinux.com/#/users).

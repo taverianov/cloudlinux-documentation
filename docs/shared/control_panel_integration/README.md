@@ -2298,12 +2298,14 @@ You can run <span class="notranslate">`cldiag`</span> utility with the <span cla
 <div class="notranslate">
 
 ```
-# cldiag --symlinksifowner
+cldiag --symlinksifowner
 Check fs.enforce_symlinksifowner is correctly enabled in sysctl conf:
 	OK: fs.enforce_symlinksifowner = 1
 
-There are 0 errors found.
-# cldiag --check-symlinkowngid
+There are 0 errors found.  
+............ 
+
+cldiag --check-symlinkowngid
 Check fs.symlinkown_gid:
 	OK: Web-server user is protected by Symlink Owner Match Protection
 

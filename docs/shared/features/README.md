@@ -134,7 +134,7 @@ in [this documentation](https://docs.cloudlinux.com/cloudlinux_os_components/#up
 To remove MySQL Governor, run the following command:
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --delete
+/usr/share/lve/dbgovernor/mysqlgovernor.py --delete
 ```
 
 The script will install the original MySQL server, and remove MySQL Governor.
@@ -264,7 +264,7 @@ suphp, cgi**
 To install, run the following command:
 
 ```
-# apt install ea-php81*
+apt install ea-php81*
 ```
 
 #### alt-php with suphp, cgi
@@ -277,8 +277,8 @@ To install, follow these steps:
 2. Install packages (with `alt-php74` as an example):
 
    ```
-   # apt install ea-apache24-mod-suphp ea-apache24-mod-suexec
-   # apt install alt-php74
+   apt install ea-apache24-mod-suphp ea-apache24-mod-suexec
+   apt install alt-php74
    ```
 
 #### PHP Selector installation instructions
@@ -295,9 +295,9 @@ Only the following handlers can be used:
 To install, run the following commands:
 
 ```
-# apt install ea-apache24-mod-suphp ea-apache24-mod-suexec
-# apt install cagefs
-# cagefsctl –-init
+apt install ea-apache24-mod-suphp ea-apache24-mod-suexec
+apt install cagefs
+cagefsctl –-init
 ```
 
 ## Symlink owner match protection
@@ -329,19 +329,19 @@ available [here](https://docs.cloudlinux.com/cloudlinux_os_components/#general-i
 Installation on cPanel servers with EasyApache 4:
 
 ```
-$ apt install liblsapi liblsapi-dev 
-$ apt install ea-apache24-mod-lsapi
-$ /usr/bin/switch_mod_lsapi --setup
-$ service httpd restart
+apt install liblsapi liblsapi-dev 
+apt install ea-apache24-mod-lsapi
+/usr/bin/switch_mod_lsapi --setup
+service httpd restart
 ```
 
 Installation on servers with no panel:
 
 ```
-$ apt install liblsapi liblsapi-dev 
-$ apt install mod-lsapi
-$ /usr/bin/switch_mod_lsapi --setup
-$ service apache2 restart
+apt install liblsapi liblsapi-dev 
+apt install mod-lsapi
+/usr/bin/switch_mod_lsapi --setup
+service apache2 restart
 ```
 
 ### Configuration
@@ -361,9 +361,9 @@ $ chmod 755 /opt
 2. Change the default folder for mod_lsapi socket:
 
 ```
-$ mkdir /var/mod_lsapi
-$ chown nobody.nobody /var/mod_lsapi
-$ chmod 755 /var/mod_lsapi
+mkdir /var/mod_lsapi
+chown nobody.nobody /var/mod_lsapi
+chmod 755 /var/mod_lsapi
 ```
 
 Add to /etc/apache2/conf.d/lsapi.conf new path:
@@ -375,7 +375,7 @@ lsapi_socket_path /var/mod_lsapi
 And restart service:
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 
 ### Uninstall
@@ -383,13 +383,13 @@ $ service httpd restart
 Uninstall procedure for cPanel servers with EasyApache 4:
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
-$ apt remove liblsapi liblsapi-dev ea-apache24-mod-lsapi
+/usr/bin/switch_mod_lsapi --uninstall
+apt remove liblsapi liblsapi-dev ea-apache24-mod-lsapi
 ```
 
 Uninstall procedure for servers with no panel:
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
-$ apt remove liblsapi liblsapi-dev mod-lsapi
+/usr/bin/switch_mod_lsapi --uninstall
+apt remove liblsapi liblsapi-dev mod-lsapi
 ```

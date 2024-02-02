@@ -1557,8 +1557,8 @@ To install CageFS:
 <div class="notranslate">
 
 ```
-$ yum install cagefs
-$ /usr/sbin/cagefsctl --init
+yum install cagefs
+/usr/sbin/cagefsctl --init
 ```
 </div>
 
@@ -1566,8 +1566,8 @@ That last command will create skeleton directory that might be around 7GB in siz
 <div class="notranslate">
 
 ```
-$ mkdir /home/cagefs-skeleton
-$ ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton
+mkdir /home/cagefs-skeleton
+ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton
 ```
 </div>
 
@@ -1631,7 +1631,7 @@ To uninstall CageFS, start by disabling and removing all directories:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --remove-all
+/usr/sbin/cagefsctl --remove-all
 ```
 </div>
 
@@ -1642,7 +1642,7 @@ Remove CageFS RPM:
 <div class="notranslate">
 
 ```
-$ yum remove cagefs
+yum remove cagefs
 ```
 </div>
 
@@ -1661,21 +1661,21 @@ To start using CageFS you have to select one of the mode of operations:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --enable-all
+/usr/sbin/cagefsctl --enable-all
 ```
 </div>
 or
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --disable-all
+/usr/sbin/cagefsctl --disable-all
 ```
 </div>
 or
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --toggle-mode
+/usr/sbin/cagefsctl --toggle-mode
 ```
 </div>
 That will switch the operation mode, preserving current disabled/enabled users.
@@ -1684,35 +1684,35 @@ To enable individual user do:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --enable [username]
+/usr/sbin/cagefsctl --enable [username]
 ```
 </div>
 To disable individual user:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --disable [username]
+/usr/sbin/cagefsctl --disable [username]
 ```
 </div>
 To  list all enabled users:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --list-enabled
+/usr/sbin/cagefsctl --list-enabled
 ```
 </div>
 To list all disabled users:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --list-disabled
+/usr/sbin/cagefsctl --list-disabled
 ```
 </div>
 To see current mode of operation:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --display-user-mode
+/usr/sbin/cagefsctl --display-user-mode
 ```
 </div>
 
@@ -1790,7 +1790,7 @@ CageFS creates a filesystem template in <span class="notranslate">`/usr/share/ca
 <div class="notranslate">
 
 ```
-# /usr/sbin/cagefsctl --init
+/usr/sbin/cagefsctl --init
 ```
 </div>
 
@@ -1798,7 +1798,7 @@ To update the template, you should run:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --update
+/usr/sbin/cagefsctl --update
 ```
 </div>
 
@@ -1807,7 +1807,7 @@ You can add additional files, users, groups and devices into CageFS template by 
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --update
+/usr/sbin/cagefsctl --update
 ```
 </div>
 
@@ -1815,7 +1815,7 @@ To delete files from CageFS template, remove corresponding .cfg file, and run:
 <div class="notranslate">
 
 ```
-$ /usr/sbin/cagefsctl --update
+/usr/sbin/cagefsctl --update
 ```
 </div>
 
@@ -1853,8 +1853,8 @@ There is an easy way to add/delete files from particular <span class="notranslat
 <div class="notranslate">
 
 ```
-$ cagefsctl --addrpm ffmpeg
-$ cagefsctl --update
+cagefsctl --addrpm ffmpeg
+cagefsctl --update
 ```
 </div>
 
@@ -1948,7 +1948,7 @@ If you want to change mount points, make sure you re-initialize mount points for
 <div class="notranslate">
 
 ```
-$ cagefsctl --remount-all
+cagefsctl --remount-all
 ```
 </div>
 This command will kill all current processes and reset mount points.
@@ -2099,9 +2099,9 @@ This new mounting mode is enabled by default. You can switch to old mounting mod
 <div class="notranslate">
 
 ```
-# touch /etc/cagefs/disable.home.dirs.search
-# cagefsctl --force-update
-# cagefsctl --remount-all
+touch /etc/cagefs/disable.home.dirs.search
+cagefsctl --force-update
+cagefsctl --remount-all
 ```
 </div>
 
@@ -2242,7 +2242,7 @@ cagefsctl  --reconfigure-cagefs
 <div class="notranslate">
 
 ```
-$ service postgresql restart 
+service postgresql restart 
 ```
 </div>
 
@@ -2425,7 +2425,7 @@ Once the program is defined, run this command to populate the skeleton:
 <div class="notranslate">
 
 ```
-$ cagefsctl --force-update
+cagefsctl --force-update
 ```
 
 </div>
@@ -2467,7 +2467,9 @@ We use the <span class="notranslate">`/etc/passwd`</span> file because it is tru
 <div class="notranslate">
 
 ```
-$ cat /opt/scripts/superbinary
+cat /opt/scripts/superbinary  
+............ 
+
 #!/usr/bin/env bash
 if [[ -e /var/cagefs ]]; then
   echo "I am running without CageFS"
@@ -2717,7 +2719,7 @@ After that execute:
 <div class="notranslate">
 
 ```
-$ cagefsctl --update-etc USER1
+cagefsctl --update-etc USER1
 ```
 </div>
 
@@ -2726,7 +2728,7 @@ If you are making changes for multiple users, you can run:
 <div class="notranslate">
 
 ```
-$ cagefsctl --update-etc
+cagefsctl --update-etc
 ```
 </div>
 
@@ -2734,7 +2736,7 @@ To remove a custom file, remove it from <span class="notranslate"> _/etc/cagefs/
 <div class="notranslate">
 
 ```
-$ cagefsctl --update-etc
+cagefsctl --update-etc
 ```
 </div>
 
@@ -2751,9 +2753,9 @@ There are two ways:
 <div class="notranslate">
 
 ```
-$ mkdir /home/cagefs-skeleton 
-$ ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton 
-$ cagefsctl --init
+mkdir /home/cagefs-skeleton 
+ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton 
+cagefsctl --init
 ```
 </div>
 
@@ -2767,8 +2769,8 @@ To move <span class="notranslate">`/var/cagefs`</span> to another location:
 <div class="notranslate">
  
 ```
-$ cagefsctl --disable-cagefs
-$ cagefsctl --unmount-all
+cagefsctl --disable-cagefs
+cagefsctl --unmount-all
 ```
 </div>
 
@@ -2777,11 +2779,11 @@ Verify that <span class="notranslate">`/var/cagefs.bak`</span> directory does no
 <div class="notranslate">
 
 ```
-$ cp -rp /var/cagefs /new/path/cagefs
-$ mv /var/cagefs /var/cagefs.bak
-$ ln -s /new/path/cagefs /var/cagefs
-$ cagefsctl --enable-cagefs
-$ cagefsctl --remount-all
+cp -rp /var/cagefs /new/path/cagefs
+mv /var/cagefs /var/cagefs.bak
+ln -s /new/path/cagefs /var/cagefs
+cagefsctl --enable-cagefs
+cagefsctl --remount-all
 ```
 </div>
 
@@ -2789,7 +2791,7 @@ Verify that the following command gives empty output:
 <div class="notranslate">
 
 ```
-$ cat /proc/mounts | grep cagefs.bak
+cat /proc/mounts | grep cagefs.bak
 ```
 </div>
 
@@ -2797,7 +2799,7 @@ Then you can safely remove /var/cagefs.bak:
 <div class="notranslate">
 
 ```
-$ rm -rf /var/cagefs.bak
+rm -rf /var/cagefs.bak
 ```
 </div>
 
@@ -2814,7 +2816,7 @@ This can be changed by running:
 <div class="notranslate">
 
 ```
-$ cagefsctl --set-tmpwatch='/usr/sbin/tmpwatch -umclq 720'
+cagefsctl --set-tmpwatch='/usr/sbin/tmpwatch -umclq 720'
 ```
 </div>
 
@@ -2825,7 +2827,7 @@ By default this is done at 03:37 AM, but you can also force the clean up outdate
 <div class="notranslate">
 
 ```
-$ cagefsctl --tmpwatch
+cagefsctl --tmpwatch
 ```
 </div>
 
@@ -2942,10 +2944,14 @@ In order to do so, please create a file <span class="notranslate"> _/etc/contain
 <div class="notranslate">
 
 ```
-# cat /etc/container/exclude_mounts.conf    
+cat /etc/container/exclude_mounts.conf     
+............ 
+
 ^/dir1/
-^/dir2$
-# lvectl start
+^/dir2$ 
+```
+```
+lvectl start
 ```
 </div>
 
@@ -2953,8 +2959,8 @@ After that, all new created <span class="notranslate"> LVEs </span> will be with
 <div class="notranslate">
 
 ```
-# lvectl destroy all   
-# lvectl apply all
+lvectl destroy all   
+lvectl apply all
 ```
 </div>
 
@@ -3258,8 +3264,8 @@ To install <span class="notranslate"> MySQL Governor </span> on your server inst
 <div class="notranslate">
 
 ```
-$ yum remove db-governor db-governor-mysql  # you can ignore errors if you don't have those packages installed
-$ yum install governor-mysql
+yum remove db-governor db-governor-mysql  # you can ignore errors if you don't have those packages installed
+yum install governor-mysql
 ```
 </div>
 
@@ -3272,8 +3278,8 @@ If you are installing <span class="notranslate"> CloudLinux OS Shared </span> on
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mysqlXX
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mysqlXX
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3289,8 +3295,8 @@ If you are installing <span class="notranslate"> CloudLinux OS Shared </span> on
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadbXX
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadbXX
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3314,8 +3320,8 @@ Installation for <span class="notranslate"> Percona Server 5.6 </span> [requires
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=percona56
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=percona56
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3327,8 +3333,8 @@ If you are installing <span class="notranslate"> MySQL Governor </span> on a ser
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3356,7 +3362,7 @@ Generally, <span class="notranslate"> stable </span> and <span class="notranslat
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install-beta
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install-beta
 ```
 </div>
 
@@ -3368,7 +3374,7 @@ For example:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install --yes
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install --yes
 ```
 </div>
 
@@ -3398,8 +3404,8 @@ In order to change MySQL version you should run the following commands:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3416,7 +3422,7 @@ To remove <span class="notranslate">MySQL Governor</span>:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --delete
+/usr/share/lve/dbgovernor/mysqlgovernor.py --delete
 ```
 </div>
 
@@ -3449,7 +3455,7 @@ Once configuration file is updated, please, restart the <span class="notranslate
 <div class="notranslate">
 
 ```
-$ service db_governor restart
+service db_governor restart
 ```
 </div>
 Example configuration:
@@ -3622,7 +3628,7 @@ To start:
 <div class="notranslate">
 
 ```
-$ service db_governor start
+service db_governor start
 ```
 </div>
 
@@ -3630,7 +3636,7 @@ To stop:
 <div class="notranslate">
 
 ```
-$ service db_governor stop
+service db_governor stop
 ```
 </div>
 
@@ -3741,8 +3747,8 @@ Please make full database backup (including system tables) before you will do up
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install
+/usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=MYSQL_VERSION
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install
 ```
 </div>
 
@@ -3752,7 +3758,7 @@ To install beta version of MySQL:
 <div class="notranslate">
 
 ```
-$ /usr/share/lve/dbgovernor/mysqlgovernor.py --install-beta
+/usr/share/lve/dbgovernor/mysqlgovernor.py --install-beta
 ```
 </div>
 
@@ -3823,7 +3829,7 @@ On <span class="notranslate"> cPanel </span> server disable MySQL service monito
 <div class="notranslate">
 
 ```
-$ whmapi1 configureservice service=mysql enabled=1 monitored=0
+whmapi1 configureservice service=mysql enabled=1 monitored=0
 ```
 </div>
 
@@ -3831,13 +3837,13 @@ Execute as <span class="notranslate"> root </span> :
 <div class="notranslate">
 
 ```
-$ mkdir -p ~/mysqlbkp
-$ service mysql restart --skip-networking --skip-grant-tables
-$ mysql_upgrade
-$ mysqldump --all-databases --routines --triggers > ~/mysqlbkp/dbcopy.sql
-$ service mysql stop
-$ cp -r /var/lib/mysql/mysql ~/mysqlbkp/
-$ service mysql start
+mkdir -p ~/mysqlbkp
+service mysql restart --skip-networking --skip-grant-tables
+mysql_upgrade
+mysqldump --all-databases --routines --triggers > ~/mysqlbkp/dbcopy.sql
+service mysql stop
+cp -r /var/lib/mysql/mysql ~/mysqlbkp/
+service mysql start
 ```
 </div>
 
@@ -3845,7 +3851,7 @@ On <span class="notranslate"> cPanel </span> server enable monitoring back:
 <div class="notranslate">
 
 ```
-$ whmapi1 configureservice service=mysql enabled=1 monitored=1
+whmapi1 configureservice service=mysql enabled=1 monitored=1
 ```
 </div>
 
@@ -4094,7 +4100,7 @@ Installation of different versions of PHP & modules:
 <div class="notranslate">
 
 ```
-$ yum groupinstall alt-php
+yum groupinstall alt-php
 ```
 </div>
 
@@ -4136,7 +4142,7 @@ To change the modules status (enabled/disabled) manually, run the following comm
 <div class="notranslate">
 
 ```
-# /usr/sbin/cloudlinux-selector make-defaults-config --json --interpreter=php
+/usr/sbin/cloudlinux-selector make-defaults-config --json --interpreter=php
 ```
 </div>
 
@@ -4368,7 +4374,7 @@ Make that file executable:
 <div class="notranslate">
 
 ```
-$ chmod +x /usr/local/bin/php-cgi-etc
+chmod +x /usr/local/bin/php-cgi-etc
 ```
 </div>
 Edit file <span class="notranslate"> /usr/local/ispmgr/etc/ispmgr.conf </span>
@@ -4387,7 +4393,7 @@ Restart <span class="notranslate"> ISPmanager </span> :
 <div class="notranslate">
 
 ```
-$ killall ispmgr
+killall ispmgr
 ```
 </div>
 
@@ -4516,9 +4522,9 @@ If you want to create additional `php.ini` file for a user inside CageFS in orde
 <div class="notranslate">
 
 ```
-# su -s /bin/bash - USER
-# cd /etc/cl.php.d/alt-php72/
-# echo "upload_tmp_dir=/tmp" >> custom.ini
+su -s /bin/bash - USER
+cd /etc/cl.php.d/alt-php72/
+echo "upload_tmp_dir=/tmp" >> custom.ini
 ```
 </div>
 
@@ -4542,8 +4548,8 @@ To do that, you will use <span class="notranslate"> [custom.etc directory functi
 <div class="notranslate">
 
 ```
-$ mv /usr/local/lib/php.ini /etc/php.ini
-$ ln -fs /etc/php.ini /usr/local/lib/php.ini
+mv /usr/local/lib/php.ini /etc/php.ini
+ln -fs /etc/php.ini /usr/local/lib/php.ini
 ```
 </div>
 
@@ -4569,7 +4575,7 @@ Create such files for each user that should have custom file.
 <div class="notranslate">
 
 ```
-$ cagefsctl --force-update 
+cagefsctl --force-update 
 ```
 </div>
 
@@ -4586,7 +4592,7 @@ $ cagefsctl --force-update
 <div class="notranslate">
 
 ```
-$ cagefsctl --update-etc
+cagefsctl --update-etc
 ```
 </div>
 
@@ -4597,7 +4603,7 @@ OR
 <div class="notranslate">
 
 ```
-$ cagefsctl --update-etc user1 user2
+cagefsctl --update-etc user1 user2
 ```
 </div>
 
@@ -4666,7 +4672,7 @@ It is enough to put `php.ini` in the directory where PHP script is located in or
     <div class="notranslate">
 
     ```
-    $ cagefsctl --update-etc
+    cagefsctl --update-etc
     ```
     </div>
 
@@ -4675,7 +4681,7 @@ It is enough to put `php.ini` in the directory where PHP script is located in or
     <div class="notranslate">
 
     ```
-    $ cagefsctl --update-etc user1 user2
+    cagefsctl --update-etc user1 user2
     ```
     </div>
 
@@ -5037,7 +5043,7 @@ cp -rp modules/*.so /opt/alt/phpXX/usr/lib64/php/modules/
 <div class="notranslate">
 
 ```
-$ cagefsctl --setup-cl-selector
+cagefsctl --setup-cl-selector
 ```
 </div>
 
@@ -5088,7 +5094,7 @@ The new PHP version must be available now for selection in <span class="notransl
 <div class="notranslate">
 
 ```
-$ selectorctl --interpreter=php --user-summary --user=USERNAME
+selectorctl --interpreter=php --user-summary --user=USERNAME
 ```
 </div>
 
@@ -5742,8 +5748,8 @@ To install, run:
 <div class="notranslate">
 
 ```
-# yum install lvemanager alt-python-virtualenv
-# yum install ea-ruby24-mod_passenger
+yum install lvemanager alt-python-virtualenv
+yum install ea-ruby24-mod_passenger
 ```
 </div>
 
@@ -5752,8 +5758,8 @@ or:
 <div class="notranslate">
 
 ```
-# yum install lvemanager alt-python-virtualenv
-# yum install ea-ruby27-mod_passenger
+yum install lvemanager alt-python-virtualenv
+yum install ea-ruby27-mod_passenger
 ```
 </div>
 
@@ -6104,22 +6110,22 @@ Install mod_lsapi PRO and related packages through YUM package manager as follow
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ yum install ea-apache24-mod_lsapi
+yum install liblsapi liblsapi-devel
+yum install ea-apache24-mod_lsapi
 ```
 </div>
 After installing mod_lsapi PRO packages run the next command to setup mod_lsapi to cPanel:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --setup
+/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 Now, when the module is installed, restart Apache to ensure that the mod_lsapi PRO is enabled:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 Now the lsapi handler is available for managing through cPanel MultiPHP Manager.
@@ -6133,15 +6139,15 @@ Install mod_lsapi PRO and related packages through YUM package manager as follow
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ yum install mod_lsapi
+yum install liblsapi liblsapi-devel
+yum install mod_lsapi
 ```
 </div>
 Once completed, run the command to setup mod_lsapi PRO and register LSPHP handlers to Plesk Panel:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --setup
+/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 
@@ -6149,7 +6155,7 @@ Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO i
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 
@@ -6166,19 +6172,19 @@ Installation process is done with custombuild script:
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ cd /usr/local/directadmin/custombuild
-$ ./build update
-$ ./build set php1_mode lsphp
-$ ./build php n
-$ ./build apache
+yum install liblsapi liblsapi-devel
+cd /usr/local/directadmin/custombuild
+./build update
+./build set php1_mode lsphp
+./build php n
+./build apache
 ```
 </div>
 Restart Apache afterwards:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 Now all domains under php1_mode are using lsphp handler and no further actions are required to enable mod_lsapi PRO on DirectAdmin.
@@ -6189,22 +6195,22 @@ Install mod_lsapi PRO and related packages through YUM package manager as follow
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ yum install mod_lsapi
+yum install liblsapi liblsapi-devel
+yum install mod_lsapi
 ```
 </div>
 Once completed, run a command to setup mod_lsapi PRO:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --setup
+/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO is enabled:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 
@@ -6213,22 +6219,22 @@ If you are using an alternative Apache - [httpd24](https://www.cloudlinux.com/cl
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ yum install httpd24-mod_lsapi
+yum install liblsapi liblsapi-devel
+yum install httpd24-mod_lsapi
 ```
 </div>
 Once completed, run a command to setup mod_lsapi PRO:
 <div class="notranslate">
 
 ```
-$ /opt/rh/httpd24/root/usr/bin/switch_mod_lsapi --setup
+/opt/rh/httpd24/root/usr/bin/switch_mod_lsapi --setup
 ```
 </div>
 Now, when the module is installed, restart Apache to ensure that mod_lsapi PRO is enabled:
 <div class="notranslate">
 
 ```
-$ service httpd24-httpd restart
+service httpd24-httpd restart
 ```
 </div>
 
@@ -6253,21 +6259,21 @@ To remove lsapi handler from cPanel MultiPHP Manager and uninstall mod_lsapi PRO
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
+/usr/bin/switch_mod_lsapi --uninstall
 ```
 </div>
 Then remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-$ yum erase liblsapi liblsapi-devel ea-apache24-mod_lsapi
+yum erase liblsapi liblsapi-devel ea-apache24-mod_lsapi
 ```
 </div>
 Restart Apache afterwards:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 Now mod_lsapi PRO is fully uninstalled.
@@ -6279,21 +6285,21 @@ To unregister LSPHP handlers and uninstall mod_lsapi PRO, run the command:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
+/usr/bin/switch_mod_lsapi --uninstall
 ```
 </div>
 Then remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-$ yum erase liblsapi liblsapi-devel mod_lsapi
+yum erase liblsapi liblsapi-devel mod_lsapi
 ```
 </div>
 Restart Apache afterwards:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 Now LSPHPXY alt-php PHP handlers and mod_lsapi PRO are fully uninstalled.
@@ -6305,11 +6311,11 @@ Uninstall is done with custombuild script:
 <div class="notranslate">
 
 ```
-$ cd /usr/local/directadmin/custombuild
-$ ./build update
-$ ./build set php1_release [any other php mode]
-$ ./build php n
-$ ./build apache
+cd /usr/local/directadmin/custombuild
+./build update
+./build set php1_release [any other php mode]
+./build php n
+./build apache
 ```
 </div>
 The following PHP modes are available for DirectAdmin:
@@ -6323,7 +6329,7 @@ Restart Apache afterwards:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 Now all domains under php1_mode are using the chosen handler and mod_lsapi PRO is fully uninstalled.
@@ -6334,22 +6340,22 @@ To uninstall mod_lsapi PRO, run the command:
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
+/usr/bin/switch_mod_lsapi --uninstall
 ```
 </div>
 Then remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-$ yum erase liblsapi liblsapi-devel mod_lsapi
-$ rm [path to mod_lsapi.conf]
+yum erase liblsapi liblsapi-devel mod_lsapi
+rm [path to mod_lsapi.conf]
 ```
 </div>
 Restart Apache to restore the standard PHP handler:
 <div class="notranslate">
 
 ```
-$ service httpd restart
+service httpd restart
 ```
 </div>
 
@@ -6358,22 +6364,22 @@ If you are using an alternative Apache: - [httpd24](https://www.cloudlinux.com/c
 <div class="notranslate">
 
 ```
-$ /usr/bin/switch_mod_lsapi --uninstall
+/usr/bin/switch_mod_lsapi --uninstall
 ```
 </div>
 Then remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-$ yum erase liblsapi liblsapi-devel httpd24-mod_lsapi
-$ rm [path to mod_lsapi.conf]
+yum erase liblsapi liblsapi-devel httpd24-mod_lsapi
+rm [path to mod_lsapi.conf]
 ```
 </div>
 Restart Apache afterwards:
 <div class="notranslate">
 
 ```
-$ service httpd24 restart
+service httpd24 restart
 ```
 </div>
 Now mod_lsapi PRO is fully uninstalled.
@@ -7215,13 +7221,13 @@ If apache runs under a username other than <span class="notranslate"> "apache" <
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel   
-$ cd ~$ wget [https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz](https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz)  
-$ tar zxvf mod_lsapi.tar.gz  
-$ cd mod-lsapi-0.1-37  
-$ cmake -DHTTPD_USER=<new user name> .  
-$ make
-$ make install
+yum install liblsapi liblsapi-devel   
+cd ~$ wget [https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz](https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz)  
+tar zxvf mod_lsapi.tar.gz  
+cd mod-lsapi-0.1-37  
+cmake -DHTTPD_USER=<new user name> .  
+make
+make install
 ```
 </div>
 This will:<br>  
@@ -7253,14 +7259,14 @@ If you need to run PHP using mod_lsapi using users with UID < 99, you would need
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel
-$ cd ~
-$ wget [https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz](https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz)
-$ tar zxvf mod_lsapi.tar.gz
-$ cd mod-lsapi-0.1-XX
-$ cmake -DUID_MIN=80 -DGID_MIN=80 .
-$ make
-$ make install
+yum install liblsapi liblsapi-devel
+cd ~
+wget [https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz](https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz)
+tar zxvf mod_lsapi.tar.gz
+cd mod-lsapi-0.1-XX
+cmake -DUID_MIN=80 -DGID_MIN=80 .
+make
+make install
 ```
 </div>
 will be installed<br>  
@@ -7272,14 +7278,14 @@ will be installed<br>
 <div class="notranslate">
 
 ```
-$ yum install liblsapi liblsapi-devel 
-$ cd ~
-$ wget https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz        
-$ tar zxvf mod_lsapi.tar.gz
-$ cd mod-lsapi-0.1-XX
-$ cmake -DPARENT_NAME="<apache binary name>".
-$ make
-$ make install
+yum install liblsapi liblsapi-devel 
+cd ~
+wget https://repo.cloudlinux.com/cloudlinux/sources/da/mod_lsapi.tar.gz        
+tar zxvf mod_lsapi.tar.gz
+cd mod-lsapi-0.1-XX
+cmake -DPARENT_NAME="<apache binary name>".
+make
+make install
 ```
 </div>
 Will be installed:<br>
@@ -7535,7 +7541,9 @@ To disable it, copy <span class="notranslate"> _httpd.service_ </span> to <span 
 <div class="notranslate">
 
 ```
-# cat httpd.service
+cat httpd.service  
+............ 
+
 [Unit]
 Description=Apache web server managed by cPanel Easy
 ApacheConditionPathExists=!/etc/httpddisable
@@ -7569,7 +7577,7 @@ and
 <div class="notranslate">
 
 ```
-# systemctl daemon-reload
+systemctl daemon-reload
 ```
 </div>
 
@@ -7684,7 +7692,7 @@ Installation:
 <div class="notranslate">
 
 ```
-# yum install pam_lve
+yum install pam_lve
 ```
 </div>
 
@@ -7750,7 +7758,7 @@ You can install them by running:
 <div class="notranslate">
 
 ```
-$ yum install lve-wrappers
+yum install lve-wrappers
 ```
 </div>
 
@@ -7774,7 +7782,7 @@ lve_wrapper <command_to_run>
 <div class="notranslate">
 
 ```
-$ lve_wrapper make install
+lve_wrapper make install
 ```
 </div>
 
@@ -7796,7 +7804,7 @@ lve_suwrapper LVE_ID <command_to_run>
 <div class="notranslate">
 
 ```
-# lve_suwrapper 10000 /etc/init.d/postgresql start
+lve_suwrapper 10000 /etc/init.d/postgresql start
 ```
 </div>
 
@@ -7939,12 +7947,12 @@ Can be built using <span class="notranslate"> custombuild</span>:
 <div class="notranslate">
 
 ```
-$ yum install liblve-devel
-$ cd /usr/local/directadmin/custombuild
-$ ./build update
-$ ./build set cloudlinux yes
-$ ./build apache
-$ ./build rewrite_confs
+yum install liblve-devel
+cd /usr/local/directadmin/custombuild
+./build update
+./build set cloudlinux yes
+./build apache
+./build rewrite_confs
 ```
 </div>
 
@@ -7953,7 +7961,7 @@ If you run `suphp`, then run the following:
 <div class="notranslate">
 
 ```
-$ ./build suphp
+./build suphp
 ```
 </div>
 
@@ -7962,7 +7970,7 @@ $ ./build suphp
 <div class="notranslate">
 
 ```
-$ yum install mod_hostinglimits
+yum install mod_hostinglimits
 ```
 </div>
 
@@ -7971,7 +7979,7 @@ $ yum install mod_hostinglimits
 <div class="notranslate">
 
 ```
-$ yum install mod_hostinglimits
+yum install mod_hostinglimits
 ```
 </div>
 
@@ -7980,7 +7988,7 @@ $ yum install mod_hostinglimits
 <div class="notranslate">
 
 ```
-$ yum install mod_hostinglimits
+yum install mod_hostinglimits
 ```
 </div>
 
@@ -7993,7 +8001,7 @@ Included by default in H-Sphere 3.5+
 <div class="notranslate">
 
 ```
-$ yum install mod_hostinglimits
+yum install mod_hostinglimits
 ```
 </div>
 
@@ -8004,13 +8012,13 @@ Compile from the source: [https://repo.cloudlinux.com/cloudlinux/sources/mod_hos
 <div class="notranslate">
 
 ```
-$ wget https://repo.cloudlinux.com/cloudlinux/sources/mod_hostinglimits.tar.gz
-$ yum install cmake
-$ tar -zxvf mod_hostinglimits*.tar.gz
-$ cd mod_hostinglimits*
-$ cmake .
-$ make
-$ make install
+wget https://repo.cloudlinux.com/cloudlinux/sources/mod_hostinglimits.tar.gz
+yum install cmake
+tar -zxvf mod_hostinglimits*.tar.gz
+cd mod_hostinglimits*
+cmake .
+make
+make install
 ```
 </div>
 
@@ -8619,8 +8627,8 @@ cPanel EasyApache 3 and non cPanel ( _CloudLinux 7 only for non cPanel_ ):
 <div class="notranslate">
 
 ```
-# yum install mod_proctitle --enablerepo=cloudlinux-updates-testing
-# service httpd restart
+yum install mod_proctitle --enablerepo=cloudlinux-updates-testing
+service httpd restart
 ```
 </div>
 
@@ -8629,17 +8637,17 @@ cPanel EasyApache 4:
 <div class="notranslate">
 
 ```
-# yum install ea-apache24-mod_proctitle
-# service httpd restart
+yum install ea-apache24-mod_proctitle
+service httpd restart
 ```
 </div>
 DirectAdmin:
 <div class="notranslate">
  
 ```
-# cd /usr/local/directadmin/custombuild
-# ./build update
-# ./build mod_procticle
+cd /usr/local/directadmin/custombuild
+./build update
+./build mod_procticle
 ```
 </div>
 
@@ -8722,7 +8730,9 @@ Based on httpd 2.2.16 basic for Cloudlinux OS Shared 6, httpd 2.4.6 basic for Cl
 <div class="notranslate">
 
 ```
-# switch_suexec -h
+switch_suexec -h  
+............  
+
 USE_BIZ - DOCUMENT ROOT /biz/ MIN_UID 500 MIN_GID 100 CALLER apache
 USE_HOSTING - DOCUMENT ROOT /hosting/ MIN_UID 500 MIN_GID 100 CALLER apache
 USE_HSPHERE - DOCUMENT ROOT /hsphere/local MIN_UID 100 MIN_GID 100 CALLER httpd
@@ -8764,7 +8774,9 @@ Result of both methods:
 <div class="notranslate">
 
 ```
-# cat /etc/sysconfig/alt-suexec
+cat /etc/sysconfig/alt-suexec  
+............  
+
 USE_HOME
 ```
 </div>
@@ -8773,7 +8785,9 @@ Here is standard suEXEC for CloudLinux OS Shared 6 clean server:
 <div class="notranslate">
 
 ``` 
-# /usr/sbin/suexec -V
+/usr/sbin/suexec -V  
+............  
+
 -D AP_DOC_ROOT="/var/www"
 -D AP_GID_MIN=100
 -D AP_HTTPD_USER="apache"
@@ -8789,7 +8803,9 @@ Here is output of new suEXEC after <span class="notranslate"> USE_HOME </span> i
 <div class="notranslate">
 
 ``` 
-# /usr/sbin/suexec -V
+/usr/sbin/suexec -V  
+............  
+
 -D AP_DOC_ROOT="/home/"
 -D AP_GID_MIN=100
 -D AP_HTTPD_USER="apache"
@@ -8860,7 +8876,7 @@ The old command to run Certbot on CentOS 6/Cloudlinux OS Shared 6:
 <div class="notranslate">
 
 ```
-# certbot-auto --nginx
+certbot-auto --nginx
 ```
 </div>
 
@@ -8869,7 +8885,7 @@ The new command to run Certbot on CentOS 6/CloudLinux OS Shared 6:
 <div class="notranslate">
 
 ```
-# PATH="/opt/alt/python36/bin/:$PATH" certbot-auto --no-bootstrap --nginx
+PATH="/opt/alt/python36/bin/:$PATH" certbot-auto --no-bootstrap --nginx
 ```
 </div>
 
@@ -8930,7 +8946,7 @@ The <span class="notranslate">`mod_suexec`</span> installation process varies de
   <div class="notranslate">
   
   ```
-  $ yum install ea-apache24-mod_suexec
+  yum install ea-apache24-mod_suexec
   ```
   </div>
 
@@ -8943,7 +8959,7 @@ The <span class="notranslate">`mod_suexec`</span> installation process varies de
   <div class="notranslate">
   
   ``` 
-  $ service httpd restart
+  service httpd restart
   ```
   </div>
 

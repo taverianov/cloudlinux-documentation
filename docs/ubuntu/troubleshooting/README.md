@@ -15,7 +15,7 @@ To troubleshoot and resolve issues, you can use the following log files:
 1. Please take into account that if one of the [`alt-python37*` packages](/sub-system-ubuntu/troubleshooting/#list-of-alt-python37-packages) is updated, you should execute the following command to ensure the proper functionality of the LVE-stats daemon:
 
 ```
-# /sbin/service lvestats try-restart
+/sbin/service lvestats try-restart
 ```
 
 #### List of alt-python37* packages:

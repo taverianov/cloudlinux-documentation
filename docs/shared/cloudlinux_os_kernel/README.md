@@ -121,13 +121,13 @@ fs.symlinkown_gid = XX
 And execute:
 
 ```
-$ sysctl -p
+sysctl -p
 ```
 
 To disable symlink owner match protection feature, set  _fs.enforce_symlinksifowner = 0_ in _/etc/sysctl.conf_ , and execute:
 
 ```
-$ sysctl -p
+sysctl -p
 ```
 
 ::: tip Note
@@ -860,14 +860,14 @@ To enable <span class="notranslate"> IO </span> Limits latency and set it to 10 
 <div class="notranslate">
 
 ```
-# echo 10000 > /sys/module/kmodlve/parameters/latency
+echo 10000 > /sys/module/kmodlve/parameters/latency
 ```
 </div>
 To disable latency:
 <div class="notranslate">
 
 ```
-# echo 2000000000 > /sys/module/kmodlve/parameters/latency
+echo 2000000000 > /sys/module/kmodlve/parameters/latency
 ```
 </div>
 
@@ -881,14 +881,14 @@ To enable <span class="notranslate"> IO </span> Limits latency and set it to 10 
 <div class="notranslate">
 
 ```
-# echo 10000 > /sys/module/iolimits/**parameters/latency
+echo 10000 > /sys/module/iolimits/**parameters/latency
 ```
 </div>
 To disable latency:
 <div class="notranslate">
 
 ```
-# echo 2000000000 > /sys/module/iolimits/**parameters/latency
+echo 2000000000 > /sys/module/iolimits/**parameters/latency
 ```
 </div>
 
@@ -953,7 +953,7 @@ To install on <span class="notranslate"> CloudLinux OS Shared</span> 6 & Hybrid 
 <div class="notranslate">
 
 ```
-$ yum install flashcache
+yum install flashcache
 ```
 </div>
 
@@ -977,7 +977,7 @@ _For <span class="notranslate"> CloudLinux OS Shared</span> 6_ :
 <div class="notranslate">
 
 ```
-# echo 1 > /proc/sys/ubc/ubc_oom_disable
+echo 1 > /proc/sys/ubc/ubc_oom_disable
 ```
 </div>
 
@@ -994,7 +994,7 @@ _For <span class="notranslate"> CloudLinux OS Shared</span> 7:_
 <div class="notranslate">
 
 ```
-# echo 1 > /proc/sys/kernel/memcg_oom_disable
+echo 1 > /proc/sys/kernel/memcg_oom_disable
 ```
 </div>
 
@@ -1018,7 +1018,7 @@ To disable quota checking in <span class="notranslate">**XFS**</span> file syste
 <div class="notranslate">
 
 ```
-# echo 1 > /proc/sys/fs/xfs/cap_res_quota_disable
+echo 1 > /proc/sys/fs/xfs/cap_res_quota_disable
 ```
 </div>
 
@@ -1036,7 +1036,7 @@ By default, the feature is disabled (0), to enable it, run the following for Clo
 <div class="notranslate">
 
 ```
-# echo 1 > /sys/module/kmodlve/parameters/lve_setuid_enter
+echo 1 > /sys/module/kmodlve/parameters/lve_setuid_enter
 ```
 </div>
 

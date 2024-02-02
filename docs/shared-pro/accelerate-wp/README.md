@@ -1075,7 +1075,8 @@ It is killed after AccelerateWP Premium Object Caching has been deactivated for 
 
 Look through the processes list to check the Redis status for a particular user:
 ```
- $ ps aux | grep redis
+ ps aux | grep redis  
+
  awpuser  2662517  0.0  0.5 101096  8512 ?        Sl   15:33   0:00 /opt/alt/redis/bin/redis-server unixsocket:/home/awpuser/.clwpos/redis.sock
 ```
 In case if AccelerateWP Premium is active, the auxiliary monitoring daemon `clwpos_monitoring` is also activated. It checks Redis instances each 5 minutes, starts new instances, restart failed ones and kills the “garbage” instances if needed.
@@ -1213,11 +1214,14 @@ Reinstall broken packages if found.
 
 Consider the example issue (presented at the picture above) with broken `mbstring.so` for `ea-php80`:
 ```
-# /opt/cpanel/ea-php80/root/usr/bin/php -i
-Segmentation fault (core dumped)
-# rpm -V ea-php80
-# rpm -V ea-php80-php-mbstring
+/opt/cpanel/ea-php80/root/usr/bin/php -i
+Segmentation fault (core dumped)  
+
+rpm -V ea-php80 
+
+rpm -V ea-php80-php-mbstring
 S.5....T.    /opt/cpanel/ea-php80/root/usr/lib64/php/modules/mbstring.so
-......G..  a /usr/lib/.build-id/9c/38ed78a6d401ff6dce059ccea51c95870d98c5
-# yum reinstall ea-php80-php-mbstring
+......G..  a /usr/lib/.build-id/9c/38ed78a6d401ff6dce059ccea51c95870d98c5  
+
+yum reinstall ea-php80-php-mbstring
 ```

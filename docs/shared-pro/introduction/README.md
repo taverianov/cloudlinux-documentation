@@ -50,7 +50,8 @@ After these steps you server will be linked. And you will see it in the Centrali
 We can also bind a server from the command line. To do this can be used `/usr/sbin/cl-link-to-cln` utility.
 
 ```
-# /usr/sbin/cl-link-to-cln --help
+/usr/sbin/cl-link-to-cln --help  
+
 Usage: cl-link-to-cln [options]
 
 Options:
@@ -64,7 +65,8 @@ To link we have to:
 
 1. Check if the server can be linked:
 ```
-# /usr/sbin/cl-link-to-cln --linking-status
+/usr/sbin/cl-link-to-cln --linking-status  
+
 {
     "result": "success",
     "timestamp": 1698670480.3382068,
