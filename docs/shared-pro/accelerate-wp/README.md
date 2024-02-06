@@ -938,7 +938,7 @@ Once you have made this decision, you will need to integrate your billing platfo
 ### WHMCS billing
 
 If you use WHMCS, AccelerateWP Premium billing integration is quite simple. CloudLinux developed its own WHMCS plugin which provides this out of the box. 
-View our [documentation](/cln/whmcs_advantage/#cloudlinux-whmcs-awp-plugin) to learn how to install and use the plugin.
+View our [documentation](/cln/whmcs_advantage/) to learn how to install and use the plugin.
 
 ### Other billing integration
 
