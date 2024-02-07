@@ -112,12 +112,13 @@ The main configuration file <span class="notranslate">`/etc/sysconfig/lvestats2`
 
 * <span class="notranslate">`db_type`</span> - selects appropriate database type to use;
 * <span class="notranslate">`connect-string`</span> - connection string for <span class="notranslate">PostGreSQL</span> and MySQL database, has the following form:
-  
+
   <div class="notranslate">
 
   ```
   connect_string = USER:PASSWORD@HOST[:PORT]/DATABASE
   ```
+
   </div>
 
   Default port is used for specific database, if port is not specified (typical port is 3306 for MySQL and 5432 for <span class="notranslate">PostGreSQL</span>). Connection string is not used for sqlite database.
@@ -127,19 +128,19 @@ The main configuration file <span class="notranslate">`/etc/sysconfig/lvestats2`
 * <span class="notranslate">`db_timeout`</span> - period of time to write data to database (in seconds); default value is 60 seconds.
 * <span class="notranslate">`timeout`</span> - timeout for custom plugins (seconds). If plugin execution does not finish within this period, plugin is terminated. Default value is 5 seconds.
 * <span class="notranslate">`interval`</span> - duration of one cycle of <span class="notranslate">lvestats-server</span> (seconds). This should be less than total duration of execution of all plugins. Default value is 5 seconds. Increasing this parameter makes precision of statistics worse.
-* <span class="notranslate">`keep_history_days`</span> - period of time (in days) to keep history in database. Old data is removed from database automatically. Default value is 60 days.
+* <span class="notranslate">`keep_history_days`</span> - period of time (in days) to keep history in th database. Old data is removed from the database automatically. Default value is 30 days.
 * <span class="notranslate">`mode`</span> – sets compatibility output mode (compatibility with older lveinfo version
   * Value `v1` enables compatibility with old version of <span class="notranslate">lveinfo</span>.
   * Value `v2` enables <span class="notranslate">`extended`</span> output mode, but can break LVE plugins for control panels (statistics in <span class="notranslate">LVE Manager</span>, <span class="notranslate">Resource Usage</span>, etc). Support of `v2` mode will be added to LVE plugins in the recent future. When mode parameter is absent, later version of <span class="notranslate">lveinfo</span> is implied.
 * <span class="notranslate">`disable_snapshots`</span> - disable snapshots and incidents.
   Possible values:
-    * <span class="notranslate">`true`</span>
-    * <span class="notranslate">`false`</span>
+  * <span class="notranslate">`true`</span>
+  * <span class="notranslate">`false`</span>
 * <span class="notranslate">`hide_lve_more_than_maxuid`</span> - disable displaying of lve ids more than max uid in resource usage.
   Possible values:
-    * <span class="notranslate">`true`</span>
-    * <span class="notranslate">`false`</span>
-* <span class="notranslate">`use_big_uids`</span> - the option is available from <span class="notranslate">lvestats</span> version <span class="notranslate">`3.0.14-1`</span>. It allows using the user uids more than 10<sup>9</sup> and up to 2<sup>31</sup>-2 (2 147 483 646). Top border is the biggest value which <span class="notranslate">`kmodlve`</span> can use as <span class="notranslate">LVE ID</span>. You should recreate <span class="notranslate">lvestats</span> database by command <span class="notranslate">`lve-create-db --recreate`</span> if you change the option's value from <span class="notranslate">`false`</span> to <span class="notranslate">`true`</span>. 
+  * <span class="notranslate">`true`</span>
+  * <span class="notranslate">`false`</span>
+* <span class="notranslate">`use_big_uids`</span> - the option is available from <span class="notranslate">lvestats</span> version <span class="notranslate">`3.0.14-1`</span>. It allows using the user uids more than 10<sup>9</sup> and up to 2<sup>31</sup>-2 (2 147 483 646). Top border is the biggest value which <span class="notranslate">`kmodlve`</span> can use as <span class="notranslate">LVE ID</span>. You should recreate <span class="notranslate">lvestats</span> database by command <span class="notranslate">`lve-create-db --recreate`</span> if you change the option's value from <span class="notranslate">`false`</span> to <span class="notranslate">`true`</span>.
   Possible values:
   * <span class="notranslate">`true`</span>
   * <span class="notranslate">`false`</span>
@@ -196,6 +197,7 @@ After changing any options above, please restart <span class="notranslate">lvest
 ```
 service lvestats restart
 ```
+
 </div>
 
 <span class="notranslate">`/etc/logrotate.d/lvestats`</span> - configuration file for <span class="notranslate">`/var/log/lve-stats.log rotation`</span>
