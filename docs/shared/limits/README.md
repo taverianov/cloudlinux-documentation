@@ -350,9 +350,26 @@ Supported on cPanel, Plesk, and DirectAdmin control panels
 
 * <span class="notranslate"> Hard </span> limit prevents a user from writing data to disk.
 
-* <span class="notranslate"> Soft </span> limit can be exceeded for a period of time. The grace period can be set using: <span class="notranslate"> edquota -t </span> .
+* <span class="notranslate"> Soft </span> limit can be exceeded for a period of time. The grace period can be set using: <span class="notranslate"> `edquota -t` </span>.
 
 * You can set <span class="notranslate"> inodes </span> limits using <span class="notranslate"> LVE Manager </span> , the same way you would set any other LVE Limits:
+
+::: tip More about the `edquota` utility usage
+The default grace period is seven days. It means a user or a group will be able to use resources (block size or inodes after the soft limit) for seven days. After seven days they will be denied to use of any additional resources.  
+
+To set a grace period for a user:
+```
+edquota -T [username]
+```
+To set a grace period for a group:
+```
+edquota -T -g [groupname]
+```
+To adjust the global grace period:
+```
+edquota -T
+```
+:::
 
 ::: tip Note
 We do not collect statistical information on the inodes like we do for other LVE limits.
