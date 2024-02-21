@@ -201,6 +201,7 @@ Large number of PHP extensions are bundled with each version of PHP.
 * [PHP 8.0 extensions](./#php-8-0-extensions)
 * [PHP 8.1 extensions](./#php-8-1-extensions)
 * [PHP 8.2 extensions](./#php-8-2-extensions)
+* [PHP 8.3 extensions](./#php-8-3-extensions)
 
 
 #### PHP 5.1 extensions
@@ -425,6 +426,18 @@ You can find more info about <span class="notranslate">New Relic License Key</sp
 | | | | | |
 |-|-|-|-|-|
 |amqp** <br> apcu** <br> bcmath <br> brotli** <br> bz2 <br> calendar <br> Core <br> ctype <br> curl <br> date <br> dba <br> dbase** <br> dom <br> enchant <br> exif <br> ffi <br> fileinfo <br> filter <br> ftp <br> gd <br> gearman** <br> geoip** | gettext <br> gmagick** <br> gmp <br> gnupg* <br> grpc** <br> hash <br> iconv <br> igbinary** <br> imagick** <br> imap <br> inotify** <br> intl <br> jsmin** <br> json <br> ldap <br> libxml <br> lzf** <br> mailparse** <br> mbstring <br> mcrypt** <br> memcache** <br> memcached** | mongodb** <br> mysqlnd <br> nd_mysqli <br> nd_pdo_mysql <br> oauth** <br> oci8** <br> odbc <br> opcache <br> openssl <br> pcntl <br> pcre** <br> pdo <br> pdo_dblib <br> pdo_firebird <br> pdo_mysql* <br> pdo_oci** <br> pdo_odbc <br> pdo_pgsql <br> pdo_sqlite <br> pdo_sqlsrv** <br> pgsql | phar <br> posix <br> pspell <br> psr** <br> random <br> raphf** <br> readline <br> redis** <br> Reflection <br> rrd** <br> session <br> shmop <br> SimpleXML <br> snmp <br> soap <br> sockets <br> sodium <br> solr** <br> SPL <br> sqlite3 <br> sqlsrv** <br> ssh2** | standard <br> swoole** <br> sysvmsg <br> sysvsem <br> sysvshm <br> tideways_xhprof** <br> tidy <br> timezonedb** <br> tokenizer <br> trader** <br> uploadprogress** <br> uuid** <br> vips* <br> xdebug** <br> xml <br> xmlreader <br> xmlrpc** <br> xmlwriter <br> xsl <br> yaml** <br> zip <br> zlib <br> zmq**|
+
+
+<sup>*</sup> CloudLinux 7
+
+<sup>**</sup> CloudLinux 7/8
+
+#### PHP 8.3 extensions
+
+
+| | | | | |
+|-|-|-|-|-|
+|amqp** <br> apcu** <br> bcmath <br> brotli** <br> bz2 <br> calendar <br> Core <br> ctype <br> curl <br> date <br> dba <br> dbase** <br> dom <br> elastic_apm <br> enchant <br> exif <br> ffi <br> fileinfo <br> filter <br> ftp <br> gd <br> gearman** <br> geoip** | gettext <br> gmagick** <br> gmp <br> gnupg* <br> grpc** <br> hash <br> iconv <br> igbinary** <br> imagick** <br> imap <br> inotify** <br> intl <br> jsmin** <br> json <br> ldap <br> libxml <br> lzf** <br> mailparse** <br> mbstring <br> mcrypt** <br> memcache** <br> memcached** | mongodb** <br> mysqli <br> mysqlnd <br> nd_mysqli <br> nd_pdo_mysql <br> oauth** <br> oci8** <br> odbc <br> opcache <br> openssl <br> pcntl <br> pcre** <br> pdf <br> pdo <br> pdo_dblib <br> pdo_firebird <br> pdo_mysql* <br> pdo_oci** <br> pdo_odbc <br> pdo_pgsql <br> pdo_sqlite <br> pdo_sqlsrv** <br> pgsql | phalcon5 <br> phar <br> posix <br> pspell <br> psr** <br> random <br> raphf** <br> readline <br> redis** <br> Reflection <br> rrd** <br> session <br> shmop <br> SimpleXML <br> snmp <br> snuffleupagus <br> soap <br> sockets <br> sodium <br> solr** <br> SPL <br> sqlite3 <br> sqlsrv** <br> ssh2** | standard <br> sysvmsg <br> sysvsem <br> sysvshm <br> tideways_xhprof** <br> tidy <br> timezonedb** <br> tokenizer <br> trader** <br> uploadprogress** <br> uuid** <br> xml <br> xmlreader <br> xmlrpc** <br> xmlwriter <br> xsl <br> yaml** <br> zip <br> zlib <br> zmq**|
 
 
 <sup>*</sup> CloudLinux 7
