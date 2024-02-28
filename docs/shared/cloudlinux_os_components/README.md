@@ -3720,7 +3720,8 @@ service db_governor restart
 
 <span class="notranslate"> **Error_log** </span>
 
-<span class="notranslate"> MySQL Governor </span> error log is used to track any problems that <span class="notranslate"> MySQL Governor </span> might have
+<span class="notranslate"> MySQL Governor </span> error log is used to track any problems that <span class="notranslate"> MySQL Governor </span> might encounter.
+Error log is located in <span class="notranslate"> /var/log/dbgovernor-error.log </span>
 
 <span class="notranslate"> **Restrict_log** </span>
 
