@@ -407,7 +407,8 @@ Returns the information about the control panel in the specified format.
 			"cagefs": true,
 			"reseller_limits": true,
 			"xray": false,
-			"accelerate_wp": false
+			"accelerate_wp": false,
+      "autotracing": true
 		}
 	},
 	"metadata": {
