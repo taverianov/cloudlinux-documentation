@@ -3115,16 +3115,19 @@ CageFS comes with a plugin for various control panels.
 The plugin allows to:
 
 * Initialize CageFS;
-
 * Select [mode of operation](./#managing-users);
-
 * See and modify the list of enabled/disabled users;
-
 * Update CageFS skeleton.
 
 #### cPanel
 
-CageFS plugin for cPanel is located in <span class="notranslate"> Plugins </span> section of WHM.
+##### CageFS Plugin
+
+CageFS plugin for cPanel is located in <span class="notranslate"> Plugins </span> section of WHM and called <span class="notranslate"> CageFS User Manager </span>.
+
+::: tip Note
+Take a note that the configuration of CageFS for users is located at the Users tab in the main menu of LVE Manager and the global CageFS settings (Toggle, update skeleton and others) are located at the Options tab in the main menu of LVE Manager inside the section "CageFS".
+:::
 
 It allows to initialize CageFS, select users CageFS will be enabled for, as well as update CageFS skeleton.
 
@@ -3134,25 +3137,33 @@ To enable CageFS for a proper user (users), in <span class="notranslate"> CageFS
 
 To disable a user (users), choose a user from the list on the left ( <span class="notranslate"> Enabled </span> users) and click <span class="notranslate"> Disable CageFS </span> . The user will move to the list on the right ( <span class="notranslate"> Disabled </span> users).
 
+![](./images/cpanel-enable-disable-cagefs.png)
+
 To update CageFS skeleton, click <span class="notranslate"> Update CageFS Skeleton </span> .
 
-![](./images/img2-zoom71.png)
+![](./images/cpanel-update-cagefs-skeleton.png)
+
+##### CageFS inbuilt in Cloudlinux Manager
+
+To enable or disable CageFS for a proper user (users), in <span class="notranslate"> Cloudlinux Manager </span>, go to the Users tab and use the Toggle next to the chosen user(s) from the list under the <span class="notranslate"> CageFS </span> column. 
+
+![](./images/cpanel-enable-disable-cagefs2.png)
+
+To update CageFS skeleton, go to <span class="notranslate"> Cloudlinux Manager > Options > CageFS </span> and click on the Update button next to <span class="notranslate"> CageFS </span> Skeleton:
+
+![](./images/cpanel-cagefs-options.png)
 
 #### Plesk
 
-CageFS comes with a plugin for Plesk 10.x. It allows initializing and updating CageFS template, as well as managing users and mode of operation for CageFS.
+CageFS is an option inbuilt in Cloudlinux Manager that allows initializing and updating CageFS template, as well as managing users and mode of operation for CageFS.
 
-In modules section choose CageFS:
+To enable or disable CageFS for a proper user (users), in <span class="notranslate"> Cloudlinux Manager </span>, go to the Users tab and use the Toggle next to the chosen user(s) from the list under the <span class="notranslate"> CageFS </span> column. 
 
-![](./images/plesk_cagefs_icon.png)
+![](./images/enable-disable-cagefs-for-user.png)
 
-To enable CageFS for a proper user (users), in <span class="notranslate"> CageFS User Manager </span> choose a user from the list on the right ( <span class="notranslate"> Disabled </span> users) and click <span class="notranslate"> Toggle </span> . The user will move to the list on the left ( <span class="notranslate"> Enabled </span> users).
+To update CageFS skeleton, go to <span class="notranslate"> Cloudlinux Manager > Options > CageFS </span> and click on the Update button next to <span class="notranslate"> CageFS </span> Skeleton:
 
-To disable a user (users), choose a user from the list on the left ( <span class="notranslate"> Enabled </span> users) and click <span class="notranslate"> Disable CageFS </span> . The user will move to the list on the right ( <span class="notranslate"> Disabled </span> users).
-
-To update CageFS skeleton, click <span class="notranslate"> Update CageFS Skeleton </span> .
-
-![](./images/plesk_cagefs_manager_disable_all.png)
+![](./images/plesk-update-cagefs-skeleton.png)
 
 #### ISPManager
 
