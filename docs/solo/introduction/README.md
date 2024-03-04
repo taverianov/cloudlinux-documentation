@@ -12,7 +12,7 @@ Unlike [CloudLinux OS Shared](/introduction/), this edition is not designed for 
 We provide the CloudLinux OS Solo with pre-installed features, but for grafical interface, please install a control panel on your server.
 
 :::warning
-Currently supported OS version is CloudLinux OS Solo 8 only. Therefore, for now, there is no possibility to use CloudLinux OS Solo on servers with OS version 6 and 7.
+Currently supported OS version is CloudLinux OS Solo 8+ only. Therefore, for now, there is no possibility to use CloudLinux OS Solo on servers with OS version 6 and 7.
 Please refer to the [currently supported OS versions](/introduction/#cloudlinux-os-solo-lifecycle).
 :::
 
@@ -24,8 +24,8 @@ Please refer to the [currently supported OS versions](/introduction/#cloudlinux-
 |cPanel regular with one user|Yes|
 |Plesk|Yes|
 |DirectAdmin|Yes|
-|Other panels|No|
-|No control panel|No|
+|Other panels|Yes|
+|No control panel|Yes|
 
 #### CloudLinux OS editions comparison
 
@@ -37,12 +37,13 @@ Please refer to the [currently supported OS versions](/introduction/#cloudlinux-
 |Cage FS|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |MySQL Governor|<font color="#2c98f0">No</font>|No|**Yes**|**Yes**|
 |PHP Selector|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Other Selectors (Python, Node.js, Ruby)|<font color="#2c98f0">No</font>|**Yes****|**Yes****|**Yes****|
+|Python/Node.js Selectors|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
+|Ruby Selector|<font color="#2c98f0">No</font>|**Yes***|**Yes**|**Yes**|
 |HardenedPHP|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |Apache mod_lsapi PRO|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |SecureLinks|<font color="#2c98f0">No</font>|**Yes**|**Yes**|**Yes**|
 |Website monitoring tool|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Website monitoring alerts|**<font color="#2c98f0">Yes</font>**|No|No|No|
+|Website monitoring alerts|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |Slow Site analyzer|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |PHP X-Ray|**<font color="#2c98f0">Yes</font>**|**Yes**|No|**Yes**|
 |Centralized Monitoring|<font color="#2c98f0">No</font>|No|No|**Yes**|

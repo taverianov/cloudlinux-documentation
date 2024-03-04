@@ -1396,6 +1396,16 @@ timeout=5
 
 6. Reboot and check that you are running CloudLinux OS Shared. <span class="notranslate">`uname -r`</span> should show something like: <span class="notranslate">`2.6.18-294.8.1.el5.lve0.7.33`</span>.
 
+
+## Switch license
+
+You can convert your existing CloudLinux OS installation to CloudLinux OS Shared.
+
+1. Obtain new key from [CLN](https://cln.cloudlinux.com)
+2. Run `rhnreg_ks --force --activationkey=<new_key>`
+
+You can pass `--migrate-silently` argument to skip confirmation.
+
 ## Uninstalling
 
 You can always uninstall CloudLinux OS. In this case, the system will be converted back to AlmaLinux or CentOS* (Depends on what system the conversion was done from).

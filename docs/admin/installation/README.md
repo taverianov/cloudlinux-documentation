@@ -5,3 +5,13 @@ CloudLinux OS Admin installation process is the same as for CloudLinux Shared, p
 :::tip Note
 The CloudLinux OS Admin can be installed and compatible only with AlmaLinux OS 8+.
 :::
+
+
+## Switch license
+
+You can convert your existing CloudLinux OS Solo installation to CloudLinux OS Admin.
+
+1. Obtain new key from [CLN](https://cln.cloudlinux.com)
+2. Run `rhnreg_ks --force --activationkey=<new_key>`
+
+You can pass `--migrate-silently` argument to skip confirmation.
