@@ -187,10 +187,8 @@ Currently, the following versions are available and supported:
 
 | |  | |
 |-|--|-|
-|Operating System | Release Date| End of Life and Support|
+|Operating System (all editions) | Release Date| End of Life and Support|
 |CloudLinux OS Shared 6 | Feb 1, 2011 | Nov 30, 2020 ([ELS until June 30, 2024](/cln/billing/#cloudlinux-os-6-extended-lifecycle-support)) |
 |CloudLinux OS Shared 7 | Apr 1, 2015 | Jun 30, 2024 |
-|CloudLinux OS Shared (Pro) 8 | Mar 17, 2020 | May 31, 2029 |
-|CloudLinux OS Solo (8) | Mar 17, 2020 | May 31, 2029 |
-|CloudLinux OS Admin (8) | Mar 17, 2020 | May 31, 2029 |
-|CloudLinux OS Shared (Pro) 9 | Jan 17, 2023 | May 31, 2032 |
+|CloudLinux OS 8 | Mar 17, 2020 | May 31, 2029 |
+|CloudLinux OS 9 | Jan 17, 2023 | May 31, 2032 |
