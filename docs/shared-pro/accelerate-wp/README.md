@@ -176,6 +176,12 @@ cloudlinux-awp-admin get-stat
 cloudlinux-awp-admin set-suite --suites=accelerate_wp --allowed-for-all
 ```
 
+:::tip
+Free CDN can only be installed based on SmartAdvice. The 1GB free CDN available only if Advice was given to the site. You can try to trace site via X-Ray, then the Advice might appear but it depends on the current rules for CDN Advice. Thus, the SmartAdvice can decide whenther CDN is not needed for some sites, therefore advice will not appear there. If there is no Advice, it means that that site does not need that type of optimization.
+
+SmartAdvice may determine that certain websites don't require CDN resulting in the absence of Advice for you. If no Advice is provided, it indicates that the particular site doesn't necessitate that specific optimization.
+:::
+
 #### Enable AccelerateWP Premium
 ```
 cloudlinux-awp-admin set-suite --suites=accelerate_wp_premium --visible-for-all
