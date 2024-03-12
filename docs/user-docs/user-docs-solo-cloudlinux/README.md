@@ -581,7 +581,7 @@ contact your hoster and attach `~/.clwpos/main.log` for further investigation.
 
 ## End-user X-Ray plugin
 
-The end-user X-Ray plugin is enabled by default on CloudLinux OS Solo.
+The end-user X-Ray plugin can be installed and enabled by the server administrator via CloudLinux Manager.
 
 ![](./images/solo_XRayEndUserPluginUIIcon.png)
 
@@ -687,3 +687,21 @@ Selected version will be applied for all user domains.
 **Options** tab gives the ability to manage extensions for selected PHP version.
 
 ![](./images/userdoc_php_selector_4.png)
+
+## NodeJS/Python Selectors
+Since CloudLinux Manager version 7.11.0-1 added support of NodeJS/Python selectors.
+Detailed instructions of how yo use them can be found by the links below:
+* [Node.js Selector client plugin](https://docs.cloudlinux.com/shared/lve_manager/#node-js-selector-client-plugin)
+* [Python Selector client plugin](https://docs.cloudlinux.com/shared/lve_manager/#python-selector-client-plugin)
+
+## Resource Usage client plugin
+Since CloudLinux Manager version 7.11.0-1 added support of Resource Usage client plugin.
+
+:::tip Note:
+Because the CloudLinux OS Solo does not support LVE, customer can only see the Inodes usage.
+Follow this documentation to [setup Inodes limits](https://docs.cloudlinux.com/shared/limits/#inodes)
+:::
+
+![](./images/ResourceUsageWithoutLVE.png)
+
+See [Resource Usage client plugin](https://docs.cloudlinux.com/shared/lve_manager/#resource-usage-client-plugin)

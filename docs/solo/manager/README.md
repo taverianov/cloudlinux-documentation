@@ -18,8 +18,15 @@ LVE Manager is renamed to CloudLinux Manager since cPanel v 96.0.9
 
 Log in as administrator to get access to the following functionality:
 
-* <span class="notranslate">Website Monitoring</span> provides access to Website Monitoring and PHP Slow Site Analyzer.
+* <span class="notranslate">Dashboard</span> - provides a quick overview of statistics and all administrative information for server administrators;
+* <span class="notranslate">Users</span> tab - provides access to manage user limits;
+* <span class="notranslate">Options</span> tab - provides access to user interface settings, CageFS and Python/NodeJs selectors;
+* <span class="notranslate">Website Monitoring</span> provides access to Website Monitoring and PHP Slow Site Analyzer;
 * <span class="notranslate">X-Ray</span> tab - provides access to X-Ray;
+* <span class="notranslate">Selector</span> tab - provides access to PHP Selector;
+* <span class="notranslate">Smart Advice</span> tab - provides ability to see advice list generated for your WordPress websites;
+* <span class="notranslate">AccelerateWP</span> tab - provides access to AccelerateWP;
+
 
 ## Activation
 
@@ -33,22 +40,6 @@ In order to activate CloudLinux Manager features, follow the next steps:
     If you have IP-based license, please leave the _Enter Activation Key_ field empty and just click _Activate_.
     
     You can read more about CloudLinux OS Solo and how to get the license [here](https://lp.cloudlinux.com/cloudlinux-os-solo)
-
-* Sign up and get 30-days trial license
-
-    Fill out the next form
-
-    ![](./images/cloudlinuxmanageractivationsignupform.png)
-
-    CloudLinux Manager will be activated automatically after submitting the form.
-
-    ![](./images/cloudlinuxmanageractivationsignup.png)
-
-    :::tip Note
-    After submitting the registration form you will get a trial license valid for next 24 hours.
-    To prolong license for 30 days, please follow the activation instructions sent to email specified during the
-    registration.
-    :::
 
 ## Website Monitoring tool
 
@@ -92,20 +83,22 @@ If email is not specified, all [notifications](/solo/manager/#wmt-email-notifica
 
 ![](./images/Webmonitoringtoolsettings.png)
 
-* **Check every X minutes** - this is a period in minutes between requests to the same domain.
-* **Time allowed for response** - if there is no answer from the website for this period of time, the Website Monitoring tool will regard this behaviour as the `HTTP 408` error.
 * **Enable summary notifications** - turn on/off summary daily email report notifications
 * **Enable alert notifications** - turn on/off immediate alert email notifications
 * **Domains and URLs Ignore List** - domains and URLs that will not be requested and displayed in reports; supported formats: `example.com, http://example.com`
+* **Top N slow websites to show** - this number (N) will be used to select the top N domains from the list of all domains, sorted by response duration (Slowest websites list). And this number also will be used to select the top N domains from the list of all domains, sorted by amount of errors (Websites with most errors list).
+* **Check every X minutes** - this is a period in minutes between requests to the same domain.
+* **Time allowed for response** - if there is no answer from the website for this period of time, the Website Monitoring tool will regard this behaviour as the `HTTP 408` error.
+* **Concurrent requests limit** - how many concurrent requests can be done by the Website Monitoring tool.
 
 ### WMT CLI
 
-The `wmt-api-solo` utility allows managing Website Monitoring tool via CLI.
+The `wmt-api` utility allows managing Website Monitoring tool via CLI.
 
 **Usage**
 
 ```
-# /usr/share/web-monitoring-tool/wmtbin/wmt-api-solo [command] [--optional arguments]
+# /usr/share/web-monitoring-tool/wmtbin/wmt-api [command] [--optional arguments]
 ```
 
 **Optional arguments**:
@@ -126,10 +119,10 @@ The `wmt-api-solo` utility allows managing Website Monitoring tool via CLI.
 |`status`|check the status of the WMT system|
 |`stop`|stop the WMT system|
 
-Example of the `/usr/share/web-monitoring-tool/wmtbin/wmt-api-solo` command usage:
+Example of the `/usr/share/web-monitoring-tool/wmtbin/wmt-api` command usage:
 
 ```
-/usr/share/web-monitoring-tool/wmtbin/wmt-api-solo --config-change "{\"ping_timeout\":10,\"ping_interval\":5,\"report_email\":\"user@example.com\"}"
+/usr/share/web-monitoring-tool/wmtbin/wmt-api --config-change "{\"ping_timeout\":10,\"ping_interval\":5,\"report_email\":\"user@example.com\"}"
 ```
 
 This way you can set all or only certain parameters.
@@ -180,10 +173,16 @@ The following settings can be changed through the UI:
 
 ![](./images/solo_SlowSiteAnalyzerSettings.png)
 
+* **Enable Autotracing** - turn on/off Autotracing;
 * **Enable summary notifications** - turn on/off summary daily email report notifications;
+* **Top N slow websites to show** - Set the number of top slow websites to show in the “PHP Sites Analyzer“ report;
 * **Top slow URLs** - this number (N) will be used to select the top N URLs for each domain, marked as slow;
 * **Slow request duration** - the duration of a request in seconds. If the request duration was less than specified in this setting then this request will not be marked as slow;
-* **Domains and URLs Ignore List** - domains and URLs that will not be displayed in reports.
+* **Slow requests number** - number of slow requests in the period of time to mark the URL as a slow one;
+* **Analysis time** - the period of time in hours required to analyze slow requests;
+* **Enable slow requests density threshold** - turn on/off slow requests density threshold;
+* **Slow requests density threshold** - can be in the interval [0..1], by default it is 0.8. The **density threshold** can be disabled. And the **Domains and URLs Ignore List** can be specified;
+* **Domains and URLs Ignore List** - domains and URLs that will not be displayed in reports;
 
 
 
