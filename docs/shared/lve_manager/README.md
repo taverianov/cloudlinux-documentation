@@ -1182,9 +1182,12 @@ To enable or disable **Website monitoring**, use the following slider.
 
 ![](./images/WebsiteMonitoringSlider.png)
 
+* **Enable summary notifications** - turn on/off summary daily email report notifications
+* **Enable alert notifications** - turn on/off immediate alert email notifications
+* **Domains and URLs Ignore List** - domains and URLs that will not be requested and displayed in reports; supported formats: `example.com, http://example.com`
 * **Top N slow websites to show** - this number (N) will be used to select the top N domains from the list of all domains, sorted by response duration (Slowest websites list). And this number also will be used to select the top N domains from the list of all domains, sorted by amount of errors (Websites with most errors list).
-* **Requests sending interval** - this is a period in minutes between requests to the same domain.
-* **Domain response timeout** - if there is no answer from the website for this period of time, the Website Monitoring tool will regard this behaviour as the `HTTP 408` error.
+* **Check every X minutes** - this is a period in minutes between requests to the same domain.
+* **Time allowed for response** - if there is no answer from the website for this period of time, the Website Monitoring tool will regard this behaviour as the `HTTP 408` error.
 * **Concurrent requests limit** - how many concurrent requests can be done by the Website Monitoring tool.
 
 To enable or disable the **Slow site analyzer**, use the following slider.
@@ -1195,11 +1198,16 @@ Slow Site analyzer is not available for CloudLinux OS Shared 6.
 
 ![](./images/WebsiteMonitoringSlider1.png)
 
-* **Top N slow websites to show** - this number (N) will be used to select the top N domains from the list of all domains, marked as slow.
-* **Top slow URLs** - this number (N) will be used to select the top N URLs for each domain, marked as slow.
-* **Slow request duration** - the duration of a request in seconds. 
-* **Slow requests number & Analysis time** - how many requests with a certain request duration should be done in time to mark the domain as a slow one.
-* **Slow requests density threshold** can be in the interval [0..1], by default it is 0.8. The **density threshold** can be disabled. And the **Domains and URLs Ignore List** can be specified.
+* **Enable Autotracing** - turn on/off Autotracing;
+* **Enable summary notifications** - turn on/off summary daily email report notifications;
+* **Top N slow websites to show** - Set the number of top slow websites to show in the “PHP Sites Analyzer“ report;
+* **Top slow URLs** - this number (N) will be used to select the top N URLs for each domain, marked as slow;
+* **Slow request duration** - the duration of a request in seconds. If the request duration was less than specified in this setting then this request will not be marked as slow;
+* **Slow requests number** - number of slow requests in the period of time to mark the URL as a slow one;
+* **Analysis time** - the period of time in hours required to analyze slow requests;
+* **Enable slow requests density threshold** - turn on/off slow requests density threshold;
+* **Slow requests density threshold** - can be in the interval [0..1], by default it is 0.8. The **density threshold** can be disabled. And the **Domains and URLs Ignore List** can be specified;
+* **Domains and URLs Ignore List** - domains and URLs that will not be displayed in reports;
 
 #### What is the density threshold?
 
