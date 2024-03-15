@@ -25,11 +25,6 @@ As of now, only cPanel is supported. Plesk and DirectAdmin are not supported.
 
 Feel free to contact Support via [Support Portal](https://www.cloudlinux.com/support-portal/).
 
-### Can I use other CloudLinux products (Imunify360, KernelCare) with the CloudLinux subsystem on Ubuntu?
-
-During the first beta release you cannot use other CloudLinux products (Imunify360, KernelCare) with the CloudLinux
-subsystem on Ubuntu We're planning to add them in the upcoming releases.
-
 ### Can I use Docker with the CloudLinux subsystem on Ubuntu?
 
 You cannot use Docker with the CloudLinux subsystem on Ubuntu in the current version.
@@ -40,7 +35,7 @@ Yes, it is available.
 
 ### How to set up a PHP-fpm handler for the domain?
 
-Since the PHP-fpm handler is required to use WP Optimization Suite, you may need to configure it manually.
+Since the PHP-fpm handler is required to use AccelerateWP, you may need to configure it manually.
 
 These are configuration steps:
 

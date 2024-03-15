@@ -221,17 +221,6 @@ After the successful conversion, reboot your system by running the following com
 reboot
 ```
 
-The script automatically detects and supports the following control panels:
-* cPanel with Easy Apache 4
-
-Unfortunately, for now, it is not possible to convert servers with:
-
-* Plesk
-* DirectAdmin
-* Other control panels that use [CloudLinux OS Shared integration](https://docs.cloudlinux.com/control_panel_integration/#introduction).
-
-Please subscribe to [our blog](https://blog.cloudlinux.com/), check the news and receive updates. 
-
 #### The cldeploy explanation
 
 By its design, CloudLinux OS Solo is very close to the upstream operating system, RHEL (and so, CentOS and AlmaLinux). 

@@ -21,12 +21,13 @@ We support Ubuntu 20.04 LTS.
 |Cage FS|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |MySQL Governor|No|No|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |PHP Selector|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|Other Selectors (Python, Node.js, Ruby)|No|**Yes****|**Yes****|**Yes****|**<font color="#2c98f0">No</font>**|
+|Python/Node.js Selectors|**Yes****|**Yes****|**Yes****|**Yes****|**<font color="#2c98f0">No</font>**|
+|Ruby Selector|No|**Yes****|**Yes****|**Yes****|**<font color="#2c98f0">No</font>**|
 |HardenedPHP|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
+|Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |SecureLinks|No|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Website monitoring tool|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
-|Website monitoring alerts|**Yes**|No|No|No|**<font color="#2c98f0">No</font>**|
+|Website monitoring alerts|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
 |Slow Site analyzer|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
 |PHP X-Ray|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">No</font>**|
 |Centralized Monitoring|No|No|No|**Yes**|**<font color="#2c98f0">No</font>**|

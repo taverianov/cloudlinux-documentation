@@ -4,9 +4,7 @@ CloudLinux OS Admin is designed for shared hosting providers who want to flawles
 big shared hosting customer to individual VPS with same CloudLinux features as on Shared hosting. 
 At the same time you will be able to separate such a user's websites if necessary and isolate them 
 with CageFS for efficient and extra security.
-
-Also it may be suitable for a little server with less than 5 customers on it, but be careful, 
-there is no migration to Shared edition available.
+Also it may be suitable for a little server with less than 5 customers on it.
 
 Most of the features of CloudLinux OS Shared are available in this edition, with a small differences:
 
