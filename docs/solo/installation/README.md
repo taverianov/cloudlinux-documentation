@@ -183,10 +183,10 @@ Next, [activate your installation](/solo/manager/#activation) in order to get up
 ## Converting existing servers
 
 :::warning
-Only CentOS 8/AlmaLinux 8 can be converted to the CloudLinux OS Solo 8. 
+Only AlmaLinux/Rocky Linux 8+ can be converted to CloudLinux OS Solo.
 :::
 
-Sometimes it is required to convert already existing servers with `CentOS` or `AlmaLinux` and make them `CloudLinux OS Solo`.
+Sometimes it is required to convert already existing `AlmaLinux` or `Rocky Linux` servers to `CloudLinux OS Solo`.
 
 It is easy to convert your existing installation by cldeploy script. The process takes a few minutes and replaces just a handful of RPMs.
 
