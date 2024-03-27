@@ -350,7 +350,7 @@ Supported on cPanel, Plesk, and DirectAdmin control panels
 
 * <span class="notranslate"> Hard </span> limit prevents a user from writing data to disk.
 
-* <span class="notranslate"> Soft </span> limit can be exceeded for a period of time. The grace period can be set using: <span class="notranslate"> `edquota -t` </span>.
+* <span class="notranslate"> Soft </span> limit can be exceeded for a period of time. The global grace period can be set using: <span class="notranslate"> `edquota -t` </span>.
 
 * You can set <span class="notranslate"> inodes </span> limits using <span class="notranslate"> LVE Manager </span> , the same way you would set any other LVE Limits:
 
@@ -367,8 +367,10 @@ edquota -T -g [groupname]
 ```
 To adjust the global grace period:
 ```
-edquota -T
+edquota -t
 ```
+
+You can find a full manual for this tool [here](https://man7.org/linux/man-pages/man8/edquota.8.html).
 :::
 
 ::: tip Note
