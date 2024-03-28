@@ -65,6 +65,18 @@ Packages from repositories Leapp is unaware of **will not be upgraded**.
 It's possible to add missing repositories and packages to ELevate yourself, if you're so inclined. Please check the [Contribution](/shared/elevate/#contribution) section for more information on how to do so.
 
 
+### What packages can I expect to be upgraded?
+
+Aside from CloudLinux and AlmaLinux packages, the CloudLinux Elevate includes the extendable "vendors" mechanism that contains migration data for some frequently used third-party system components.
+
+That migration data is only activated when the corresponding package repositories are present and enabled on the pre-upgrade system.
+
+Some of the vendors shipping by default include:
+
+* Imunify360 and KernelCare
+* EPEL (Extra Packages for Enterprise Linux)
+
+
 ### Will it interrupt my server's functionality?
 
 Yes.
@@ -201,6 +213,20 @@ Inhibitor: A YUM/DNF repository defined multiple times
 Refer to the `/var/log/leapp/leapp-report.txt` for the details on the repository in question.
 
 To correct the issue, examine your yum reposiory configuration and clear out any dupicate entries before restarting the upgrade process.
+
+
+#### Package upgrades being pulled from incorrect repositories
+
+You may find that some packages on your system are listed in the preupgrade report in the message "Packages not signed by a known packager found on the system".
+
+This may mean two things:
+* that the packages listed are indeed unknown to Leapp, and cannot be included in the upgrade process, or;
+* that the corresponding package repositories were not recognized and the vendors mechanism could not be set up properly as a result.
+
+Make sure that all of the package repositories relevant to the current system state are present and enabled before proceeding with the upgrade.
+That will ensure that the Leapp tool correctly maps the source repositories to the target ones, and includes everything available into the migration process accordingly.
+
+Keep in mind that known vendor repositories must be enabled in order for the packages from them to be included into the upgrade.
 
 
 #### SSHD config default mismatch
