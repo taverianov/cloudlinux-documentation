@@ -467,6 +467,12 @@ sudo yum install https://repo.cloudlinux.com/elevate/elevate-release-latest-el7.
 
 3. Install leapp packages and migration data for the CloudLinux OS.
 
+:::tip Note
+In some cases, e.g. when directed by support, you may want to make use of the beta CloudLinux Leapp packages when running the upgrade.
+
+To do so, enable the `cloudlinux-elevate-updates-testing` repository, brought by the `elevate-release` package, before installing the leapp packages.
+:::
+
 :::tip
 Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work.
 :::
@@ -639,11 +645,18 @@ Run a preupgrade check. No rpm packages will be installed during this phase.
 
 `/scripts/elevate-cpanel --check --upgrade-to=cloudlinux`
 
-
 :::tip Note
 In addition to Leapp-created log files and reports, contained in `/var/log/leapp`, cPanel ELevate also creates an additional log file: `/var/log/elevate-cpanel.log`
 
 It's advised to check the aforementioned files for possible problems and recommended solutions.
+:::
+
+:::tip Note
+In some cases, e.g. when directed by support, you may want to make use of the beta CloudLinux Leapp packages when running the upgrade.
+
+To do so, use the --leappbeta flag when running the elevate-cpanel script.
+
+`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
 :::
 
 Once the preupgrade process completes, the results will be contained in `/var/log/leapp/leapp-report.txt` file.
