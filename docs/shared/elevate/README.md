@@ -129,7 +129,7 @@ Please refer to the following documentation links for instructions on how to do 
 
 * [How to Backup & Migrate All CloudLinux Settings to Another Server](https://cloudlinux.zendesk.com/hc/en-us/articles/115004277894-How-to-Backup-Migrate-All-CloudLinux-Settings-to-Another-Server)
 * [How to Restore PHP Selector Options](https://cloudlinux.zendesk.com/hc/en-us/articles/115004517465)
-* [How to obtain activation keys, register and migrate servers ](https://cloudlinux.zendesk.com/hc/en-us/articles/115003888573-How-to-obtain-activation-keys-register-and-migrate-servers)
+* [How to obtain activation keys, register and migrate servers](https://cloudlinux.zendesk.com/hc/en-us/articles/115003888573-How-to-obtain-activation-keys-register-and-migrate-servers)
 
 #### I have a CentOS 7 system I want to migrate to CloudLinux 8, can I use your tool to do so?
 
@@ -276,7 +276,7 @@ If not, enable the corresponding package repository (e.g. `centos-extras`) and i
 `dnf install 'dnf-command(config-manager)'`
 
 
-#### DNF transaction failure
+#### DNF transaction failures
 
 The main upgrade transaction is performed while the system is booted into a custom InitRamFS. From there, all the package operations prepared during the previous steps are performed.
 
@@ -287,6 +287,27 @@ In some cases, the upgrade may encounter an unrecoverable error while running th
 For example, if a package encounters a fatal error inside its `%preun` or `%prein` scriptlets during the upgrade, the transaction and the upgrade process may halt, leaving the system in an unusable state.
 
 It is recommended to remove such packages prior to the upgrade, or, alternatively, add them to the `to_keep` list (see *Transaction Configuration Files* section) to prevent Leapp from attempting to upgrade them.
+
+#### Missing upgrade package files
+
+In some cases, you may find the upgrade process halting at the main upgrade DNF transaction with a list of error messages similar to the following:
+
+```
+2024-01-01 17:24:55.396 DEBUG    PID: 1053 leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Error opening /var/cache/dnf/almalinux8-baseos-f11d00b8ca777dac/packages/alt-php82-newrelic-10.16.0.5-1.el8.x86_64.rpm: No such file or directory
+2024-01-01 17:24:55.410 DEBUG    PID: 1053 leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Package "alt-php82-newrelic-10.16.0.5-1.el8.x86_64" from repository "almalinux8-baseos" has incorrect checksum
+```
+
+In the known possible error scenario, this problem occurs when the upgrade packages were downloaded from CLN-provided package repositories, but CLN was then disabled due to a registration/networking error encountered.
+
+Check the version of the dnf-plugin-spacewalk being installed into the isolated upgrade environment in the logs. Its release must be either `cloudlinux.2.leapp.2`, or `cloudlinux.5` and above for the CLN/upgrade integration functionality.
+
+Also, make sure that the following line is present:
+
+```
+leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Leapp upgrade is running - using cache.
+```
+
+If neither of those appear to be the problem, its source may be different from the known one. Please contact support for further assistance.
 
 
 ### ELevate cPanel Scenario issues
