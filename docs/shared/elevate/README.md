@@ -2,11 +2,6 @@
 
 [[toc]]
 
-:::warning Beta
-CloudLinux ELevate project is currently in beta. Expect potenital issues, in particular with third-party packages and/or repositories.
-We don't recommend to use or test this tool on your production servers unless you're completely sure about what you're doing.
-:::
-
 :::warning
 Please note that the CloudLinux Elevate tool is intended specifically for upgrading the CloudLinux OS.
 Upgrading to CloudLinux directly from a non-CloudLinux OS is **not supported**.
@@ -30,14 +25,14 @@ The CloudLinux ELevate variant, built on top of the [AlmaLinux ELevate project](
 
 The [Leapp utility](https://leapp.readthedocs.io/) is the main tool used to perform the upgrade.
 
-The [CloudLinux 7 with cPanel ELevate Scenario](#elevate-scenario-cloudlinux-7-with-cpanel) uses a modified version of the [cPanel ELevate](https://github.com/cpanel/elevate) project as an additional layer of the upgrade process.
+The [ELevate Scenario - CloudLinux 7 with cPanel](#elevate-scenario-cloudlinux-7-with-cpanel) uses the [cPanel ELevate](https://github.com/cpanel/elevate) project as an additional layer of the upgrade process.
 
 ELevate is a project aimed to provide the ability to migrate between major versions of RHEL-based distributions from 7.x to 8.x. It combines Red Hat's Leapp framework with a community created library and service for the migration metadata set required for it.
 
 
 ### Is it ready for production use?
 
-While the ELevate project and its surrounding ecosystem is mature, support for CloudLinux has been introduced quite recently.
+While the ELevate project and its surrounding ecosystem is mature, support for CloudLinux has been introduced more recently.
 
 We guarantee functionality of CloudLinux products and services on the post-upgrade system. You are welcome to contact CloudLinux Support with any issues that occur with said products.
 
@@ -68,6 +63,18 @@ The ELevate project only supports a subset of package repositories it's aware of
 Packages from repositories Leapp is unaware of **will not be upgraded**.
 
 It's possible to add missing repositories and packages to ELevate yourself, if you're so inclined. Please check the [Contribution](/shared/elevate/#contribution) section for more information on how to do so.
+
+
+### What packages can I expect to be upgraded?
+
+Aside from CloudLinux and AlmaLinux packages, the CloudLinux Elevate includes the extendable "vendors" mechanism that contains migration data for some frequently used third-party system components.
+
+That migration data is only activated when the corresponding package repositories are present and enabled on the pre-upgrade system.
+
+Some of the vendors shipping by default include:
+
+* Imunify360 and KernelCare
+* EPEL (Extra Packages for Enterprise Linux)
 
 
 ### Will it interrupt my server's functionality?
@@ -110,7 +117,7 @@ Please refer to the [CloudLinux 7 with no panel/custom panel ELevate Scenario](#
 
 With cPanel present on the machine, you need to run the upgrade process through the `elevate-cpanel` tool.
 
-Please refer to the [CloudLinux 7 with cPanel ELevate Scenario](#elevate-scenario-cloudlinux-7-with-cpanel) for step-by-step instructions.
+Please refer to the [ELevate Scenario - CloudLinux 7 with cPanel](#elevate-scenario-cloudlinux-7-with-cpanel) for step-by-step instructions.
 
 #### I have a CL7 system with DirectAdmin/Plesk/another panel installed, how do I upgrade to CL8?
 
@@ -122,7 +129,7 @@ Please refer to the following documentation links for instructions on how to do 
 
 * [How to Backup & Migrate All CloudLinux Settings to Another Server](https://cloudlinux.zendesk.com/hc/en-us/articles/115004277894-How-to-Backup-Migrate-All-CloudLinux-Settings-to-Another-Server)
 * [How to Restore PHP Selector Options](https://cloudlinux.zendesk.com/hc/en-us/articles/115004517465)
-* [How to obtain activation keys, register and migrate servers ](https://cloudlinux.zendesk.com/hc/en-us/articles/115003888573-How-to-obtain-activation-keys-register-and-migrate-servers)
+* [How to obtain activation keys, register and migrate servers](https://cloudlinux.zendesk.com/hc/en-us/articles/115003888573-How-to-obtain-activation-keys-register-and-migrate-servers)
 
 #### I have a CentOS 7 system I want to migrate to CloudLinux 8, can I use your tool to do so?
 
@@ -171,7 +178,7 @@ For the no-panel scenario: before gathering data, if possible, re-run the *leapp
 
 ## Troubleshooting
 
-Here is a list of problems you may encounter during the upgrade attempt.
+Here is a list of common problems you may encounter during the upgrade attempt.
 
 ### Common issues
 
@@ -206,6 +213,20 @@ Inhibitor: A YUM/DNF repository defined multiple times
 Refer to the `/var/log/leapp/leapp-report.txt` for the details on the repository in question.
 
 To correct the issue, examine your yum reposiory configuration and clear out any dupicate entries before restarting the upgrade process.
+
+
+#### Package upgrades being pulled from incorrect repositories
+
+You may find that some packages on your system are listed in the preupgrade report in the message "Packages not signed by a known packager found on the system".
+
+This may mean two things:
+* that the packages listed are indeed unknown to Leapp, and cannot be included in the upgrade process, or;
+* that the corresponding package repositories were not recognized and the vendors mechanism could not be set up properly as a result.
+
+Make sure that all of the package repositories relevant to the current system state are present and enabled before proceeding with the upgrade.
+That will ensure that the Leapp tool correctly maps the source repositories to the target ones, and includes everything available into the migration process accordingly.
+
+Keep in mind that known vendor repositories must be enabled in order for the packages from them to be included into the upgrade.
 
 
 #### SSHD config default mismatch
@@ -255,7 +276,7 @@ If not, enable the corresponding package repository (e.g. `centos-extras`) and i
 `dnf install 'dnf-command(config-manager)'`
 
 
-#### DNF transaction failure
+#### DNF transaction failures
 
 The main upgrade transaction is performed while the system is booted into a custom InitRamFS. From there, all the package operations prepared during the previous steps are performed.
 
@@ -266,6 +287,27 @@ In some cases, the upgrade may encounter an unrecoverable error while running th
 For example, if a package encounters a fatal error inside its `%preun` or `%prein` scriptlets during the upgrade, the transaction and the upgrade process may halt, leaving the system in an unusable state.
 
 It is recommended to remove such packages prior to the upgrade, or, alternatively, add them to the `to_keep` list (see *Transaction Configuration Files* section) to prevent Leapp from attempting to upgrade them.
+
+#### Missing upgrade package files
+
+In some cases, you may find the upgrade process halting at the main upgrade DNF transaction with a list of error messages similar to the following:
+
+```
+2024-01-01 17:24:55.396 DEBUG    PID: 1053 leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Error opening /var/cache/dnf/almalinux8-baseos-f11d00b8ca777dac/packages/alt-php82-newrelic-10.16.0.5-1.el8.x86_64.rpm: No such file or directory
+2024-01-01 17:24:55.410 DEBUG    PID: 1053 leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Package "alt-php82-newrelic-10.16.0.5-1.el8.x86_64" from repository "almalinux8-baseos" has incorrect checksum
+```
+
+In the known possible error scenario, this problem occurs when the upgrade packages were downloaded from CLN-provided package repositories, but CLN was then disabled due to a registration/networking error encountered.
+
+Check the version of the dnf-plugin-spacewalk being installed into the isolated upgrade environment in the logs. Its release must be either `cloudlinux.2.leapp.2`, or `cloudlinux.5` and above for the CLN/upgrade integration functionality.
+
+Also, make sure that the following line is present:
+
+```
+leapp.workflow.RPMUpgrade.dnf_upgrade_transaction: Leapp upgrade is running - using cache.
+```
+
+If neither of those appear to be the problem, its source may be different from the known one. Please contact support for further assistance.
 
 
 ### ELevate cPanel Scenario issues
@@ -287,8 +329,8 @@ In some system configurations, you may encounter an issue with the [stage 4](#st
 [ERROR]     /usr/local/cpanel/scripts/elevate-cpanel --continue
 ```
 
-This most commonly occurs in two cases:
-* When a package repository configuration file not associated with any RPM packages can no longer be accessed on the post-upgrade system due to the changes in Yum variables;
+That most commonly occurs in two cases:
+* When a package repository configuration file not associated with any RPM packages can no longer be accessed on the post-upgrade system due to the changes in Yum variables, like the OS version;
 * When a package repository configuration file associated with a RPM package was modified manually, and thus, not upgraded automatically during the process.
 
 Check the URL/mirrorlist of the mentioned Yum repository. Make sure it's accessible from the machine.
@@ -322,6 +364,7 @@ To resolve the issue:
 * Then, run the `ea_install_profile` command with the exact same arguments as shown in the log.
 
 In the above example, you'd need to run:
+
 ```
 dnf -y install ea-apache24-mod_lsapi
 /usr/local/bin/ea_install_profile --install /etc/cpanel/ea4/profiles/custom/current_state_at_2023-03-20_12:22:49.json
@@ -445,6 +488,12 @@ sudo yum install https://repo.cloudlinux.com/elevate/elevate-release-latest-el7.
 
 3. Install leapp packages and migration data for the CloudLinux OS.
 
+:::tip Note
+In some cases, e.g. when directed by support, you may want to make use of the beta CloudLinux Leapp packages when running the upgrade.
+
+To do so, enable the `cloudlinux-elevate-updates-testing` repository, brought by the `elevate-release` package, before installing the leapp packages.
+:::
+
 :::tip
 Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work.
 :::
@@ -548,13 +597,15 @@ In addition, check the leapp logs for .rpmnew configuration files that may have 
 
 This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on systems with cPanel present.
 
-It uses an additional tool to assist with migration of cPanel-related features - a modified version of [elevate-cpanel](https://github.com/cpanel/elevate).
+It uses an additional tool to assist with migration of cPanel-related features - the script provided by the cPanel team: [elevate-cpanel](https://github.com/cpanel/elevate).
+
+See the official cPanel Elevate documentation at https://cpanel.github.io/elevate/
 
 ### Upgrade process overview
 
-The cPanel upgrade process is divided into multiple `stages`.
-Each `stage` is responsible for one part of the upgrade.
-Between stages, a `reboot` is performed, with one last reboot at the end of the final stage.
+The cPanel upgrade process is divided into multiple stages.
+Each stage is responsible for one part of the upgrade.
+Between stages, a reboot is performed, with one last reboot at the end of the final stage.
 
 #### Stage 1
 
@@ -601,23 +652,32 @@ sudo yum -y update
 
 In addition, make sure your system is running the latest available version of cPanel.
 
-Ensure that you have the package `ea-cpanel-tools >= 1.0-67.el7.cloudlinux` installed. You may need to activate the `cloudlinux-ea4-testing` package repository for that version to become accessible. By default, it is located at `/etc/yum.repos.d/cloudlinux-ea4-testing.repo`.
+Ensure that you have the package `ea-cpanel-tools >= 1.0-67.el7.cloudlinux` installed.
+You may need to activate the `cloudlinux-ea4-testing` package repository for that version to become accessible.
+By default, it is located at `/etc/yum.repos.d/cloudlinux-ea4-testing.repo`.
 
 Download the cPanel ELevate script.
 
-`wget -O /scripts/elevate-cpanel https://raw.githubusercontent.com/cloudlinux/elevate/cloudlinux-release/elevate-cpanel`
+`wget -O /scripts/elevate-cpanel https://raw.githubusercontent.com/cpanel/elevate/release/elevate-cpanel`
 
 `chmod 700 /scripts/elevate-cpanel`
 
 Run a preupgrade check. No rpm packages will be installed during this phase.
 
-`/scripts/elevate-cpanel --check`
-
+`/scripts/elevate-cpanel --check --upgrade-to=cloudlinux`
 
 :::tip Note
 In addition to Leapp-created log files and reports, contained in `/var/log/leapp`, cPanel ELevate also creates an additional log file: `/var/log/elevate-cpanel.log`
 
 It's advised to check the aforementioned files for possible problems and recommended solutions.
+:::
+
+:::tip Note
+In some cases, e.g. when directed by support, you may want to make use of the beta CloudLinux Leapp packages when running the upgrade.
+
+To do so, use the --leappbeta flag when running the elevate-cpanel script.
+
+`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
 :::
 
 Once the preupgrade process completes, the results will be contained in `/var/log/leapp/leapp-report.txt` file.
@@ -646,12 +706,12 @@ Please make sure you have enough resources to perform the upgrade safely, and ma
 
 Start the upgrade by running the following command:
 
-`/scripts/elevate-cpanel --start`
+`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
 
 :::tip Note
 By default, the system will be automatically restarted during the upgrade process when nessesary. You can make the process require manual reboots by adding the switch `--manual-reboots`.
 
-`/scripts/elevate-cpanel --start --manual-reboots`
+`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux --manual-reboots`
 :::
 
 The system will reboot several times during the process. While the upgrade is in progress, the system's MOTD will change.
@@ -662,7 +722,7 @@ Check the current status of the upgrade process with:
 Monitor the elevation log for issues:
 `/scripts/elevate-cpanel --log`
 
-In case of errors, once resolved, you can continue the migration process:
+In case of errors, once they are resolved, you can continue the migration process with:
 `/scripts/elevate-cpanel --continue`
 
 
@@ -685,7 +745,7 @@ After the reboot, login into the system and check:
 * the Leapp report: `/var/log/leapp/leapp-report.txt`
 
 
-Verify that the current OS is the one you were upgrading to.
+Verify that the current OS successfully upgraded to the new version.
 
 ```bash
 cat /etc/redhat-release
