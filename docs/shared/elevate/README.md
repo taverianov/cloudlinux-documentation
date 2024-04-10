@@ -49,7 +49,7 @@ A full system upgrade is an inherently invasive procedure. In some cases, due to
 
 Said issues may be severe, **<font color="Red">up to and including rendering the system completely inaccessible.</font>**
 
-To that end, we **highly recommend never running ELevate on a system without a backup ready**.
+To that end, we **highly recommend never running ELevate on a system without a full server backup/snapshot ready**.
 
 Ideally, perform a trial run in a disposable environment, like a VM or a sandbox, to verify that migration functions as expected before you attempt to migrate a system.
 
