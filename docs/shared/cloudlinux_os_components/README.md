@@ -4197,7 +4197,7 @@ yum groupinstall alt-php
 ```
 </div>
 
-3. Install `mod_suexec` package as root. See installation instructions [here](./#installation-5).
+3. Install `mod_suexec` package as root. See installation instructions [here](./#installation-6).
 4. Verify that CageFS is initialized successfully.
 
   * via SSH by running the following command:
@@ -7727,7 +7727,7 @@ nginx-mod-lsapi can be installed through YUM package manager, however, the insta
 
 Select the control panel you are using:
 * [cPanel](./#installing-on-cpanel-servers-with-ea-nginx)
-* [No control panel](./#installing-on-servers-with-no-control-panel)
+* [No control panel](./#installing-on-servers-with-no-control-panel-2)
 * Plesk - In progress
 * DirectAdmin - In progreess
 
@@ -7748,6 +7748,9 @@ Now, when the module is installed, restart NGINX to ensure that the nginx-mod-ls
 service nginx restart
 ```
 </div>
+
+Use Apache2Nginx to set up NGINX hosting on the server and automatically convert .htaccess files into corresponding NGINX configuration.
+For more details, please visit [Apache2Nginx](/shared/apache2nginx/#apache2nginx).
 
 #### Installing on servers with no control panel
 
@@ -7775,7 +7778,7 @@ Uninstall nginx-mod-lsapi is performed depending on your control panel.
 
 Select the control panel you are using:
 * [cPanel](./#uninstall-procedure-for-cpanel-servers-with-ea-nginx)
-* [No control panel](./#uninstall-procedure-for-servers-with-no-control-panel)
+* [No control panel](./#uninstall-procedure-for-servers-with-no-control-panel-2)
 * Plesk - In progress
 * DirectAdmin - In progreess
 
@@ -7796,7 +7799,8 @@ Restart NGINX afterwards:
 service nginx restart
 ```
 </div>
-Now nginx-mod-lsapi is fully uninstalled.
+
+To remove NGINX from your system and restore Apache configuration, please visit [Apache2Nginx](/shared/apache2nginx/#switch-back-to-apache-hosting).
 
 #### Uninstall procedure for servers with no control panel
 
@@ -7818,7 +7822,7 @@ service nginx restart
 
 ### Configuration
 
-* [Configuration references](./#configuration-references)
+* [Configuration references](./#configuration-references-2)
 
 In order to get nginx-mod-lsapi work properly, you'll need to configure NGINX. To do this, we use a separate _lsapi.conf_ file.
 
@@ -7887,8 +7891,8 @@ server {
 
 In order to nginx-mod-lsapi work lsapi.conf should be loaded to NGINX through [Include](https://nginx.org/en/docs/ngx_core_module.html#include) directive.
 
-For more detailed description of the module directives please visit [Configuration reference](./#configuration-references).  
-For installation guide nginx-mod-lsapi please visit [Installation](./#installation-3).
+For more detailed description of the module directives please visit [Configuration reference](./#configuration-references-2).  
+For installation guide nginx-mod-lsapi please visit [Installation](./#installation-4).
 
 #### Configuration references
 
@@ -8558,7 +8562,7 @@ on/off - disable php_* directives, default On.
 **Type** : Optional  
 
 **Description** :  
-Pass the PHP variables to the LSPHP handler.  
+Sets a parameter that should be passed to the LSPHP handler. The value can contain text, variables, and their combination.  
 Supported directives:  
 PHP_ADMIN_VALUE  
 PHP_VALUE  
@@ -8569,6 +8573,10 @@ lsapi_param PHP_ADMIN_VALUE "memory_limit=1024M \n max_execution_time=600";
 lsapi_param PHP_FLAG "display_startup_errors=on";  
 lsapi_param PHP_ADMIN_FLAG "html_errors=on";  
 lsapi_param PHP_VALUE "max_file_uploads=20";  
+lsapi_param QUERY_STRING $query_string;  
+lsapi_param REQUEST_METHOD $request_method;  
+lsapi_param CONTENT_TYPE $content_type;  
+lsapi_param CONTENT_LENGTH $content_length;  
 
 ---
 
@@ -9038,7 +9046,7 @@ Directives which can be used by Apache with <span class="notranslate"> ITK </spa
 ### HostingLimits module for Apache
 
 * [Additional notes](./#additional-notes)
-* [Installation](./#installation-4)
+* [Installation](./#installation-5)
 * [Directives](./#directives)
   * [SecureLinks](./#securelinks)
   * [SkipErrors](./#skiperrors)
