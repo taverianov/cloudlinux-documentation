@@ -9,7 +9,7 @@
 * [Ruby Selector](./#ruby-selector)
 * [Node.js Selector](./#node-js-selector)
 * [Apache mod_lsapi PRO](./#apache-mod-lsapi-pro)
-* [NGINX lsapi module](./#nginx-mod-lsapi)
+* [NGINX lsapi module](./#nginx-lsapi-module)
 * [Additional integration components](./#additional-integration-components)
 * [Apache suexec module](./#apache-suexec-module)
 
@@ -4197,7 +4197,7 @@ yum groupinstall alt-php
 ```
 </div>
 
-3. Install `mod_suexec` package as root. See installation instructions [here](./#installation-6).
+3. Install `mod_suexec` package as root. See installation instructions [here](./#installation-5).
 4. Verify that CageFS is initialized successfully.
 
   * via SSH by running the following command:
@@ -6404,6 +6404,7 @@ Now mod_lsapi PRO is fully uninstalled.
 
 * [Configuration references](./#configuration-references)
 
+
 In order to get mod_lsapi PRO work properly, you'll need to configure Apache. To do this, we use a separate _lsapi.conf_ file.
 
 First of all, for the mod_lsapi PRO work, you need to ensure that the module is loaded. In your lsapi.conf you need to make sure the [LoadModule](http://httpd.apache.org/docs/current/mod/mod_so.html#loadmodule) directive has not been commented out. A correctly configured directive may look like this:
@@ -6455,7 +6456,7 @@ LoadModule lsapi_module modules/mod_lsapi.so
 In order to mod_lsapi PRO work lsapi.conf should be loaded to Apache through [Include](https://httpd.apache.org/docs/2.4/mod/core.html#include) directive.
 
 For more detailed description of the module directives please visit [Configuration reference](./#configuration-references).  
-For installation guide mod_lsapi PRO please visit [Installation](./#installation-3).
+For installation guide mod_lsapi PRO please visit [Installation](./#installation-2).
 
 #### Configuration references
 
@@ -7892,7 +7893,7 @@ server {
 In order to nginx-mod-lsapi work lsapi.conf should be loaded to NGINX through [Include](https://nginx.org/en/docs/ngx_core_module.html#include) directive.
 
 For more detailed description of the module directives please visit [Configuration reference](./#configuration-references-2).  
-For installation guide nginx-mod-lsapi please visit [Installation](./#installation-4).
+For installation guide nginx-mod-lsapi please visit [Installation](./#installation-3).
 
 #### Configuration references
 
@@ -8693,7 +8694,7 @@ See next table for more details:
 |Could not connect to lsphp backend: connect to lsphp failed: 111 Connection refused |file is writable by others: (///usr/local/bin/lsphp)  | Incorrect lsphp file permissions. For fixing: <span class="notranslate"> chmod 755 /usr/local/bin/lsphp </span> cagefsctl --force-update.|
 |Backend error on sending request(GET /XXXX HTTP/1.1); uri(/XXXX) content-length(0) (lsphp is killed?): ReceiveAckHdr: backend process reset connection: errno 104 (possibly memory limit for LVE ID XXXX too small) |uid: (xxx/xxxxxxxx)  gid: (xxx/xxxxxxxxxx)  cmd: /usr/local/bin/lsphp  | Increase PMEM limits for the user UID.|
 |Reached max children process limit: XX, extra: 0, current: XX, please increase LSAPI_CHILDREN.<br><br>Backend error on sending request(GET /XXXX HTTP/1.1); uri(/XXXX) content-length(0) (lsphp is killed?): ReceiveAckHdr: backend process reset connection: errno 104 (possibly memory limit for LVE ID XXXX too small) |uid: (xxx/xxxxxxxx)  gid: (xxx/xxxxxxxxxx)  cmd: /usr/local/bin/lsphp  | Increase value of <span class="notranslate"> lsapi_backend_children </span> for UID in vhost.conf or globally in lsapi.conf.|
-|Connect to backend rejected on sending request(POST /XXXXX HTTP/1.1); uri(/XXXXX) |No need to check this log.|Set <span class="notranslate">`lsapi_disable_reject on`</span> in your <span class="notranslate">`lsapi.conf`</span> and reload NGINX. This way LSPHP daemon will put requests that cannot be served by LSPHP daemon right away into infinite queue, until one or more LSPHP daemon becomes free. Visit [Configuration Reference](./#configuration-references) for more info.|
+|Connect to backend rejected on sending request(POST /XXXXX HTTP/1.1); uri(/XXXXX) |No need to check this log.|Set <span class="notranslate">`lsapi_disable_reject on`</span> in your <span class="notranslate">`lsapi.conf`</span> and reload NGINX. This way LSPHP daemon will put requests that cannot be served by LSPHP daemon right away into infinite queue, until one or more LSPHP daemon becomes free. Visit [Configuration Reference](./#configuration-references-2) for more info.|
 
 
 ### CRIU Support
@@ -9046,7 +9047,7 @@ Directives which can be used by Apache with <span class="notranslate"> ITK </spa
 ### HostingLimits module for Apache
 
 * [Additional notes](./#additional-notes)
-* [Installation](./#installation-5)
+* [Installation](./#installation-4)
 * [Directives](./#directives)
   * [SecureLinks](./#securelinks)
   * [SkipErrors](./#skiperrors)
@@ -10146,7 +10147,7 @@ The <span class="notranslate">`mod_suexec`</span> installation process varies de
   * [Via administrator interface](./#via-administrator-interface)
 * [Installing on Plesk servers](./#installing-on-plesk-servers-2)
 * [Installing on DirectAdmin servers](./#installing-on-directadmin-servers-2)
-* [Installing on servers with no control panel](./#installing-on-servers-with-no-control-panel-2)
+* [Installing on servers with no control panel](./#installing-on-servers-with-no-control-panel-3)
 
 #### Installing on cPanel servers with EasyApache 4
 
