@@ -264,6 +264,19 @@ Should you encounter an issue with the `switch_cln_channel` actor, make sure tha
 If it is not, you may want to force a [re-registration.](/shared/cloudlinux_installation/#license-activation)
 
 
+#### CLN channel remains targeting CL8 after an unsuccessful migration
+
+If you roll back a machine after an unsuccessful migration, you may find that your server still pulls package updates from the CLN repository for CL8.
+
+This will be indicated by upgrades pulling packages from the `cloudlinux-x86_64-server-8` repository.
+
+To switch back to the CL7 channel manually, run the following command:
+
+```
+cln-switch-channel -t 7 -o -f
+```
+
+
 #### DNF plugin installation
 
 You may encounter issues with Leapp DNF actors failing with the following message:
