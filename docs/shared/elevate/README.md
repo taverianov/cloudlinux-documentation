@@ -436,11 +436,9 @@ If you'd like to add the configuration data for new repositories and packages to
 ## Known issues
 
 ### Web servers
-The Litespeed web server installation scheme is currently incompatible with ELevate.
+The Litespeed web server installation scheme is currently incompatible with the no-panel Elevate configuration.
 
 It can be updated *after* the upgrade is complete, but won't be automatically upgraded with the rest of the system during the ELevate process.
-
-The same limitation applies to NGINX installations not provided through cPanel or CloudLinux mechanisms.
 
 ## Contribution
 
@@ -723,6 +721,8 @@ Start the upgrade by running the following command:
 
 :::tip Note
 By default, the system will be automatically restarted during the upgrade process when nessesary. You can make the process require manual reboots by adding the switch `--manual-reboots`.
+
+Make sure you know what you're doing when using this switch, as you *must* manually reboot the server between the upgrade phases when using it - otherwise the process will remain incomplete and your system in a half-functional state.
 
 `/scripts/elevate-cpanel --start --manual-reboots`
 :::
