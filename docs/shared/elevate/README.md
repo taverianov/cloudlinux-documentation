@@ -677,7 +677,7 @@ Download the cPanel ELevate script.
 
 Run a preupgrade check. No rpm packages will be installed during this phase.
 
-`/scripts/elevate-cpanel --check --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --check`
 
 :::tip Note
 In addition to Leapp-created log files and reports, contained in `/var/log/leapp`, cPanel ELevate also creates an additional log file: `/var/log/elevate-cpanel.log`
@@ -690,7 +690,7 @@ In some cases, e.g. when directed by support, you may want to make use of the be
 
 To do so, use the --leappbeta flag when running the elevate-cpanel script.
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --start`
 :::
 
 Once the preupgrade process completes, the results will be contained in `/var/log/leapp/leapp-report.txt` file.
@@ -719,12 +719,12 @@ Please make sure you have enough resources to perform the upgrade safely, and ma
 
 Start the upgrade by running the following command:
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --start`
 
 :::tip Note
 By default, the system will be automatically restarted during the upgrade process when nessesary. You can make the process require manual reboots by adding the switch `--manual-reboots`.
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux --manual-reboots`
+`/scripts/elevate-cpanel --start --manual-reboots`
 :::
 
 The system will reboot several times during the process. While the upgrade is in progress, the system's MOTD will change.
