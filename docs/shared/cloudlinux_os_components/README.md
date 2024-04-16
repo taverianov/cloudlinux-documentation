@@ -7738,8 +7738,7 @@ Install nginx-mod-lsapi and related packages through YUM package manager as foll
 <div class="notranslate">
 
 ```
-yum install liblsapi liblsapi-devel
-yum install ea-nginx-mod-lsapi
+yum install ea-nginx-mod-lsapi --enablerepo=cl-ea4-testing
 ```
 </div>
 Now, when the module is installed, restart NGINX to ensure that the nginx-mod-lsapi is enabled:
@@ -7759,7 +7758,6 @@ Install nginx-mod-lsapi and related packages through YUM package manager as foll
 <div class="notranslate">
 
 ```
-yum install liblsapi liblsapi-devel
 yum install nginx-mod-lsapi
 ```
 </div>
@@ -7790,7 +7788,7 @@ Remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-yum erase liblsapi liblsapi-devel ea-nginx-mod-lsapi
+yum erase ea-nginx-mod-lsapi
 ```
 </div>
 Restart NGINX afterwards:
@@ -7809,7 +7807,7 @@ Remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-yum erase liblsapi liblsapi-devel nginx-mod-lsapi
+yum erase nginx-mod-lsapi
 rm [path to nginx-mod-lsapi.conf]
 ```
 </div>
