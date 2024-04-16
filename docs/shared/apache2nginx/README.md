@@ -5,8 +5,11 @@
 Apache2Nginx sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
 configuration.
 
+It seamlessly integrates with the LSAPI NGINX module,
+which allows for better performance and resource usage.
+
 :::tip  
-Apache2Nginx is supported on cPanel servers only.
+Apache2Nginx is supported on cPanel servers only, running CloudLinux OS 8 and later.
 :::
 
 ## Installation
@@ -14,7 +17,7 @@ Apache2Nginx is supported on cPanel servers only.
 To use Apache2Nginx, first install the `apache2nginx` package:
 
 ```
-yum --enablerepo=cloudlinux-updates-testing install apache2nginx
+dnf --enablerepo=cl-ea4-testing,cloudlinux-updates-testing install apache2nginx
 ```
 
 ## Convert to NGINX hosting
@@ -26,6 +29,10 @@ apache2nginx setup
 ```
 
 Note that this may take a while, so we recommend running this command in a `tmux` or `screen` session.
+
+Any websites previously using LSAPI will be automatically switched to NGINX hosting with the LSAPI NGINX module.
+Websites using PHP-FPM will be switched to NGINX hosting with PHP-FPM.
+PHP websites using other handlers will be proxied to Apache.
 
 After conversion is complete, no further action is required.
 The monitoring subsystem, when detecting a change to an `.htaccess` runs conversions to NGINX configuration.
@@ -63,3 +70,13 @@ apache2nginx unproxy -d <domain>
 Note that Apache may still serve the website, if:
 * conversion of its `.htaccess` files fails in any way
 * unsupported handler is used. Apache2Nginx only supports PHP-FPM handler
+
+## List proxied websites
+
+To list websites that are forced to be served by Apache:
+
+```
+apache2nginx list-proxied
+```
+
+This command lists all websites that are forced to be served by Apache and the reason for that.
