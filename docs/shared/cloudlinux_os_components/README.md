@@ -7843,7 +7843,7 @@ Then make sure that the loading of dynamic modules is not omitted in your main n
 ```
 include /usr/share/nginx/modules/*.conf;
 ```
-
+</div>
 In order to enable the module to process requests, you need to add the lsapi_enabled directive to your _lsapi.conf_ file as follows:
 <div class="notranslate">
 
