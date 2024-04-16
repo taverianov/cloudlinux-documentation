@@ -49,7 +49,7 @@ A full system upgrade is an inherently invasive procedure. In some cases, due to
 
 Said issues may be severe, **<font color="Red">up to and including rendering the system completely inaccessible.</font>**
 
-To that end, we **highly recommend never running ELevate on a system without a backup ready**.
+To that end, we **highly recommend never running ELevate on a system without a full server backup/snapshot ready**.
 
 Ideally, perform a trial run in a disposable environment, like a VM or a sandbox, to verify that migration functions as expected before you attempt to migrate a system.
 
@@ -262,6 +262,19 @@ Should you encounter an issue with the `switch_cln_channel` actor, make sure tha
 `rhn_check; echo $?`
 
 If it is not, you may want to force a [re-registration.](/shared/cloudlinux_installation/#license-activation)
+
+
+#### CLN channel remains targeting CL8 after an unsuccessful migration
+
+If you roll back a machine after an unsuccessful migration, you may find that your server still pulls package updates from the CLN repository for CL8.
+
+This will be indicated by upgrades pulling packages from the `cloudlinux-x86_64-server-8` repository.
+
+To switch back to the CL7 channel manually, run the following command:
+
+```
+cln-switch-channel -t 7 -o -f
+```
 
 
 #### DNF plugin installation
@@ -664,7 +677,7 @@ Download the cPanel ELevate script.
 
 Run a preupgrade check. No rpm packages will be installed during this phase.
 
-`/scripts/elevate-cpanel --check --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --check`
 
 :::tip Note
 In addition to Leapp-created log files and reports, contained in `/var/log/leapp`, cPanel ELevate also creates an additional log file: `/var/log/elevate-cpanel.log`
@@ -677,7 +690,7 @@ In some cases, e.g. when directed by support, you may want to make use of the be
 
 To do so, use the --leappbeta flag when running the elevate-cpanel script.
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --start`
 :::
 
 Once the preupgrade process completes, the results will be contained in `/var/log/leapp/leapp-report.txt` file.
@@ -706,12 +719,12 @@ Please make sure you have enough resources to perform the upgrade safely, and ma
 
 Start the upgrade by running the following command:
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux`
+`/scripts/elevate-cpanel --start`
 
 :::tip Note
 By default, the system will be automatically restarted during the upgrade process when nessesary. You can make the process require manual reboots by adding the switch `--manual-reboots`.
 
-`/scripts/elevate-cpanel --start --upgrade-to=cloudlinux --manual-reboots`
+`/scripts/elevate-cpanel --start --manual-reboots`
 :::
 
 The system will reboot several times during the process. While the upgrade is in progress, the system's MOTD will change.
