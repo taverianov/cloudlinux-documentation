@@ -7821,7 +7821,7 @@ service nginx restart
 
 ### Configuration
 
-* [Configuration references](./#configuration-references-2)
+* [Configuration references](./#configuration-references-1)
 
 In order to get nginx-mod-lsapi to work properly, you'll need to configure NGINX. To do this, we use a separate _lsapi.conf_ file.
 
