@@ -8,6 +8,7 @@
 |:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|1|5|unlimited|unlimited|
 |Resource Limits (LVE)|No|**Yes***|**Yes**|**Yes**|
+|Reseller Limits|No limits at all|No|**Yes**|**Yes**|
 |Cage FS|**Yes**|**Yes**|**Yes**|**Yes**|
 |MySQL Governor|No|No|**Yes**|**Yes**|
 |PHP Selector|**Yes**|**Yes**|**Yes**|**Yes**|

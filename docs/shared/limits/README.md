@@ -690,7 +690,11 @@ Selecting **Make the account own itself** makes the reseller full owner of all h
 
 ![](./images/ResellerLimits-enabling.png)
 
-:::tip 
+::: tip Note 
+Managing Reseller limits are not available for Solo and Admin editions. More at [Cloudlinux OS editions](/introduction/#cloudlinux-os-editions)
+:::
+ 
+ :::tip 
 When you move a user from one reseller to another on DirectAdmin you need to manually change its package because the packages aren’t moved together with users. If you don’t reassign the package, the limits for the user you have moved will be reset to default. 
 :::
 
