@@ -7899,57 +7899,57 @@ For the installation guide for nginx-mod-lsapi please visit [Installation](./#in
 [nginx-mod-lsapi customization](./#mod-lsapi-customization):
 * [lsapi_enabled](./#lsapi-enabled)  
 * [lsapi_sock_path](./#lsapi-sock-path)  
-* [lsapi_per_user](./#lsapi-per-user)  
+* [lsapi_per_user](./#lsapi-per-user-1)  
 * [lsapi_disable_reject](./#lsapi-disable-reject)  
 * [lsapi_terminate_backends_ex](./#lsapi-terminate-backends-ex)  
 * [lsapi_avoid_zombies](./#lsapi-avoid-zombies)  
 
-[Tuning LSPHP backend](./#tuning-lsphp-backend):
-* [lsapi_set_env](./#lsapi-set-env)
+[Tuning LSPHP backend](./#tuning-lsphp-backend-1):
+* [lsapi_set_env](./#lsapi-set-env-1)
 * [lsapi_env_path](./#lsapi-env-path)
-* [lsapi_backend_children](./#lsapi-backend-children)
+* [lsapi_backend_children](./#lsapi-backend-children-1)
 * [lsapi_retry_max](./#lsapi-retry-max)
 * [lsapi_max_process_time](./#lsapi-max-process-time)
 * [lsapi_pgrp_max_idle](./#lsapi-pgrp-max-idle)
 * [lsapi_own_log](./#lsapi-own-log)
 * [lsapi_common_own_log](./#lsapi-common-own-log)
-* [lsapi_backend_coredump](./#lsapi-backend-coredump)
+* [lsapi_backend_coredump](./#lsapi-backend-coredump-1)
 * [lsapi_accept_notify](./#lsapi-accept-notify)
 * [lsapi_pgrp_max_reqs](./#lsapi-pgrp-max-reqs)
 * [lsapi_pgrp_max_crashes](./#lsapi-pgrp-max-crashes)
-* [lsapi_backend_loglevel_info](./#lsapi-backend-loglevel-info)
+* [lsapi_backend_loglevel_info](./#lsapi-backend-loglevel-info-1)
 * [lsapi_oom_score_adj](./#lsapi-oom-score-adj)
  
-[Connection pool mode](./#connection-pool-mode):
+[Connection pool mode](./#connection-pool-mode-1):
 * [lsapi_use_pool](./#lsapi-use-pool)
 * [lsapi_pool_size](./#lsapi-pool-size)
 * [lsapi_max_idle](./#lsapi-max-idle)
 * [lsapi_max_reqs](./#lsapi-max-reqs)
 
-[CRIU support](./#criu-support):
+[CRIU support](./#criu-support-2):
 * [lsapi_use_criu](./#lsapi-use-criu)
 * [lsapi_criu_sock_path](./#lsapi-criu-sock-path)
 * [lsapi_criu_imgs_path](./#lsapi-criu-imgs-path)
-* [lsapi_backend_initial_start](./#lsapi-backend-initial-start)
-* [lsapi_criu_use_shm](./#lsapi-criu-use-shm)
+* [lsapi_backend_initial_start](./#lsapi-backend-initial-start-1)
+* [lsapi_criu_use_shm](./#lsapi-criu-use-shm-1)
 * [lsapi_reset_criu_on_restart](./#lsapi-reset-criu-on-restart)
-* [lsapi_criu_debug](./#lsapi-criu-debug)
+* [lsapi_criu_debug](./#lsapi-criu-debug-1)
 
-[PHP configuration management](./#php-configuration-management):
-* [lsapi_process_phpini](./#lsapi-process-phpini)
-* [lsapi_phpini](./#lsapi-phpini)
-* [lsapi_phprc](./#lsapi-phprc)
-* [lsapi_tmpdir](./#lsapi-tmpdir)
-* [lsapi_enable_user_ini](./#lsapi-enable-user-ini)
-* [lsapi_user_ini_homedir](./#lsapi-user-ini-homedir)
-* [lsapi_mod_php_behaviour](./#lsapi-mod-php-behaviour)
+[PHP configuration management](./#php-configuration-management-1):
+* [lsapi_process_phpini](./#lsapi-process-phpini-1)
+* [lsapi_phpini](./#lsapi-phpini-1)
+* [lsapi_phprc](./#lsapi-phprc-1)
+* [lsapi_tmpdir](./#lsapi-tmpdir-1)
+* [lsapi_enable_user_ini](./#lsapi-enable-user-ini-1)
+* [lsapi_user_ini_homedir](./#lsapi-user-ini-homedir-1)
+* [lsapi_mod_php_behaviour](./#lsapi-mod-php-behaviour-1)
 * [lsapi_param](./#lsapi-param)
 
-[Security](./#security):
-* [lsapi_suexec](./#lsapi-use-suexec)
+[Security](./#security-1):
+* [lsapi_suexec](./#lsapi-suexec)
 * [lsapi_user](./#lsapi-user)
-* [lsapi_uid_gid](./#lsapi-uid-gid)
-* [lsapi_paranoid](./#lsapi-paranoid)
+* [lsapi_uid_gid](./#lsapi-uid-gid-1)
+* [lsapi_paranoid](./#lsapi-paranoid-1)
 * [lsapi_check_doc_root](./#lsapi-check-doc-root)
 
 #### **nginx-mod-lsapi customization**
