@@ -7896,7 +7896,7 @@ For the installation guide for nginx-mod-lsapi please visit [Installation](./#in
 #### Configuration references
 
 
-[nginx-mod-lsapi customization](./#mod-lsapi-customization):
+[nginx-mod-lsapi customization](./#nginx-mod-lsapi-customization):
 * [lsapi_enabled](./#lsapi-enabled)  
 * [lsapi_sock_path](./#lsapi-sock-path)  
 * [lsapi_per_user](./#lsapi-per-user-1)  
