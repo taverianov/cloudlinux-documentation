@@ -17,7 +17,6 @@ Apache2Nginx is supported on cPanel servers only, running CloudLinux OS 8 and la
 To use Apache2Nginx, first install the `apache2nginx` package:
 
 ```
-dnf config-manager --set-enabled cl-ea4-testing
 dnf --enablerepo=cloudlinux-updates-testing install apache2nginx
 ```
 
