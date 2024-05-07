@@ -1106,7 +1106,7 @@ All additional information can be found [here](https://docs.cloudlinux.com/share
 
 #### CageFS
 
-You can fing CageFS documentation [here](/shared/cloudlinux_os_components/#cagefs).
+You can find CageFS documentation [here](/shared/cloudlinux_os_components/#cagefs).
 
 :::warning Attention!
 [Kernel config variables](/shared/cloudlinux_os_kernel/#kernel-config-variables) are not available for the Virtuozzo container!
