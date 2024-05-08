@@ -38,6 +38,11 @@ After conversion is complete, no further action is required.
 The monitoring subsystem, when detecting a change to an `.htaccess` runs conversions to NGINX configuration.
 So you can continue using `.htaccess` files as usual.
 
+:::tip  
+Do not attempt to stop the Apache service or remove Apache packages after switching to NGINX.
+The Apache service provides a safety net for websites that cannot be converted to NGINX.
+:::
+
 ## Switch back to Apache hosting
 
 To switch back to Apache, run:
