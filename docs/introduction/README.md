@@ -162,22 +162,6 @@ Starting from v11.116.0.1, cPanel is fully integrated with CloudLinux 9 (9.2+), 
 If you have a server with cPanel + CloudLinux already installed via the experimental flag `--experimental-os=almalinux-9.2`, as described here, it is highly recommended to reinstall the server from scratch to avoid unexpected behavior.
 :::
 
-:::tip Note!
-While the cPanel version 11.116.0.1 is not in the Stable Release, use the following instructions to install cPanel on the latest versions of CloudLinux 9. 
-:::
-
-1. Update the `/etc/cpupdate.conf` as described here, and set the config value:  
-
-```
-CPANEL=current
-```
-
-2. Start the cPanel installation process:
-
-```
-cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
-```
-
 ## CloudLinux OS life cycle
 
 CloudLinux OS follows the life cycle policy of RHEL. 
