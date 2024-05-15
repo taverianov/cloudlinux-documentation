@@ -33,12 +33,12 @@ Please refer to the [currently supported OS versions](/introduction/#cloudlinux-
 |**Features**|**<font color="#2c98f0">CloudLinux OS Solo</font>**|**CloudLinux OS Admin**|**CloudLinux OS Shared**|**CloudLinux OS Shared Pro**|
 |:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|<font color="#2c98f0">1</font>|5|unlimited|unlimited|
-|Resource Limits (LVE)|<font color="#2c98f0">No</font>|**Yes***|**Yes**|**Yes**|
+|Resource Limits (LVE)|<font color="#2c98f0">No</font>*|**Yes****|**Yes**|**Yes**|
 |Cage FS|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |MySQL Governor|<font color="#2c98f0">No</font>|No|**Yes**|**Yes**|
 |PHP Selector|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Python/Node.js Selectors|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Ruby Selector|<font color="#2c98f0">No</font>|**Yes***|**Yes**|**Yes**|
+|Python/Node.js Selectors|**<font color="#2c98f0">Yes</font>*****|**Yes*****|**Yes*****|**Yes*****|
+|Ruby Selector|<font color="#2c98f0">No</font>|**Yes*****|**Yes*****|**Yes*****|
 |HardenedPHP|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |Apache mod_lsapi PRO|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |SecureLinks|<font color="#2c98f0">No</font>|**Yes**|**Yes**|**Yes**|
@@ -50,9 +50,11 @@ Please refer to the [currently supported OS versions](/introduction/#cloudlinux-
 |AccelerateWP|**<font color="#2c98f0">Yes</font>**|**Yes**|No|**Yes**|
 |Support 24/7|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 
-\* Limits are disabled by default.
+\* Only inodes limits are available.
 
-\** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
+\** Limits are disabled by default.
+
+\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
 
 
 ### Benefits

@@ -1818,6 +1818,11 @@ yum reinstall ea-php80-php-mbstring
 
 Please find the AccelerateWP Suite End-User documentation [here](/user-docs/user-docs-solo-cloudlinux/).
 
+
+## Limits
+
+Cloudlinux Solo supports only inodes limits. More informormation is available [here](/shared/limits/#inodes)
+
 ## PHP Selector
 
 * [Overview](/solo/manager/#php-selector-overview)
