@@ -3501,7 +3501,7 @@ When installing <span class="notranslate"> LVE Manager </span> package, a specia
 
 Caching and synchronization can also be performed separately, see ["CLI Options"](./#cli-options-examples) section.
 
-To disable this feature add to the config file _/etc/sysconfig/cloudlinux_.
+To disable this feature and stop CloudLinux from interfering with system quotas, add `cl_quota_limits_autosync=no` to the config file `/etc/sysconfig/cloudlinux`.
 
 
 #### Quotas DB file
