@@ -673,6 +673,14 @@ To modify package limits click on a pencil symbol in <span class="notranslate">_
 
 When limits are set click <span class="notranslate">_Save_</span> to apply changes or <span class="notranslate">_Cancel_</span> to close the window.
 
+
+:::tip Note
+`VE_DEFAULT` package is not a real package, it's a view for default limits. You can modify default limits on a Users tab.
+
+On cPanel limits of package named `default` are applied to users with `default` package assigned.
+:::
+
+
 #### MySQL Governor package limits
 
 Starting from the:
