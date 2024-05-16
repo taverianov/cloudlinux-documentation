@@ -367,7 +367,101 @@ The following actions are available:
 
 * **Filter servers list by the date of registration**. Click _Registered Date_ and select a date or a period to show servers registered within selected period or date.
 * **Search in the list by specific query**. Type a search query in the search field to show specific servers.
-* **Remove a server from this activation key**. In this case, a server will not be protected by Imunify360 anymore. To do that, tick server(s) and click _Bin_ icon above the table.
+* **Remove a server from this activation key**. In this case, a server will not be protected by Imunify360 anymore. To do that, tick server(s) and click _Bin_ icon above the table. 
+
+### Imunify Email Notifications
+
+#### Subscription-based customers
+
+Starting from the 1st of June 2024, you will be billed for the Imunify Email service. Imunify Email costs 10% of your Imunify360 license. The billing will be based on whether the 'enabled' feature for Imunify Email is activated on your CLN account. This 'enabled' state indicates that the Imunify Email product is installed on your server. So, if the feature is turned on, you'll be billed accordingly. 
+
+You can enable Imunify Email on 3 levels:
+
+1. **Account**
+
+![](./images/imunify-email-global-level.png)
+
+* When you enable the feature on an account level, the script will install  Imunify Email on all Imunify360 servers in your account in 24 hours.  You can also run `imunify360-agent update-license` command to speed up the process. 
+* When disabling the feature on an account level, the script will deactivate the Imunify Email on all Imunify360 servers in your account in 24 hours.
+* There's also a default option called 'depends on lower level'. This allows you to control permissions based on each key or license, rather than for the whole account. 
+
+2. **Key**  
+
+You can manage permission on a key level. Go to the 'Activation keys' tab and select 'add-ons'. 
+
+![](./images/imunify-email-manage-permission-cln.png) 
+
+You will see this screen: 
+
+![](./images/imunify-email-manage-permissions2.png) 
+
+* When you enable the feature on all servers in the key, the script will install Imunify Email on all Imunify360 servers under this key in 24 hours. You can also run `imunify360-agent update-license` command to speed up the process.
+* When disabling the feature on a key level, the script will deactivate the Imunify Email on all Imunify360 servers under this key in your account in 24 hours.
+* There's also a default option called 'depends on lower level'. This allows you to control permissions based on each server. 
+
+3. **Server**
+
+You can manage permission on a server level. Go to the 'Servers' tab and select 'add-ons'. 
+
+![](./images/imunify-email-permissions-server-level.png)
+
+You will see this pop-up: 
+
+![](./images/imunify-email-popup-cln.png) 
+
+* When you enable the feature, the script will install Imunify Email on this server. You can also run `imunify360-agent update-license` command to speed up the process.
+* When disabling the feature, the script will deactivate the Imunify Email on a server in 24 hours. 
+
+As a beta tester, you have the feature Imunify Email installed on your servers. We've noticed this and have activated an additional feature related to Imunify Email on all servers where we found it installed. However, you have the flexibility to modify this setting if you wish. 
+
+#### Usage-based customers
+
+Starting from the 1st of July 2024, you will be billed for the Imunify Email service for the usage in June.  Imunify Email costs 10% of your Imunify360 license. The billing will be based on whether the 'enabled' feature for Imunify Email is activated on your CLN account. This 'enabled' state indicates that the Imunify Email product is installed on your server. So, if the feature is turned on, you'll be billed accordingly. 
+
+You can enable Imunify Email on 3 levels: 
+
+1. **Account** 
+
+![](./images/imunifyemail-cln-global-level.png) 
+
+* When you enable the feature on an account level, the script will install Imunify Email on all Imunify360 servers in your account in 24 hours. You can also run `imunify360-agent update-license` command to speed up the process.
+* When disabling the feature on an account level, the script will deactivate the Imunify Email on all Imunify360 servers in your account in 24 hours.
+* There's also a default option called 'depends on lower level'. This allows you to control permissions based on each key or license, rather than for the whole account.
+
+2. **Key** 
+
+You can manage permission on a key level. Go to the 'Activation keys' tab and select 'add-ons'. 
+
+![](./images/imunifyemail-cln-permission-by-key.png) 
+
+You will see this screen: 
+
+![](./images/ie-cln-permission-popup.png) 
+
+* When you enable the feature on all servers in the key, the script will install Imunify email on all Imunify360 servers under this key in 24 hours. You can also run imunify360-agent update-license command to speed up the process.
+* When disabling the feature on a key level, the script will deactivate the Imunify email on all Imunify360 servers under this key in your account in 24 hours.
+* There's also a default option called 'depends on lower level'. This allows you to control permissions based on each server. 
+
+3. **Server/ IP license**
+You can manage permission on a server level. Go to the 'Servers' tab and select 'add-ons'. 
+
+![](./images/ie-cln-permission-server-level.png)  
+
+**IP Licenses**
+
+![](./images/ie-cl-permission-iplicense.png) 
+
+You will see this pop-up: 
+
+![](./images/ie-cln-popup-window.png) 
+
+* When you enable the feature, the script will install Imunify email on this server. You can also run `imunify360-agent update-license` command to speed up the process.
+* When disabling the feature, the script will deactivate the Imunify email on a server in 24 hours. 
+
+You can also use our API to manage Imunify Email add-on: [https://docs.cloudlinux.com/cloudlinux_rest_api.pdf](https://docs.cloudlinux.com/cloudlinux_rest_api.pdf)
+
+As a beta tester, you have the feature Imunify Email installed on your servers. We've noticed this and have activated an additional feature related to Imunify Email on all servers where we found it installed. However, you have the flexibility to modify this setting if you wish.
+
 
 ### ELS Activation Keys
 
