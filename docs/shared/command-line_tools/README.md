@@ -1115,7 +1115,7 @@ usage: <span class="notranslate"> dbctl command [parameter] [options] </span>
 | | |
 |-|-|
 | <span class="notranslate"> default </span> |set default parameter|
-| <span class="notranslate"> usrename </span> |set parameter for user|
+| <span class="notranslate"> username </span> |set parameter for user|
 
 **Options**
 
