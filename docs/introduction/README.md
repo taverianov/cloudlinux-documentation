@@ -7,13 +7,13 @@
 |**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**|**CloudLinux OS Shared**|**CloudLinux OS Shared Pro**|
 |:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|1|5|unlimited|unlimited|
-|Resource Limits (LVE)|No|**Yes***|**Yes**|**Yes**|
+|Resource Limits (LVE)|No*|**Yes****|**Yes**|**Yes**|
 |Reseller Limits|No limits at all|No|**Yes**|**Yes**|
 |Cage FS|**Yes**|**Yes**|**Yes**|**Yes**|
 |MySQL Governor|No|No|**Yes**|**Yes**|
 |PHP Selector|**Yes**|**Yes**|**Yes**|**Yes**|
-|Python/Node.js Selectors|**Yes****|**Yes****|**Yes****|**Yes****|
-|Ruby Selector|No|**Yes****|**Yes****|**Yes****|
+|Python/Node.js Selectors|**Yes*****|**Yes*****|**Yes*****|**Yes*****|
+|Ruby Selector|No|**Yes*****|**Yes*****|**Yes*****|
 |HardenedPHP|**Yes**|**Yes**|**Yes**|**Yes**|
 |Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|
 |SecureLinks|No|**Yes**|**Yes**|**Yes**|
@@ -25,9 +25,11 @@
 |AccelerateWP|**Yes**|**Yes**|No|**Yes**|
 |Support 24/7|**Yes**|**Yes**|**Yes**|**Yes**|
 
-\* Limits are disabled by default.
+\* Only inodes limits are available.
 
-\** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panels with their own integration.
+\** LVE limits are disabled by default.
+
+\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
 
 ### CloudLinux OS Solo
 CloudLinux OS Solo is designed for installation on VPS or VDS servers.
