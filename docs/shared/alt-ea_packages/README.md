@@ -137,8 +137,8 @@ x - supported
 | alt-php 5.2 |           |           |           |
 | alt-php 5.3 |           |           |           |
 | alt-php 5.4 |           |           |           |
-| alt-php 5.5 |     x     |           |           |
-| alt-php 5.6 |     x     |           |           |
+| alt-php 5.5 |           |           |           |
+| alt-php 5.6 |     x     |     x     |     x     |
 | alt-php 7.0 |     x     |     x     |     x     |
 | alt-php 7.1 |     x     |     x     |     x     |
 | alt-php 7.2 |     x     |     x     |     x     |
@@ -163,8 +163,8 @@ x - supported
 | alt-php 5.2 |              |              |              |              |
 | alt-php 5.3 |              |              |              |              |
 | alt-php 5.4 |              |              |              |              |
-| alt-php 5.5 |       x      |       x      |       x      |              |
-| alt-php 5.6 |       x      |       x      |       x      |              |
+| alt-php 5.5 |              |              |              |              |
+| alt-php 5.6 |       x      |       x      |       x      |       x      |
 | alt-php 7.0 |       x      |       x      |       x      |       x      |
 | alt-php 7.1 |       x      |       x      |       x      |       x      |
 | alt-php 7.2 |       x      |       x      |       x      |       x      |
@@ -173,7 +173,7 @@ x - supported
 | alt-php 8.0 |       x      |       x      |       x      |       x      |
 | alt-php 8.1 |       x      |       x      |       x      |       x      |
 | alt-php 8.2 |       x      |       x      |       x      |       x      |
-| alt-php 8.3 |              |              |       x      |       x      |
+| alt-php 8.3 |       x      |       x      |       x      |       x      |
 
 
 
