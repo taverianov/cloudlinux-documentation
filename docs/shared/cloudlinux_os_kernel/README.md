@@ -228,6 +228,13 @@ may_create_sym_link: can't find ea-phpXX in ea-php-cli
 
 It's popping up each second and may increase the size of the <span class="notranslate">`/var/log/messages`</span> file.
 
+#### **fs.process_symlinks_proc**
+
+Setting this parameter will deny any process in LVE to resolve symlinks that is pointing to another mount namespace. This protection is crucial for CageFS.
+
+Default is true.
+
+
 ## File change API
 
 ### General
