@@ -789,6 +789,10 @@ On Cloudlinux OS Shared 8, changing the `/etc/fstab` file for setting `/proc` re
 
 ## Ptrace block
 
+:::tip
+Since CL7 kernel it’s recommended to use the native sysctl parameter `yama.ptrace_scope`. For details refer to the [official documentation](https://docs.kernel.org/admin-guide/LSM/Yama.html#ptrace-scope).
+::: 
+
 Starting with kernel 3.10.0-427.18.s2.lve1.4.21 ( <span class="notranslate"> CloudLinux  OS Shared</span> 7) and 2.6.32-673.26.1.lve1.4.17 ( <span class="notranslate"> CloudLinux OS Shared</span> 6) we re-implemented <span class="notranslate"> ptrace block </span> to protect against <span class="notranslate"> ptrace </span> family of vulnerabilities. It prevents end user from using any <span class="notranslate"> ptrace </span> related functionality, including such commands as <span class="notranslate"> strace, lsof </span> or <span class="notranslate"> gdb </span> .
 
 By default, <span class="notranslate"> CloudLinux OS Shared</span> doesn't prevent <span class="notranslate"> ptrace </span> functionality.
