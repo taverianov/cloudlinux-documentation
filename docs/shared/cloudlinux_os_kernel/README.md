@@ -100,12 +100,9 @@ fs.symlinkown_gid = 48
 |-|-|
 |<span class="notranslate"> _fs.enforce_symlinksifowner = 0_ </span> | do not check <span class="notranslate"> symlink </span> ownership|
 |<span class="notranslate"> _fs.enforce_symlinksifowner = 1_ </span> | deny if <span class="notranslate"> symlink </span> ownership doesn’t match target, and process <span class="notranslate"> gid </span> matches <span class="notranslate"> _symlinkown_gid</span>|
+|<span class="notranslate"> _fs.enforce_symlinksifowner = 2_ </span> | deny if a process is in <span class="notranslate"> LVE </span> or <span class="notranslate"> symlink </span> ownership doesn’t match target, and process gid matches <span class="notranslate"> _symlinkown_gid</span>|
 
 When <span class="notranslate"> _fs.enforce_symlinksifowner_ </span> set to 1, processes with <span class="notranslate"> GID </span> 48 will not be able to follow <span class="notranslate"> symlinks </span> if they are owned by <span class="notranslate"> user1 </span> , but point to file owned <span class="notranslate"> user2 </span> .
-
-:::tip Note
-_fs.enforce_symlinksifowner = 2_ is deprecated and can cause issues for the system operation.
-:::
 
 ##### **fs.symlinkown_gid**
 
@@ -230,6 +227,13 @@ may_create_sym_link: can't find ea-phpXX in ea-php-cli
 </div> 
 
 It's popping up each second and may increase the size of the <span class="notranslate">`/var/log/messages`</span> file.
+
+#### **fs.process_symlinks_proc**
+
+Setting this parameter will deny any process in LVE to resolve symlinks that is pointing to another mount namespace. This protection is crucial for CageFS.
+
+Default is true.
+
 
 ## File change API
 
@@ -784,6 +788,10 @@ On Cloudlinux OS Shared 8, changing the `/etc/fstab` file for setting `/proc` re
 :::
 
 ## Ptrace block
+
+:::tip
+Since CL7 kernel it’s recommended to use the native sysctl parameter `yama.ptrace_scope`. For details refer to the [official documentation](https://docs.kernel.org/admin-guide/LSM/Yama.html#ptrace-scope).
+::: 
 
 Starting with kernel 3.10.0-427.18.s2.lve1.4.21 ( <span class="notranslate"> CloudLinux  OS Shared</span> 7) and 2.6.32-673.26.1.lve1.4.17 ( <span class="notranslate"> CloudLinux OS Shared</span> 6) we re-implemented <span class="notranslate"> ptrace block </span> to protect against <span class="notranslate"> ptrace </span> family of vulnerabilities. It prevents end user from using any <span class="notranslate"> ptrace </span> related functionality, including such commands as <span class="notranslate"> strace, lsof </span> or <span class="notranslate"> gdb </span> .
 
