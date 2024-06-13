@@ -36,6 +36,23 @@ There are some incompatible devices with **CL6**:
 With RHEL8 (**CloudLinux OS 8/CloudLinux OS 7 Hybrid**), some devices are no longer supported.
 You can check the entire list here: [Hardware enablement considerations in adopting RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/hardware-enablement_considerations-in-adopting-rhel-8#removed-hardware-support_hardware-enablement)
 
+## Software Compatibility
+
+### ZFS
+
+CloudLinux 8+ provides limited support for ZFS, to the same degree as other RHEL-like distributions. More precisely, that means:
+
+1.  CloudLinux doesn't ship any prebuilt packages of `kmod-zfs` or `zfs-dkms`, etc. But it doesn't restrict customers from using [packages built by the OpenZFS Team](https://openzfs.github.io/openzfs-docs/Getting%20Started/RHEL-based%20distro/index.html) as they are known to be compatible and work fine on CloudLinux and AlmaLinux. In fact, we know that some of our customers are already using them for quite some time.
+    1.  The most recent CloudLinux conversion script (`cldeploy`) does not prevent the conversion of the system with `zfs` modules loaded
+1.  CloudLinux tries to keep kABI mostly compatible with RHEL's, so in case ZFS works with the RHEL-like kernel, but not with a similar CloudLinux one, we will accept tickets to fix that
+1.  Because ZFS is known to have some lag in adapting to kernel changes, we consider it the customer's responsibility to test the upgradeability of the environment to the most recent kernels and ZFS versions before upgrading the entire fleet.
+1.  Most CloudLinux features, like CageFS, should work fine with ZFS-backed mount points, and if not, we will try our best to provide fixes according to severity and demand
+
+CloudLinux features known to not work with ZFS:
+
+1.  LVE IO Limits (as well as generic cgroups limits) don't work because the ZFS data path bypasses some of the kernel's internals. See related upstream tickets [1](https://github.com/canonical/lxd/issues/7627#issuecomment-671107839), [2](https://github.com/openzfs/zfs/issues/4275#issuecomment-1137332006), [3](https://github.com/openzfs/zfs/issues/1952#issuecomment-148471131). There is also an [ongoing attempt](https://github.com/openzfs/zfs/pull/16205) to implement per-dataset IO limits on the ZFS side.
+
+
 ## Getting License
 
 You will need a valid activation key - trial or paid - to be able to use your CloudLinux OS Solo server.
