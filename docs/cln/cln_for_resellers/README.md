@@ -44,20 +44,6 @@ The following actions are available:
 
 You can find the process description [here](/cln/purchase/#cloudlinux-os-plus)
 
-## Deposit Top Up
-
-
-Navigate to Billing → Balance and Top Up.
-
-![](./images/clndeposittopup_zoom60.png)
-
-To add funds via your PayPal account, click _Proceed to Checkout_. You will be redirected to PayPall checkout page. Fill in _Price per item_ and click _Continue_, then proceed with PayPal.
-
-If a reseller adds the Payment method, he will be able to "top up" the deposit.
-
-![](./images/clntopup.png)
-
-
 ## Autopayments
 
 
