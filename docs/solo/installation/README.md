@@ -140,7 +140,7 @@ It is not possible to select specific packages during a manual installation, you
 To install CloudLinux OS Solo, first, choose the `CloudLinux OS Solo (minimal)` environment on the left of the screen.
 
 :::warning Warning
-All other environments are used to install [CloudLinux OS Shared](http://docs.cloudlinux.com/), so make sure you choose `CloudLinux OS Solo (minimal)`. 
+All other environments are used to install [CloudLinux OS](http://docs.cloudlinux.com/), so make sure you choose `CloudLinux OS Solo (minimal)`. 
 :::
 
 Only one environment can be chosen, even if more are available. 

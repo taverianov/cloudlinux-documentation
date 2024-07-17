@@ -775,14 +775,14 @@ If a user gets such an error message - it means that  1 reload  in  1 minute for
 
 **IO/IOPS throttling detection** is available since `alt-php-xray-0.3-7` and `lvemanager-xray-0.7-1`.
 
-- `kmod-lve-2.0-23` (and later) for CloudLinux OS Shared 8 or CloudLinux OS Shared 7 hybrid
-- `kernel-1.5-58` (and later) for CloudLinux OS Shared 7 or CloudLinux OS Shared 6 hybrid
+- `kmod-lve-2.0-23` (and later) for CloudLinux OS 8 or CloudLinux OS 7 hybrid
+- `kernel-1.5-58` (and later) for CloudLinux OS 7 or CloudLinux OS 6 hybrid
 
 are also required to utilize the feature of **IO/IOPS throttling detection**.
 :::
 
 :::warning Warning
-X-Ray automated throttling detection feature is not supported for CloudLinux OS Shared 6
+X-Ray automated throttling detection feature is not supported for CloudLinux OS 6
 :::
 
 The X-Ray automated throttling detection system checks if the account exceeds LVE limits by CPU or by IO/IOPS during the HTTP request execution. Requests with exceeded LVE limits are indicated in both X-Ray Administrator and X-Ray User plugins.

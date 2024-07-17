@@ -52,19 +52,19 @@ hybrid-to-normal
 
 #### Known limitations and issues of hybrid kernels
 
-**CloudLinux OS Shared 6 Hybrid kernel**
+**CloudLinux OS 6 Hybrid kernel**
 
-1. We do not remove Hybrid kernel after migration from Hybrid to the normal channel, but we remove <span class="notranslate"> linux-firmware </span> package which is needed to boot Hybrid kernel. This is because <span class="notranslate"> CloudLinux OS Shared</span> 6 does not allow to remove the package of currently running kernel. Thus please don't reboot the server back to Hybrid kernel after you remove it.
+1. We do not remove Hybrid kernel after migration from Hybrid to the normal channel, but we remove <span class="notranslate"> linux-firmware </span> package which is needed to boot Hybrid kernel. This is because <span class="notranslate"> CloudLinux OS </span> 6 does not allow to remove the package of currently running kernel. Thus please don't reboot the server back to Hybrid kernel after you remove it.
 
-2. Kernel module signature isn't checking for now, as 3.10 kernel is using x509 certificates to generate keys and CloudLinux OS Shared 6 cannot detect signatures created in such way.
+2. Kernel module signature isn't checking for now, as 3.10 kernel is using x509 certificates to generate keys and CloudLinux OS 6 cannot detect signatures created in such way.
 
 ## SecureLinks and Link Traversal Protection
 
 ::: tip Note
-Link Traversal Protection is disabled by default for the CloudLinux OS Shared.
+Link Traversal Protection is disabled by default for the CloudLinux OS.
 :::
 
-CloudLinux OS Shared and CloudLinux OS Admin provides comprehensive protection against 
+CloudLinux OS provides comprehensive protection against 
 symbolic link attacks popular in shared hosting environment.
 
 The protection requires setting multiple kernel parameters to be enabled:
@@ -165,13 +165,13 @@ Please read the known issues section before enabling this feature.
 #### **fs.process_symlinks_by_task** <Badge type="info" text="cPanel"/>
 
 ::: tip Note
-This option only available on CloudLinux 7 Hybrid or on CloudLinux 8 Shared and Admin editions.
+This option only available on CloudLinux 7 Hybrid or on CloudLinux 8.
 Also please note that this feature is available for cPanel only.
 :::
 
 This parameter is needed to protect against symlink vulnerability where an attacker might get access to files out of the CageFS via cPanel tools: File Manager, WebDAV, Webmail, etc. When a symlink is accessed from cPanel tools (non-root user case) we check whether the current process UID matches the symlink target UID.
 
-To enable the protection for CloudLinux OS Shared , set the <span class="notranslate">`fs.process_symlinks_by_task`</span> parameter to 1:
+To enable the protection for CloudLinux OS, set the <span class="notranslate">`fs.process_symlinks_by_task`</span> parameter to 1:
 <div class="notranslate">
 
 ```
@@ -179,7 +179,7 @@ fs.process_symlinks_by_task=1
 ```
 </div>
 
-To disable the protection for CloudLinux OS Shared 7 hybrid, set the <span class="notranslate">`fs.process_symlinks_by_task`</span> parameter to 0:
+To disable the protection for CloudLinux OS 7 hybrid, set the <span class="notranslate">`fs.process_symlinks_by_task`</span> parameter to 0:
 <div class="notranslate">
 
 ```
@@ -243,7 +243,7 @@ Default is true.
 
 One of the main problems on a shared hosting system for file backup operations is to figure out which files have changed. Using <span class="notranslate"> INOTIFY </span> on a 1T drive with a large number of small files and directories guarantees slow startup times, and a lot of context switching between kernel and userspace - generating additional load. On the other hand scanning disk for newly modified files is very <span class="notranslate"> IO </span> intensive, and can kill the performance of the fastest disks.
 
-**CloudLinux OS Shared approach**
+**CloudLinux OS approach**
 
 <span class="notranslate"> CloudLinux File Change API </span> is a kernel level technology with the user space interface that buffers lists of modified files in the kernel and then off-loads that list to user space daemon.
 
@@ -334,7 +334,7 @@ Kernel Version: 3.10.0-427.36.1.lve1.4.47
 
 To install <span class="notranslate"> cloudlinux-fchange </span> system run:
 
-_CloudLinux OS Shared 7:_
+_CloudLinux OS 7:_
 <div class="notranslate">
 
 ```
@@ -342,7 +342,7 @@ yum install cloudlinux-fchange --enablerepo=cloudlinux-updates-testing
 ```
 </div>
 
-_CloudLinux OS Shared 6 Hybrid:_
+_CloudLinux OS 6 Hybrid:_
 
 <div class="notranslate">
 
@@ -359,7 +359,7 @@ Database containing list of modified files is located at <span class="notranslat
 After successful installation the event collecting daemon starts automatically, providing all <span class="notranslate"> kernel-exposed </span> data are in place.
 
 To start daemon:
-<span class="notranslate">_CloudLinux OS Shared 7:_ </span>
+<span class="notranslate">_CloudLinux OS 7:_ </span>
 
 <div class="notranslate">
 
@@ -368,7 +368,7 @@ systemctl start cloudlinux-file-change-collector
 ```
 </div>
 
-_CloudLinux OS Shared 6 Hybrid:_
+_CloudLinux OS 6 Hybrid:_
 
 <div class="notranslate">
 
@@ -378,7 +378,7 @@ service cloudlinux-file-change-collector start
 </div>
 To stop daemon:
 <span class="notranslate"> </span>
-_CloudLinux OS Shared 7:_
+_CloudLinux OS 7:_
 
 <div class="notranslate">
 
@@ -387,7 +387,7 @@ systemctl stop cloudlinux-file-change-collector
 ```
 </div>
 
-_CloudLinux OS Shared 6 Hybrid:_
+_CloudLinux OS 6 Hybrid:_
 
 <div class="notranslate">
 
@@ -508,7 +508,7 @@ The kernel exposes the functionality to /proc/sys/fs/datacycle/ folder.
 
 The <span class="notranslate"> **_tuned-profiles-cloudlinux_** </span> package brings a range of kernel under-the-hood tunings to address high LA, iowait issues what were detected earlier on particular users deploys. The package also encloses OOM adjustments to prioritize the elimination of overrun PHP, <span class="notranslate"> lsphp, Phusion Passenger </span> workers processes over other processes (e.g. ssh, a cron job).
 
-There are three profiles provided by CloudLinux OS Shared:
+There are three profiles provided by CloudLinux OS:
 <div class="notranslate">
 
 ```
@@ -549,7 +549,7 @@ UBC parameters set the limits for the containers:
 <span class="notranslate">  ubc.dirty_ratio=100 </span> - Defines maximum RAM percentage for dirty memory pages.
 <span class="notranslate"> dirty_background_ratio=75</span> - Defines RAM percentage when to allow writing dirty pages on the disk.
 
-3. _[CloudLinux OS Shared 7 only]_ Detects used disk types and changes elevator to <span class="notranslate"> 'deadline' </span> for HDD and to <span class="notranslate"> 'noop' </span> for SSD in <span class="notranslate"> /sys/block/[blockname]/queue/scheduler </span> . 
+3. _[CloudLinux OS 7 only]_ Detects used disk types and changes elevator to <span class="notranslate"> 'deadline' </span> for HDD and to <span class="notranslate"> 'noop' </span> for SSD in <span class="notranslate"> /sys/block/[blockname]/queue/scheduler </span> . 
 
 ::: tip Note
 <span class="notranslate">The script uses /sys/block/[blockname]/queue/rotational flag, some RAID controllers can not set it properly. For example, SSD used for RAID but rotational is set to 1 by RAID driver. As a workaround add the following to /etc/rc.d/rc.local to make it applied on boot:</span>
@@ -574,7 +574,7 @@ chmod +x /etc/rc.d/rc.local
 ```
 </div>
 
-4. _[CloudLinux OS Shared 7 only]_ The profile sets <span class="notranslate"> I/O </span> scheduler. For the normal discs the <span class="notranslate"> Deadline Scheduler </span> is set to improve <span class="notranslate"> IO </span> performance and decrease <span class="notranslate"> IO </span> latency, for SSD - noop.
+4. _[CloudLinux OS 7 only]_ The profile sets <span class="notranslate"> I/O </span> scheduler. For the normal discs the <span class="notranslate"> Deadline Scheduler </span> is set to improve <span class="notranslate"> IO </span> performance and decrease <span class="notranslate"> IO </span> latency, for SSD - noop.
 When configuring scheduler <span class="notranslate"> I/O </span> queue is changed and set to the value 1024 which improves overall <span class="notranslate"> I/O </span> subsystem performance by caching <span class="notranslate"> IO </span> requests in memory.
 
 5. Disables transparent <span class="notranslate"> HugePage </span> .
@@ -611,9 +611,9 @@ tuned-adm off
 
 ## Kernel config variables
 
-Starting from **lvemanager 4.0-25.5**, **lve-utils 3.0-21.2**, and **cagefs-6.1-26**, CloudLinux OS Shared utilities can read/write kernel config variables from a custom config /etc/sysctl.d/90-cloudlinux.conf (earlier, the parameters were read/written only from sysctl.conf ).
+Starting from **lvemanager 4.0-25.5**, **lve-utils 3.0-21.2**, and **cagefs-6.1-26**, CloudLinux OS utilities can read/write kernel config variables from a custom config /etc/sysctl.d/90-cloudlinux.conf (earlier, the parameters were read/written only from sysctl.conf ).
 
-CloudLinux OS Shared utilities get parameter by using `sysctl` system utility. So for now, even if a config variable is not set in the `sysctl.conf` and in the `/etc/sysctl.d` config files, this variable will be read by `sysctl` utility directly from `/proc/sys`.
+CloudLinux OS utilities get parameter by using `sysctl` system utility. So for now, even if a config variable is not set in the `sysctl.conf` and in the `/etc/sysctl.d` config files, this variable will be read by `sysctl` utility directly from `/proc/sys`.
 
 If you changed some kernel variables in `/etc/sysctl.d/90-cloudlinux.conf` you need to apply these changes to the kernel parameter by running the command:
 
@@ -673,7 +673,7 @@ Starting from **lve-utils v.4.2.0-1**, when installing (not updating) the `lve-u
 If a group was created in the `fs.proc_super_gid` earlier all stays the same.
 
 
-Virtualized /proc filesystem in CloudLinux OS Shared 8/CloudLinux OS Shared 7 hybrid will display all files to unprivileged users. But unprivileged users will have access only to the following files (as well as directories for PIDs for the user):
+Virtualized /proc filesystem in CloudLinux OS 8/CloudLinux OS 7 hybrid will display all files to unprivileged users. But unprivileged users will have access only to the following files (as well as directories for PIDs for the user):
 <div class="notranslate">
 
 ```
@@ -758,7 +758,7 @@ to apply `/etc/fstab` changes.
 Nevertheless, we recommend to manage procfs mount options via `/etc/sysctl.conf` as described above for backward compatibility. 
 
 ::: tip Note
-There is a known issue on CloudLinux OS Shared 6 systems. User cannot see full /proc inside CageFS even when this user is in “super” group, that should see full /proc. This issue does not affect users with CageFS disabled. CloudLinux OS Shared 7 is not affected.
+There is a known issue on CloudLinux OS 6 systems. User cannot see full /proc inside CageFS even when this user is in “super” group, that should see full /proc. This issue does not affect users with CageFS disabled. CloudLinux OS 7 is not affected.
 :::
 
 ::: tip Note
@@ -769,9 +769,9 @@ Starting from lve-utils 3.0-21.2, lve_namespaces service can read parameters fro
 Even if fs.proc_can_see_other_uid and fs.proc_super_gid parameters are not set in config files but specified in /proc/sys, then when restarting lve_namespaces service the parameters from /proc/sys will be used. So, /proc will be remounted according to these parameters.
 :::
 
-### Remounting procfs on CloudLinux OS Shared 8
+### Remounting procfs on CloudLinux OS 8
 
-On CloudLinux OS Shared 8, starting from the kernel version `4.18.0-193.28.1.lve1.el8.x86_64` remounting is controlled by the kernel.
+On CloudLinux OS 8, starting from the kernel version `4.18.0-193.28.1.lve1.el8.x86_64` remounting is controlled by the kernel.
 
 As before, admins are able to change the settings `fs.proc_can_see_other_uid` and `fs.proc_super_gid` in the `/etc/sysctl.d/90-cloudlinux.conf` or `/etc/sysctl.conf`.
 
@@ -784,7 +784,7 @@ sysctl --system
 It is no longer needed to manually run the `/usr/share/cloudlinux/remount_proc.py` to remount `/proc`.
 
 ::: tip Note
-On Cloudlinux OS Shared 8, changing the `/etc/fstab` file for setting `/proc` remounting with the `hidepid=` option **will not cause any effect** as remounting is totally controlled by the kernel and depends on the `fs.proc_can_see_other_uid` option.
+On Cloudlinux OS 8, changing the `/etc/fstab` file for setting `/proc` remounting with the `hidepid=` option **will not cause any effect** as remounting is totally controlled by the kernel and depends on the `fs.proc_can_see_other_uid` option.
 :::
 
 ## Ptrace block
@@ -793,9 +793,9 @@ On Cloudlinux OS Shared 8, changing the `/etc/fstab` file for setting `/proc` re
 Since CL7 kernel it’s recommended to use the native sysctl parameter `yama.ptrace_scope`. For details refer to the [official documentation](https://docs.kernel.org/admin-guide/LSM/Yama.html#ptrace-scope).
 ::: 
 
-Starting with kernel 3.10.0-427.18.s2.lve1.4.21 ( <span class="notranslate"> CloudLinux  OS Shared</span> 7) and 2.6.32-673.26.1.lve1.4.17 ( <span class="notranslate"> CloudLinux OS Shared</span> 6) we re-implemented <span class="notranslate"> ptrace block </span> to protect against <span class="notranslate"> ptrace </span> family of vulnerabilities. It prevents end user from using any <span class="notranslate"> ptrace </span> related functionality, including such commands as <span class="notranslate"> strace, lsof </span> or <span class="notranslate"> gdb </span> .
+Starting with kernel 3.10.0-427.18.s2.lve1.4.21 ( <span class="notranslate"> CloudLinux  OS </span> 7) and 2.6.32-673.26.1.lve1.4.17 ( <span class="notranslate"> CloudLinux OS </span> 6) we re-implemented <span class="notranslate"> ptrace block </span> to protect against <span class="notranslate"> ptrace </span> family of vulnerabilities. It prevents end user from using any <span class="notranslate"> ptrace </span> related functionality, including such commands as <span class="notranslate"> strace, lsof </span> or <span class="notranslate"> gdb </span> .
 
-By default, <span class="notranslate"> CloudLinux OS Shared</span> doesn't prevent <span class="notranslate"> ptrace </span> functionality.
+By default, <span class="notranslate"> CloudLinux OS </span> doesn't prevent <span class="notranslate"> ptrace </span> functionality.
 
 Defaults:
 <div class="notranslate">
@@ -840,18 +840,18 @@ ptrace protection is known to break PSA service for Plesk 11
 By adding <span class="notranslate"> xen_blkfront.sda_is_xvda=0 </span> to kernel boot line in <span class="notranslate"> grub.conf </span> you will make sure no naming translation is done, and the drives will be identified as <span class="notranslate"> xvde </span> .
 
 By default, this option is set to 1 in the kernel, and drives are detected as <span class="notranslate"> xvda </span> .
-This is needed only for CloudLinux OS Shared 6 and <span class="notranslate"> Hybrid </span> kernels.
+This is needed only for CloudLinux OS 6 and <span class="notranslate"> Hybrid </span> kernels.
 
 ## Umask behavior
 
 :::tip Note
-CloudLinux OS Shared 6, CloudLinux OS Shared 6 hybrid, CloudLinux OS Shared 7, CloudLinux OS Shared 7 hybrid kernels.
+CloudLinux OS 6, CloudLinux OS 6 hybrid, CloudLinux OS 7, CloudLinux OS 7 hybrid kernels.
 ::: 
  
 Starting from the kernel module **lve-kmod-2.0-10**, the behavior of umask is changed.
 
 Now, when entering LVE task's original umask value is preserved, instead of using LVE's umask value.
-This behavior is typical for all kernels: CloudLinux OS Shared 6, CloudLinux OS Shared 6 hybrid, CloudLinux OS Shared 7, CloudLinux OS Shared 7 hybrid kernels. 
+This behavior is typical for all kernels: CloudLinux OS 6, CloudLinux OS 6 hybrid, CloudLinux OS 7, CloudLinux OS 7 hybrid kernels. 
 
 ## IO limits latency
 
@@ -862,7 +862,7 @@ By defining <span class="notranslate"> IO latency, you can make sure that no pro
 
 This option is <span class="notranslate"> OFF by default. </span>
 
-_For CloudLinux OS Shared 6 , CloudLinux OS Shared 7, CloudLinux OS Shared 8 (kmodlve 2.1-2 and later):_
+_For CloudLinux OS 6 , CloudLinux OS 7, CloudLinux OS 8 (kmodlve 2.1-2 and later):_
 
 To enable <span class="notranslate"> IO </span> Limits latency and set it to 10 seconds:
 <div class="notranslate">
@@ -883,7 +883,7 @@ It is possible to set, for example, 1000 as a permanent value. To do so, create 
 <span class="notranslate">`options kmodlve latency=1000` </span>
 
 
-_For <span class="notranslate"> CloudLinux OS Shared</span> 5 (OBSOLETE):_
+_For <span class="notranslate"> CloudLinux OS </span> 5 (OBSOLETE):_
 
 To enable <span class="notranslate"> IO </span> Limits latency and set it to 10 seconds:
 <div class="notranslate">
@@ -903,7 +903,7 @@ echo 2000000000 > /sys/module/iolimits/**parameters/latency
 
 ## Reading LVE usage
 
-CloudLinux OS Shared kernel provides real time usage data in file.
+CloudLinux OS kernel provides real time usage data in file.
 
 All the statistics can be read from that file in real time. Depending on your kernel version you will get either Version 6 of the file, or version 4 of the file.
 You can detect the version by reading the first line of the file. It should look like:
@@ -952,12 +952,12 @@ Version 6 (CL6 & hybrid kernels):
 ## Flashcache
 
 :::tip Note
-Available only for x86_64, <span class="notranslate">CloudLinux</span> OS Shared 6 and Hybrid servers
+Available only for x86_64, <span class="notranslate">CloudLinux</span> OS 6 and Hybrid servers
 :::
 
 <span class="notranslate"> Flashcache </span> is a module originally written and released by <span class="notranslate">  Facebook (Mohan Srinivasan, Paul Saab </span> and <span class="notranslate"> Vadim Tkachenko </span> ) in April of 2010. It is a kernel module that allows Writethrough caching of a drive on another drive. This is most often used for caching a rotational drive on a smaller solid-state drive for performance reasons. This gives you the speed of an <span class="notranslate"> SSD </span> and the size of a standard rotational drive for recently cached files. <span class="notranslate"> Facebook </span> originally wrote the module to speed up database <span class="notranslate"> I/O </span> , but it is easily extended to any <span class="notranslate"> I/O </span> .
 
-To install on <span class="notranslate"> CloudLinux OS Shared</span> 6 & Hybrid servers:
+To install on <span class="notranslate"> CloudLinux OS </span> 6 & Hybrid servers:
 <div class="notranslate">
 
 ```
@@ -973,7 +973,7 @@ More info on <span class="notranslate"> flashcache </span> : [https://github.com
 
 ## OOM killer for LVE processes
 
-When <span class="notranslate">LVE</span> reaches its memory limit, the processes inside that <span class="notranslate"> LVE </span> are killed by <span class="notranslate"> OOM Killer </span> and appropriate message is written to <span class="notranslate"> /var/log/messages </span> . When any <span class="notranslate"> LVE </span> hits huge number of memory limits in short period of time, then <span class="notranslate"> OOM Killer </span> could cause system overload. Starting from kernel 2.6.32-673.26.1.lve1.4.15 ( <span class="notranslate"> CloudLinux OS Shared</span> 6) and from kernel 3.10.0-427.18.2.lve1.4.14 ( <span class="notranslate"> CloudLinux OS Shared</span> 7) heavy <span class="notranslate"> OOM Killer </span> could be disabled. If so - lightweight <span class="notranslate"> SIGKILL </span> will be used instead.
+When <span class="notranslate">LVE</span> reaches its memory limit, the processes inside that <span class="notranslate"> LVE </span> are killed by <span class="notranslate"> OOM Killer </span> and appropriate message is written to <span class="notranslate"> /var/log/messages </span> . When any <span class="notranslate"> LVE </span> hits huge number of memory limits in short period of time, then <span class="notranslate"> OOM Killer </span> could cause system overload. Starting from kernel 2.6.32-673.26.1.lve1.4.15 ( <span class="notranslate"> CloudLinux OS </span> 6) and from kernel 3.10.0-427.18.2.lve1.4.14 ( <span class="notranslate"> CloudLinux OS </span> 7) heavy <span class="notranslate"> OOM Killer </span> could be disabled. If so - lightweight <span class="notranslate"> SIGKILL </span> will be used instead.
 
 :::tip Note
 It is recommended to disable OOM killer for LVE processes and use SIGKILL instead
@@ -981,7 +981,7 @@ It is recommended to disable OOM killer for LVE processes and use SIGKILL instea
 
 By default <span class="notranslate"> OOM Killer </span> is enabled, to disable it please run:
 
-_For <span class="notranslate"> CloudLinux OS Shared</span> 6_ :
+_For <span class="notranslate"> CloudLinux OS </span> 6_ :
 <div class="notranslate">
 
 ```
@@ -997,7 +997,7 @@ ubc.ubc_oom_disable=1
 ```
 </div>
 
-_For <span class="notranslate"> CloudLinux OS Shared</span> 7:_
+_For <span class="notranslate"> CloudLinux OS </span> 7:_
 
 <div class="notranslate">
 
@@ -1030,7 +1030,7 @@ echo 1 > /proc/sys/fs/xfs/cap_res_quota_disable
 ```
 </div>
 
-## Enter LVE when using cPanel utilities <Badge type="info" text="cPanel"/> <Badge text="CloudLinux OS Shared 7 hybrid"/> <Badge text="experimental" type="warning"/>
+## Enter LVE when using cPanel utilities <Badge type="info" text="cPanel"/> <Badge text="CloudLinux OS 7 hybrid"/> <Badge text="experimental" type="warning"/>
 
 cPanel tools might use more resources than desired, so to limit resource usage, you might want to enter the corresponding LVE when using cPanel tools on-behalf of a non-root user.
 
@@ -1039,7 +1039,7 @@ This feature is considered experimental, as in this case there might be contenti
 
 The <span class="notranslate">`lve_setuid_enter`</span> parameter controls whether you want to enter the corresponding LVE when using cPanel tools on behalf of a non-root user.
 
-By default, the feature is disabled (0), to enable it, run the following for CloudLinux OS Shared 7 hybrid:
+By default, the feature is disabled (0), to enable it, run the following for CloudLinux OS 7 hybrid:
 
 <div class="notranslate">
 
@@ -1064,9 +1064,9 @@ To send required kernel logs from the clients' machines to _Kernel Panic Receive
 
 The configuration is done by the `initscripts` package, starting from the following versions:
 
-* For CloudLinux OS Shared 6: `9.03.61-1.cloudlinux`
-* For CloudLinux OS Shared 7: `9.49.49-1.cloudlinux`
-* For CloudLinux OS Shared 8: `10.00.4-1.cloudlinux`
+* For CloudLinux OS 6: `9.03.61-1.cloudlinux`
+* For CloudLinux OS 7: `9.49.49-1.cloudlinux`
+* For CloudLinux OS 8: `10.00.4-1.cloudlinux`
 
 To update the `initscripts` package, run the following command:
 
@@ -1098,5 +1098,5 @@ service netconsole stop
 ```
 
 :::tip Note
-_Netconsole_ is used only for Kernel Panic Receiver, so disabling it doesn't lead to issues with other CloudLinux OS Shared services.
+_Netconsole_ is used only for Kernel Panic Receiver, so disabling it doesn't lead to issues with other CloudLinux OS services.
 :::
