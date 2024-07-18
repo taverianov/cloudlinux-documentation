@@ -89,3 +89,15 @@ apache2nginx list-proxied
 ```
 
 This command lists all websites that are forced to be served by Apache and the reason for that.
+
+## Other notes
+
+Apache2Nginx automatically converts `.htaccess` files to NGINX configuration, stored under the directory `/etc/nginx`
+as `apache2nginx.conf` and files prefixed with `apache2nginx-`.
+
+Please don't modify these files manually, as they will be overwritten by the monitoring subsystem.
+
+Instead, if you want to augment the NGINX configuration, you can do any of the following:
+
+* Work with your `.htaccess` files like usually, and let Apache2Nginx automatically convert them to respective NGINX configuration
+* Add files according to `ea-nginx` files conventions. Please refer to the [cPanel documentation](https://docs.cpanel.net/knowledge-base/web-services/nginx-with-reverse-proxy/).
