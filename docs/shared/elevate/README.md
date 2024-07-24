@@ -11,7 +11,7 @@ Refer to [this documentation section](#i-have-a-centos-7-system-i-want-to-migrat
 :::
 
 :::warning
-We disclaim responsibility for incorrect or improper use of the tool. The support team will not be able to help you if you have not followed all the steps described in the documentation or converted a server with a non-cPanel control panel present.
+We disclaim responsibility for incorrect or improper use of the tool. The support team will not be able to help you if you have not followed all the steps described in the documentation or converted a server with an unsupported control panel present.
 
 In addition, support will not be provided if you have any third-party utilities that do not function after the upgrade, according to [Support policy](https://www.cloudlinux.com/CloudLinux-and-Imunify-support-policy.pdf). Examples: webservers, DNS servers, mail servers, database servers and other utilities that do not belong to our product line.
 :::
@@ -26,6 +26,8 @@ The CloudLinux ELevate variant, built on top of the [AlmaLinux ELevate project](
 The [Leapp utility](https://leapp.readthedocs.io/) is the main tool used to perform the upgrade.
 
 The [ELevate Scenario - CloudLinux 7 with cPanel](#elevate-scenario-cloudlinux-7-with-cpanel) uses the [cPanel ELevate](https://github.com/cpanel/elevate) project as an additional layer of the upgrade process.
+
+The [ELevate Scenario - CloudLinux 7 with Plesk](#elevate-scenario-cloudlinux-7-with-plesk) also uses an additional layer - the [cloudlinux7to8](https://github.com/plesk/cloudlinux7to8) project.
 
 ELevate is a project aimed to provide the ability to migrate between major versions of RHEL-based distributions from 7.x to 8.x. It combines Red Hat's Leapp framework with a community created library and service for the migration metadata set required for it.
 
@@ -49,7 +51,11 @@ A full system upgrade is an inherently invasive procedure. In some cases, due to
 
 Said issues may be severe, **<font color="Red">up to and including rendering the system completely inaccessible.</font>**
 
-To that end, we **highly recommend never running ELevate on a system without a full server backup/snapshot ready**.
+In addition, in some cases the conversion process may get stuck once the server boots into a temporary configuration that does not start any network interfaces. It is preferable to have a way to access the server without an SSH connection, for example, through VNC.
+
+The upgrade process itself is not designed to be reversible. While some of the changes can be undone, the process of reverting the system to its pre-upgrade state varies depending on the system's configuration and the point at which the upgrade failed. Thus, restoring the system from a backup is the most reliable way to recover from a failed upgrade.
+
+Due to all of the potential risks involved, we **highly recommend never running ELevate on a system without a full server backup/snapshot ready**.
 
 Ideally, perform a trial run in a disposable environment, like a VM or a sandbox, to verify that migration functions as expected before you attempt to migrate a system.
 
@@ -87,7 +93,7 @@ This stage may take **up to an hour**, so schedule the upgrade accordingly.
 
 During the preparation stages - that is, when the upgrade process is first *initiated* and before the system is rebooted - the system's services will function normally.
 
-Note that CloudLinux 7 no panel/custom panel and cPanel upgrade scenarios behave somewhat differently during the preparation stage. The cPanel scenario will disable the site functionality from this stage up until completion, while the no-panel/custom panel scenario will not.
+Note that different upgrade scenarios behave somewhat differently during the preparation stage. For example, the cPanel scenario will disable the site functionality from the inital stage up until completion, while the no-panel/custom panel scenario will not.
 
 
 ### How long does it take?
@@ -105,6 +111,8 @@ At the moment, ELevate migration from CloudLinux 7 to CloudLinux 8 is supported 
 
 * *no panel/custom panel* systems;
 * *cPanel* systems.
+* *DirectAdmin* systems.
+* *Plesk* systems.
 
 
 #### I have a CL7 system with no webpanel/a custom webpanel installed, how do I upgrade to CL8?
@@ -119,7 +127,19 @@ With cPanel present on the machine, you need to run the upgrade process through 
 
 Please refer to the [ELevate Scenario - CloudLinux 7 with cPanel](#elevate-scenario-cloudlinux-7-with-cpanel) for step-by-step instructions.
 
-#### I have a CL7 system with DirectAdmin/Plesk/another panel installed, how do I upgrade to CL8?
+#### I have a CL7 system with DirectAdmin installed, how do I upgrade to CL8?
+
+The DirectAdmin panel does not require any additional actions or tools compared to the no-panel upgrade scenario.
+
+You can make use of the [CloudLinux 7 with no panel/custom panel ELevate Scenario](#elevate-scenario-cloudlinux-7-with-no-panel-or-a-custom-panel) to upgrade systems with the DirectAdmin panel much like you would for systems without one.
+
+#### I have a CL7 system with Plesk installed, how do I upgrade to CL8?
+
+Like cPanel, the Plesk panel requires you to make use of an additional tool to perform the upgrade on a system. In this case, you need to use the `cloudlinux7to8` tool [provided by the Plesk team](https://github.com/plesk/cloudlinux7to8).
+
+Please refer to the [ELevate Scenario - CloudLinux 7 with Plesk](#elevate-scenario-cloudlinux-7-with-plesk) for step-by-step instructions.
+
+#### I have a CL7 system with a different panel installed, how do I upgrade to CL8?
 
 Unfortunately, CloudLinux ELevate doesn't support these system configurations yet.
 
@@ -767,3 +787,90 @@ cat /etc/os-release
 
 Check the leapp logs for `.rpmnew` configuration files that may have been created during the upgrade process. In some cases files like `/etc/os-release` or yum package files may not be replaced automatically - in particular, when said files were modified - requiring the user to rename the `.rpmnew` files manually.
 
+
+## ELevate Scenario - CloudLinux 7 with Plesk
+
+This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on systems with Plesk present.
+
+The process is performed through a tool provifed and maintained by the Plesk team, [cloudlinux7to8](https://github.com/plesk/cloudlinux7to8), with CL Leapp as a component of the process.
+
+See the official Plesk cloudlinux7to8 documentation with additional details at [the project page for cloudlinux7to8
+](https://github.com/plesk/cloudlinux7to8?tab=readme-ov-file#)
+
+### Preparation
+
+As always, make sure to have a backup of your system prepared before starting the upgrade process.
+
+Ensure that your system is fully updated before starting the upgrade process.
+
+To prepare for the upgrade, download the latest version of the cloudlinux7to8 tool from the [releases page](https://github.com/plesk/cloudlinux7to8/releases/latest):
+
+```bash
+
+> wget https://github.com/plesk/cloudlinux7to8/releases/download/latest/cloudlinux7to8-1.0.0.zip
+> unzip cloudlinux7to8-1.0.0.zip
+> chmod 755 cloudlinux7to8
+
+```
+
+### Running
+
+To monitor the conversion process, it is recommended to use the `screen` utility to run the conversion process in a separate session.
+
+```bash
+> screen -S cloudlinux7to8
+> ./cloudlinux7to8
+```
+
+If the connection is lost, you can reattach to the session with the following command:
+
+```bash
+> screen -r cloudlinux7to8
+```
+
+The process can also be run in the background:
+
+```bash
+> nohup ./cloudlinux7to8 &
+```
+
+This will start the conversion process.
+
+During the process, Plesk services will stop, and hosted websites will not be accessible.
+
+During the upgrade process, the system will reboot several times. The primary upgrade transaction, where the Leapp component updates the system to CL8, will be performed in a custom OS environment. The system will be inaccessible via SSH during this time.
+
+### Monitoring and troubleshooting
+
+The conversion process will take some time to complete.
+
+To check the status of the conversion process, use the `--status` flag.
+
+```bash
+> ./cloudlinux7to8 --status
+```
+
+To monitor the progress of the conversion process in real time, use the `--monitor` flag.
+
+```bash
+> ./cloudlinux7to8 --monitor
+( stage 3 / action re-installing plesk components  ) 02:26 / 06:18
+```
+
+Aside from the main Leapp logs contained in `/var/log/leapp`, the cloudlinux7to8 tool will create a log file in `/var/log/plesk/cloudlinux7to8.log` that contains additional information about the conversion process.
+
+### Reverting
+
+If the process fails during the initial stages, you can attempt to revert the system to its original state by running the cloudlinux7to8 tool with the `--revert` flag.
+
+```bash
+> ./cloudlinux7to8 --revert
+```
+
+The cloudlinux7to8 will undo some of the changes it made and restart Plesk services.
+
+Note that the revert process may not be able to fully restore the system to its original state, and you may need to restore from a backup if the system is left in an unusable state.
+
+You cannot use revert to undo the changes after the first reboot triggered by cloudlinux7to8.
+
+Also, the revert does not remove Leapp or packages installed by Leapp. Neither does it free persistent storage disk space reserved by Leapp.
