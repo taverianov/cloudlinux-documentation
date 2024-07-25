@@ -15,7 +15,7 @@ or to [convert server to CloudLinux](/solo/installation/#converting-existing-ser
 
 :::warning
 The CloudLinux OS Solo activation key is used ONLY for registration CloudLinux OS Solo 8.
-Trying use it for registration CloudLinux OS Legacy 6/7/8 or converting from CentOS 6/7/ 8 to CloudLinux OS Legacy 6/7/8 cause errors.
+Trying use it for registration CloudLinux OS Legacy (Shared) 6/7/8 or converting from CentOS 6/7/ 8 to CloudLinux OS Legacy 6/7/8 cause errors.
 :::
 
 :::tip Note

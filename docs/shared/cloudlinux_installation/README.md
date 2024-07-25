@@ -1,4 +1,4 @@
-    # Installation
+# Installation
 
 [[toc]]
 
@@ -551,7 +551,7 @@ yum install rhn-setup
 ```
 
 
-## Cloud Provider Images (CloudLinux OS Legacy only)
+## Cloud Provider Images (CloudLinux OS Legacy (Shared) only)
 
 * [OpenStack QEMU/KVM](https://download.cloudlinux.com/cloudlinux/images/#kvm-tab)
 * [VMware](https://download.cloudlinux.com/cloudlinux/images/#vmware-tab)
@@ -581,10 +581,10 @@ How to use CloudLinux Image in Azure:
 ### Xen Images
 
 :::tip Note
-We do not provide Xen images of CloudLinux OS Legacy anymore, use [ISO images](#installing-new-servers) instead 
+We do not provide Xen images of CloudLinux OS Legacy (Shared) anymore, use [ISO images](#installing-new-servers) instead 
 :::
 
-## Provider-specific guidelines (CloudLinux OS Legacy only)
+## Provider-specific guidelines (CloudLinux OS Legacy (Shared) only)
 
 * [Amazon Web Services](/shared/cloudlinux_installation/#aws)
 * [H-Sphere](/shared/cloudlinux_installation/#h-sphere)
@@ -594,9 +594,9 @@ We do not provide Xen images of CloudLinux OS Legacy anymore, use [ISO images](#
 
 ### AWS
 
-CloudLinux OS Legacy image list can be found *[here](https://download.cloudlinux.com/cloudlinux/images/#aws-tab)*.
+CloudLinux OS Legacy (Shared) image list can be found *[here](https://download.cloudlinux.com/cloudlinux/images/#aws-tab)*.
 
-If you are going to use CloudLinux OS Legacy with cPanel image, you may find useful the following *[article](https://cloudlinux.zendesk.com/hc/en-us/articles/360014130320-How-to-get-CloudLinux-OS-with-cPanel-AMI-working-on-AWS)*.
+If you are going to use CloudLinux OS Legacy (Shared) with cPanel image, you may find useful the following *[article](https://cloudlinux.zendesk.com/hc/en-us/articles/360014130320-How-to-get-CloudLinux-OS-with-cPanel-AMI-working-on-AWS)*.
 
 ### H-Sphere
 
@@ -617,7 +617,7 @@ Please note, that CageFS and PHP Selector are not supported for H-Sphere
 
 To achieve optimal performance, we recommend to [convert from mod_fastcgi to mod_fcgid](/shared/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
 
-There is no need to install mod_hostinglimits – it comes built in with H-Sphere. Once you load kernel from CloudLinux OS Legacy with liblve 0.8 or later – it will get enabled.
+There is no need to install mod_hostinglimits – it comes built in with H-Sphere. Once you load kernel from CloudLinux OS Legacy (Shared) with liblve 0.8 or later – it will get enabled.
 
 You can check if LVE is enabled by running:
 <span class="notranslate"> </span>
@@ -843,7 +843,7 @@ Other options could be configured according to personal needs.
 When done - click <span class="notranslate">_SUBMIT_</span> to apply changes.
 
 :::tip Note
-After updating H-Sphere software on web server with CloudLinux OS Legacy you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/shared/scripts/apache-restart` script.
+After updating H-Sphere software on web server with CloudLinux OS Legacy (Shared) you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/shared/scripts/apache-restart` script.
 :::
 
 ### DigitalOcean
@@ -895,7 +895,7 @@ Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS image as a c
 
 2. Copy the link for the image you are going to use and log into [cloud.digitalocean.com](https://blog.digitalocean.com/custom-images/cloud.digitalocean.com).
 
-Click <span class="notranslate">_Images_</span> on the left of the screen and then choose <span class="notranslate">_Custom Images_</span>. Click the <span class="notranslate">_Import via URL_</span> button and paste the CloudLinux OS Legacy image link.
+Click <span class="notranslate">_Images_</span> on the left of the screen and then choose <span class="notranslate">_Custom Images_</span>. Click the <span class="notranslate">_Import via URL_</span> button and paste the CloudLinux OS Legacy (Shared) image link.
 
 ![](./images/customimages.png)
 
@@ -1339,7 +1339,7 @@ vzctl set CT_ID --devnodes lve:none --save
 
 Inside the container, follow [standard CloudLinux installation procedures](/shared/cloudlinux_installation/#converting-existing-servers).
 
-CloudLinux OS Legacy license is required for each VZ container.
+CloudLinux OS Legacy (Shared) license is required for each VZ container.
 
 :::tip Note
 Some servers require increasing `fs.ve-mount-nr` on host node, otherwise CageFS will throw errors. Look for details [here](./#known-restrictions-and-issues)
@@ -1374,7 +1374,7 @@ mv /etc/lilo.conf /etc/lilo.conf.bak
 ```
 </div>
 
-3. Convert to CloudLinux OS Legacy using <span class="notranslate"> [deploy2cl](/shared/cloudlinux_installation/#converting-existing-servers)</span> utility.
+3. Convert to CloudLinux OS Legacy (Shared) using <span class="notranslate"> [deploy2cl](/shared/cloudlinux_installation/#converting-existing-servers)</span> utility.
 
 4. Check <span class="notranslate">`grub.conf`</span> – it should be configured automatically:
  
@@ -1410,7 +1410,7 @@ timeout=5
 
 ## Switch license
 
-You can convert your existing CloudLinux OS installation to CloudLinux OS Legacy.
+You can convert your existing CloudLinux OS installation to CloudLinux OS Legacy (Shared).
 
 1. Obtain new key from [CLN](https://cln.cloudlinux.com)
 2. Run `rhnreg_ks --force --activationkey=<new_key>`
@@ -1434,7 +1434,7 @@ The following actions will be taken:
 In the end, the script will provide instructions on how to finish the conversion back to AlmaLinux or CentOS*. That will require removal of CloudLinux OS kernel (manual step), and installation of AlmaLinux or CentOS* kernel (if needed).
 
 :::warning
-Do not forget to free up a CloudLinux OS Legacy license by removing the server from the [Servers section of your CLN account](https://docs.cloudlinux.com/cln/dashboard/#servers). After that, if you don't intend to use the license anymore, you can [remove it](https://docs.cloudlinux.com/cln/dashboard/#cloudlinux-os-activation-keys) to avoid being billed for it. 
+Do not forget to free up a CloudLinux OS Legacy (Shared) license by removing the server from the [Servers section of your CLN account](https://docs.cloudlinux.com/cln/dashboard/#servers). After that, if you don't intend to use the license anymore, you can [remove it](https://docs.cloudlinux.com/cln/dashboard/#cloudlinux-os-activation-keys) to avoid being billed for it. 
 :::
 
 To uninstall CloudLinux OS, run:

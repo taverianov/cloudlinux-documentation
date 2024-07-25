@@ -1125,7 +1125,7 @@ See also: [Node.js Selector CLI tools](/shared/command-line_tools/#node-js-selec
 **PHP Slow Site analyzer** is a new tool that generates daily reports for the server administrator with information about the top N slow PHP-based domains and URLs. Slow Site analyzer tracks all PHP-based requests and selects slow ones by certain rules.   
 
 :::tip Note
-Slow Site analyzer is not available for CloudLinux OS Legacy 6.
+Slow Site analyzer is not available for CloudLinux OS Legacy (Shared) 6.
 :::
  
 **Installation**
@@ -1168,7 +1168,7 @@ Remember that report is created every 24 hours and all changes in configuration 
 #### PHP Slow Site analyzer
 
 :::tip Note
-The Slow Site analyzer is not available for CloudLinux OS Legacy 6.
+The Slow Site analyzer is not available for CloudLinux OS Legacy (Shared) 6.
 :::
 
 ![](./images/WebsiteMonitoringPHPSiteAnalyzer.png)
@@ -1201,7 +1201,7 @@ To enable or disable **Website monitoring**, use the following slider.
 To enable or disable the **Slow site analyzer**, use the following slider.
 
 :::tip Note
-Slow Site analyzer is not available for CloudLinux OS Legacy 6.
+Slow Site analyzer is not available for CloudLinux OS Legacy (Shared) 6.
 :::
 
 ![](./images/WebsiteMonitoringSlider1.png)

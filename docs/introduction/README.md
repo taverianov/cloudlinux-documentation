@@ -4,7 +4,7 @@
 
 ## CloudLinux OS editions
 
-|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**| **CloudLinux OS Legacy** |**CloudLinux OS Shared Pro**|
+|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**| **CloudLinux OS Legacy (Shared)** |**CloudLinux OS Shared Pro**|
 |:-:|:-:|:-:|:------------------------:|:-:|
 |Maximum amount of hosting accounts|1|5|        unlimited         |unlimited|
 |Resource Limits (LVE)|No*|**Yes****|         **Yes**          |**Yes**|
@@ -45,7 +45,7 @@ At the same time you will be able to separate such a user's websites if necessar
 with CageFS for efficient extra security.
 Also it may be suitable for a small server with less than 5 customers on it.
 
-Most of the features of CloudLinux OS Legacy are available in this edition, with a small differences:
+Most of the features of CloudLinux OS Legacy (Shared) are available in this edition, with a small differences:
 
 - lve limits are set to unlimited by default (can be changed in CloudLinux Manager at any time)
 - MySQL Governor is not available in this edition
@@ -61,7 +61,7 @@ causing all sites to slow down or even come to a halt. CloudLinux OS Shared Pro 
 to avoid security breaches. This way, unstable scripts or malware are not able to sprawl across your customer sites,
 causing severe harm.
 
-Purchasing CloudLinux OS Shared Pro license extends your CloudLinux OS Legacy
+Purchasing CloudLinux OS Shared Pro license extends your CloudLinux OS Legacy (Shared)
 functionality with even more useful [features](/shared-pro/introduction/).
 
 
@@ -150,11 +150,11 @@ and allows to collect the usage data.
 
 ## CloudLinux 9
 
-| CloudLinux 9 version             | Editions                                                                                  | Hosting Panels                                                         | Virtuozzo Support |
-|----------------------------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------|-------------------|
-| CloudLinux 9 Beta                | CloudLinux Legacy CloudLinux Shared Pro                                                   | - Non-panel<br /> - Custom panel integration                                 | No                |
-| [CloudLinux 9.2](https://blog.cloudlinux.com/cloudlinux-os-9.2-is-now-available-for-non-panel-and-custom-panel-installations)                   | CloudLinux Legacy CloudLinux Shared Pro                                                   | - Non-panel<br /> - Custom panel integration<br /> - cPanel with experimental key | No                |
-| [CloudLinux 9.3](https://blog.cloudlinux.com/cloudlinux-os-9-introducing-the-latest-9.3-version-now-accessible-for-non-panel-custom-panel-and-cpanel-users-from-version-11.116.0.1-onwards)<br>[CloudLinux 9.4](https://blog.cloudlinux.com/introducing-cloudlinux-os-9.4-stable-release) | CloudLinux Legacy<br /> CloudLinux Shared Pro<br /> CloudLinux Solo<br />CloudLinux Admin | - Non-panel<br /> - Custom panel integration<br />  - cPanel >=  11.116.0.1        | No                |
+| CloudLinux 9 version             | Editions                                                                                 | Hosting Panels                                                         | Virtuozzo Support |
+|----------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------|-------------------|
+| CloudLinux 9 Beta                | CloudLinux Legacy (Shared) CloudLinux Shared Pro                                         | - Non-panel<br /> - Custom panel integration                                 | No                |
+| [CloudLinux 9.2](https://blog.cloudlinux.com/cloudlinux-os-9.2-is-now-available-for-non-panel-and-custom-panel-installations)                   | CloudLinux Legacy (Shared) CloudLinux Shared Pro                                                 | - Non-panel<br /> - Custom panel integration<br /> - cPanel with experimental key | No                |
+| [CloudLinux 9.3](https://blog.cloudlinux.com/cloudlinux-os-9-introducing-the-latest-9.3-version-now-accessible-for-non-panel-custom-panel-and-cpanel-users-from-version-11.116.0.1-onwards)<br>[CloudLinux 9.4](https://blog.cloudlinux.com/introducing-cloudlinux-os-9.4-stable-release) | CloudLinux Legacy (Shared)<br /> CloudLinux Shared Pro<br /> CloudLinux Solo<br />CloudLinux Admin | - Non-panel<br /> - Custom panel integration<br />  - cPanel >=  11.116.0.1        | No                |
 
 :::tip Note!
 Starting from v11.116.0.1, cPanel is fully integrated with CloudLinux 9 (9.2+), and the flag `--experimental-os=almalinux-9.2` no longer necessary.
