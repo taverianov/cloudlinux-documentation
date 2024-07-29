@@ -2,7 +2,7 @@
 
 * [Installation wizard](./#installation-wizard)
 * [CloudLinux Manager](./#cloudlinux-manager)
-* [Inodes limits](/shared/limits/#inodes)
+* [Inodes limits](/legacy/limits/#inodes)
 * [Control panel integration guide](./#control-panel-integration-guide)
 
 <span class="notranslate">CloudLinux Manager</span> is a plugin for most popular control panels including cPanel, Plesk, DirectAdmin, InterWorx, and CyberPanel. It allows you to control and monitor limits, and set limits on per package bases.
@@ -86,7 +86,7 @@ It is the fastest and most reliable way to serve PHP pages for Apache web-server
 
 ![](./images/wizard_lsapi_zoom90.png)
 
-LSAPI requires CRIU to operate and we also recommend you to use mod_suexec. You can find details in our [documentation](/shared/cloudlinux_os_components/#apache-mod-lsapi-pro).
+LSAPI requires CRIU to operate and we also recommend you to use mod_suexec. You can find details in our [documentation](/legacy/cloudlinux_os_components/#apache-mod-lsapi-pro).
 
 <div class="notranslate">
 
@@ -99,7 +99,7 @@ Monitors MySQL usage to throttle abusers, preventing server overload and improvi
 ![](./images/wizard_mysqlgovernor_zoom90.png)
 
 :::tip Note
-<span class="notranslate">MySQL Governor</span> can be automatically installed only with cPanel/WHM and DirectAdmin - use CLI instructions available [here](/shared/command-line_tools/#mysql-governor) in all other cases.
+<span class="notranslate">MySQL Governor</span> can be automatically installed only with cPanel/WHM and DirectAdmin - use CLI instructions available [here](/legacy/command-line_tools/#mysql-governor) in all other cases.
 :::
 
 We recommend you to create a full database backup before the <span class="notranslate"> MySQL Governor </span> installation.
@@ -146,7 +146,7 @@ Allows end users to select the specific version of PHP they need, with over 120 
 
 ![](./images/wizard_php_selector_zoom90.png)
 
-Go to <span class="notranslate">CloudLinux Manager</span> settings to set up <span class="notranslate"> PHP Selector</span> options and parameters. Read more in the [PHP Selector documentation](/shared/cloudlinux_os_components/#installation-and-update-4). 
+Go to <span class="notranslate">CloudLinux Manager</span> settings to set up <span class="notranslate"> PHP Selector</span> options and parameters. Read more in the [PHP Selector documentation](/legacy/cloudlinux_os_components/#installation-and-update-4). 
 
 :::tip Note
 CageFS should be enabled for PHP Selector to operate.
@@ -296,22 +296,22 @@ The <span class="notranslate">CloudLinux OS Dashboard</span> provides the follow
   * <span class="notranslate">Reseller Limits</span> status (<span class="notranslate">Enabled/Disabled</span>). To manage <span class="notranslate">Reseller Limits</span>, click <span class="notranslate">_Manage_</span>. You will be redirected to <span class="notranslate">CloudLinux Manager | Users</span> tab.
   * Reseller’s accounts with Reseller Limits/all —  the number of Reseller accounts with Reseller Limits enabled versus the total number of Reseller accounts.
   * Reseller’s End Users with enabled Reseller Limits/all — the number of end users with Reseller Limits enabled versus all End Users that belong to all resellers.
-* <span class="notranslate">[MySQL Governor](/shared/cloudlinux_os_components/#mysql-governor)</span> block displays the following data:
+* <span class="notranslate">[MySQL Governor](/legacy/cloudlinux_os_components/#mysql-governor)</span> block displays the following data:
   * <span class="notranslate">MySQL Governor</span> status (<span class="notranslate">Enabled/Disabled/Not installed/Skipped</span>). To manage <span class="notranslate">MySQL Governor</span>, click <span class="notranslate">_Manage_</span>. You will be redirected to <span class="notranslate">CloudLinux Manager | Options | MySQL Governor Mode of Operation</span>. Click <span class="notranslate">_Install_</span> to install <span class="notranslate">MySQL Governor</span>.
-  * <span class="notranslate">[Mode](/shared/cloudlinux_os_components/#modes-of-operation)</span> — displays the <span class="notranslate">MySQL Governor</span> mode of operation. Click <span class="notranslate">_Manage_</span> to change the mode.
+  * <span class="notranslate">[Mode](/legacy/cloudlinux_os_components/#modes-of-operation)</span> — displays the <span class="notranslate">MySQL Governor</span> mode of operation. Click <span class="notranslate">_Manage_</span> to change the mode.
     * <span class="notranslate">Single</span> — single LVE is used for all customers that go over their DB limits (deprecated).
     * <span class="notranslate">Off</span> — monitor Only, no DB query limits are applied.
     * <span class="notranslate">All</span> — all queries are run inside user's LVE.
     * <span class="notranslate">Abusers</span> — only queries that go over DB limits are executed inside that user's LVE (this is the default mode).
   * <span class="notranslate">Database version</span> —  displays a current version of <span class="notranslate">MySQL/MariaDB/Percona</span> server installed in the system.
-* [CageFS](/shared/cloudlinux_os_components/#cagefs) block displays the following data:
+* [CageFS](/legacy/cloudlinux_os_components/#cagefs) block displays the following data:
   * <span class="notranslate">CageFS</span> status (<span class="notranslate">Enabled/Disabled/Not installed</span>). To manage CageFS, click <span class="notranslate">_Manage_</span>. You will be redirected to <span class="notranslate">CloudLinux Manager | Options | CageFS</span>. Click <span class="notranslate">_Install_</span> to install CageFS.
   * <span class="notranslate">Mode</span> displays the current CageFS mode of operation.
   * <span class="notranslate">End users</span> — displays the number of users with CageFS enabled/all.
-* [ModLSAPI](/shared/cloudlinux_os_components/#apache-mod-lsapi-pro) block displays the following data:
+* [ModLSAPI](/legacy/cloudlinux_os_components/#apache-mod-lsapi-pro) block displays the following data:
   * Mod_lsapi status (<span class="notranslate">Enabled/Disabled/Not installed</span>). Click <span class="notranslate">_Install_</span> to install Mod_lsapi.
   * Module version displays the running version of Mod_lsapi.
-  * [Criu_status](/shared/cloudlinux_os_components/#criu-support) displays the status of lsapi_criu:
+  * [Criu_status](/legacy/cloudlinux_os_components/#criu-support) displays the status of lsapi_criu:
     * <span class="notranslate">Running</span> —  means that lsapi_criu is working.
     * <span class="notranslate">Stopped</span> —  means that lsapi_criu is not working.
   * <span class="notranslate">Total Domains</span> displays the total number of domains with Mod_lsapi configured as PHP handler.
@@ -413,8 +413,8 @@ Click on <span class="notranslate">_History_</span> symbol to view the history o
 
 :::warning Note
 If CageFS is disabled, group actions are not available. See how you can enable CageFS:
-* [Managing users](/shared/cloudlinux_os_components/#managing-users)
-* [CageFS CLI](/shared/command-line_tools/#cagefs)
+* [Managing users](/legacy/cloudlinux_os_components/#managing-users)
+* [CageFS CLI](/legacy/command-line_tools/#cagefs)
 * via cPanel CageFS User Manager plugin.
 :::
 
@@ -617,7 +617,7 @@ Tick if yes.
 Allows to manage CageFS settings:
 
 * **CageFS** - enable/disable CageFS
-* **<span class="notranslate">CageFS Skeleton</span>** - click to update CageFS skeleton. See: [Updating CageFS skeleton](/shared/control_panel_integration/#updating-cagefs-skeleton)
+* **<span class="notranslate">CageFS Skeleton</span>** - click to update CageFS skeleton. See: [Updating CageFS skeleton](/legacy/control_panel_integration/#updating-cagefs-skeleton)
 * **<span class="notranslate">New users will be disabled by default in CageFS</span>** - toggle to enable/disable new users in CageFS by default.
 
 #### Node.js
@@ -629,7 +629,7 @@ Allows to enable/disable and manage Node.js Selector.
 See more:
 
 * [Node.js Selector UI](./#node-js-selector-2)
-* [Node.js Selector](/shared/cloudlinux_os_components/#node-js-selector)
+* [Node.js Selector](/legacy/cloudlinux_os_components/#node-js-selector)
 
 #### Python Selector section
 
@@ -640,7 +640,7 @@ Allows to enable/disable and manage Python Selector.
 See more:
 
 * [Python Selector UI](./#python-selector-2)
-* [Python Selector](/shared/cloudlinux_os_components/#python-selector)
+* [Python Selector](/legacy/cloudlinux_os_components/#python-selector)
 
 When you've done with settings, click <span class="notranslate">**Save Changes**</span> to apply changes.
 
@@ -744,7 +744,7 @@ Choose default modules from the list for a proper PHP version or for native.
 ![](./images/php_selector.png)
 
 :::tip Note
-You can also use [PHP Selector CLI](/shared/command-line_tools/#php-selector)
+You can also use [PHP Selector CLI](/legacy/command-line_tools/#php-selector)
 :::
 
 ####  Selector tab additional features <Badge type="info" text="cPanel" /> <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
@@ -784,7 +784,7 @@ You can see the following errors in the <span class="notranslate">_Domains_</spa
 
 **Solution**
 
-Initialize CageFS in the Options tab (see [installation instructions](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
+Initialize CageFS in the Options tab (see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
 
 ![](./images/CageFSInit.png)
 
@@ -794,7 +794,7 @@ Initialize CageFS in the Options tab (see [installation instructions](/shared/cl
 
 **Solution**
 
-Enable CageFS in the Users tab (see [installation instructions](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
+Enable CageFS in the Users tab (see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
 
 ![](./images/CageFSEnable.png)
 
@@ -821,7 +821,7 @@ The most popular errors and solutions:
 
 ![](./images/Issue1.png)
    
-**Solution**: install `mod_suexec` (see instructions [here](/shared/cloudlinux_os_components/#installation-5)) and then run the following command:
+**Solution**: install `mod_suexec` (see instructions [here](/legacy/cloudlinux_os_components/#installation-5)) and then run the following command:
 
 <div class="notranslate">
 
@@ -840,15 +840,15 @@ cagefsctl --force-update
 
 ![](./images/Issue3.png)
 
-**Solution**: see [installation instructions](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
+**Solution**: see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
 
 4. MultiPHP system default version is not ea-php
 
 ![](./images/Issue4.png)
 
-**Solution**: see [installation instructions](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
+**Solution**: see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
 
-In the CloudLinux Manager v.6.0.6-1 the diagnostic tool can not catch problems with CageFS. See [installation instructions](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users.
+In the CloudLinux Manager v.6.0.6-1 the diagnostic tool can not catch problems with CageFS. See [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users.
 
 
 
@@ -970,7 +970,7 @@ All packages of the application(s) will be re-installed.
 :::
 
 :::tip Note
-You can also use [Python Selector CLI](/shared/command-line_tools/#hoster)
+You can also use [Python Selector CLI](/legacy/command-line_tools/#hoster)
 :::
 
 See also: [Python Selector client plugin](./#python-selector-client-plugin)
@@ -1087,7 +1087,7 @@ All packages of the application(s) will be re-installed.
 :::
 
 :::tip Note
-You can also use [Node.js Selector CLI](/shared/command-line_tools/#hoster-2)
+You can also use [Node.js Selector CLI](/legacy/command-line_tools/#hoster-2)
 :::
 
 See also: [Node.js Selector client plugin](./#node-js-selector-client-plugin)
@@ -1106,7 +1106,7 @@ Context: virtual host, htaccess
  
 By default, <span class="notranslate">Passenger</span> log messages are all written to the Passenger log file. With this option, you can have the app specific messages logged to a different file in addition. In <span class="notranslate"> alt-mod-passenger </span>, you can use it in the context of a virtual host or in the htaccess file.
 
-See also: [Node.js Selector CLI tools](/shared/command-line_tools/#node-js-selector).
+See also: [Node.js Selector CLI tools](/legacy/command-line_tools/#node-js-selector).
 
 ### Website monitoring tool and Slow Site analyzer
 
@@ -1116,8 +1116,8 @@ See also: [Node.js Selector CLI tools](/shared/command-line_tools/#node-js-selec
 * [Settings](./#settings)
 * [What is the density threshold?](./#what-is-the-density-threshold)
 * [Email notifications](./#email-notifications)
-* [The cloudlinux-ssa-manager CLI utility](/shared/command-line_tools/#the-cloudlinux-ssa-manager-utility)
-* [The wmt-api CLI utility](/shared/command-line_tools/#the-wmt-api-utility)
+* [The cloudlinux-ssa-manager CLI utility](/legacy/command-line_tools/#the-cloudlinux-ssa-manager-utility)
+* [The wmt-api CLI utility](/legacy/command-line_tools/#the-wmt-api-utility)
 * [FAQ](./#faq)
 
 **Website monitoring tool** is a new tool that collects the statistics of the domains' availability and responsiveness, as well as errors that occur when accessing these domains. An admin can get email reports with the statistics. The website monitoring tool uses the simple curl request like `curl http://domain.com` to get domains’ statistics.
@@ -1658,7 +1658,7 @@ You can choose a date and a snapshot to display in the table.
 
 #### Server processes snapshots
 
-In case when a CloudLinux OS user hits LVE limits, appropriate faults are generated and [lvestats](/shared/deprecated/#lve-stats-0-x) package generates server processes snapshot. Snapshot is a list of running applications and a list of running MySQL queries right after the faults happened.
+In case when a CloudLinux OS user hits LVE limits, appropriate faults are generated and [lvestats](/legacy/deprecated/#lve-stats-0-x) package generates server processes snapshot. Snapshot is a list of running applications and a list of running MySQL queries right after the faults happened.
 
 Snapshots allow users to investigate the reason of account hitting its limits. Several snapshots are generated for each incident. An incident is a state when faults are generated in a close time period. The time period is configurable. By default, if faults are generated in 300 seconds time period, we consider them as a single incident.
 
@@ -1675,7 +1675,7 @@ The snapshot configuration options are available in
 * <span class="notranslate">`snapshots_per_minute = 2`</span> by default, maximum number of snapshots per minute
 * <span class="notranslate">`max_snapshots_per_incident = 10`</span> by default, maximum number of snapshots for an incident
 
-To access <span class="notranslate">**Snapshots**</span> you can also use [lve-read-snapshot](/shared/command-line_tools/#lve-read-snapshot) utility.
+To access <span class="notranslate">**Snapshots**</span> you can also use [lve-read-snapshot](/legacy/command-line_tools/#lve-read-snapshot) utility.
 
 :::tip Note
 The list of processes in a snapshot is close but not similar to the real processes list when faults were generated. It happens because of delay when the faults are happened and the snapshot is taken by the system.
@@ -1827,7 +1827,7 @@ The following actions are available:
 * Open Application URL — click the <span class="notranslate">_Open_</span>.
 * Change Application startup file — specify as <span class="notranslate">`NAME.py`</span> file.
 * Change Application Entry point — specify WSGI callable object for your application.
-* Passenger log file — starting from CloudLinux Manager 5.1.0-2 you can set paths to Passenger logs for Python applications via UI (or using [cloudlinux-selector](/shared/command-line_tools/#new-python-selector) utility).
+* Passenger log file — starting from CloudLinux Manager 5.1.0-2 you can set paths to Passenger logs for Python applications via UI (or using [cloudlinux-selector](/legacy/command-line_tools/#new-python-selector) utility).
 * Run pip install command — click <span class="notranslate">_Run pip install_</span> to install the package(s) described in the configuration file.
 * Add Configuration files — click <span class="notranslate">_Add_</span> and specify all required information.
 * Edit available configuration file — click <span class="notranslate">_Edit_</span>, the file opens in a new popup.
@@ -1838,11 +1838,11 @@ Click <span class="notranslate">_Save_</span> to save all changes or <span class
 
 #### Migrate application
 
-For details see [How to migrate an application to the new Python Selector](/shared/cloudlinux_os_components/#how-to-migrate-an-application-to-the-new-python-selector)
+For details see [How to migrate an application to the new Python Selector](/legacy/cloudlinux_os_components/#how-to-migrate-an-application-to-the-new-python-selector)
 
 
 :::tip Note
-You can also use [Python Selector CLI](/shared/command-line_tools/#end-user)
+You can also use [Python Selector CLI](/legacy/command-line_tools/#end-user)
 :::
 
 ### Node.js Selector client plugin
@@ -1914,12 +1914,12 @@ The following actions are available:
 * Application root — specify in a field a physical address to the application on a server that corresponds with its URI.
 * Application URL — specify in a field an HTTP/HTTPS link to the application.
 * Application startup file — specify as <span class="notranslate"> NAME.js file </span>.
-* Passenger log file — starting from CloudLinux Manager 5.1.0-2 you can set paths to Passenger logs for Node.js applications via UI (or using [cloudlinux-selector](/shared/command-line_tools/#node-js-selector) utility).
+* Passenger log file — starting from CloudLinux Manager 5.1.0-2 you can set paths to Passenger logs for Node.js applications via UI (or using [cloudlinux-selector](/legacy/command-line_tools/#node-js-selector) utility).
 * Run <span class="notranslate"> npm install command </span> — click <span class="notranslate"> _Run npm install_ </span> button to install the package(s) described in the <span class="notranslate"> package.json </span> file.
 * Add Environment variables — click <span class="notranslate"> _Add Variable_ </span> and specify a name and a value.
 
 :::tip Note
-You can also use [Node.js Selector CLI](/shared/command-line_tools/#end-user-2)
+You can also use [Node.js Selector CLI](/legacy/command-line_tools/#end-user-2)
 :::
 
 ### Ruby Selector client plugin
@@ -2110,4 +2110,4 @@ To learn how to work with package extensions limits using WHM API, please read t
 
 #### Control panel integration guide
 
-[Here](/shared/control_panel_integration/) you will find the instructions and common techniques used to integrate your software with CloudLinux OS.
+[Here](/legacy/control_panel_integration/) you will find the instructions and common techniques used to integrate your software with CloudLinux OS.

@@ -1,6 +1,6 @@
 #  CloudLinux OS components
 
-* [Reseller limits](/shared/limits/#reseller-limits)
+* [Reseller limits](/legacy/limits/#reseller-limits)
 * [LVE-Stats 2](./#lve-stats-2)
 * [CageFS](./#cagefs)
 * [MySQL Governor](./#mysql-governor)
@@ -83,7 +83,7 @@ SQLite database file is located in <span class="notranslate">`/var/lve/lvestats2
 Currently, the new <span class="notranslate">lve-stats</span> supports all databases available in CloudLinux OS.
 
 :::tip Note
-You can also use [LVE-stats 2 CLI](/shared/command-line_tools/#lve-stats-2)
+You can also use [LVE-stats 2 CLI](/legacy/command-line_tools/#lve-stats-2)
 :::
 
 #### Downgrade
@@ -104,7 +104,7 @@ You may need to rename `*.rpmsave` files to original ones in order to restore se
 :::
 
 :::tip Note
-You can also use [LVE-stats 2 CLI](/shared/command-line_tools/#lve-stats-2)
+You can also use [LVE-stats 2 CLI](/legacy/command-line_tools/#lve-stats-2)
 :::
 
 ### Configuration
@@ -177,7 +177,7 @@ Configuration files for plugins are located in <span class="notranslate">`/etc/s
 * <span class="notranslate">`REPORT_ADMIN_EMAIL`</span> - custom email for admin reporting. For example: <span class="notranslate">`REPORT_ADMIN_EMAIL=report_email@host.com`</span>
 * <span class="notranslate">`NOTIFY_CHARSET_EMAIL`</span> – charset type for email. Available for <span class="notranslate">__lve-stats-2.9.4-1__</span> and later. Default is <span class="notranslate">`us-ascii`</span>. For example: <span class="notranslate">`NOTIFY_CHARSET_EMAIL=utf-8`</span>. If your email templates include non-Latin letters, it is recommended to use the UTF-8 encoding.
 
-These values can also be set using [cloudlinux-config CLI](/shared/command-line_tools/#cloudlinux-config) utility
+These values can also be set using [cloudlinux-config CLI](/legacy/command-line_tools/#cloudlinux-config) utility
 
 Templates of notifications are located here:
 
@@ -204,7 +204,7 @@ service lvestats restart
 <span class="notranslate">`/etc/logrotate.d/lvestats`</span> - configuration file for <span class="notranslate">`/var/log/lve-stats.log rotation`</span>
 
 :::tip Note
-You can also use [LVE-stats 2 CLI](/shared/command-line_tools/#lve-stats-2)
+You can also use [LVE-stats 2 CLI](/legacy/command-line_tools/#lve-stats-2)
 :::
 
 ### LVE-stats2 and DB servers compatible work setup
@@ -1483,7 +1483,7 @@ LVE_VERSION >=8
 </div>
 
 :::tip Note
-You can also use [LVE-stats 2 CLI](/shared/command-line_tools/#lve-stats-2)
+You can also use [LVE-stats 2 CLI](/legacy/command-line_tools/#lve-stats-2)
 :::
 
 ### Troubleshooting
@@ -1528,7 +1528,7 @@ mod_php is not supported, MPM ITK requires a custom patch
 CageFS is not supported for H-Sphere.
 :::
 
-See also [Compatibility Matrix](/shared/limits/#compatibility-matrix).
+See also [Compatibility Matrix](/legacy/limits/#compatibility-matrix).
 
 #### Minimum Requirements:
 
@@ -1620,11 +1620,11 @@ Starting from **cagefs-6.1-27** <span class="notranslate">`fs.proc_can_see_other
 
 It is strongly advised against setting this variable in `90-cloudlinux.conf`. Define it in `/etc/sysctl.conf` or in some other config file with an index number greater than `90-cloudlinux.conf`, e.g. `/etc/sysctl.d/95-custom.conf`.
 
-You can find more information on <span class="notranslate">`fs.proc_can_see_other_uid`</span> automatic migration in [Kernel Config Variables](/shared/cloudlinux_os_kernel/#kernel-config-variables).
+You can find more information on <span class="notranslate">`fs.proc_can_see_other_uid`</span> automatic migration in [Kernel Config Variables](/legacy/cloudlinux_os_kernel/#kernel-config-variables).
 
 
 :::tip Note
-You can also use [CageFS CLI](/shared/command-line_tools/#cagefs)
+You can also use [CageFS CLI](/legacy/command-line_tools/#cagefs)
 :::
 
 ### Uninstalling
@@ -1721,7 +1721,7 @@ To see current mode of operation:
 
 
 :::tip Note
-You can also use [CageFS CLI](/shared/command-line_tools/#cagefs)
+You can also use [CageFS CLI](/legacy/command-line_tools/#cagefs)
 :::
 
 ### Configuration
@@ -3176,7 +3176,7 @@ Or you can manage global CageFS settings via CageFS menu
 ![](./images/img3.jpg)
 
 
-See also [CageFS CLI tools](/shared/command-line_tools/#cagefs).
+See also [CageFS CLI tools](/legacy/command-line_tools/#cagefs).
 
 ## MySQL Governor
 
@@ -3400,7 +3400,7 @@ Use <span class="notranslate"> --yes </span> flag on your own risk, because it c
 :::
 
 :::tip Note
-See also [MySQL Governor CLI](/shared/command-line_tools/#mysql-governor)
+See also [MySQL Governor CLI](/legacy/command-line_tools/#mysql-governor)
 :::
 
 #### Upgrading database server
@@ -3462,7 +3462,7 @@ The "All" mode will be deprecated starting from September 1, 2021. You can read 
 
 <span class="notranslate"> MySQL Governor </span> configuration is located in <span class="notranslate"> /etc/container/mysql-governor.xml </span> 
 
-It is best to modify it using <span class="notranslate"> [dbctl](/shared/command-line_tools/#dbctl) </span> tool.
+It is best to modify it using <span class="notranslate"> [dbctl](/legacy/command-line_tools/#dbctl) </span> tool.
 
 Once configuration file is updated, please, restart the <span class="notranslate"> MySQL Governor </span> using:
 
@@ -3561,7 +3561,7 @@ user_max_connections="30"/>
 ```
 </div>
 
-These values can also be set using [cloudlinux-config](/shared/command-line_tools/#cloudlinux-config) CLI utility
+These values can also be set using [cloudlinux-config](/legacy/command-line_tools/#cloudlinux-config) CLI utility
 
 
 #### Modes of operation
@@ -3599,7 +3599,7 @@ If the `dbuser-map` file is absent on the server, the `abusers` mode emulates th
 
 With the `single` and `abusers` mode, once user is restricted, the queries for that user will be limited as long as user is using more than limits specified. After a minute that user is using less, we will unrestricted that user.
 
-You can specify modes of operation using [dbctl](/shared/command-line_tools/#dbctl) or by changing [configuration file](./#configuration-3).
+You can specify modes of operation using [dbctl](/legacy/command-line_tools/#dbctl) or by changing [configuration file](./#configuration-3).
 
 #### MySQL Governor limits
 
@@ -3807,7 +3807,7 @@ MariaDB version 10.4 is not available for CloudLinux OS 6 yet.
 :::
 
 :::tip Note
-See also MySQL Governor [CLI](/shared/command-line_tools/#mysql-governor)
+See also MySQL Governor [CLI](/legacy/command-line_tools/#mysql-governor)
 :::
 
 #### PrivateDevices mode support
@@ -3874,7 +3874,7 @@ whmapi1 configureservice service=mysql enabled=1 monitored=1
 This operation may take some time.
 :::
 
-See also [MySQL Governor CLI tools](/shared/command-line_tools/#mysql-governor).
+See also [MySQL Governor CLI tools](/legacy/command-line_tools/#mysql-governor).
 
 ### MySQL Governor improvements  for  CPU calculation
 
@@ -4082,7 +4082,7 @@ The main requirements:
 * Mod_suexec is installed. You can find installation instruction [here](./#apache-suexec-module)
 * CageFS is initialized without errors
 * CageFS is enabled for a domain user-owner
-* An appropriate PHP handler is selected for PHP version which is system version. <span class="notranslate"> PHP Selector </span> is **compatible** with the following technologies: <span class="notranslate">_suPHP, mod_fcgid, CGI (suexec), LiteSpeed_</span>. See also [Compatibility Matrix](/shared/limits/#compatibility-matrix).
+* An appropriate PHP handler is selected for PHP version which is system version. <span class="notranslate"> PHP Selector </span> is **compatible** with the following technologies: <span class="notranslate">_suPHP, mod_fcgid, CGI (suexec), LiteSpeed_</span>. See also [Compatibility Matrix](/legacy/limits/#compatibility-matrix).
 * PHP version in the CloudLinux OS PHP selector does not equal to the Native PHP version
 
 ::: tip Note
@@ -4109,7 +4109,7 @@ After installing native PHP, please run the `cloudlinux-selector setup --interpr
 
 The installation of <span class="notranslate"> PHP Selector </span> presumes that you already have  [CageFS](./#cagefs) & <span class="notranslate">[LVE Manager](/lve_manager/) installed.</span>
 
-Use [compatibility matrix](/shared/limits/#compatibility-matrix) to check if your Web Server/PHP mode is supporting <span class="notranslate"> PHP Selector. </span> If not, you need a change to one of the supported models.
+Use [compatibility matrix](/legacy/limits/#compatibility-matrix) to check if your Web Server/PHP mode is supporting <span class="notranslate"> PHP Selector. </span> If not, you need a change to one of the supported models.
 
 Installation of different versions of PHP & modules:
 <div class="notranslate">
@@ -4174,7 +4174,7 @@ yum groupupdate alt-php
 This command allows to install newly released versions in <span class="notranslate"> PHP Selector. </span>
 
 :::tip Note
-See also PHP Selector [CLI](/shared/command-line_tools/#php-selector)
+See also PHP Selector [CLI](/legacy/command-line_tools/#php-selector)
 :::
 
 ### Installation instructions for cPanel users
@@ -4939,9 +4939,9 @@ And replace them with the lines with the new paths:
 
 #### Using
 
-Once <span class="notranslate">PHP Selector</span> is installed, you will see the <span class="notranslate">[**Selector**](/shared/lve_manager/#selector-tab)</span> tab in the <span class="notranslate">**LVE Manager**</span>.
+Once <span class="notranslate">PHP Selector</span> is installed, you will see the <span class="notranslate">[**Selector**](/legacy/lve_manager/#selector-tab)</span> tab in the <span class="notranslate">**LVE Manager**</span>.
 
-Customers can use [PHP Selector client plugin](/shared/lve_manager/#php-selector-client-plugin) to change their PHP Selctor related settings.
+Customers can use [PHP Selector client plugin](/legacy/lve_manager/#php-selector-client-plugin) to change their PHP Selctor related settings.
 
 #### Custom PHP.ini options
 
@@ -4981,7 +4981,7 @@ Default values, that are shown in <span class="notranslate"> PHP Selector </span
 directive is not there, it will use the output of phpinfo() function. So, if you wish to change default value of any option for
 "alternative" php version, please modify <span class="notranslate"> /opt/alt/phpXX/etc/php.ini </span> files (where XX = 55, 54, 53, etc according to php version).
 
-Admin can modify the settings using <span class="notranslate"> [selectorctl](/shared/command-line_tools/#selectorctl) </span> command.
+Admin can modify the settings using <span class="notranslate"> [selectorctl](/legacy/command-line_tools/#selectorctl) </span> command.
 
 Users can use web interface to modify php.ini settings:
 
@@ -5233,7 +5233,7 @@ This command removes symlinks:
 turns on link traversal protection (linksafe) and cagefs service.
 
 :::tip Note
-See also PHP Selector [CLI](/shared/command-line_tools/#php-selector)
+See also PHP Selector [CLI](/legacy/command-line_tools/#php-selector)
 :::
 
 #### Configuring "global” php.ini options for all Alt-PHP versions
@@ -5324,7 +5324,7 @@ selectorctl --apply-global-php-ini date.timezone error_log
 The latter command has the same effect as <span class="notranslate">`/usr/bin/selectorctl --apply-global-php-ini`</span>.
 
 :::tip Note
-See also PHP Selector [CLI](/shared/command-line_tools/#php-selector)
+See also PHP Selector [CLI](/legacy/command-line_tools/#php-selector)
 :::
 
 
@@ -5565,7 +5565,7 @@ See also [PHP Selector CLI tools](/command-line_tools/#php-selector).
 
 ### Bundled PHP extensions
 
-You can find this information in the section [List of extensions supported by the alt&ea team for each version of PHP](https://docs.cloudlinux.com/shared/alt-ea_packages/#bundled-php-extensions)
+You can find this information in the section [List of extensions supported by the alt&ea team for each version of PHP](https://docs.cloudlinux.com/legacy/alt-ea_packages/#bundled-php-extensions)
 
 
 ## Python Selector
@@ -5590,7 +5590,7 @@ OpenLiteSpeed is not compatible with Python Selector due to lack of `.htaccess` 
   
 ### Installation
 
-You can install Python Selector using the [CloudLinux OS Installation Wizard](/shared/lve_manager/#cloudlinux-os-shared-installation-wizard).
+You can install Python Selector using the [CloudLinux OS Installation Wizard](/legacy/lve_manager/#cloudlinux-os-shared-installation-wizard).
 
 After installation, please make sure that you have set appropriate checkboxes in CloudLinux Manager Options tab to show Python App in the web-interface.
 
@@ -5662,8 +5662,8 @@ yum install lve-utils lvemanager alt-python-virtualenv alt-mod-passenger
 * We recommend use CageFS for better security. See [CageFS documentation for details](./#cagefs).
 
 
-* See also [Python Selector UI](/shared/lve_manager/#python-selector).
-* See also [Python Selector CLI](/shared/command-line_tools/#python-selector).
+* See also [Python Selector UI](/legacy/lve_manager/#python-selector).
+* See also [Python Selector CLI](/legacy/command-line_tools/#python-selector).
 
 ## Ruby Selector
 
@@ -5703,7 +5703,7 @@ Adding Ruby modules requires executing permissions to <span class="notranslate">
 
 ### Configuration and using
 
-* [End user access](/shared/lve_manager/#ruby-selector-client-plugin)
+* [End user access](/legacy/lve_manager/#ruby-selector-client-plugin)
 * [Hide Ruby Selector icon](./#hide-ruby-selector-icon)
 * [Deploying Redmine using Ruby Selector](./#deploying-redmine-using-ruby-selector)
 * [EasyApache 4](./#easyapache-4-2)
@@ -5713,7 +5713,7 @@ Adding Ruby modules requires executing permissions to <span class="notranslate">
 You can find an example of Ruby application setup [here](https://cloudlinux.zendesk.com/hc/en-us/articles/115004495049-How-to-run-Redmine-with-Ruby-Selector)
 
 :::tip Note
-See also Ruby Selector [CLI](/shared/command-line_tools/#ruby-selector) section.
+See also Ruby Selector [CLI](/legacy/command-line_tools/#ruby-selector) section.
 :::
 
 #### Hide Ruby Selector icon
@@ -5778,7 +5778,7 @@ yum install ea-ruby27-mod_passenger
 ```
 </div>
 
-See also [Ruby Selector CLI tools](/shared/command-line_tools/#ruby-selector).
+See also [Ruby Selector CLI tools](/legacy/command-line_tools/#ruby-selector).
 
 
 ## Node.js Selector
@@ -6005,8 +6005,8 @@ It is not required to install <span class="notranslate"> _Passenger_ </span> whi
 You can see the running app at <span class="notranslate"> http://DOMAIN/APPLICATION_URL </span>
 To apply all changes, restart the application.
 
-* See also [Node.js Selector CLI tools](/shared/command-line_tools/#node-js-selector).
-* See also [Node.js Selector UI](/shared/lve_manager/#node-js-selector-2).
+* See also [Node.js Selector CLI tools](/legacy/command-line_tools/#node-js-selector).
+* See also [Node.js Selector UI](/legacy/lve_manager/#node-js-selector-2).
 
 ### Troubleshooting
 
@@ -6116,7 +6116,7 @@ Select the control panel you are using:
 
 
 :::tip Note
-See also [mod_lsapi PRO](/shared/command-line_tools/#apache-mod-lsapi-pro).
+See also [mod_lsapi PRO](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 :::
 
 #### Installing on cPanel servers with EasyApache 4
@@ -6145,7 +6145,7 @@ service httpd restart
 </div>
 Now the lsapi handler is available for managing through cPanel MultiPHP Manager.
 
-For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
 
 #### Installing on Plesk servers
@@ -6178,7 +6178,7 @@ Now LSPHPXY alt-php PHP handlers are available for managing through Plesk PHP Se
 
 ![](./images/plesk-php-settings.png)
 
-For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
 
 #### Installing on DirectAdmin servers
@@ -6253,7 +6253,7 @@ service httpd24-httpd restart
 ```
 </div>
 
-For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/shared/command-line_tools/#apache-mod-lsapi-pro).
+For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
 
 ### Uninstalling
@@ -7200,7 +7200,7 @@ To disable addition of PWD variable. Default value is Off. If set to On, the PWD
 Maximum buffer in KiB to resend for request that has a body (like POST request body).
 
 
-See also [Apache mod_lsapi PRO CLI tools](/shared/command-line_tools/#apache-mod-lsapi-pro).
+See also [Apache mod_lsapi PRO CLI tools](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
 ### Troubleshooting
 
@@ -7750,7 +7750,7 @@ service nginx restart
 </div>
 
 Use Apache2Nginx to set up NGINX hosting on the server and automatically convert .htaccess files into corresponding NGINX configuration.
-For more details, please visit [Apache2Nginx](/shared/apache2nginx/#apache2nginx).
+For more details, please visit [Apache2Nginx](/legacy/apache2nginx/#apache2nginx).
 
 #### Installing on servers with no control panel
 
@@ -7799,7 +7799,7 @@ service nginx restart
 ```
 </div>
 
-To remove NGINX from your system and restore Apache configuration, please visit [Apache2Nginx](/shared/apache2nginx/#switch-back-to-apache-hosting).
+To remove NGINX from your system and restore Apache configuration, please visit [Apache2Nginx](/legacy/apache2nginx/#switch-back-to-apache-hosting).
 
 #### Uninstallation procedure for servers with no control panel
 
@@ -9605,7 +9605,7 @@ Specifies virtual hosts to provide extra debugging information.
 | | |
 |-|-|
 |**Description**| Determines the way LVE ID will be extraced. In Conf|
-|**Syntax**|`LVEParseMode CONF` `PATH` `OWNER` [`REDIS`](/shared/limits/#redis-support-for-hostinglimits)|
+|**Syntax**|`LVEParseMode CONF` `PATH` `OWNER` [`REDIS`](/legacy/limits/#redis-support-for-hostinglimits)|
 |Default: | <span class="notranslate">`CONF`</span>|
 |Context: | directory config|
 
@@ -9615,7 +9615,7 @@ Specifies virtual hosts to provide extra debugging information.
 
 * In <span class="notranslate">`OWNER`</span> mode, the owner of the file is used as an LVE ID.
 
-* In <span class="notranslate">[`REDIS`](/shared/limits/#redis-support-for-hostinglimits)</span> mode, LVE ID is retrieved from Redis database.
+* In <span class="notranslate">[`REDIS`](/legacy/limits/#redis-support-for-hostinglimits)</span> mode, LVE ID is retrieved from Redis database.
 
 **Example**:
 
@@ -9700,10 +9700,10 @@ Available for RPM based panels, EasyApache 4 and DirectAdmin.
 ### cPanel/WHM JSON API
 
 * [Parameters](./#parameters)
-* [Manage reseller limits/users/packages via cPanel/WHM JSON API - JSONHandler](/shared/cloudlinux_os_components/#manage-reseller-limits-users-packages-via-cpanel-whm-json-api-jsonhandler)
+* [Manage reseller limits/users/packages via cPanel/WHM JSON API - JSONHandler](/legacy/cloudlinux_os_components/#manage-reseller-limits-users-packages-via-cpanel-whm-json-api-jsonhandler)
 * [Using a WHM API token](./#using-a-whm-api-token)
 
-CloudLinux OS offers JSON API for [lvectl](/shared/command-line_tools/#lvectl) and [cloudlinux-limits](/shared/command-line_tools/#cloudlinux-limits) via WHM. You can access it using the following URL:
+CloudLinux OS offers JSON API for [lvectl](/legacy/command-line_tools/#lvectl) and [cloudlinux-limits](/legacy/command-line_tools/#cloudlinux-limits) via WHM. You can access it using the following URL:
 
 <div class="notranslate">
 
@@ -9728,7 +9728,7 @@ The output will look as follows:
 |-|-|
 |<span class="notranslate">`cgiaction`</span>|always <span class="notranslate">`jsonhandler`</span>|
 |<span class="notranslate">`command`</span>|<span class="notranslate">`lvectl`</span> or <span class="notranslate">`cloudlinux-limits`</span> (default <span class="notranslate">`lvectl`</span>)|
-|<span class="notranslate">`handler`</span>|should match [lvectl](/shared/command-line_tools/#lvectl) or [cloudlinux-limits](/shared/command-line_tools/#cloudlinux-limits) command|
+|<span class="notranslate">`handler`</span>|should match [lvectl](/legacy/command-line_tools/#lvectl) or [cloudlinux-limits](/legacy/command-line_tools/#cloudlinux-limits) command|
 
 For commands like <span class="notranslate">`set`, `destroy`</span> & <span class="notranslate">`delete`</span>, where you need to specify LVE (user) ID, like `lveid=500` (matches user ID 500).
 

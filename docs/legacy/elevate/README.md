@@ -68,7 +68,7 @@ The ELevate project only supports a subset of package repositories it's aware of
 
 Packages from repositories Leapp is unaware of **will not be upgraded**.
 
-It's possible to add missing repositories and packages to ELevate yourself, if you're so inclined. Please check the [Contribution](/shared/elevate/#contribution) section for more information on how to do so.
+It's possible to add missing repositories and packages to ELevate yourself, if you're so inclined. Please check the [Contribution](/legacy/elevate/#contribution) section for more information on how to do so.
 
 
 ### What packages can I expect to be upgraded?
@@ -157,9 +157,9 @@ Not in a single step. The CloudLinux Elevate tool specifically targets the upgra
 
 If you have a non-CloudLinux OS you wish to upgrade, you have the following options available:
 
-* [Convert your system to CloudLinux 7 normally](/shared/cloudlinux_installation/#converting-existing-servers), then use the CloudLinux Elevate tool to migrate it to CloudLinux 8.
-* If you're using a CentOS 7 system without a panel, use the [AlmaLinux Elevate](https://almalinux.org/elevate/) tool to upgrade it to AlmaLinux 8, then [convert it to CloudLinux normally](/shared/cloudlinux_installation/#converting-existing-servers).
-* If you're using cPanel, you'll need to use the [cPanel Elevate](https://cpanel.github.io/elevate/) tool instead. Use it to upgrade your system to AlmaLinux 8 + cPanel, then [convert it to CloudLinux normally](/shared/cloudlinux_installation/#converting-existing-servers).
+* [Convert your system to CloudLinux 7 normally](/legacy/cloudlinux_installation/#converting-existing-servers), then use the CloudLinux Elevate tool to migrate it to CloudLinux 8.
+* If you're using a CentOS 7 system without a panel, use the [AlmaLinux Elevate](https://almalinux.org/elevate/) tool to upgrade it to AlmaLinux 8, then [convert it to CloudLinux normally](/legacy/cloudlinux_installation/#converting-existing-servers).
+* If you're using cPanel, you'll need to use the [cPanel Elevate](https://cpanel.github.io/elevate/) tool instead. Use it to upgrade your system to AlmaLinux 8 + cPanel, then [convert it to CloudLinux normally](/legacy/cloudlinux_installation/#converting-existing-servers).
 
 :::warning
 Please note that the Elevate variants (AlmaLinux, cPanel) mentioned above are maintained by third parties. As such, should you encounter problems when using them, you should direct your questions/support requests to the maintainers of the tool you're using.
@@ -281,7 +281,7 @@ Should you encounter an issue with the `switch_cln_channel` actor, make sure tha
 
 `rhn_check; echo $?`
 
-If it is not, you may want to force a [re-registration.](/shared/cloudlinux_installation/#license-activation)
+If it is not, you may want to force a [re-registration.](/legacy/cloudlinux_installation/#license-activation)
 
 
 #### CLN channel remains targeting CL8 after an unsuccessful migration
@@ -450,7 +450,7 @@ The packages from the listed repositories **won't be properly upgraded** if Leap
 
 It's recommended to follow the provided suggestion and remove the repositories and packages before running the upgrade.
 
-If you'd like to add the configuration data for new repositories and packages to Leapp, please refer to the [Contribution](/shared/elevate/#contribution) section of the manual for information on the proper procedure for doing so.
+If you'd like to add the configuration data for new repositories and packages to Leapp, please refer to the [Contribution](/legacy/elevate/#contribution) section of the manual for information on the proper procedure for doing so.
 
 
 ## Known issues
@@ -477,7 +477,7 @@ The standard CloudLinux Elevate upgrade will not upgrade such a system fully - t
 
 Consider package repositories and the corresponding packages that are present on your system. The pre-upgrade/upgrade report will list the unrecognized or unsupported parts of these packages.
 
-To get the report, [run the pre-upgrade procedure](/shared/elevate/#pre-upgrade) first. Check the Elevate pre-upgrade report (`/var/log/leapp/leapp-report.txt`).
+To get the report, [run the pre-upgrade procedure](/legacy/elevate/#pre-upgrade) first. Check the Elevate pre-upgrade report (`/var/log/leapp/leapp-report.txt`).
 
 Look for unknown/unsigned package reports in the list of the resulting messages.
 
@@ -498,7 +498,7 @@ Note that Elevate only uses the provided information about new repositories duri
 If mapping package repositories from old to new (CL7 repositories -> CL8 repositories), as well as mapping the package changes, is not sufficient for a successful upgrade of your system, consider adding [custom Python scripts](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#adding-complex-changes-custom-actors-for-migration) (called Leapp actors) that handle your upgrade scenario, e.g. configuration migrations, system modifications, etc.
 
 To summarize:
-* [Install CloudLinux Elevate](/shared/elevate/#elevate-scenario-cloudlinux-7-with-no-panel-or-a-custom-panel) and run `leapp preupgrade`.
+* [Install CloudLinux Elevate](/legacy/elevate/#elevate-scenario-cloudlinux-7-with-no-panel-or-a-custom-panel) and run `leapp preupgrade`.
 * Check the pre-upgrade report (`/var/log/leapp/leapp-report.txt`) for packages that will not be upgraded.
 * For those packages that you want to see upgraded, [extend the Elevate configuration files](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#third-party-integration) with package repository mappings and package migration events.
 * If required, [add additional custom scripts](https://github.com/CloudLinux/leapp-repository/tree/cloudlinux#adding-complex-changes-custom-actors-for-migration) (Leapp actors) to handle any extra arbitrary actions during the upgrade.
@@ -526,7 +526,7 @@ To do so, enable the `cloudlinux-elevate-updates-testing` repository, brought by
 :::
 
 :::tip
-Note that [a valid license](/shared/cloudlinux_installation/#license-activation) must be present for installation to work.
+Note that [a valid license](/legacy/cloudlinux_installation/#license-activation) must be present for installation to work.
 :::
 
 ```

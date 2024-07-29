@@ -25,7 +25,7 @@ alt-php includes PHP versions that CloudLinux provides along with their PHP Sele
 
 As of this time, PHP Selector currently offers users the ability to install and use PHP 5.1+ and the options for these versions are managed via CloudLinux's LVE Manager plugin in WHM.
 
-For more details regarding the installation of alt-php and PHP Selector, please refer to [CloudLInux's documentation](https://docs.cloudlinux.com/shared/cloudlinux_os_components/#general-information-and-requirements).
+For more details regarding the installation of alt-php and PHP Selector, please refer to [CloudLInux's documentation](https://docs.cloudlinux.com/legacy/cloudlinux_os_components/#general-information-and-requirements).
 
 ea-php is the PHP versions that cPanel packages and provides via the EasyApache 4 repositories. These are the standard versions that are included in a base installation of cPanel and are managed via the MultiPHP Manager in both cPanel & WHM interface.
 
