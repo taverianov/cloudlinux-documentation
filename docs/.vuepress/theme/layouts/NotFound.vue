@@ -96,7 +96,12 @@ onMounted(async () => {
       }
     }
   }
-  if (!await redirectionURL()) {
+  
+  // check of the current path starts with /shared/ replace it with /legacy/ without losing the rest of the path or query
+  if (route.fullPath.startsWith('/shared')) {
+    const newPath = route.fullPath.replace('/shared', '/legacy');
+    router.push(newPath);
+  } else {
     window.location.href = '/not-found.html';
   }
 });
