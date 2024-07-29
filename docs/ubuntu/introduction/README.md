@@ -14,7 +14,7 @@ We support Ubuntu 20.04 LTS.
 ## CloudLinux OS editions comparison
 
 
-|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**|**CloudLinux OS Shared**|**CloudLinux OS Shared Pro**|**<font color="#2c98f0">CloudLinux Subsystem For Ubuntu</font>**|
+|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**|**CloudLinux OS Legacy (Shared)**|**CloudLinux OS Shared Pro**|**<font color="#2c98f0">CloudLinux Subsystem For Ubuntu</font>**|
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|1|5|unlimited|unlimited|**<font color="#2c98f0">unlimited</font>**|
 |Resource Limits (LVE)|No*|**Yes****|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|

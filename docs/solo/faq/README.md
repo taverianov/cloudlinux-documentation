@@ -3,13 +3,13 @@
 
 [[toc]]
 
-### What is the difference between CloudLinux Solo and CloudLinux OS Shared?
+### What is the difference between CloudLinux Solo and CloudLinux OS Legacy (Shared)?
 
 CloudLinux OS Solo is not designed for shared hosting usage and it does not include any [LVE-related](/shared/lve_manager/) features. 
 
 CloudLinux OS Solo provides a set of tools for website monitoring and performance tracking out-of-box. [Read more](/solo/manager/).
 
-### Can I convert CloudLinux Solo to CloudLinux Shared?
+### Can I convert CloudLinux Solo to CloudLinux Legacy?
 
 Yes, you can follow the [instruction](/shared/cloudlinux_installation/#switch-license).
 
@@ -71,7 +71,7 @@ Please verify your cPanel firewall settings.
 
 Yes, it is possible.
 
-### Can I register my CloudLinux OS Shared 6/7/8 with CloudLinux OS Solo trial key?
+### Can I register my CloudLinux OS Legacy (Shared) 6/7/8 with CloudLinux OS Solo trial key?
 
 No, you cannot.
 
@@ -83,7 +83,7 @@ No, you cannot. Only CentOS 8/AlmaLinux 8+ can be converted.
 
 No, it does not. We are still implementing this feature, so it will be available in the next CloudLinux OS Solo releases.
 
-### What is the process of upgrading if the customer adds more users to the server and will have to upgrade? (i.e., upgrading from CloudLinux OS Solo to CloudLinux OS Shared)
+### What is the process of upgrading if the customer adds more users to the server and will have to upgrade? (i.e., upgrading from CloudLinux OS Solo to CloudLinux OS Legacy (Shared))
 
 Follow the edition switching [procedure](/shared/cloudlinux_installation/#switch-license).
 

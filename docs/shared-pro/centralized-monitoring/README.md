@@ -442,9 +442,9 @@ Limit and current load are drawing regarding the left vertical axis, the count o
 * <span class="notranslate">`cl-end-server-tools`</span> >= 1.0.7-1
 * <span class="notranslate">`cl-node-exporter`</span> >= 1.1.0-2
 * <span class="notranslate">`rhn-client-tools`</span>
-    * CloudLinux OS Shared 6 >= 1.1.15-3.el6.cloudlinux.26
-    * CloudLinux OS Shared 7 >= 2.0.2-31.el7.clouldinux
-    * CloudLinux OS Shared 8 >= 2.8.16-14.module_el8.1.0+6074+9dc6073e.cloudlinux.2
+    * CloudLinux OS 6 >= 1.1.15-3.el6.cloudlinux.26
+    * CloudLinux OS 7 >= 2.0.2-31.el7.clouldinux
+    * CloudLinux OS 8 >= 2.8.16-14.module_el8.1.0+6074+9dc6073e.cloudlinux.2
 * <span class="notranslate">`lve-stats`</span> >= 3.0.7-2
 * <span class="notranslate">`lve-utils`</span> >= 4.2.21-2
 * <span class="notranslate">`alt-python27-cllib`</span> >= 2.1.13-1

@@ -152,7 +152,7 @@ Your CloudLinux OS edition will be detected automatically based on the `ACTIVATI
 
 If your reseller provides you with an IP-based license, run the following commands:
 
-To convert server into the CloudLinux OS Shared edition:
+To convert server into the CloudLinux OS edition:
 ```
 sh cldeploy -i
 ```
@@ -189,8 +189,8 @@ but might not work or be compatible with control panels and various components.
 :::
 
 :::tip Note
-At the end of conversion from CentOS 7.x to CloudLinux OS Shared 7, 
-the cldeploy script converts CloudLinux OS Shared 7 to [CloudLinux OS Shared 7 Hybrid](/shared/cloudlinux_os_kernel/#hybrid-kernels).
+At the end of conversion from CentOS 7.x to CloudLinux OS 7, 
+the cldeploy script converts CloudLinux OS 7 to [CloudLinux OS 7 Hybrid](/shared/cloudlinux_os_kernel/#hybrid-kernels).
 :::
 
 Automatic hybridization will be performed for the AMD processors with the following CPU families:
@@ -314,7 +314,7 @@ Do not delete the key when secure boot is enabled - server will be unable to boo
 
 ### Technical Details: cldeploy
 
-By its design, CloudLinux OS Shared is very close to the upstream operating system - RHEL.
+By its design, CloudLinux OS is very close to the upstream operating system - RHEL.
 This makes the conversion process relatively straightforward, requiring just one reboot. 
 
 #### Installation Process
@@ -492,14 +492,8 @@ has downloaded package metadata from the source.
 
 It is not possible to select specific packages during a manual installation, you can only select pre-defined environments and add-ons.
 
-You should choose the CloudLinux edition that matches your license on this stage:
+You should choose the CloudLinux OS, and the edition that matches your license will be set up at this stage:
  ![](./images/software_selection.png)
-
-
-The available options are:
-* to install CloudLinux OS Shared or Shared Pro, choose the  `CloudLinux OS Shared/Pro (minimal)` environment on the left of the screen.
-* to install CloudLinux OS Admin, choose the `CloudLinux OS Admin (minimal)` environment on the left of the screen.
-* to install CloudLinux OS Solo, choose the `CloudLinux OS Solo (minimal)` environment on the left of the screen.
 
 
 Then, on the right side of the screen, select one or more add-ons which you want to install by ticking the
@@ -557,7 +551,7 @@ yum install rhn-setup
 ```
 
 
-## Cloud Provider Images (CloudLinux OS Shared only)
+## Cloud Provider Images (CloudLinux OS Legacy (Shared) only)
 
 * [OpenStack QEMU/KVM](https://download.cloudlinux.com/cloudlinux/images/#kvm-tab)
 * [VMware](https://download.cloudlinux.com/cloudlinux/images/#vmware-tab)
@@ -587,10 +581,10 @@ How to use CloudLinux Image in Azure:
 ### Xen Images
 
 :::tip Note
-We do not provide Xen images of CloudLinux OS Shared anymore, use [ISO images](#installing-new-servers) instead 
+We do not provide Xen images of CloudLinux OS Legacy (Shared) anymore, use [ISO images](#installing-new-servers) instead 
 :::
 
-## Provider-specific guidelines (CloudLinux OS Shared only)
+## Provider-specific guidelines (CloudLinux OS Legacy (Shared) only)
 
 * [Amazon Web Services](/shared/cloudlinux_installation/#aws)
 * [H-Sphere](/shared/cloudlinux_installation/#h-sphere)
@@ -600,9 +594,9 @@ We do not provide Xen images of CloudLinux OS Shared anymore, use [ISO images](#
 
 ### AWS
 
-CloudLinux OS Shared image list can be found *[here](https://download.cloudlinux.com/cloudlinux/images/#aws-tab)*.
+CloudLinux OS Legacy (Shared) image list can be found *[here](https://download.cloudlinux.com/cloudlinux/images/#aws-tab)*.
 
-If you are going to use CloudLinux OS Shared with cPanel image, you may find useful the following *[article](https://cloudlinux.zendesk.com/hc/en-us/articles/360014130320-How-to-get-CloudLinux-OS-with-cPanel-AMI-working-on-AWS)*.
+If you are going to use CloudLinux OS Legacy (Shared) with cPanel image, you may find useful the following *[article](https://cloudlinux.zendesk.com/hc/en-us/articles/360014130320-How-to-get-CloudLinux-OS-with-cPanel-AMI-working-on-AWS)*.
 
 ### H-Sphere
 
@@ -617,13 +611,13 @@ Please note, that CageFS and PHP Selector are not supported for H-Sphere
 
 #### Requirements
 
-1. CloudLinux OS Shared with liblve 0.8 or later.
+1. CloudLinux OS with liblve 0.8 or later.
 2. Apache 2.2.x or 1.3.
 3. mod_suexec should be enabled.
 
 To achieve optimal performance, we recommend to [convert from mod_fastcgi to mod_fcgid](/shared/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
 
-There is no need to install mod_hostinglimits – it comes built in with H-Sphere. Once you load kernel from CloudLinux OS Shared with liblve 0.8 or later – it will get enabled.
+There is no need to install mod_hostinglimits – it comes built in with H-Sphere. Once you load kernel from CloudLinux OS Legacy (Shared) with liblve 0.8 or later – it will get enabled.
 
 You can check if LVE is enabled by running:
 <span class="notranslate"> </span>
@@ -849,16 +843,16 @@ Other options could be configured according to personal needs.
 When done - click <span class="notranslate">_SUBMIT_</span> to apply changes.
 
 :::tip Note
-After updating H-Sphere software on web server with CloudLinux OS Shared you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/shared/scripts/apache-restart` script.
+After updating H-Sphere software on web server with CloudLinux OS Legacy (Shared) you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/shared/scripts/apache-restart` script.
 :::
 
 ### DigitalOcean
 
-* [Adding CloudLinux OS Shared image to DigitalOcean](/shared/cloudlinux_installation/#adding-cloudlinux-os-shared-image-to-digitalocean)
+* [Adding CloudLinux OS image to DigitalOcean](/shared/cloudlinux_installation/#adding-cloudlinux-os-image-to-digitalocean)
 
-How to make CloudLinux OS Shared work on DigitalOcean:
+How to make CloudLinux OS work on DigitalOcean:
 
-DigitalOcean doesn't support custom kernels. The droplet (VM) always runs DigitalOcean's kernel. CloudLinux OS Shared requires its own kernel. To enable CloudLinux OS Shared work on DigitalOcean droplets, we provide ability to boot into CloudLinux OS Shared kernel using `kexec` functionality.
+DigitalOcean doesn't support custom kernels. The droplet (VM) always runs DigitalOcean's kernel. CloudLinux OS requires its own kernel. To enable CloudLinux OS work on DigitalOcean droplets, we provide ability to boot into CloudLinux OS kernel using `kexec` functionality.
 
 How does this work:
 
@@ -866,11 +860,11 @@ How does this work:
 * <span class="notranslate">`kexec-tools`</span> are installed;
 * <span class="notranslate">`kexec`</span> script will be created in <span class="notranslate">`/etc/rc.d/init.d/`</span> and set to run right after <span class="notranslate">`rc.sysinit`</span>.
 
-When executed, script <span class="notranslate">`/etc/rc.d/init.d/kexec`</span> detects the latest installed CloudLinux OS Shared kernel, and loads that kernel.
+When executed, script <span class="notranslate">`/etc/rc.d/init.d/kexec`</span> detects the latest installed CloudLinux OS kernel, and loads that kernel.
 
-If the system cannot boot into CloudLinux OS Shared kernel (due to any reason), subsequent reboot will skip <span class="notranslate">`kexec`</span>, allow droplet to boot into DigitalOceans' kernel.
+If the system cannot boot into CloudLinux OS kernel (due to any reason), subsequent reboot will skip <span class="notranslate">`kexec`</span>, allow droplet to boot into DigitalOceans' kernel.
 
-To disable booting into Cloudlinux OS Shared kernel, run:
+To disable booting into Cloudlinux OS kernel, run:
 
 <div class="notranslate">
 
@@ -879,7 +873,7 @@ chkconfig --del kexec
 ```
 </div>
 
-To re-enable booting into CloudLinux OS Shared kernel, run:
+To re-enable booting into CloudLinux OS kernel, run:
 <div class="notranslate">
 
 ```
@@ -887,13 +881,13 @@ chkconfig --add kexec
 ```
 </div>
 
-#### Adding CloudLinux OS Shared image to DigitalOcean
+#### Adding CloudLinux OS image to DigitalOcean
 
-Custom images are Linux distributions that have been modified to fit the specific needs of DigitalOcean users. You can find some basics of importing a custom CloudLinux OS Shared image below.
+Custom images are Linux distributions that have been modified to fit the specific needs of DigitalOcean users. You can find some basics of importing a custom CloudLinux OS image below.
 
 Importing custom images to DigitalOcean is free, as you are only charged for the storage of your image. To save money, you can easily import your image, start a Droplet from your image, and delete the image, so you don’t incur any storage costs.
 
-Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS Shared image as a custom image. You can find more information on image options at [https://www.digitalocean.com/docs/images/custom-images/overview/](https://www.digitalocean.com/docs/images/custom-images/overview/)
+Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS image as a custom image. You can find more information on image options at [https://www.digitalocean.com/docs/images/custom-images/overview/](https://www.digitalocean.com/docs/images/custom-images/overview/)
 
 1. To choose the right image, navigate to [https://download.cloudlinux.com/cloudlinux/images/#kvm-tab](https://download.cloudlinux.com/cloudlinux/images/#kvm-tab). Several different images are available for download (with and without a control panel).
 
@@ -901,7 +895,7 @@ Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS Shared image
 
 2. Copy the link for the image you are going to use and log into [cloud.digitalocean.com](https://blog.digitalocean.com/custom-images/cloud.digitalocean.com).
 
-Click <span class="notranslate">_Images_</span> on the left of the screen and then choose <span class="notranslate">_Custom Images_</span>. Click the <span class="notranslate">_Import via URL_</span> button and paste the CloudLinux OS Shared image link.
+Click <span class="notranslate">_Images_</span> on the left of the screen and then choose <span class="notranslate">_Custom Images_</span>. Click the <span class="notranslate">_Import via URL_</span> button and paste the CloudLinux OS Legacy (Shared) image link.
 
 ![](./images/customimages.png)
 
@@ -917,7 +911,7 @@ You can find more information about creating/adding SSH keys in [this article](h
 
 ![](./images/addsshkey.png)
 
-4. You will then be able to start a CloudLinux OS Shared Droplet using the image.
+4. You will then be able to start a CloudLinux OS Droplet using the image.
    
    :::tip Note
    Your Droplet will be created in the same datacenter that your custom image resides in.
@@ -932,17 +926,17 @@ You can find more information about creating/adding SSH keys in [this article](h
 
 ### Linode
 
-* [CloudLinux OS Shared on Linode KVM](/shared/cloudlinux_installation/#cloudlinux-os-shared-on-linode-kvm)
-* [CloudLinux OS Shared on Linode Xen](/shared/cloudlinux_installation/#cloudlinux-os-shared-on-linode-xen)
+* [CloudLinux OS on Linode KVM](/shared/cloudlinux_installation/#cloudlinux-os-on-linode-kvm)
+* [CloudLinux OS on Linode Xen](/shared/cloudlinux_installation/#cloudlinux-os-on-linode-xen)
 
 :::warning Warning
-If you are installing CloudLinux OS Shared 8, please make sure you’ve read [https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble](https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble)
+If you are installing CloudLinux OS 8, please make sure you’ve read [https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble](https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble)
 :::
 
 
-#### CloudLinux OS Shared on Linode KVM
+#### CloudLinux OS on Linode KVM
 
-To install CloudLinux OS Shared 7 on Linode KVM server you should perform the following steps:
+To install CloudLinux OS 7 on Linode KVM server you should perform the following steps:
 
 1. Deploy CL to your Linode following the steps from *[this section](/shared/cloudlinux_installation/#converting-existing-servers)*.
 
@@ -980,11 +974,11 @@ grub2-mkconfig -o /boot/grub/grub.cfg
 
 6. Reboot your Linode.
 
-After reboot you will have fully operational CloudLinux OS Shared 7 system and can proceed with other configuration you need.
+After reboot you will have fully operational CloudLinux OS 7 system and can proceed with other configuration you need.
 
-#### CloudLinux OS Shared on Linode Xen
+#### CloudLinux OS on Linode Xen
 
-To install CloudLinux OS Shared 7 on Linode Xen please perform the following steps:
+To install CloudLinux OS 7 on Linode Xen please perform the following steps:
 
 1. Deploy CL to your Linode following the steps from *[this section](/shared/cloudlinux_installation/#converting-existing-servers)*.
 
@@ -1001,7 +995,7 @@ initrd /boot/initramfs-$KVERSION.img
 ```
 </div>
 
-where <span class="notranslate">`$KVERSION`</span> is the version of the installed CloudLinux OS Shared 7 kernel.
+where <span class="notranslate">`$KVERSION`</span> is the version of the installed CloudLinux OS 7 kernel.
 
 :::tip Note
 You will need to update <span class="notranslate">`/boot/grub/menu.lst`</span> manually after every kernel update.
@@ -1087,7 +1081,7 @@ In the current version only the lsapi module can be installed.
 
 #### Dashboard
 
-CloudLinux OS Shared dashboard provides a quick overview of statistics and all administrative information for server administrators.
+CloudLinux OS dashboard provides a quick overview of statistics and all administrative information for server administrators.
 
 In the current version only statistics about the lsapi module is available.
 
@@ -1213,7 +1207,7 @@ To use Node.js Selector, install Node.js packages by running the following comma
 yum groupinstall alt-nodejs
 ```
 
-CloudLinux OS Shared 7 supports both `ea-ruby24-mod_passenger` and `ea-ruby27-mod_passenger`.
+CloudLinux OS 7 supports both `ea-ruby24-mod_passenger` and `ea-ruby27-mod_passenger`.
 
 :::tip Note
 The `ea-apache24-mod-alt-passenger` is deprecated in favor of `ea-ruby24-mod_passenger` and `ea-ruby27-mod_passenger`.
@@ -1322,7 +1316,7 @@ This will setup LVE module for VZ kernel, as well as DKMS to update that module 
 
 After this is done, you can add LVE support for any container on a node, at any time.
 
-To make CloudLinux OS Shared work inside VZ container, VZ node has to be enabled. This should be done for any container where LVE support needs to be added:
+To make CloudLinux OS work inside VZ container, VZ node has to be enabled. This should be done for any container where LVE support needs to be added:
 
 
 <div class="notranslate">
@@ -1345,7 +1339,7 @@ vzctl set CT_ID --devnodes lve:none --save
 
 Inside the container, follow [standard CloudLinux installation procedures](/shared/cloudlinux_installation/#converting-existing-servers).
 
-CloudLinux OS Shared license is required for each VZ container.
+CloudLinux OS Legacy (Shared) license is required for each VZ container.
 
 :::tip Note
 Some servers require increasing `fs.ve-mount-nr` on host node, otherwise CageFS will throw errors. Look for details [here](./#known-restrictions-and-issues)
@@ -1380,7 +1374,7 @@ mv /etc/lilo.conf /etc/lilo.conf.bak
 ```
 </div>
 
-3. Convert to CloudLinux OS Shared using <span class="notranslate"> [deploy2cl](/shared/cloudlinux_installation/#converting-existing-servers)</span> utility.
+3. Convert to CloudLinux OS Legacy (Shared) using <span class="notranslate"> [deploy2cl](/shared/cloudlinux_installation/#converting-existing-servers)</span> utility.
 
 4. Check <span class="notranslate">`grub.conf`</span> – it should be configured automatically:
  
@@ -1411,12 +1405,12 @@ timeout=5
  ```
  </div>
 
-6. Reboot and check that you are running CloudLinux OS Shared. <span class="notranslate">`uname -r`</span> should show something like: <span class="notranslate">`2.6.18-294.8.1.el5.lve0.7.33`</span>.
+6. Reboot and check that you are running CloudLinux OS . <span class="notranslate">`uname -r`</span> should show something like: <span class="notranslate">`2.6.18-294.8.1.el5.lve0.7.33`</span>.
 
 
 ## Switch license
 
-You can convert your existing CloudLinux OS installation to CloudLinux OS Shared.
+You can convert your existing CloudLinux OS installation to CloudLinux OS Legacy (Shared).
 
 1. Obtain new key from [CLN](https://cln.cloudlinux.com)
 2. Run `rhnreg_ks --force --activationkey=<new_key>`
@@ -1434,13 +1428,13 @@ CentOS Linux 8 reached End Of Life (EOL) on December 31st, 2021. You can still u
 The following actions will be taken:
 
 1. LVE related packages will be removed.
-2. CloudLinux OS Shared repositories & <span class="notranslate">yum</span> plugin will be removed.
+2. CloudLinux OS repositories & <span class="notranslate">yum</span> plugin will be removed.
 3. AlmaLinux or CentOS* repositories will be set up.
 
-In the end, the script will provide instructions on how to finish the conversion back to AlmaLinux or CentOS*. That will require removal of CloudLinux OS Shared kernel (manual step), and installation of AlmaLinux or CentOS* kernel (if needed).
+In the end, the script will provide instructions on how to finish the conversion back to AlmaLinux or CentOS*. That will require removal of CloudLinux OS kernel (manual step), and installation of AlmaLinux or CentOS* kernel (if needed).
 
 :::warning
-Do not forget to free up a CloudLinux OS Shared license by removing the server from the [Servers section of your CLN account](https://docs.cloudlinux.com/cln/dashboard/#servers). After that, if you don't intend to use the license anymore, you can [remove it](https://docs.cloudlinux.com/cln/dashboard/#cloudlinux-os-activation-keys) to avoid being billed for it. 
+Do not forget to free up a CloudLinux OS Legacy (Shared) license by removing the server from the [Servers section of your CLN account](https://docs.cloudlinux.com/cln/dashboard/#servers). After that, if you don't intend to use the license anymore, you can [remove it](https://docs.cloudlinux.com/cln/dashboard/#cloudlinux-os-activation-keys) to avoid being billed for it. 
 :::
 
 To uninstall CloudLinux OS, run:
@@ -1459,7 +1453,7 @@ To delete CloudLinux OS kernel, run (change the kernel package name to the one y
 rpm -e --nodeps $(rpm -qa | grep kernel | grep lve)
 ```
 
-To install new AlmaLlinux or CentOS* kernel once you deleted CloudLinux OS Shared kernel, run the following command:
+To install new AlmaLlinux or CentOS* kernel once you deleted CloudLinux OS kernel, run the following command:
 
 ```
 yum install kernel

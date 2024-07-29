@@ -40,7 +40,7 @@ The following actions are available:
 
 * Manage backup. Click ![](./images/clnmanagebackup.png). In the opened popup click _Go to the backup management_ to go to backup management system interface (opens in a new tab) or click _Cancel_ to close the popup.
 
-## Converting your account to CloudLinux OS Shared type
+## Converting your account to CloudLinux OS Shared PRO type
 
 You can find the process description [here](/cln/purchase/#cloudlinux-os-plus)
 

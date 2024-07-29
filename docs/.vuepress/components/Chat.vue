@@ -59,7 +59,7 @@ export default {
             docName: "cloudlinux-documentation",
             tags: [],
             options: [{
-                name: 'CloudLinux OS Shared',
+                name: 'CloudLinux OS Legacy (Shared)',
                 value:  ['level-0', 'shared']
             },{
                 name: 'CloudLinux OS Shared Pro',
