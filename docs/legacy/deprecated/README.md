@@ -6,14 +6,14 @@
 * [OptimumCache](./#optimumcache)
 * [TPE extension](./#tpe-extension)
 * [CPU limits](./#cpu-limits)
-* [Package integration](./#package-integration). You can use [Control panel integration guide](/shared/control_panel_integration/) instead.
+* [Package integration](./#package-integration). You can use [Control panel integration guide](/legacy/control_panel_integration/) instead.
 * [Redis support for HostingLimits]()
 * [Migration to EA4](./#migration-to-easyapache-4)
 
 ## Python Selector (Old)
 
 :::tip Note
-This documentation is for the old version of Python Selector. You can find documentation for the new Python Selector [here](/shared/cloudlinux_os_components/#python-selector)
+This documentation is for the old version of Python Selector. You can find documentation for the new Python Selector [here](/legacy/cloudlinux_os_components/#python-selector)
 :::
 
 We have the ability to deploy <span class="notranslate"> Python </span> applications via application server. <span class="notranslate"> Python Selector </span> uses <span class="notranslate"> mod_passenger </span> to host <span class="notranslate">Python</span>.
@@ -302,7 +302,7 @@ yum install git-cpanel
 ## LVE-Stats 0.x
 
 :::tip Note
-LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/shared/cloudlinux_os_components/#lve-stats-2)
+LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/legacy/cloudlinux_os_components/#lve-stats-2)
 :::
 
 
@@ -474,7 +474,7 @@ web2        1        6        10        0        0        25        10M        1
 ### Storing statistics in MySQL
 
 :::tip Note
-LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/shared/cloudlinux_os_components/#lve-stats-2)
+LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/legacy/cloudlinux_os_components/#lve-stats-2)
 :::
 
  You have to install MySQL-python rpm to store lve-stats on centralized server. Run:
@@ -716,7 +716,7 @@ You just need to execute it once, as it will be later executed via cron job. Tha
 ### Storing statistics in PostgreSQL
 
 :::tip Note
-LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/shared/cloudlinux_os_components/#lve-stats-2)
+LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/legacy/cloudlinux_os_components/#lve-stats-2)
 :::
 
 You have to install <span class="notranslate">`postgresql-python rpm`</span> to store lve-stats on centralized server.
@@ -857,7 +857,7 @@ You are done!
 ### Compacting in multi-server settings
 
 :::tip Note
-LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/shared/cloudlinux_os_components/#lve-stats-2)
+LVE-STATS-0.X IS NO LONGER SUPPORTED, PLEASE USE [LVE-STATS 2](/legacy/cloudlinux_os_components/#lve-stats-2)
 :::
 
 [lve-stats 0.10+]
@@ -1854,7 +1854,7 @@ Once you set grsec_lock to 1, you will not be able to change TPE options without
 :::tip Note
 Deprecated
 
-This limit is no longer used, and <span class="notranslate"> [SPEED](/shared/limits/#speed-limits) </span> is used instead
+This limit is no longer used, and <span class="notranslate"> [SPEED](/legacy/limits/#speed-limits) </span> is used instead
 :::
 
 ### CPU limits before lve-utils 1.4
@@ -1885,7 +1885,7 @@ Deprecated.
 :::
 
 :::warning Note
-You can use [Control panel integration guide](/shared/control_panel_integration/) instead.
+You can use [Control panel integration guide](/legacy/control_panel_integration/) instead.
 :::
 
 **[lve-utils 1.4+]**
@@ -2152,11 +2152,11 @@ LVERedisTimeout 120
 
 ## Migration to EA4
 
-* [Advices and limitations](/shared/cloudlinux_installation/#advices-and-limitations)
-* [CentOS with EasyApache 4](/shared/cloudlinux_installation/#centos-with-easyapache-4)
-* [CentOS without EasyApache 4](/shared/cloudlinux_installation/#centos-without-easyapache-4)
-* [CloudLinux OS without EasyApache 4](/shared/cloudlinux_installation/#cloudlinux-os-without-easyapache-4)
-* [More about cloudlinux_ea3_to_ea4 script](/shared/cloudlinux_installation/#more-about-cloudlinux-ea3-to-ea4-script)
+* [Advices and limitations](/legacy/cloudlinux_installation/#advices-and-limitations)
+* [CentOS with EasyApache 4](/legacy/cloudlinux_installation/#centos-with-easyapache-4)
+* [CentOS without EasyApache 4](/legacy/cloudlinux_installation/#centos-without-easyapache-4)
+* [CloudLinux OS without EasyApache 4](/legacy/cloudlinux_installation/#cloudlinux-os-without-easyapache-4)
+* [More about cloudlinux_ea3_to_ea4 script](/legacy/cloudlinux_installation/#more-about-cloudlinux-ea3-to-ea4-script)
 
 ### Advices and limitations
 
@@ -2164,13 +2164,13 @@ LVERedisTimeout 120
 * <span class="notranslate">Hardened EA4</span> limitations:
   * **ea-php51** and **ea-php52** have no PHP-FPM support. Please use **mod_lsapi** instead.
 
-Follow the instructions [here](/shared/cloudlinux_os_components/#installation-3) to install and configure mod_lsapi.
+Follow the instructions [here](/legacy/cloudlinux_os_components/#installation-3) to install and configure mod_lsapi.
 
 ### CentOS with EasyApache 4
 
 If EasyApache 4 was installed earlier on your CentOS server and you would like to migrate to CloudLinux OS:
 
-1. Convert server from CentOS  to CloudLinux (see [these instructions](/shared/cloudlinux_installation/#converting-existing-servers)).
+1. Convert server from CentOS  to CloudLinux (see [these instructions](/legacy/cloudlinux_installation/#converting-existing-servers)).
 
 2. Restart Apache service.
 
@@ -2178,7 +2178,7 @@ If EasyApache 4 was installed earlier on your CentOS server and you would like t
 
 If EasyApache 4 was not installed earlier on your CentOS server and you would like to migrate to CloudLinux OS:
 
-1. Convert server from CentOS to CloudLinux OS (see [these instructions](/shared/cloudlinux_installation/#converting-existing-servers)).
+1. Convert server from CentOS to CloudLinux OS (see [these instructions](/legacy/cloudlinux_installation/#converting-existing-servers)).
 
 2. Run:
    

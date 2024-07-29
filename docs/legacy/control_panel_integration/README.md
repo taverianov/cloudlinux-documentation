@@ -28,7 +28,7 @@ There are several possible ways of integration with CloudLinux OS OS:
 
 * **Complete integration using new API** - exactly what is described in this document. This way a panel vendor will get all CloudLinux OS features (current and future) and maximum support. It’s recommended.
 * **Manually Ad-hoc** - using low-level CLI utils. It is not recommended. It’s kind of “do it yourself way” - a control panel might use low-level utils like `lvectl` to set limits directly to a raw LVE by ID and control everything (including edge-cases) in its own code. There are many downsides of such approach e.g. only a small number of features can be implemented this way and any new changes in CloudLinux OS will require more and more updates to the control panel code, and can possibly even introduce bugs, etc. And although this way looks easier at first, it will become more and more difficult to maintain it over time.
-* **Old API for CloudLinux OS limits** - described [here](/shared/deprecated/#package-integration). It’s deprecated. It still works but will not get any updates.
+* **Old API for CloudLinux OS limits** - described [here](/legacy/deprecated/#package-integration). It’s deprecated. It still works but will not get any updates.
 
 ### New API in a nutshell
 
@@ -81,14 +81,14 @@ That means that you can add `Conflicts: public_cp_vendors_api < VERSION` to the 
 Version 1.4
 
 Summary: added AccelerateWP integration.
-1. `Provides public_cp_vendors_api = 1.4` added to rpm spec of alt-python27-cllib package (see [versioning](/shared/control_panel_integration/#versioning)).
-2. New feature `accelerate_wp` added to `supported_cl_features` of [`panel_info` script](/shared/control_panel_integration/#panel-info). This feature defines if your panel supports AccelerateWP integration.
+1. `Provides public_cp_vendors_api = 1.4` added to rpm spec of alt-python27-cllib package (see [versioning](/legacy/control_panel_integration/#versioning)).
+2. New feature `accelerate_wp` added to `supported_cl_features` of [`panel_info` script](/legacy/control_panel_integration/#panel-info). This feature defines if your panel supports AccelerateWP integration.
 3. New script `php` description added.
 4. New field `php_version_id` in [domains](#domains) script added.
 5. New field 'handler` in [domains](#domains) script added.
 
 In order to integrate AccelerateWP, you should implement a new script [php](#php), 
-follow [integration guide of X-RAY](/shared/control_panel_integration/#how-to-integrate-x-ray-and-acceleratewp-with-a-control-panel) 
+follow [integration guide of X-RAY](/legacy/control_panel_integration/#how-to-integrate-x-ray-and-acceleratewp-with-a-control-panel) 
 and add extra field `php_version_id` in [domains](#domains) script. 
 
 Version 1.3
@@ -182,7 +182,7 @@ Some integration scripts required to be called not only from root but from end-u
 
 This means that you should do one of the following:
 * all required information (code, all its dependencies, all called binaries, all configs/files/caches it reads) should be available for a user (even in CageFS)
-* you should use CageFS's [proxyexec](/shared/cloudlinux_os_components/#executing-by-proxy) mechanism to make your script run itself in a real system but with user privileges
+* you should use CageFS's [proxyexec](/legacy/cloudlinux_os_components/#executing-by-proxy) mechanism to make your script run itself in a real system but with user privileges
 * use both configured sudo and proxyexec if your script needs privilege escalation (e.g. to read some credentials or other files that shouldn't be disclosed to end-user). SUDO mechanism is needed for cases when CageFS is not installed or disabled for a user and proxyexec is needed when a user executes script in CageFS
 
 When using SUDO you should create the wrapper that will call your script using SUDO command, like this:
@@ -223,7 +223,7 @@ As an alternative for sudo you can use regular SUID scripts, but we strongly rec
 
 You can find more details on how to configure your scripts in CageFS properly here:
 
-* [Configuration. General information](/shared/cloudlinux_os_components/#configuration-2)
+* [Configuration. General information](/legacy/cloudlinux_os_components/#configuration-2)
 * [How to integrate CageFS with any control panel](./#how-to-integrate-cagefs-with-a-control-panel)
 
 ### Expected scripts responses
@@ -1300,7 +1300,7 @@ PHP Selector run outside of CageFS. When PHP Selector is called, it is not limit
 
 ## How to integrate CageFS with a control panel
 
-CageFS documentation can be found here: [CageFS](/shared/cloudlinux_os_components/#cagefs)
+CageFS documentation can be found here: [CageFS](/legacy/cloudlinux_os_components/#cagefs)
 
 ### CageFS MIN_UID  
 
@@ -1336,10 +1336,10 @@ cagefsctl --set-min-uid 10000
 ### PAM configuration for CageFS
 
 CageFS is enabled for su, ssh and cron services by default.
-[PAM Configuration](/shared/cloudlinux_os_components/#pam-configuration)
+[PAM Configuration](/legacy/cloudlinux_os_components/#pam-configuration)
 
 Also you can enable CageFS for any service that uses PAM.
-[LVE PAM Module](/shared/cloudlinux_os_components/#lve-pam-module)
+[LVE PAM Module](/legacy/cloudlinux_os_components/#lve-pam-module)
 
 :::tip
 It is safe to enable an interactive shell (e.g. /bin/bash) for users when CageFS is enabled.
@@ -1386,7 +1386,7 @@ cagefs_enter_user --pmem=512M --speed=70% <user> <command>
 ```
 </div>
 
-Refer to [documentation on limits](/shared/limits/#understanding-limits) for more details on the provided parameters.
+Refer to [documentation on limits](/legacy/limits/#understanding-limits) for more details on the provided parameters.
 
 :::tip Note
 Temporary LVE is destroyed after the process terminates unless the option `--no-fork` passed.
@@ -1425,7 +1425,7 @@ cagefsctl --set-update-period <days>
 
 ### Setting up directories for PHP sessions
 
-Each user in CageFS has its own <span class="notranslate">`/tmp`</span> directory that is not visible for other users. PHP scripts save sessions in <span class="notranslate">`/tmp`</span> directory by default (when <span class="notranslate">`session.save_path`</span> directive is empty). However, you can set up a different location for PHP sessions specific to each PHP versions using CageFS per-user [mounts](/shared/cloudlinux_os_components/#mount-points) like it is done for alt-php. Simply add a line like below to <span class="notranslate">`/etc/cagefs/cagefs.mp`</span>
+Each user in CageFS has its own <span class="notranslate">`/tmp`</span> directory that is not visible for other users. PHP scripts save sessions in <span class="notranslate">`/tmp`</span> directory by default (when <span class="notranslate">`session.save_path`</span> directive is empty). However, you can set up a different location for PHP sessions specific to each PHP versions using CageFS per-user [mounts](/legacy/cloudlinux_os_components/#mount-points) like it is done for alt-php. Simply add a line like below to <span class="notranslate">`/etc/cagefs/cagefs.mp`</span>
 
 <div class="notranslate">
 
@@ -1445,7 +1445,7 @@ cagefsctl --remount-all
 
 to apply changes. After that, session files will be stored in <span class="notranslate">`/opt/alt/php54/var/lib/php/session`</span> inside user’s CageFS. In real file systems these files can be found inside `.cagefs` directory in user’s home directory. For above example, given that user’s home directory is <span class="notranslate">`/home/user`</span>, the files will reside in <span class="notranslate">`/home/user/.cagefs/opt/alt/php54/var/lib/php/session`</span> directory. TMP directory for the user will be located in <span class="notranslate">`/home/user/.cagefs/tmp`</span>. 
 Temporary files including php sessions in `/tmp` directories in CageFS are cleaned using `tmpwatch`. You can change the period of removing old temporary files or set up additional directories for cleaning according to the documentation: 
-[TMP directories](/shared/cloudlinux_os_components/#tmp-directories).
+[TMP directories](/legacy/cloudlinux_os_components/#tmp-directories).
 
 Knowing the location where PHP sessions are stored (described above), you can also implement any custom script for cleaning PHP sessions. Remember to drop permissions (switch to the appropriate user) when removing the files (for example using sudo).
 
@@ -1508,7 +1508,7 @@ cagefsctl --user-status USER
 </div>
 
 to apply changes and check that the command shows <span class="notranslate">_Disabled_</span>:
-[Excluding users](/shared/cloudlinux_os_components/#excluding-users)
+[Excluding users](/legacy/cloudlinux_os_components/#excluding-users)
 
 ### How to add a file or a directory to CageFS
 
@@ -1542,7 +1542,7 @@ The benefits of this approach:
 * users in CageFS cannot modify files in the real file system (for example, in case of wrong permissions), because files in cagefs-skeleton are the copies of files from the real file system (and not mounted to CageFS)
 * you can copy specific _safe_ files from some directory from the real file system to CageFS, and not copy all files and not mount the entire directory.
 
-You can find more info [here](/shared/cloudlinux_os_components/#file-system-templates).
+You can find more info [here](/legacy/cloudlinux_os_components/#file-system-templates).
 
 #### Mount an entire directory with needed files to CageFS
 
@@ -1567,20 +1567,20 @@ cagefsctl --remount-all
 ```
 </div>
 
-You can find more info [here](/shared/cloudlinux_os_components/#mount-points).
+You can find more info [here](/legacy/cloudlinux_os_components/#mount-points).
 
 ### Users' home directory
 
 CageFS mounts users' home directories to CageFS automatically. Usually, there is no need to configure anything. However, if your control panel uses a custom path to users' home directories (for example <span class="notranslate">`/home/$USER/data`</span> instead of <span class="notranslate">`/home/$USER`</span>), then it may be necessary to configure Base Home Directory setting:
-[Base Home Directory](/shared/cloudlinux_os_components/#base-home-directory)
+[Base Home Directory](/legacy/cloudlinux_os_components/#base-home-directory)
 
 The modes of mounting users' home directories into CageFS are described here: 
-[Mounting user’s home directory inside CageFS](/shared/cloudlinux_os_components/#mounting-users-home-directory-inside-cagefs)
+[Mounting user’s home directory inside CageFS](/legacy/cloudlinux_os_components/#mounting-users-home-directory-inside-cagefs)
 
 ### Excluding files from CageFS
 
 CageFS has a default set of files and directories that are visible to users inside CageFS. If you wish to exclude some of these files or directories from CageFS, you can do this as described below:
-[Excluding files](/shared/cloudlinux_os_components/#excluding-files) 
+[Excluding files](/legacy/cloudlinux_os_components/#excluding-files) 
 
 ### Executing commands outside CageFS via proxyexec
 
@@ -1591,7 +1591,7 @@ Typically, these commands are suid programs or other programs that cannot run in
 * Regular (not suid) commands will be executed as user inside the user’s LVE, but outside of CageFS.
 * SUID commands will be executed in the user’s LVE outside of CageFS with the effective UID set to the owner of the file being executed.
 
-You can find more details [here](/shared/cloudlinux_os_components/#executing-by-proxy).
+You can find more details [here](/legacy/cloudlinux_os_components/#executing-by-proxy).
 
 :::tip Note
 You should use this feature with caution because it gives users the ability to execute specified commands outside of CageFS. SUID commands are extremely dangerous because they are executed not as a user, but as an owner of the file (typically root). You should give users the ability to execute safe commands only. These commands should not have known vulnerabilities.
@@ -1602,18 +1602,18 @@ You should check that users cannot use these commands to get sensitive informati
 ### Filtering options for commands executed by proxyexec
 
 It is possible to disable specific *dangerous* options of programs executed via `proxyexec`. More details:
-[Filtering options for commands executed by proxyexec](/shared/cloudlinux_os_components/#filtering-options-for-commands-executed-by-proxyexec).
+[Filtering options for commands executed by proxyexec](/legacy/cloudlinux_os_components/#filtering-options-for-commands-executed-by-proxyexec).
 
 ## Integrating CloudLinux OS PHP Selector
 
 Complete documentation for CloudLinux OS PHP Selector can be found here:
-[PHP Selector](/shared/cloudlinux_os_components/#php-selector)
+[PHP Selector](/legacy/cloudlinux_os_components/#php-selector)
 
 :::tip Note
 CloudLinux OS PHP Selector requires CageFS, so integration of CageFS must be completed before starting PHP Selector integration.
 :::
 
-If your control panel has some PHP version selector installed already, we suggest you not to enable CloudLinux OS PHP Selector for your users, so they will not be confused by two multiple PHP Selectors. However, if you want to use CloudLinux OS PHP Selector anyway, you can refer to the following article to configure loading of extensions for alt-php: [PHP extensions](/shared/cloudlinux_os_components/#php-extensions)
+If your control panel has some PHP version selector installed already, we suggest you not to enable CloudLinux OS PHP Selector for your users, so they will not be confused by two multiple PHP Selectors. However, if you want to use CloudLinux OS PHP Selector anyway, you can refer to the following article to configure loading of extensions for alt-php: [PHP extensions](/legacy/cloudlinux_os_components/#php-extensions)
 
 For proper operation of CloudLinux OS PHP Selector, you should specify location of native PHP binaries of your control panel in <span class="notranslate">`/etc/cl.selector/native.conf`</span>. Then execute
 
@@ -1625,13 +1625,13 @@ cagefsctl --setup-cl-selector
 </div>
 
 to apply changes.
-More details: [Native PHP Configuration](/shared/cloudlinux_os_components/#native-php-configuration)
+More details: [Native PHP Configuration](/legacy/cloudlinux_os_components/#native-php-configuration)
 
 You can configure CloudLinux OS  PHP Selector to allow your customers to select any custom PHP version specific to your control panel. Here's how to do this:
-[Roll your own PHP](/shared/cloudlinux_os_components/#roll-your-own-php)
+[Roll your own PHP](/legacy/cloudlinux_os_components/#roll-your-own-php)
 
 Also, you can compile and add your own PHP extensions to CloudLinux OS PHP Selector:
-[Compiling your own extensions](/shared/cloudlinux_os_components/#compiling-your-own-extensions) 
+[Compiling your own extensions](/legacy/cloudlinux_os_components/#compiling-your-own-extensions) 
 
 ## Integration of Apache modules in control panels
 
@@ -1967,7 +1967,7 @@ PANEL_NAME=CustomPanel
 
 2. Create executable script in */usr/share/lve/mod_lsapi/custom/executable.sh*. Name it as you want and specify in the config.ini file. Set EXECUTABLE_BIN=executable.sh in the GLOBAL section of the ini file. **Script must be located in the /usr/share/lve/mod_lsapi/custom/ directory.**
 
-3. Custom script options correspond to the options of the switch_mod_lsapi. For more information use the [this document](/shared/command-line_tools/#apache-mod-lsapi-pro).
+3. Custom script options correspond to the options of the switch_mod_lsapi. For more information use the [this document](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
 #### What you need to write in your custom executable.sh file.
 
@@ -2086,7 +2086,7 @@ yum install governor-mysql
 ```
 </div>
 
-2. MySQL Governor supports only `cl-MariaDB**` or `cl-MySQL**` packages. Follow the [documentation](/shared/cloudlinux_os_components/#mysql-governor) to figure out all supported versions.
+2. MySQL Governor supports only `cl-MariaDB**` or `cl-MySQL**` packages. Follow the [documentation](/legacy/cloudlinux_os_components/#mysql-governor) to figure out all supported versions.
 
 <div class="notranslate">
 
@@ -2108,11 +2108,11 @@ yum install governor-mysql
 
 5. After installation, check that the database server is working properly. If you have any problems, contact [support](https://helpdesk.cloudlinux.com/)
 
-6. Configure user mapping to the database. The mapping format is described in the following [section](/shared/cloudlinux_os_components/#mapping-a-user-to-a-database). The control panel should automatically generate such mapping and write it to <span class="notranslate">`/etc/container/dbuser-map`</span>. Usually, it is enough to write a hook when adding, deleting or renaming a database for a user. The control panel should implement such a mechanism for MySQL Governor to operate properly. MySQL Governor automatically applies changes from the dbuser-map file every five minutes.
+6. Configure user mapping to the database. The mapping format is described in the following [section](/legacy/cloudlinux_os_components/#mapping-a-user-to-a-database). The control panel should automatically generate such mapping and write it to <span class="notranslate">`/etc/container/dbuser-map`</span>. Usually, it is enough to write a hook when adding, deleting or renaming a database for a user. The control panel should implement such a mechanism for MySQL Governor to operate properly. MySQL Governor automatically applies changes from the dbuser-map file every five minutes.
 
-7. MySQL Governor configuration can be found in the following [section](/shared/cloudlinux_os_components/#configuration-3).
+7. MySQL Governor configuration can be found in the following [section](/legacy/cloudlinux_os_components/#configuration-3).
 
-8. MySQL Governor CLI tools description can be found in the following [section](/shared/command-line_tools/#mysql-governor)
+8. MySQL Governor CLI tools description can be found in the following [section](/legacy/command-line_tools/#mysql-governor)
 
 9. Having configured the mapping use `dbtop` to see the current user load on the database (you'd need to make some database queries).
 
@@ -2246,7 +2246,7 @@ yum groupinstall alt-php{some_version}
 ```
 </div>
 
-For details, see [PHP Selector Installation and Update](/shared/cloudlinux_os_components/#installation-and-update-4)
+For details, see [PHP Selector Installation and Update](/legacy/cloudlinux_os_components/#installation-and-update-4)
 
 ## CloudLinux OS kernel set-up
 
@@ -2255,13 +2255,13 @@ For details, see [PHP Selector Installation and Update](/shared/cloudlinux_os_co
 * [Integrating control panel with CloudLinux OS](./#integrating-control-panel-with-cloudlinux-os)
 
 CloudLinux OS kernel allows the server administrator to control the user access to the `/proc` filesystem with the special parameters.
-Unprivileged system users will not be able to see the processes of other system users, they can only see their processes. See details [here](/shared/cloudlinux_os_kernel/#virtualized-proc-filesystem).
+Unprivileged system users will not be able to see the processes of other system users, they can only see their processes. See details [here](/legacy/cloudlinux_os_kernel/#virtualized-proc-filesystem).
 
 If the <span class="notranslate">`fs.proc_can_see_other_uid`</span> parameter is not defined in `sysctl` config during the CageFS package installation, it is set to `0`: <span class="notranslate">`fs.proc_can_see_other_uid=0`</span>.
 
 You can also set this parameter in the <span class="notranslate">`/etc/sysctl.conf`</span> file and then run the <span class="notranslate">`sysctl -p`</span> command.
 
-<span class="notranslate">[`hidepid`](/shared/cloudlinux_os_kernel/#remounting-procfs-with-hidepid-option)</span> parameter is set based on the <span class="notranslate">`fs.proc_can_see_other_uid`</span> parameter value automatically during the <span class="notranslate">`lve_namespaces`</span> service starting (i.e. during <span class="notranslate">`lve-utils`</span> package installation and server booting).
+<span class="notranslate">[`hidepid`](/legacy/cloudlinux_os_kernel/#remounting-procfs-with-hidepid-option)</span> parameter is set based on the <span class="notranslate">`fs.proc_can_see_other_uid`</span> parameter value automatically during the <span class="notranslate">`lve_namespaces`</span> service starting (i.e. during <span class="notranslate">`lve-utils`</span> package installation and server booting).
 
 #### Integrating control panel with CloudLinux OS
 
@@ -2290,9 +2290,9 @@ If the [admins](./#admins) list script exists when installing <span class="notra
 
 CloudLinux OS kernels have symlink attacks protection. When this protection is enabled, the system does not allow users to create symlinks (and hard links) to non-existent/not their own files.
 
-[Here](/shared/cloudlinux_os_kernel/#link-traversal-protection) you can find all protection mechanism parameters.
+[Here](/legacy/cloudlinux_os_kernel/#link-traversal-protection) you can find all protection mechanism parameters.
 
-See also: [the special module to protect web-server](/shared/cloudlinux_os_kernel/#symlink-owner-match-protection).
+See also: [the special module to protect web-server](/legacy/cloudlinux_os_kernel/#symlink-owner-match-protection).
 
 You can run <span class="notranslate">`cldiag`</span> utility with the <span class="notranslate">`--check-symlinkowngid`</span> parameter to check whether your web-server protection mechanisms are correctly set-up.
 
@@ -2332,7 +2332,7 @@ To allow an unprivileged user to create such symlink or hard link, a file/direct
 Some of CloudLinux OS utilities (`cagefsctl`, `selectorctl`, `cloudlinux-selector`, etc) writes files to the user’s home directory on behalf of this user.
 
 So they are subject to the disk quotas if any are set for the user. The utilities can override these quotas to avoid failures.
-See [File system quotas](/shared/cloudlinux_os_kernel/#file-system-quotas) for kernel parameters controlling these permissions. This parameter is used only for XFS file system.
+See [File system quotas](/legacy/cloudlinux_os_kernel/#file-system-quotas) for kernel parameters controlling these permissions. This parameter is used only for XFS file system.
 
 ## How to integrate X-Ray and AccelerateWP with a control panel
 
@@ -2436,7 +2436,7 @@ PHP interpreter configuration for each domain is to be placed in the nested key-
 | Key                                        | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | <span class="notranslate">version</span>   | True     | The version of php that is selected by the end user or administrator in the panel for this domain. Should be presented in the format XY where XY is the exact version of PHP. List of supported versions is presented below.                                                                                                                                                                                                                                                                                                                                                                                               |
 | <span class="notranslate">ini_path</span>  | True     | Path where PHP expects additional .ini files to scan, usually compiled path into binary PHP.Example where to get this value: ![](./images/IniPath.png)                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| <span class="notranslate">is_native</span> | False    | If your panel [has integrated CloudLinux OS PHP Selector](./#integrating-cloudlinux-os-php-selector), then there is the list of native PHP binaries in the <span class="notranslate">`native.conf`</span> (see details [here](/shared/cloudlinux_os_components/#native-php-configuration)). The <span class="notranslate">`is_native`</span> value must be set to true if the binary of the above version of PHP is specified in the <span class="notranslate">`native.conf`</span>, false or omitted otherwise. This way the X-Ray will determine if CloudLinux OS PHP Selector is enabled for a given domain |
+| <span class="notranslate">is_native</span> | False    | If your panel [has integrated CloudLinux OS PHP Selector](./#integrating-cloudlinux-os-php-selector), then there is the list of native PHP binaries in the <span class="notranslate">`native.conf`</span> (see details [here](/legacy/cloudlinux_os_components/#native-php-configuration)). The <span class="notranslate">`is_native`</span> value must be set to true if the binary of the above version of PHP is specified in the <span class="notranslate">`native.conf`</span>, false or omitted otherwise. This way the X-Ray will determine if CloudLinux OS PHP Selector is enabled for a given domain |
 | <span class="notranslate">fpm</span>       | False    | The name of the FPM service that uses specified domain, optional value. To make the X-Ray work on domains using FPM, you need to restart FPM service. In X-Ray added automatic restart of the FPM service if the tracing task is created for the domain that uses the FPM therefore we need this field, otherwise it can be omitted                                                                                                                                                                                                                                                                                        |
 | handler                                    | *True    | The name of used handler. Can be one of the follwing: fpm, cgi, fcgi, lsapi. Use lsapi in case if you use litespeed web server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 

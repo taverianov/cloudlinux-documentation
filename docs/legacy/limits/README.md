@@ -4,18 +4,18 @@ sidebarDepth: 4
 
 # Limits
 
-* [Understanding limits](/shared/limits/#understanding-limits)
-* [SPEED limit](/shared/limits/#speed-limit)
-* [Memory limit](/shared/limits/#memory-limit)
-* [IO](/shared/limits/#io)
-* [IOPS](/shared/limits/#iops)
-* [Entry processes](/shared/limits/#entry-processes)
-* [Number of processes](/shared/limits/#number-of-processes)
-* [Inodes](/shared/limits/#inodes)
-* [Network traffic bandwidth control and accounting system](/shared/limits/#network-traffic-bandwidth-control-and-accounting-system)
-* [Limits validation](/shared/limits/#limits-validation)
-* [Compatibility matrix](/shared/limits/#compatibility-matrix)
-* [Reseller Limits](/shared/limits/#reseller-limits)
+* [Understanding limits](/legacy/limits/#understanding-limits)
+* [SPEED limit](/legacy/limits/#speed-limit)
+* [Memory limit](/legacy/limits/#memory-limit)
+* [IO](/legacy/limits/#io)
+* [IOPS](/legacy/limits/#iops)
+* [Entry processes](/legacy/limits/#entry-processes)
+* [Number of processes](/legacy/limits/#number-of-processes)
+* [Inodes](/legacy/limits/#inodes)
+* [Network traffic bandwidth control and accounting system](/legacy/limits/#network-traffic-bandwidth-control-and-accounting-system)
+* [Limits validation](/legacy/limits/#limits-validation)
+* [Compatibility matrix](/legacy/limits/#compatibility-matrix)
+* [Reseller Limits](/legacy/limits/#reseller-limits)
 * [WEB interface resource limiting modes](/limits/#web-interface-resource-limiting-modes)
 
 CloudLinux OS has support for the following limits:
@@ -23,15 +23,15 @@ CloudLinux OS has support for the following limits:
 | |  |  |  | |
 |--|---|--|--|--|
 |Limits | Units | Default Value | Description | Supported Kernels / OS|
-|<span class="notranslate"> [SPEED](/shared/limits/#speed-limit) </span> | % of a core, or HZ | 100% | <span class="notranslate"> CPU </span> speed limit, relative to a single core, or specified in HZ (portable across <span class="notranslate"> CPU </span> s) | all|
-|<span class="notranslate">[CPU](/shared/deprecated/#cpu-limits)</span> [deprecated] | % of <span class="notranslate"> CPU </span> | 25% | <span class="notranslate"> CPU </span> Limit (smallest of <span class="notranslate"> CPU </span> & NCPU is used) | all|
-|[NCPU](/shared/deprecated/#cpu-limits) [deprecated] | number of cores | 1 CORE | Max number of cores (smallest of <span class="notranslate"> CPU </span> & NCPU used) | all|
-|[PMEM](/shared/limits/#physical-memory-limit) | KB | 1024MB | Physical memory limit (RSS field in ps/RES in top). Also includes shared memory and disk cache | all|
-|[VMEM](/shared/limits/#virtual-memory-limit) | KB | 0 | Virtual memory limit (VSZ field in ps/VIRT in top) | all|
-|[IO](/shared/limits/#io) | KB/sec | 1024KB/sec | IO throughput - combines both read & write operations | CL8, CL7, CL6 lve1.1.9+ kernel|
-|[IOPS](/shared/limits/#iops) [lve1.3+] | Operations per second | 1024 | Restricts total number of read/write operations per second. | all|
-|[NPROC](/shared/limits/#number-of-processes) | number | 100 | Max number of processes within LVE | all|
-|[EP](/shared/limits/#entry-processes) | number | 20 | Limit on entry processes. Usually represents max number of concurrent connections to apache dynamic scripts as well as SSH and cron jobs running simultaneously. | all|
+|<span class="notranslate"> [SPEED](/legacy/limits/#speed-limit) </span> | % of a core, or HZ | 100% | <span class="notranslate"> CPU </span> speed limit, relative to a single core, or specified in HZ (portable across <span class="notranslate"> CPU </span> s) | all|
+|<span class="notranslate">[CPU](/legacy/deprecated/#cpu-limits)</span> [deprecated] | % of <span class="notranslate"> CPU </span> | 25% | <span class="notranslate"> CPU </span> Limit (smallest of <span class="notranslate"> CPU </span> & NCPU is used) | all|
+|[NCPU](/legacy/deprecated/#cpu-limits) [deprecated] | number of cores | 1 CORE | Max number of cores (smallest of <span class="notranslate"> CPU </span> & NCPU used) | all|
+|[PMEM](/legacy/limits/#physical-memory-limit) | KB | 1024MB | Physical memory limit (RSS field in ps/RES in top). Also includes shared memory and disk cache | all|
+|[VMEM](/legacy/limits/#virtual-memory-limit) | KB | 0 | Virtual memory limit (VSZ field in ps/VIRT in top) | all|
+|[IO](/legacy/limits/#io) | KB/sec | 1024KB/sec | IO throughput - combines both read & write operations | CL8, CL7, CL6 lve1.1.9+ kernel|
+|[IOPS](/legacy/limits/#iops) [lve1.3+] | Operations per second | 1024 | Restricts total number of read/write operations per second. | all|
+|[NPROC](/legacy/limits/#number-of-processes) | number | 100 | Max number of processes within LVE | all|
+|[EP](/legacy/limits/#entry-processes) | number | 20 | Limit on entry processes. Usually represents max number of concurrent connections to apache dynamic scripts as well as SSH and cron jobs running simultaneously. | all|
 
 
 
@@ -63,15 +63,15 @@ Bellow you can find recommendations for your typical shared hosting setup. The r
 
 ## Understanding limits
 
-* [Checking if LVE is installed](/shared/limits/#checking-if-lve-is-installed)
-* [Controlling LVE limits](/shared/limits/#controlling-lve-limits)
-* [Checking LVE usage](/shared/limits/#checking-lve-usage)
+* [Checking if LVE is installed](/legacy/limits/#checking-if-lve-is-installed)
+* [Controlling LVE limits](/legacy/limits/#controlling-lve-limits)
+* [Checking LVE usage](/legacy/limits/#checking-lve-usage)
 
 LVE is a kernel level technology developed by the CloudLinux team. The technology has common roots with container based virtualization and uses cgroups in its latest incarnation. It is lightweight and transparent. The goal of LVE is to make sure that no single web site can bring down your web server.
 
 Today, a single site can consume all <span class="notranslate"> CPU, IO, Memory</span> resources or Apache processes - and bring the server to a halt. LVE prevents that. It is done via collaboration of Apache module, PAM module and kernel.
 
-[mod_hostinglimits](/shared/cloudlinux_os_components/#hostinglimits-module-for-apache) is Apache module that:
+[mod_hostinglimits](/legacy/cloudlinux_os_components/#hostinglimits-module-for-apache) is Apache module that:
 
 * detects VirtualHost from which the request came;
 * detects if it was meant for CGI or PHP script;
@@ -153,7 +153,7 @@ Sets <span class="notranslate">CPU</span> limit to 25%, <span class="notranslate
 ### Checking LVE usage
 
 
-One of the best way to monitor current usage is [lvetop](/shared/command-line_tools/#lvetop):
+One of the best way to monitor current usage is [lvetop](/legacy/command-line_tools/#lvetop):
 
 <div class="notranslate">
 
@@ -179,7 +179,7 @@ cat /proc/lve/list
 ```
 </div>
 
-Additionally, you can use tool [lveps](/shared/command-line_tools/#lveps) to see <span class="notranslate">CPU</span> usage, and processes within LVE.
+Additionally, you can use tool [lveps](/legacy/command-line_tools/#lveps) to see <span class="notranslate">CPU</span> usage, and processes within LVE.
 
 ## SPEED limit
 
@@ -225,7 +225,7 @@ It is recommended to disable VMEM limits (set them to 0) in your system at all b
 
 Physical memory limit corresponds to the amount of memory actually used by end customer's processes. You can see individual process physical memory usage by monitoring RES column in top output for the process. Because similar processes (like PHP) share a lot of their memory, physical memory usage is often much lower then virtual memory usage.
 
-Additionally physical memory includes shared memory used by the customer, as well as disk cache (*disk cache may not be accounted in the statistics, see [Disable Page Cache accounting](/shared/limits/#disable-page-cache-accounting) below*).
+Additionally physical memory includes shared memory used by the customer, as well as disk cache (*disk cache may not be accounted in the statistics, see [Disable Page Cache accounting](/legacy/limits/#disable-page-cache-accounting) below*).
 In case of disk cache – if a user is starting to lack physical memory, the memory used for disk cache will be freed up, without causing any memory faults.
 
 When LVE goes over physical memory limit, CloudLinux OS will first free up memory used for disk cache, and if that is not enough, it will kill some of the processes within that LVE, and increment fPMEM counter. This will usually cause web server to serve 500 and 503 errors. Physical memory limit is a much better way to limit memory for shared hosting.
@@ -243,7 +243,7 @@ You can check the statistics by the following CLI command:
 ```
 lveps
 ```
-or see the statistics in your Hosting Panel web-interface: [Cloudlinux manager -> Statistics](/shared/lve_manager/#statistics).
+or see the statistics in your Hosting Panel web-interface: [Cloudlinux manager -> Statistics](/legacy/lve_manager/#statistics).
 
 To make the statistics doesn’t count the page cache you could just enable the new `sysctl` option:
 ```
@@ -259,7 +259,7 @@ Kernel memory accounting is disabled by default on CloudLinux OS 7/8/9 systems d
 
 ### Troubleshooting
 
-* [Checking personal users disk cache (If lveinfo shows memory usage but there are no processes there)](/shared/limits/#checking-personal-users-disk-cache-if-lveinfo-shows-memory-usage-but-there-are-no-processes-there)
+* [Checking personal users disk cache (If lveinfo shows memory usage but there are no processes there)](/legacy/limits/#checking-personal-users-disk-cache-if-lveinfo-shows-memory-usage-but-there-are-no-processes-there)
 
 #### Checking personal users disk cache (If lveinfo shows memory usage but there are no processes there)
 
@@ -377,13 +377,13 @@ You can find a full manual for this tool [here](https://man7.org/linux/man-pages
 We do not collect statistical information on the inodes like we do for other LVE limits.
 :::
 
-The limits can be set on the level of individual [account](/shared/lve_manager/#actions) or [package](/shared/lve_manager/#packages).
+The limits can be set on the level of individual [account](/legacy/lve_manager/#actions) or [package](/legacy/lve_manager/#packages).
 
 Sometimes <span class="notranslate">disk quota</span> breaks, so do <span class="notranslate"> inodes </span> limits. You can reset them through the <span class="notranslate">_Options_</span> tab of <span class="notranslate">LVE Manager</span>:
 
 ![](./images/inodelimitsoptions_zoom70.png)
 
-The same can be achieved using [cloudlinux-config](/shared/command-line_tools/#cloudlinux-config) CLI utility
+The same can be achieved using [cloudlinux-config](/legacy/command-line_tools/#cloudlinux-config) CLI utility
 
 End users can monitor their inodes usage through cPanel only (not available on Plesk and DirectAdmin):
 
@@ -509,9 +509,9 @@ Network limits are supported only for processes inside LVE. By default it does n
 
 ## Limits validation
 
-* [Exceptions list (validation is not supported)](/shared/limits/#exceptions-list-validation-is-not-supported)
-* [Existing limits validation](/shared/limits/#existing-limits-validation)
-* [Best practice](/shared/limits/#best-practice)
+* [Exceptions list (validation is not supported)](/legacy/limits/#exceptions-list-validation-is-not-supported)
+* [Existing limits validation](/legacy/limits/#existing-limits-validation)
+* [Best practice](/legacy/limits/#best-practice)
 
 Starting from <span class="notranslate">**lve-utils**</span> **version 3.1-1**, the validation of EP and NPROC limits is supported. If an administrator sets the NPROC limit less than (EP + 15), the following warning is shown:
 
@@ -636,12 +636,12 @@ Reseller limits feature also enables hosters to give their resellers controls ov
 Reseller cannot manage INODE or MYSQL limits. Neither his own, nor for his users.
 :::
 
-- [Design](/shared/limits/#design)
-- [Requirements](/shared/limits/#requirements)
-- [Configuration](/shared/limits/#configuration)
-    - [Enabling Reseller limits](/shared/limits/#enabling-reseller-limits)
-    - [How to disable Reseller limits](/shared/limits/#how-to-disable-reseller-limits)
-    - [More resources](/shared/limits/#more-resources)
+- [Design](/legacy/limits/#design)
+- [Requirements](/legacy/limits/#requirements)
+- [Configuration](/legacy/limits/#configuration)
+    - [Enabling Reseller limits](/legacy/limits/#enabling-reseller-limits)
+    - [How to disable Reseller limits](/legacy/limits/#how-to-disable-reseller-limits)
+    - [More resources](/legacy/limits/#more-resources)
 
 ### Design
 
@@ -661,9 +661,9 @@ As you probably have already understood, the reseller will technically be able t
 
 ### Requirements
 
-1. CloudLinux OS should be [installed](/shared/cloudlinux_installation/) on the server.
+1. CloudLinux OS should be [installed](/legacy/cloudlinux_installation/) on the server.
 2. You also need to check that your kernel supports Reseller limits feature
-    * CloudLinux OS 6 and kernels **2.16+**: not supported, you need to [migrate to Hybrid](/shared/cloudlinux_os_kernel/#how-to-migrate-from-the-normal-to-hybrid-channel-cl6h).
+    * CloudLinux OS 6 and kernels **2.16+**: not supported, you need to [migrate to Hybrid](/legacy/cloudlinux_os_kernel/#how-to-migrate-from-the-normal-to-hybrid-channel-cl6h).
     * CloudLinux OS 6 Hybrid: supported starting from **3.10.0-714.10.2.lve1.5.3.el6h** kernel.
     * CloudLinux OS 7: supported starting from **3.10.0-714.10.2.lve1.5.3.el7** kernel.
     * CloudLinux OS 7 Hybrid: supported
@@ -676,7 +676,7 @@ As you probably have already understood, the reseller will technically be able t
 
 If you have decided to jump on board and enable Reseller limits for your resellers you should do the following:
 
-1. Make sure that you run CloudLinux OS with the kernel and lvemanager that meets the [necessary requirements](/shared/limits/#requirements). 
+1. Make sure that you run CloudLinux OS with the kernel and lvemanager that meets the [necessary requirements](/legacy/limits/#requirements). 
 2. Log in with a hoster access.
 3. You can create a new reseller account or configure an existing reseller account to have Reseller limits enabled. Consult your control panel documentation on how to do that.
 4. For cPanel servers when creating an account, make sure to tick two checkboxes **Make this account a reseller** and **Make the account own itself** in the _Reseller Settings_ box.
@@ -716,7 +716,7 @@ If you disable Reseller limits everything will work the same as before. All the 
 It is possible that you still have some questions left unanswered about Reseller limits. That’s why we have more knowledge sources that you can check out:
 
 - [FAQ section in our support knowledgebase](https://cloudlinux.zendesk.com/hc/en-us/articles/115005515269-CloudLinux-Reseller-Limits-FAQ)
-- [Reseller limits UI explained](/shared/lve_manager/#reseller-interface)
+- [Reseller limits UI explained](/legacy/lve_manager/#reseller-interface)
 
 
 ## WEB interface resource limiting modes

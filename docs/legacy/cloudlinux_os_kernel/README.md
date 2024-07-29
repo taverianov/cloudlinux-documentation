@@ -138,7 +138,7 @@ When used outside CageFS (from cPanel tools for instance), <span class="notransl
 To fully protect symlink access in this case, use <span class="notranslate">`fs.process_symlinks_by_task=1`</span> in addition to <span class="notranslate">`fs.protected_symlinks_create=1`</span>.
 :::
 
-<span class="notranslate"> [CageFS](/shared/cloudlinux_os_components/#cagefs) </span> is extremely powerful at stopping most information disclosure attacks, where a hacker could read sensitive files like <span class="notranslate">_/etc/passwd_</span> .
+<span class="notranslate"> [CageFS](/legacy/cloudlinux_os_components/#cagefs) </span> is extremely powerful at stopping most information disclosure attacks, where a hacker could read sensitive files like <span class="notranslate">_/etc/passwd_</span> .
 
 Yet, <span class="notranslate"> CageFS </span> does not work in each and every situation. For example, on <span class="notranslate"> cPanel </span> servers, it is not enabled in <span class="notranslate"> WebDAV </span> server, <span class="notranslate"> cPanel </span> file manager and webmail, as well as some FTP servers don’t include proper change rooting.
 
@@ -665,7 +665,7 @@ If fs.proc_can_see_other_uid is set to 0, users will not be able to see special 
 
 fs.proc_super_gid=XX
 
-The fs.proc_super_gid sets group ID which will see system files in /proc, add any users to that group so they will see all files in /proc. Usually needed by some monitoring users like nagios or zabbix and [cldetect utility](/shared/command-line_tools/#cldetect) can configure few most commonly used monitoring software automatically.
+The fs.proc_super_gid sets group ID which will see system files in /proc, add any users to that group so they will see all files in /proc. Usually needed by some monitoring users like nagios or zabbix and [cldetect utility](/legacy/command-line_tools/#cldetect) can configure few most commonly used monitoring software automatically.
 
 #### Automatic configuration of a group in the fs.proc_super_gid
 

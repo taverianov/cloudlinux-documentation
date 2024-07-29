@@ -166,7 +166,7 @@ cagefsctl --sanity-check
 </div>
 At the moment 7 types of check are implemented:
 
-1. _Check cagefs mount points exists_ - reads _cagefs.mp_ file and verifies if the directories specified in it really exist on the disk. To learn more, visit [Mount points](/shared/cloudlinux_os_components/#mount-points) and [Split by username](/shared/cloudlinux_os_components/#split-by-username)
+1. _Check cagefs mount points exists_ - reads _cagefs.mp_ file and verifies if the directories specified in it really exist on the disk. To learn more, visit [Mount points](/legacy/cloudlinux_os_components/#mount-points) and [Split by username](/legacy/cloudlinux_os_components/#split-by-username)
 
 2. _Check cagefs <span class="notranslate"> `users.enabled` </span> is a directory_ - ensures that if  <span class="notranslate"> _/etc/cagefs/users.enabled_ </span> exists, then it is a directory, not a file (if it is recognized as a file, then it would cause a breakdown).
 
@@ -180,11 +180,11 @@ At the moment 7 types of check are implemented:
 If a login fails, it can be due to various reasons, that can only be determined in manual mode. The checker only gives the output of the command.
 :::
 
-6. _Check cagefs proxy commands configs are parsable_ - tries to load <span class="notranslate"> _/etc/cagefs/*.proxy.commands_ </span> files and parse them to check the syntax. In case of any parsing error the test will fail. To learn more, visit [Executing by proxy](/shared/cloudlinux_os_components/#executing-by-proxy).
+6. _Check cagefs proxy commands configs are parsable_ - tries to load <span class="notranslate"> _/etc/cagefs/*.proxy.commands_ </span> files and parse them to check the syntax. In case of any parsing error the test will fail. To learn more, visit [Executing by proxy](/legacy/cloudlinux_os_components/#executing-by-proxy).
 
-7. _Check cagefs virt.mp files syntax_ - reads all _/var/cagefs///virt.mp_ files (if any) and checks their syntax validity. At the moment there are only two checks of the syntax: the file is not empty if it exists, and the file is not starting with the sub directory definitions (with @). To learn more, visit [Per-user virtual mount points](/shared/cloudlinux_os_components/#per-user-virtual-mount-points)
+7. _Check cagefs virt.mp files syntax_ - reads all _/var/cagefs///virt.mp_ files (if any) and checks their syntax validity. At the moment there are only two checks of the syntax: the file is not empty if it exists, and the file is not starting with the sub directory definitions (with @). To learn more, visit [Per-user virtual mount points](/legacy/cloudlinux_os_components/#per-user-virtual-mount-points)
 
-8. _Check MultiPHP system default PHP version_ – checks that MultiPHP system default PHP version is **NOT** Alt-PHP. That means <span class="notranslate"> PHP Selector </span> should work properly. If MultiPHP system default PHP version is Alt-PHP, <span class="notranslate"> PHP Selector </span> does not work and should be disabled. To learn more on how to disable <span class="notranslate"> PHP Selector, </span> visit [cPanel LVE Manager](/shared/cloudlinux_os_components/#php-selector) 
+8. _Check MultiPHP system default PHP version_ – checks that MultiPHP system default PHP version is **NOT** Alt-PHP. That means <span class="notranslate"> PHP Selector </span> should work properly. If MultiPHP system default PHP version is Alt-PHP, <span class="notranslate"> PHP Selector </span> does not work and should be disabled. To learn more on how to disable <span class="notranslate"> PHP Selector, </span> visit [cPanel LVE Manager](/legacy/cloudlinux_os_components/#php-selector) 
 
 Possible results of the checks:
 
@@ -927,7 +927,7 @@ For both, **summary statistics** and **detailed statistics**, <span class="notra
 
 :::tip Note
 * you can specify only required fields using <span class="notranslate">`--show`</span> option;
-* <span class="notranslate">`mysql`</span> fields are only available with <span class="notranslate"> [MySQL Governor](/shared/cloudlinux_os_components/#installation-and-update-3)</span> installed.
+* <span class="notranslate">`mysql`</span> fields are only available with <span class="notranslate"> [MySQL Governor](/legacy/cloudlinux_os_components/#installation-and-update-3)</span> installed.
 :::
 
 #### **Units of measurement**
@@ -1126,12 +1126,12 @@ usage: <span class="notranslate"> dbctl command [parameter] [options] </span>
 | <span class="notranslate"> --write=N </span> |limit <span class="notranslate"> WRITE </span> (MB/s) usage|
 | <span class="notranslate"> --level=N </span> |level (1,2,3 or 4) specified (deprecated) - this option is available only for period mode:|
 
-<span class="notranslate"> <restrict_mode use="period"/> </span> (see [Configuration](/shared/cloudlinux_os_components/#configuration-and-operation))
+<span class="notranslate"> <restrict_mode use="period"/> </span> (see [Configuration](/legacy/cloudlinux_os_components/#configuration-and-operation))
 
 The default mode is " <span class="notranslate"> limit </span> " - when a user hits limits, the account will be marked as restricted and if the user does not hit the limit again during " <span class="notranslate"> unlimit=1m </span> " account will be unrestricted. This mode doesn't have any additional levels/penalties.  
 <span class="notranslate"> <restrict_mode use="limit" unlimit="1m"/> </span>
 
-Changing the <span class="notranslate"> "unlimit" </span> can be done only via the configuration file (see [Configuration](/shared/cloudlinux_os_components/#configuration-and-operation)).
+Changing the <span class="notranslate"> "unlimit" </span> can be done only via the configuration file (see [Configuration](/legacy/cloudlinux_os_components/#configuration-and-operation)).
 
 <span class="notranslate"> --slow=N: </span> limit time (in seconds) for long running <span class="notranslate"> SELECT </span> queries
 
@@ -3018,7 +3018,7 @@ Fails if <span class="notranslate">`/usr/local/directadmin/custombuild/options.c
 
 Checks fs.enforce_symlinksifowner is correctly enabled in <span class="notranslate">`/etc/sysctl.conf`</span>.
 
-Checking specified kernel setup described in [this docs section](/shared/cloudlinux_os_kernel/#symlink-owner-match-protection) for deprecated value and displaying its current value.
+Checking specified kernel setup described in [this docs section](/legacy/cloudlinux_os_kernel/#symlink-owner-match-protection) for deprecated value and displaying its current value.
 
 Fails if <span class="notranslate">`/proc/sys/fs/enforce_symlinksifowner`</span> contains value `2` (it is deprecated and can cause issues for the system operation).
  
@@ -3056,7 +3056,7 @@ Cldiag checks `/usr/sbin/sshd -T` output in <span class="notranslate">**lve-util
 
 Checks <span class="notranslate">`fs.symlinkown_gid`</span>.
 
-First checking if user <span class="notranslate">`Apache`</span> is available in the system (on some panels users `httpd` or <span class="notranslate">`nobody`</span> with special GID are present instead of <span class="notranslate">`Apache`</span>, they are detected correctly as well). Then, if such user exists, checking that his GID equals to the one specified in sysctl or that this user belongs to this supplemental group. If these conditions are met, then the protection effect described in [this docs section](/shared/cloudlinux_os_kernel/#symlink-owner-match-protection) is applied to this user, and the appropriate message will be displayed.
+First checking if user <span class="notranslate">`Apache`</span> is available in the system (on some panels users `httpd` or <span class="notranslate">`nobody`</span> with special GID are present instead of <span class="notranslate">`Apache`</span>, they are detected correctly as well). Then, if such user exists, checking that his GID equals to the one specified in sysctl or that this user belongs to this supplemental group. If these conditions are met, then the protection effect described in [this docs section](/legacy/cloudlinux_os_kernel/#symlink-owner-match-protection) is applied to this user, and the appropriate message will be displayed.
  
 Fails if Apache user is not in the group specified in <span class="notranslate">`/proc/sys/fs/symlinkown_gid`</span>.
 
@@ -3103,7 +3103,7 @@ Fails if <span class="notranslate">`/etc/cl.selector/php.conf`</span> has incorr
 
 Checks compatibility for the <span class="notranslate">PHP Selector</span>
 
-Detecting which PHP handler has been configured on the server and checking its compatibility with the <span class="notranslate">CloudLinux OS PHP Selector</span> according to [this table](/shared/limits/#compatibility-matrix) and displaying the corresponding message with the link to the documentation in case of a problem detected. No checks are performed for EasyApache3.
+Detecting which PHP handler has been configured on the server and checking its compatibility with the <span class="notranslate">CloudLinux OS PHP Selector</span> according to [this table](/legacy/limits/#compatibility-matrix) and displaying the corresponding message with the link to the documentation in case of a problem detected. No checks are performed for EasyApache3.
 
 Failure reasons:
   * The installed <span class="notranslate">`mod_ruid`</span> package is incompatible with the <span class="notranslate">PHP Selector</span>
@@ -3120,7 +3120,7 @@ The following checkers are available in <span class="notranslate">**lve-utils >=
 
 Checks the validity of LVE limits on the server.
 
-[See this page for detailed description](/shared/limits/#limits-validation).
+[See this page for detailed description](/legacy/limits/#limits-validation).
 
 #### check-rpmdb
 
@@ -3145,7 +3145,7 @@ A new checker `check-hidepid` is available starting from `lve-utils-4.2.18-1` an
     Check mount with hidepid=2 option:
 	    FAILED: Details: hidepid protection disabled.
     Please, mount system with hidepid=2 for better security.
-    Read more about hidepid option here: https://docs.cloudlinux.com/shared/cloudlinux_os_kernel/#remounting-procfs-with-hidepid-option
+    Read more about hidepid option here: https://docs.cloudlinux.com/legacy/cloudlinux_os_kernel/#remounting-procfs-with-hidepid-option
   ```
 
 * If `check-hidepid` triggers and it's OK, it outputs the following:
@@ -3238,7 +3238,7 @@ If this option is provided cldoctor script will be downloaded to a temp director
 
 ### cloudlinux-config
 
-**cloudlinux-config** utility shows/sets various parameters related to [LVE Manager](/shared/lve_manager/#lve-manager-options) UI, [MySQL Governor](/shared/cloudlinux_os_components/#configuration-and-operation) and [faults notifications for LVE-Stats 2](/shared/cloudlinux_os_components/#configuration)
+**cloudlinux-config** utility shows/sets various parameters related to [LVE Manager](/legacy/lve_manager/#lve-manager-options) UI, [MySQL Governor](/legacy/cloudlinux_os_components/#configuration-and-operation) and [faults notifications for LVE-Stats 2](/legacy/cloudlinux_os_components/#configuration)
 
 **Usage:**
 
@@ -3435,7 +3435,7 @@ You should not set soft limit higher than hard limit. cl-quota does not control 
 
 <span class="notranslate"> cl-quota </span> utility allows setting <span class="notranslate"> inodes </span> limits for users of the system.
 
-<span class="notranslate"> cl-quota </span> integrates with the panels through a standard mechanism - [Integrating LVE Limits with Packages](/shared/lve_manager/#detecting-and-working-with-cloudlinux).
+<span class="notranslate"> cl-quota </span> integrates with the panels through a standard mechanism - [Integrating LVE Limits with Packages](/legacy/lve_manager/#detecting-and-working-with-cloudlinux).
 
 Panel users are such users whose UIDs are issued by the above panel integration mechanism. The list of panel packages and the information on the user's affiliation to a particular package is obtained from there as well.
 
@@ -3471,7 +3471,7 @@ Thus <span class="notranslate"> cl-quota </span> has two limit values, which are
 
 You can use the words <span class="notranslate"> “default” </span> and <span class="notranslate"> “unlimited” </span> instead of 0 and -1 respectively, they are fully interchangeable. See also [DB File](./#quotas-db-file) and [CLI Options](./#cli-options-examples).
 
-Individual and package limits are always saved in DB file. Limits from there are used when synchronizing <span class="notranslate"> quotas </span> . Please find more details in [Limits Synchronization](/shared/lve_manager/#caching-and-synchronizing-the-limits).
+Individual and package limits are always saved in DB file. Limits from there are used when synchronizing <span class="notranslate"> quotas </span> . Please find more details in [Limits Synchronization](/legacy/lve_manager/#caching-and-synchronizing-the-limits).
 
 Also, find detailed information on DB file itself in [Quotas DB File](./#quotas-db-file) section.
 
@@ -3720,7 +3720,7 @@ cloudlinux-limits command [options] [options]
 <span class="notranslate">`cloudlinux-limits`</span> allows you to manage limits and states for the next types of users:
 
 * users, created by admin; 
-* users, created by resellers with reseller limits enabled (see [documentation](/shared/cloudlinux_os_components/#reseller-limits))
+* users, created by resellers with reseller limits enabled (see [documentation](/legacy/cloudlinux_os_components/#reseller-limits))
 * users, created by resellers without reseller limits enabled. 
 
 For resellers' users with reseller limits enabled admin should use the <span class="notranslate">`--for-reseller`</span> option.
@@ -3794,7 +3794,7 @@ For resellers' users with reseller limits enabled admin should use the <span cla
 
 3. Change <span class="notranslate">MySQL Governor</span> status <span class="notranslate">`ignored`|`watched`, `restricted`|`unrestricted`</span>
     :::warning Note
-    * <span class="notranslate">MySQL Governor</span> should be installed; see [documentation](/shared/cloudlinux_os_components/#installation-and-update-3)
+    * <span class="notranslate">MySQL Governor</span> should be installed; see [documentation](/legacy/cloudlinux_os_components/#installation-and-update-3)
     * <span class="notranslate">`--mysql-gov`</span> and <span class="notranslate">`--mysql-restrict`</span> options are not compatible with the <span class="notranslate">`--reseller-name`</span>, <span class="notranslate">`--for-reseller`</span> options
     :::
 
@@ -3823,7 +3823,7 @@ For resellers' users with reseller limits enabled admin should use the <span cla
 
 4. Change limits for a user
     :::warning Note
-    *  <span class="notranslat">MySQL Governor</span> should be [installed](/shared/cloudlinux_os_components/#installation-and-update-3) to change the <span class="notranslate">`mysql-cpu`</span> and <span class="notranslate">`mysql-io`</span> options
+    *  <span class="notranslat">MySQL Governor</span> should be [installed](/legacy/cloudlinux_os_components/#installation-and-update-3) to change the <span class="notranslate">`mysql-cpu`</span> and <span class="notranslate">`mysql-io`</span> options
     *  <span class="notranslate">`--inodes`</span>, <span class="notranslate">`--mysql-cpu`</span>, and <span class="notranslate">`--mysql-io`</span> options are not compatible with the <span class="notranslate">`--for-reseller`</span> and <span class="notranslate">`--reseller-name`</span> options
     *  <span class="notranslate">`--username`</span> option is suitable for any type of user
     :::

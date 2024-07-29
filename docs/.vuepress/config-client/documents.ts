@@ -7,7 +7,7 @@ export default [
     {
         title: "CloudLinux OS Legacy (Shared)",
         description: "CloudLinux OS Legacy (Shared) is designed for shared hosting providers. It isolates each customer into a separate “Lightweight Virtualized Environment” (LVE), which allocates and limits server resources.",
-        link: "/shared/cloudlinux_installation/",
+        link: "/legacy/cloudlinux_installation/",
     },
     {
         title: "CloudLinux OS Shared Pro",
@@ -17,7 +17,7 @@ export default [
     {
         title: "Apache2Nginx (BETA)",
         description: "Apache2Nginx sets up Nginx hosting with .htaccess support.",
-        link: "/shared/apache2nginx/",
+        link: "/legacy/apache2nginx/",
     },
     {
         title: "AccelerateWP",
@@ -37,10 +37,8 @@ export default [
     {
         title: "CloudLinux OS Admin",
         description: "CloudLinux OS Admin is designed for shared hosting providers and allows flawless migration of big shared hosting customers to individual VPS with the same CloudLinux features as on shared hosting.",
-        link: "/admin/description",
+        link: "/admin/description/",
     },
-
-
     {
         title: "CloudLinux Subsystem For Ubuntu",
         description: "CloudLinux subsystem on Ubuntu is a scope of deb-packages that allows using CloudLinux features on Ubuntu OS.",

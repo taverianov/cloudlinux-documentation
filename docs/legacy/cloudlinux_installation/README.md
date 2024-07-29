@@ -190,7 +190,7 @@ but might not work or be compatible with control panels and various components.
 
 :::tip Note
 At the end of conversion from CentOS 7.x to CloudLinux OS 7, 
-the cldeploy script converts CloudLinux OS 7 to [CloudLinux OS 7 Hybrid](/shared/cloudlinux_os_kernel/#hybrid-kernels).
+the cldeploy script converts CloudLinux OS 7 to [CloudLinux OS 7 Hybrid](/legacy/cloudlinux_os_kernel/#hybrid-kernels).
 :::
 
 Automatic hybridization will be performed for the AMD processors with the following CPU families:
@@ -199,7 +199,7 @@ Automatic hybridization will be performed for the AMD processors with the follow
 * Hygon Dhyana
 
 Automatic hybridization may be skipped by passing extra option '--no-force-hybridize'.
-See also [advanced options for cldeploy](/shared/command-line_tools/#cldeploy).
+See also [advanced options for cldeploy](/legacy/command-line_tools/#cldeploy).
 
 ### Minor version step-down
 
@@ -355,7 +355,7 @@ Here's what the cldeploy script does if you run it to uninstall CloudLinux:
 On cPanel servers, rebuild of Apache with EasyApache will complete the conversion back, but doesn't have to be performed immediately.<sup> *</sup>
 On DirectAdmin servers, rebuild of Apache with custombuild will complete the conversion back, but doesn't have to be performed immediately.
 
-More information is also available here: [Uninstall CloudLinux](/shared/cloudlinux_installation/#uninstalling).
+More information is also available here: [Uninstall CloudLinux](/legacy/cloudlinux_installation/#uninstalling).
 
 
 ## Installing new servers
@@ -586,11 +586,11 @@ We do not provide Xen images of CloudLinux OS Legacy (Shared) anymore, use [ISO 
 
 ## Provider-specific guidelines (CloudLinux OS Legacy (Shared) only)
 
-* [Amazon Web Services](/shared/cloudlinux_installation/#aws)
-* [H-Sphere](/shared/cloudlinux_installation/#h-sphere)
-* [DigitalOcean](/shared/cloudlinux_installation/#digitalocean)
-* [Linode](/shared/cloudlinux_installation/#linode)
-* [Virtuozzo and OpenVZ](/shared/cloudlinux_installation/#virtuozzo-and-openvz)
+* [Amazon Web Services](/legacy/cloudlinux_installation/#aws)
+* [H-Sphere](/legacy/cloudlinux_installation/#h-sphere)
+* [DigitalOcean](/legacy/cloudlinux_installation/#digitalocean)
+* [Linode](/legacy/cloudlinux_installation/#linode)
+* [Virtuozzo and OpenVZ](/legacy/cloudlinux_installation/#virtuozzo-and-openvz)
 
 ### AWS
 
@@ -600,9 +600,9 @@ If you are going to use CloudLinux OS Legacy (Shared) with cPanel image, you may
 
 ### H-Sphere
 
-* [Requirements](/shared/cloudlinux_installation/#requirements)
-* [Converting from mod_fastcgi to mod_fcgid](/shared/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid)
-* [Older versions of H-Sphere](/shared/cloudlinux_installation/#older-versions-of-h-sphere)
+* [Requirements](/legacy/cloudlinux_installation/#requirements)
+* [Converting from mod_fastcgi to mod_fcgid](/legacy/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid)
+* [Older versions of H-Sphere](/legacy/cloudlinux_installation/#older-versions-of-h-sphere)
 
 :::tip Note
 For H-Sphere 3.5+
@@ -615,7 +615,7 @@ Please note, that CageFS and PHP Selector are not supported for H-Sphere
 2. Apache 2.2.x or 1.3.
 3. mod_suexec should be enabled.
 
-To achieve optimal performance, we recommend to [convert from mod_fastcgi to mod_fcgid](/shared/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
+To achieve optimal performance, we recommend to [convert from mod_fastcgi to mod_fcgid](/legacy/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
 
 There is no need to install mod_hostinglimits – it comes built in with H-Sphere. Once you load kernel from CloudLinux OS Legacy (Shared) with liblve 0.8 or later – it will get enabled.
 
@@ -625,7 +625,7 @@ You can check if LVE is enabled by running:
 ps aux | grep httpd | grep DLIBLVE
 ```
 
-If you see no output, it means that Apache didn't pick up LVE. Try checking file <span class="notranslate">` /hsphere/shared/scripts/apache-get-env.sh`</span>
+If you see no output, it means that Apache didn't pick up LVE. Try checking file <span class="notranslate">` /hsphere/legacy/scripts/apache-get-env.sh`</span>
 
 The following lines should be there:
 <div class="notranslate">
@@ -669,7 +669,7 @@ strings.
 Restart Apache afterward.
 
 :::tip Note
-Don't forget to [convert from mod_fastcgi to mod_fcgid](/shared/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
+Don't forget to [convert from mod_fastcgi to mod_fcgid](/legacy/cloudlinux_installation/#converting-from-mod-fastcgi-to-mod-fcgid).
 :::
 
 #### Converting from mod_fastcgi to mod_fcgid
@@ -695,7 +695,7 @@ wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloud
 
 ```
 ######
-LoadModule hostinglimits_module /hsphere/shared/apache2/modules/mod_hostinglimits.so
+LoadModule hostinglimits_module /hsphere/legacy/apache2/modules/mod_hostinglimits.so
 
 <IfModule mod_hostinglimits.c>
 SkipErrors Off
@@ -730,9 +730,9 @@ yum install gcc liblve-devel zlib-devel openssl-devel
 wget https://apache.osuosl.org//httpd/mod_fcgid/mod_fcgid-2.3.9.tar.gz
 tar zxvf mod_fcgid-2.3.9.tar.gz
 cd mod_fcgid-2.3.9/
-APXS=/hsphere/shared/apache2/bin/apxs ./configure.apxs 
+APXS=/hsphere/legacy/apache2/bin/apxs ./configure.apxs 
 make
-mv modules/fcgid/.libs/mod_fcgid.so /hsphere/shared/apache2/modules
+mv modules/fcgid/.libs/mod_fcgid.so /hsphere/legacy/apache2/modules
 ```
 </div>
 
@@ -777,13 +777,13 @@ wget -O /hsphere/local/config/httpd2/fcgi.conf https://repo.cloudlinux.com/cloud
 
 </div>
 
-5. Download our wrapper file [https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper](https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper) into <span class="notranslate">`/hsphere/shared/php5/bin/`</span> and make it executable:
+5. Download our wrapper file [https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper](https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper) into <span class="notranslate">`/hsphere/legacy/php5/bin/`</span> and make it executable:
 
 <div class="notranslate">
 
 ```
-wget -O /hsphere/shared/php5/bin/php-wrapper https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper
-chmod 755 /hsphere/shared/php5/bin/php-wrapper
+wget -O /hsphere/legacy/php5/bin/php-wrapper https://repo.cloudlinux.com/cloudlinux/sources/mod_fcgid-hsphere/php-wrapper
+chmod 755 /hsphere/legacy/php5/bin/php-wrapper
 ```
 
 </div>
@@ -843,12 +843,12 @@ Other options could be configured according to personal needs.
 When done - click <span class="notranslate">_SUBMIT_</span> to apply changes.
 
 :::tip Note
-After updating H-Sphere software on web server with CloudLinux OS Legacy (Shared) you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/shared/scripts/apache-restart` script.
+After updating H-Sphere software on web server with CloudLinux OS Legacy (Shared) you need to re-apply step 2 (patch usemodule.phpmode) and restart apache with `/hsphere/legacy/scripts/apache-restart` script.
 :::
 
 ### DigitalOcean
 
-* [Adding CloudLinux OS image to DigitalOcean](/shared/cloudlinux_installation/#adding-cloudlinux-os-image-to-digitalocean)
+* [Adding CloudLinux OS image to DigitalOcean](/legacy/cloudlinux_installation/#adding-cloudlinux-os-image-to-digitalocean)
 
 How to make CloudLinux OS work on DigitalOcean:
 
@@ -926,8 +926,8 @@ You can find more information about creating/adding SSH keys in [this article](h
 
 ### Linode
 
-* [CloudLinux OS on Linode KVM](/shared/cloudlinux_installation/#cloudlinux-os-on-linode-kvm)
-* [CloudLinux OS on Linode Xen](/shared/cloudlinux_installation/#cloudlinux-os-on-linode-xen)
+* [CloudLinux OS on Linode KVM](/legacy/cloudlinux_installation/#cloudlinux-os-on-linode-kvm)
+* [CloudLinux OS on Linode Xen](/legacy/cloudlinux_installation/#cloudlinux-os-on-linode-xen)
 
 :::warning Warning
 If you are installing CloudLinux OS 8, please make sure you’ve read [https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble](https://www.linode.com/community/questions/19397/i-just-upgraded-my-centos-8-linode-and-now-it-wont-boot-how-do-i-fix-this-proble)
@@ -938,7 +938,7 @@ If you are installing CloudLinux OS 8, please make sure you’ve read [https://w
 
 To install CloudLinux OS 7 on Linode KVM server you should perform the following steps:
 
-1. Deploy CL to your Linode following the steps from *[this section](/shared/cloudlinux_installation/#converting-existing-servers)*.
+1. Deploy CL to your Linode following the steps from *[this section](/legacy/cloudlinux_installation/#converting-existing-servers)*.
 
 2. Install grub on your system:
    
@@ -980,7 +980,7 @@ After reboot you will have fully operational CloudLinux OS 7 system and can proc
 
 To install CloudLinux OS 7 on Linode Xen please perform the following steps:
 
-1. Deploy CL to your Linode following the steps from *[this section](/shared/cloudlinux_installation/#converting-existing-servers)*.
+1. Deploy CL to your Linode following the steps from *[this section](/legacy/cloudlinux_installation/#converting-existing-servers)*.
 
 2. Create the file <span class="notranslate">`/boot/grub/menu.lst`</span> with the following content:
    
@@ -1010,8 +1010,8 @@ In case if you will migrate to KVM later you will need only switch the boot sett
 
 ### Virtuozzo and OpenVZ
 
-* [Virtuozzo 7 and OpenVZ 7](/shared/cloudlinux_installation/#virtuozzo-7-and-openvz-7)
-* [Virtuozzo 6 and OpenVZ 6](/shared/cloudlinux_installation/#virtuozzo-6-and-openvz-6)
+* [Virtuozzo 7 and OpenVZ 7](/legacy/cloudlinux_installation/#virtuozzo-7-and-openvz-7)
+* [Virtuozzo 6 and OpenVZ 6](/legacy/cloudlinux_installation/#virtuozzo-6-and-openvz-6)
 
 
 #### Virtuozzo 7 and OpenVZ 7
@@ -1035,17 +1035,17 @@ To use CloudLinux Shared Pro in Virtuozzo container, please update the next pack
 
 #### Available Functionality
  
-* [Lsapi](/shared/cloudlinux_installation/#lsapi)
-* [AccelerateWP](/shared/cloudlinux_installation/#acceleratewp)
-* [Hardened PHP](/shared/control_panel_integration/#hardened-php)
-* [Website monitoring and Slow Site Analyzer](/shared/lve_manager/#website-monitoring-tool-and-slow-site-analyzer)
+* [Lsapi](/legacy/cloudlinux_installation/#lsapi)
+* [AccelerateWP](/legacy/cloudlinux_installation/#acceleratewp)
+* [Hardened PHP](/legacy/control_panel_integration/#hardened-php)
+* [Website monitoring and Slow Site Analyzer](/legacy/lve_manager/#website-monitoring-tool-and-slow-site-analyzer)
 * [X-Ray](/shared-pro/x-ray)
-* [CageFS](/shared/cloudlinux_installation/#cagefs)
-* [PHP Selector](/shared/cloudlinux_installation/#php-selector)
-* [Wizard](/shared/cloudlinux_installation/#cloudlinux-wizard)
-* [Dashboard](/shared/cloudlinux_installation/#dashboard)
-* [Python Selector](/shared/cloudlinux_installation/#python-selector)
-* [Node.js Selector](/shared/cloudlinux_installation/#node-js-selector)
+* [CageFS](/legacy/cloudlinux_installation/#cagefs)
+* [PHP Selector](/legacy/cloudlinux_installation/#php-selector)
+* [Wizard](/legacy/cloudlinux_installation/#cloudlinux-wizard)
+* [Dashboard](/legacy/cloudlinux_installation/#dashboard)
+* [Python Selector](/legacy/cloudlinux_installation/#python-selector)
+* [Node.js Selector](/legacy/cloudlinux_installation/#node-js-selector)
 
 
 #### Requirements
@@ -1106,7 +1106,7 @@ For EasyApache select `Currently Installed Packages`.
 Currently mod_suexec is not available in containers and will be released in future versions. Just ignore this message, click "ok" and continue installing lsapi via the Wizard.
 :::
 
-You can find the complete lsapi documentation [here](https://docs.cloudlinux.com/shared/cloudlinux_os_components/#apache-mod-lsapi-pro).
+You can find the complete lsapi documentation [here](https://docs.cloudlinux.com/legacy/cloudlinux_os_components/#apache-mod-lsapi-pro).
 
 #### AccelerateWP 
 
@@ -1117,10 +1117,10 @@ All additional information can be found [here](https://docs.cloudlinux.com/share
 
 #### CageFS
 
-You can find CageFS documentation [here](/shared/cloudlinux_os_components/#cagefs).
+You can find CageFS documentation [here](/legacy/cloudlinux_os_components/#cagefs).
 
 :::warning Attention!
-[Kernel config variables](/shared/cloudlinux_os_kernel/#kernel-config-variables) are not available for the Virtuozzo container!
+[Kernel config variables](/legacy/cloudlinux_os_kernel/#kernel-config-variables) are not available for the Virtuozzo container!
 :::
 
 
@@ -1148,7 +1148,7 @@ You can find CageFS documentation [here](/shared/cloudlinux_os_components/#cagef
    yum install ea-apache24-mod_suphp
    ```
    **Or**<br>
-   [Install lsapi](/shared/cloudlinux_os_components/#installing-on-cpanel-servers-with-easyapache-4)<br>
+   [Install lsapi](/legacy/cloudlinux_os_components/#installing-on-cpanel-servers-with-easyapache-4)<br>
    **It's also possible to install via CloudLinux Wizard:**<br>
    The `mod_suexec` and `mod_suphp` can be installed via cPanel EasyApache4 installation tool.<br><br>
 4. Make sure users are enabled in the CageFS:
@@ -1156,12 +1156,12 @@ You can find CageFS documentation [here](/shared/cloudlinux_os_components/#cagef
 
 Useful links:
 
-* [General information and requirements](/shared/cloudlinux_os_components/#general-information-and-requirements-5)
-	* [Installation and update](/shared/cloudlinux_os_components/#installation-and-update-4)
-	* [Installation instructions for cPanel users](/shared/cloudlinux_os_components/#installation-instructions-for-cpanel-users)
-* [Uninstalling](/shared/cloudlinux_os_components/#uninstalling-3)
-	* [Configuration and using](/shared/cloudlinux_os_components/#configuration-and-using)
-	* [Bundled PHP extensions](/shared/cloudlinux_os_components/#bundled-php-extensions)
+* [General information and requirements](/legacy/cloudlinux_os_components/#general-information-and-requirements-5)
+	* [Installation and update](/legacy/cloudlinux_os_components/#installation-and-update-4)
+	* [Installation instructions for cPanel users](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users)
+* [Uninstalling](/legacy/cloudlinux_os_components/#uninstalling-3)
+	* [Configuration and using](/legacy/cloudlinux_os_components/#configuration-and-using)
+	* [Bundled PHP extensions](/legacy/cloudlinux_os_components/#bundled-php-extensions)
 
 
 #### Python Selector 
@@ -1179,9 +1179,9 @@ Please update or install the packages mentioned above using the following comman
 yum update lve alt-python27-cllib lvemanager cagefs --enablerepo=cloudlinux-updates-testing
 ```
 
-The installation of Python Selector is available via CloudLinux Wizard. Aslo, the information about manual installation can be found [here](/shared/cloudlinux_os_components/#cpanel-2).
+The installation of Python Selector is available via CloudLinux Wizard. Aslo, the information about manual installation can be found [here](/legacy/cloudlinux_os_components/#cpanel-2).
 
-Information about working with Python Selector via GUI can be found [here](/shared/lve_manager/#python-selector-2).
+Information about working with Python Selector via GUI can be found [here](/legacy/lve_manager/#python-selector-2).
 
 
 #### Node.js Selector
@@ -1215,15 +1215,15 @@ The `ea-apache24-mod-alt-passenger` is deprecated in favor of `ea-ruby24-mod_pas
 
 #### General Information 
 
-General information can be found [here](/shared/cloudlinux_os_components/#general-information-and-requirements-7). 
+General information can be found [here](/legacy/cloudlinux_os_components/#general-information-and-requirements-7). 
 
 #### Requirements  
 
-Information about Requirements can be found [here](/shared/cloudlinux_os_components/#requirements-2).
+Information about Requirements can be found [here](/legacy/cloudlinux_os_components/#requirements-2).
 
 #### Limitations 
 
-Information about limitations can be found [here](/shared/cloudlinux_os_components/#limitations). 
+Information about limitations can be found [here](/legacy/cloudlinux_os_components/#limitations). 
 
 If during Node.js Selector usage on cPanel servers you get "ENOMEM npm ERR! errno-12" error, try to increase Memory limit in cPanel WHM → Server Configuration → Tweak Settings → System → Max cPanel process memory, then restart cPanel service with the following command to apply changes:
 
@@ -1233,11 +1233,11 @@ systemctl restart cpanel.service
 
 #### Node.js Deployment 
 
-Information about Node.js deployment can be found [here](/shared/cloudlinux_os_components/#node-js-deployment).
+Information about Node.js deployment can be found [here](/legacy/cloudlinux_os_components/#node-js-deployment).
 
 #### Remote Usage of Node.js Interpreters 
 
-Information about Remote usage of Node.js interpreters can be found [here](/shared/cloudlinux_os_components/#remote-usage-of-node-js-interpreters).
+Information about Remote usage of Node.js interpreters can be found [here](/legacy/cloudlinux_os_components/#remote-usage-of-node-js-interpreters).
 
 #### Node.js Selector UI
 
@@ -1337,7 +1337,7 @@ vzctl set CT_ID --devnodes lve:none --save
 
 </div>
 
-Inside the container, follow [standard CloudLinux installation procedures](/shared/cloudlinux_installation/#converting-existing-servers).
+Inside the container, follow [standard CloudLinux installation procedures](/legacy/cloudlinux_installation/#converting-existing-servers).
 
 CloudLinux OS Legacy (Shared) license is required for each VZ container.
 
@@ -1374,7 +1374,7 @@ mv /etc/lilo.conf /etc/lilo.conf.bak
 ```
 </div>
 
-3. Convert to CloudLinux OS Legacy (Shared) using <span class="notranslate"> [deploy2cl](/shared/cloudlinux_installation/#converting-existing-servers)</span> utility.
+3. Convert to CloudLinux OS Legacy (Shared) using <span class="notranslate"> [deploy2cl](/legacy/cloudlinux_installation/#converting-existing-servers)</span> utility.
 
 4. Check <span class="notranslate">`grub.conf`</span> – it should be configured automatically:
  
