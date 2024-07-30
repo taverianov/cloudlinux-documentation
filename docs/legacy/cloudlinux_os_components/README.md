@@ -3848,17 +3848,11 @@ whmapi1 configureservice service=mysql enabled=1 monitored=0
 ```
 </div>
 
-Execute as <span class="notranslate"> root </span> :
+The following script could be used before installing MySQL-governor and MySQL/MariaDB packages to create the backup:
 <div class="notranslate">
 
 ```
-mkdir -p ~/mysqlbkp
-service mysql restart --skip-networking --skip-grant-tables
-mysql_upgrade
-mysqldump --all-databases --routines --triggers > ~/mysqlbkp/dbcopy.sql
-service mysql stop
-cp -r /var/lib/mysql/mysql ~/mysqlbkp/
-service mysql start
+/usr/share/lve/dbgovernor/scripts/mysql_backup.sh
 ```
 </div>
 
