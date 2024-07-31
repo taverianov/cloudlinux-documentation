@@ -515,8 +515,8 @@ Click the `Advice available` link and push `Apply advice` button to automaticall
 ![](./images/FAQAdviceReview.png)
 
 #### What should I do if I see both the "No advice" note and the "Incompatible" link?
-Causes of the `Incompatible` note are always Limitations: [AccelerateWP](/user-docs/user-docs-shared-cloudlinux/#limitations) or
-[AccelerateWP Premium](/user-docs/user-docs-shared-cloudlinux/#limitations-1) related ones.
+Causes of the `Incompatible` note are always Limitations: [AccelerateWP](/user-docs/user-docs-shared-pro-cloudlinux/#limitations) or
+[AccelerateWP Premium](/user-docs/user-docs-shared-pro-cloudlinux/#limitations-1) related ones.
 
 Each message has a small "how to", so you can try to fix them by yourself via control panel or WordPress Admin interface.
 

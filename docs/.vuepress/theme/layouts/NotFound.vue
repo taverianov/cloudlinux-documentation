@@ -104,5 +104,6 @@ onMounted(async () => {
   } else {
     window.location.href = '/not-found.html';
   }
+
 });
 </script>
