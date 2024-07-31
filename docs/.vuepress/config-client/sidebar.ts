@@ -3,7 +3,7 @@ export default {
         {
             collapsable: false,
             children: [
-                "/user-docs/user-docs-shared-cloudlinux/",
+                "/user-docs/user-docs-shared-pro-cloudlinux/",
                 "/user-docs/user-docs-solo-cloudlinux/"
             ]
         },

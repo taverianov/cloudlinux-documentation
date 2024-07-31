@@ -47,6 +47,6 @@ export default [
     {
         title: "End-user Documents",
         description: "Documentation section for end-users on Cloudlinux OS.",
-        link: "/user-docs/user-docs-shared-cloudlinux/",
+        link: "/user-docs/user-docs-shared-pro-cloudlinux/",
     }
 ]
