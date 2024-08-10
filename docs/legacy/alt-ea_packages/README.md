@@ -104,7 +104,9 @@ alt-php provides a more flexible and convenient environment for working with dif
 
 ### A list of alt-php versions that we support for different operating systems.
 
-x - supported
+::: tip 
+The mark `x` stands for a supported version.
+:::
 
 #### 1. CloudLinux
 
@@ -112,10 +114,10 @@ x - supported
 |             | Cloudlinux 6 | Cloudlinux 7 | Cloudlinux 8 | Cloudlinux 9 |
 |:-----------:|:------------:|:------------:|:------------:|:------------:|
 | alt-php 5.1 |       x      |       x      |       x      |              |
-| alt-php 5.2 |       x      |       x      |       x      |              |
-| alt-php 5.3 |       x      |       x      |       x      |              |
-| alt-php 5.4 |       x      |       x      |       x      |              |
-| alt-php 5.5 |       x      |       x      |       x      |              |
+| alt-php 5.2 |       x      |       x      |       x      |       x      |
+| alt-php 5.3 |       x      |       x      |       x      |       x      |
+| alt-php 5.4 |       x      |       x      |       x      |       x      |
+| alt-php 5.5 |       x      |       x      |       x      |       x      |
 | alt-php 5.6 |       x      |       x      |       x      |       x      |
 | alt-php 7.0 |       x      |       x      |       x      |       x      |
 | alt-php 7.1 |       x      |       x      |       x      |       x      |
