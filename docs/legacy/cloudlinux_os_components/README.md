@@ -4095,7 +4095,27 @@ After installing native PHP, please run the `cloudlinux-selector setup --interpr
 
 ### Supported versions
 
-![](./images/PHP_supported_versions.png)
+::: tip 
+The mark `x` stands for a supported version.
+:::
+
+|             | Cloudlinux 6 | Cloudlinux 7 | Cloudlinux 8 | Cloudlinux 9 |
+|:-----------:|:------------:|:------------:|:------------:|:------------:|
+| alt-php 5.1 |       x      |       x      |       x      |              |
+| alt-php 5.2 |       x      |       x      |       x      |       x      |
+| alt-php 5.3 |       x      |       x      |       x      |       x      |
+| alt-php 5.4 |       x      |       x      |       x      |       x      |
+| alt-php 5.5 |       x      |       x      |       x      |       x      |
+| alt-php 5.6 |       x      |       x      |       x      |       x      |
+| alt-php 7.0 |       x      |       x      |       x      |       x      |
+| alt-php 7.1 |       x      |       x      |       x      |       x      |
+| alt-php 7.2 |       x      |       x      |       x      |       x      |
+| alt-php 7.3 |       x      |       x      |       x      |       x      |
+| alt-php 7.4 |       x      |       x      |       x      |       x      |
+| alt-php 8.0 |       x      |       x      |       x      |       x      |
+| alt-php 8.1 |       x      |       x      |       x      |       x      |
+| alt-php 8.2 |       x      |       x      |       x      |       x      |
+| alt-php 8.3 |       x      |       x      |       x      |       x      |
 
 ### Installation and update
 
