@@ -1336,7 +1336,11 @@ The global options modify settings in the <span class="notranslate"> /etc/cl.sel
 
 **End user options**
 
-All end user settings are contained in individual user's alt_php.ini files and controlled using the `selectorctl` command. Starting from cagefs 7.6.17 end user options work inside cagefs.
+All end user settings are contained in individual user's alt_php.ini files and controlled using the `selectorctl` command. 
+
+::: tip Note
+Starting from cagefs-7.6.17, users inside CageFS can manipulate PHP Selector using the end-user options. If a command is run by a user, the `--user` option is not required.
+:::
 
 | | |
 |-|-|
