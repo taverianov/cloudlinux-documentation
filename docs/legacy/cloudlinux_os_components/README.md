@@ -6221,7 +6221,7 @@ Now all domains under php1_mode are using lsphp handler and no further actions a
 #### Installing on servers with no control panel
 
 :::tip Note 
-If there is a php.conf file in Apache's conf.d, which is usually included with the php or php-fpm packages, then it should be deleted or renamed.
+If there is a php.conf file in Apache's conf.d, which is usually brought by the php or php-fpm packages, then it should be deleted or renamed.
 
 For example, `php.conf` can be renamed into `php.conf.NO`.
 :::
@@ -6291,7 +6291,7 @@ Select the control panel you are using:
 #### Uninstall procedure for cPanel servers with EasyApache 4
 
 :::tip Note 
-If there is a php.conf file in Apache's conf.d, which is usually included with the php or php-fpm packages, then it should be deleted or renamed.
+If there is a php.conf file in Apache's conf.d, which is usually brought by the php or php-fpm packages, then it should be deleted or renamed.
 
 For example, `php.conf` can be renamed into `php.conf.NO`. 
 :::
