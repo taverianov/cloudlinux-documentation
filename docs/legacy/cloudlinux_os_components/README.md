@@ -6220,6 +6220,12 @@ Now all domains under php1_mode are using lsphp handler and no further actions a
 
 #### Installing on servers with no control panel
 
+:::tip Note 
+If there is a php.conf file in Apache's conf.d, which is usually included with the php or php-fpm packages, then it should be deleted or renamed.
+
+For example, `php.conf` can be renamed into `php.conf.NO`.
+:::
+
 Install mod_lsapi PRO and related packages through YUM package manager as follows:
 <div class="notranslate">
 
@@ -6284,7 +6290,13 @@ Select the control panel you are using:
 
 #### Uninstall procedure for cPanel servers with EasyApache 4
 
-To remove lsapi handler from cPanel MultiPHP Manager and uninstall mod_lsapi PRO, run a command:
+:::tip Note 
+If there is a php.conf file in Apache's conf.d, which is usually included with the php or php-fpm packages, then it should be deleted or renamed.
+
+For example, `php.conf` can be renamed into `php.conf.NO`. 
+:::
+  
+ To remove lsapi handler from cPanel MultiPHP Manager and uninstall mod_lsapi PRO, run a command:
 <div class="notranslate">
 
 ```
