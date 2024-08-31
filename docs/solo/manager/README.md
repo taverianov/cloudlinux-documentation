@@ -1156,7 +1156,7 @@ This is a basic suite which includes [AccelerateWP base feature](/user-docs/user
 a WordPress optimization plugin that provides full page caching, GZIP compression and some other useful optimizations.
 
 **AccelerateWP suite limitations**
-* the website must be served with Apache web server;
+* the website must be served with Apache or LiteSpeed web server;
 * the website must use PHP version 7.3 or higher.
 * the WordPress version must be 5.8 and higher.
 * the other WordPress Caching plugins must not be installed.

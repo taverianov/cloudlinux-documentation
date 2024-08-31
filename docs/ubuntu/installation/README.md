@@ -1,9 +1,7 @@
 # Installation
 
-For the current release, installation from the ISO images is not available.
-
-:::warning Attention!
-This is a beta version! We strongly don't recommend using it on the production servers!
+:::tip 
+For the current release, installation from the ISO images is not available. 
 :::
 
 To install the CloudLinux subsystem, run the following command:
