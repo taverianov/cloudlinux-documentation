@@ -15,7 +15,19 @@ AccelerateWP Free suite is enabled by default on all new servers. Proceed to [su
 
 #### Activate AccelerateWP for a single server
 
-![](./images/AWPGettingStarted.png)
+![](./images/AWPAdminPaidPremium.png)
+
+
+
+:::tip Note
+AccelerateWP Premium suite includes only Object Cache feature if CloudLinux license 
+does not provide access to billable optimization features
+:::
+
+
+
+![](./images/AWPAdminNonPaidPremium.png)
+
 
 Enable AccelerateWP Free for all users on the server via [CLI](#enable-acceleratewp-free)
 
@@ -29,7 +41,8 @@ the feature to use until the limit is reached. Once the 1GB limit is reached - t
 purchasing a CDN plan using [WHMCS or 3'd party billing](#whmcs-billing).
 
 When the AccelerateWP Premium suite is enabled by the administrator, 
-end-users will see the Object Caching, Image Optimization and Critical CSS features in their interface, 
+end-users will see the free Object Caching feature in their interface.
+If current [CloudLinux license](/cln/dashboard/#acceleratewp-features-management-for-regular-customers) gives access to billable features - end-users will see Image Optimization and Critical CSS features as well.
 but cannot activate the feature unless they purchase the feature using [WHMCS or 3'd party billing](#whmcs-billing).
 
 #### Activate AccelerateWP Free on all servers via Centralized Monitoring
@@ -47,7 +60,12 @@ Starting from ```lve-utils-6.5.11-1``` it is possible to activate AccelerateWP P
 ![](./images/CMInstallationPremium.png)
 
 AccelerateWP Premium will be activated on all compatible servers once activation button is clicked and upgrade url is provided.
-Before using AccelerateWP Premium features - all end-users will be requested to upgrade to Premium plan using provided upgrade url. 
+Before using AccelerateWP Premium features - all end-users will be requested to upgrade to Premium plan using provided upgrade url.
+
+:::tip Note
+The list of AccelerateWP Premium features depends on current CloudLinux License, if it does not provide access to
+billable features (Image Optimization, Critical CSS) - only Object Cache will be available
+:::
 
 
 #### AccelerateWP suite
@@ -64,7 +82,24 @@ a WordPress optimization plugin that provides full page caching, GZIP compressio
 
 #### AccelerateWP Premium suite
 
-This is a premium suite which includes [Object Caching feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-premium-object-caching-feature).
+Starting from ```accelerate-wp-1.9-18``` - AccelerateWP Premium suite includes both free and billable optimization features. 
+The available features depend on the CloudLinux license installed on the server.
+
+For more information on how to set up a CloudLinux license with AccelerateWP Premium billable features, see
+[Setup CloudLinux license with AccelerateWP Premium billable features](/cln/dashboard/#acceleratewp-features-management-for-regular-customers)
+
+**Free features**
+* Object Caching;
+
+**Billable features**
+* Image Optimization;
+* Critical CSS;
+
+Once a server is licensed with CloudLinux and has paid features enabled, 
+both free and billable features become available. 
+If the license does not include paid features, only free features will be accessible.
+
+[Object Caching feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-premium-object-caching-feature).
 
 The Object Caching mechanism stores database query results in additional storage for quick access. 
 This mechanism is beneficial in cases if a website needs to process multiple pages per second as 
@@ -97,7 +132,7 @@ Resellers' users are not allowed to use AccelerateWP features.
 
 In the _CloudLinux Manager → AccelerateWP_ tab an administrator has the opportunity to provide end-users with a suite of features, which on its turn could be activated by end-users.
 
-![](./images/AWPAdmin.png)
+![](./images/AWPAdminPaidPremium.png)
 
 Once the feature suite is enabled by the administrator, end-users will see an AccelerateWP tab in their control panel interface and be able to activate the optimization feature.
 
@@ -119,7 +154,7 @@ The second column `AccelerateWP` shows a number of user's WordPress sites, optim
 
 To enable premium features, click on the "Activate premium features" link and select the options you want. To integrate functions with billing, you must specify the base URL for the purchase of the function by end users.
 
-![](./images/AWPPremiumManage.png)
+![](./images/AWPAdminPaidPremium.png)
 
 In case both AccelerateWP and AccelerateWP Premium feature suites are enabled, 
 the statistics are extended with AccelerateWP Premium metrics.
