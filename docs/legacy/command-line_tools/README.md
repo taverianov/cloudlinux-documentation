@@ -1291,7 +1291,7 @@ Acceptable options are:
 
 Charts examples:
 
-![](./images/1111_2.png)
+![](/images/legacy/command-line_tools/1111_2.webp)
 
 
 ## PHP Selector
