@@ -28,8 +28,8 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
     ```
 3. Log in to the [https://cm.cloudlinux.com/](https://cm.cloudlinux.com/) using CLN credentials (if you are already logged in via CLN, authorization via CM is not necessary, it uses SSO).
 4. Activate statistics collection on all your servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). Optionally, activate the [AccelerateWP Free](/shared-pro/accelerate-wp/#acceleratewp-suite)* for all of your compatible servers.
-    ![](./images/CMInstallationProd.png) Additionally, it is possible to activate the [AccelerateWP Premium](/shared-pro/accelerate-wp/#acceleratewp-premium-suite)* for all compatible servers.
-    ![](./images/CMInstallationPremium.png)
+    ![](/images/shared-pro/centralized-monitoring/CMInstallationProd.webp) Additionally, it is possible to activate the [AccelerateWP Premium](/shared-pro/accelerate-wp/#acceleratewp-premium-suite)* for all compatible servers.
+    ![](/images/shared-pro/centralized-monitoring/CMInstallationPremium.webp)
 5. Within couple minutes after the activation, statistics collection and sending to the central server, [AccelerateWP Free](/shared-pro/accelerate-wp/#acceleratewp-suite)* and [AccelerateWP Premium](/shared-pro/accelerate-wp/#acceleratewp-premium-suite) * will be set up automatically: all required packages and components will be installed. For new, just registered servers, actions can take up to 5 hours.
 6. Make sure you have activated statistics collection (see paragraph 4) otherwise you will not be able to set up your servers. For instant set up of a registered server after statistics collection was enabled, run the following commands for all servers:
     ```
@@ -61,7 +61,7 @@ To turn on the mode without session expired, follow the next steps:
 2. Open the [cm.cloudlinux.com](https://cm.cloudlinux.com/#/servers) in a new browser tab/window (please, use the same browser as in step 1)
 3. Use the toggle to turn on/off 10 min auto logout
 
-    ![](./images/AutoLogout.png)
+    ![](/images/shared-pro/centralized-monitoring/AutoLogout.webp)
 
 Your session in the [cln.cloudlinux.com](https://cln.cloudlinux.com/console/) will expire in 10 min. But your session in the [cm.cloudlinux.com](https://cm.cloudlinux.com/#/servers) will not expire while your browser tab remains open.
 
@@ -72,14 +72,14 @@ Your session in the [cln.cloudlinux.com](https://cln.cloudlinux.com/console/) wi
 You can access <span class="notranslate">Centralized Monitoring</span> in your [CLN account](https://cln.cloudlinux.com/).
 Click <span class="notranslate">C-Monitoring</span> in the left menu.
 
-![](./images/CMCLNAccount.png)
+![](/images/shared-pro/centralized-monitoring/CMCLNAccount.webp)
 
 ### Servers
 
 
 This page contains the list of all clients’ end servers. The server appears in the list after finishing [Installation](./#installation-2). By default, there is a descending sort by CPU usage.
 
-![](./images/CMAllServers.png)
+![](/images/shared-pro/centralized-monitoring/CMAllServers.webp)
 
 The following values are available for each server:
 
@@ -103,7 +103,7 @@ Use the search tool to operate with the data.
 To get the detailed statistics for the server via charts, click a desired server line in the table.
 All charts are auto-refreshed and there is an ability to select the period for metrics data to be updated for the chart.
 
-![](./images/CMUPdates.png)
+![](/images/shared-pro/centralized-monitoring/CMUPdates.webp)
 
 :::warning Note
 We store the metrics data for one month only.
@@ -113,51 +113,51 @@ We store the metrics data for one month only.
 
 ### Visualization of the most popular server states
 
-![](./images/CMMostPopularStates.png)
+![](/images/shared-pro/centralized-monitoring/CMMostPopularStates.webp)
 
 ### Disk space usage
 
-![](./images/CMDiskSpaceUsage.png)
+![](/images/shared-pro/centralized-monitoring/CMDiskSpaceUsage.webp)
 
 ### Open file descriptor/Context switches
 
-![](./images/CMOpenFileDescriptorContextSwitches.png)
+![](/images/shared-pro/centralized-monitoring/CMOpenFileDescriptorContextSwitches.webp)
 
 ### System load 1m , 5m, 15m
 
-![](./images/CMSystemLoad.png)
+![](/images/shared-pro/centralized-monitoring/CMSystemLoad.webp)
 
 ### CPU usage (total, system, user, iowait, steal)
 
-![](./images/CMSCPUUsag.png)
+![](/images/shared-pro/centralized-monitoring/CMSCPUUsag.webp)
 
 ### Network traffic usage
 
-![](./images/CMNetworkTrafficUsage.png)
+![](/images/shared-pro/centralized-monitoring/CMNetworkTrafficUsage.webp)
 
 ### Disk space usage
 
-![](./images/CMDiskSpaceUsageBasics.png)
+![](/images/shared-pro/centralized-monitoring/CMDiskSpaceUsageBasics.webp)
 
 ### Memory usage (total, used, available)
 
-![](./images/CMMemoryUsage.png)
+![](/images/shared-pro/centralized-monitoring/CMMemoryUsage.webp)
 
 ### Time spent doing I/Os
 
-![](./images/CMTimeSpentDoingIO.png)
+![](/images/shared-pro/centralized-monitoring/CMTimeSpentDoingIO.webp)
 
 ### Disk IOps Completed
 
-![](./images/CMDiskIOpsCompleted.png)
+![](/images/shared-pro/centralized-monitoring/CMDiskIOpsCompleted.webp)
 
 ### Disk read/write data
 
-![](./images/CMDiskReadWriteData.png)
+![](/images/shared-pro/centralized-monitoring/CMDiskReadWriteData.webp)
 
 ### Disk read/write time
 
-![](./images/CMDiskReadWriteTime.png)
+![](/images/shared-pro/centralized-monitoring/CMDiskReadWriteTime.webp)
 
 ### Apache connections (number)/Number of requests per minute/Max connections
 
@@ -172,13 +172,13 @@ In the current version, we collect these metrics only for Apache (NOT for LiteSp
 
 ### MySQL queries
 
-![](./images/CMMySQLQueries.png)
+![](/images/shared-pro/centralized-monitoring/CMMySQLQueries.webp)
 
 MySQL queries collector gets number of queries executed on the server per minute. It takes data from the MySQL server variable "Questions". You may manually check variable value by executing query `SHOW GLOBAL STATUS LIKE 'Questions';`. For more information about MySQL server variables - please, see MySQL documentation.
 
 ### The most loaded server users for the last minute
 
-![](./images/CMMostLoadedUsers.png)
+![](/images/shared-pro/centralized-monitoring/CMMostLoadedUsers.webp)
 
 We calculate the user’s load by LVE statistics that we collect on the end server.
 The idle state for the user means that the LVE statistics were not collected for the last minute for some reason.
@@ -210,7 +210,7 @@ This page contains all users for the all server of the client and their LVE stat
 The description of this page is the same as [*The most loaded server users for the last minute*](./#the-most-loaded-server-users-for-the-last-minute) of the top 5 loaded users.
 
 
-![](./images/CMUsers.png)
+![](/images/shared-pro/centralized-monitoring/CMUsers.webp)
 
 User’s metrics data can be sorted by the load-to-limit ratio and by the absolute value.
 
@@ -218,7 +218,7 @@ The absolute value is used to analyse the load produced by unlimited users.
 
 The value of the load-to-limit ratio is convenient to use in the analysis of how many resources the users consume and whether they need to change the limits.
 
-The values like this ![](./images/CMvalue.png) means that the resource is unlimited and 500.2 MB is the current usage of it.
+The values like this ![](/images/shared-pro/centralized-monitoring/CMvalue.webp) means that the resource is unlimited and 500.2 MB is the current usage of it.
 
 Metrics data of _Idle users_ is not used in the sorting, so such users always will be at the end of the list.  The sorting can be done for only one metric.
 
@@ -230,7 +230,7 @@ We store the metrics data for one month only.
 
 On the user details page, the admin can find the charts for all LVE limits.
 
-![](./images/CMUsersCharts.png)
+![](/images/shared-pro/centralized-monitoring/CMUsersCharts.webp)
 
 
 ## Alert Manager
@@ -239,23 +239,23 @@ Alert Manager allows you to create a server or user alert for selected metrics a
 
 ### Alert Manager page
 
-![](./images/CMAlertManager1.png)
+![](/images/shared-pro/centralized-monitoring/CMAlertManager1.webp)
 
 The Alert Manager page contains a table with the following:
 
 * **Alert name** - a unique alert name
 * **Tracking metric** - a name of a server/user metric which will trigger the alert notification
 * **# of servers** - number of servers on which the metric will be tracked
-  * click ![](./images/CMAlertManager2.png) to view a list of servers host names
+  * click ![](/images/shared-pro/centralized-monitoring/CMAlertManager2.webp) to view a list of servers host names
 * **# of users** - number of users for which the metric will be tracked
-  * click ![](./images/CMAlertManager2.png) to view a list of users names
+  * click ![](/images/shared-pro/centralized-monitoring/CMAlertManager2.webp) to view a list of users names
 * **Value** - a condition for the alert rule which will be applied to the tracking metrics
 * **Email** - email to send the triggered events notifications
 * **Type** - a type of the alert rule
 * **# of triggered events** - the number of events from the time, when alert rule was created
-  * ![](./images/CMAlertManager3.png) the event is still firing
+  * ![](/images/shared-pro/centralized-monitoring/CMAlertManager3.webp) the event is still firing
 * **Time  of the last trigger** - the time of last triggered event, it is the time in your browser time zone
-* **Actions** - click ![](./images/CMAlertManager4.png) to edit and ![](./images/CMAlertManager5.png) to delete the alert rule
+* **Actions** - click ![](/images/shared-pro/centralized-monitoring/CMAlertManager4.webp) to edit and ![](/images/shared-pro/centralized-monitoring/CMAlertManager5.webp) to delete the alert rule
 
 **Color Codes**
 
@@ -266,11 +266,11 @@ The Alert Manager page contains a table with the following:
 
 To create a new alert, click the _Create alert_ button.
 
-![](./images/CMAlertManager7.png)
+![](/images/shared-pro/centralized-monitoring/CMAlertManager7.webp)
 
 Next, fill out the opened popup.
 
-![](./images/CMAlertManager6.png)
+![](/images/shared-pro/centralized-monitoring/CMAlertManager6.webp)
 
 * **Name of alert** - a unique alert name
 * **Alert type** - an admin can create a **user** or a **server** alert. [What is the difference between them?](./#difference-between-the-server-alert-and-the-user-alert)
@@ -375,7 +375,7 @@ This is the state of an alert that has been active for longer than the configure
 
 ### Alert notifications
 
-![](./images/CMAlertManager8.png)
+![](/images/shared-pro/centralized-monitoring/CMAlertManager8.webp)
 
 * **Alert name** - the link to the alert page
 * **Firing target** - the link to the server details page

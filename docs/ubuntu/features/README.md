@@ -90,7 +90,7 @@ apt  install governor-mysql
 
 In case of installing on cPanel + Ubuntu server, set the following parameter:
 
-![](./images/Param.png)
+![](/images/ubuntu/features/Param.webp)
 
 5. After installation, check that the database server is working properly. If you have any problems,
    use [Support Portal]().
@@ -171,7 +171,7 @@ Dashboard provides a quick overview of statistics and all administrative informa
 
 Go to _CloudLinux Manager_ | _Dashboard_.
 
-![](./images/Dashboard.png)
+![](/images/ubuntu/features/Dashboard.webp)
 
 * End Users hitting limits — number of users reaching their limit in any kind of resource. Data is within the last 24
   hours.
@@ -266,7 +266,7 @@ To install, follow these steps:
 
 1. Remove `mod-ruid2`:
 
-   ![](./images/remove-mod-ruid2.png)
+   ![](/images/ubuntu/features/remove-mod-ruid2.webp)
 
 2. Install packages (with `alt-php74` as an example):
 

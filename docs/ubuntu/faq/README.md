@@ -43,8 +43,8 @@ These are configuration steps:
 
     * Via MultiPHP Manager
 
-   ![](./images/viaMultiPHP.png)
+   ![](/images/ubuntu/faq/viaMultiPHP.webp)
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
-   ![](./images/enablephp-fpm.png)
+   ![](/images/ubuntu/faq/enablephp-fpm.webp)

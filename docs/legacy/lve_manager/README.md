@@ -41,7 +41,7 @@ yum install lvemanager
 
 As you have CloudLinux OS installed, navigate to <span class="notranslate"> CloudLinux OS CloudLinux Manager </span> in your control panel. CloudLinux OS Installation Wizard starts automatically if `lvemanager` package is installed for the first time (not updated).
 
-![](./images/installationwizardmain_zoom70.png)
+![](/images/legacy/lve_manager/installationwizardmain_zoom70.webp)
 
 To start setting up your CloudLinux OS, click <span class="notranslate">_Start Wizard_</span>, otherwise click <span class="notranslate">_Skip Wizard_</span>, and you will be redirected to the <span class="notranslate"> CloudLinux Manager Dashboard</span>.
 
@@ -49,10 +49,10 @@ To start setting up your CloudLinux OS, click <span class="notranslate">_Start W
 Installation statuses of all components are duplicated inside their corresponding boxes on the <span class="notranslate">Dashboard</span>. All <span class="notranslate">Wizard</span> actions are available there as well. <span class="notranslate">Dashboard</span> will be automatically updated as soon as the installation process finishes.
 :::
 
-![](./images/wizard-dashboard_zoom60.png)
+![](/images/legacy/lve_manager/wizard-dashboard_zoom60.webp)
 
 The next step is selecting required components to be installed.
-![](./images/installationwizardstep1_zoom70.png)
+![](/images/legacy/lve_manager/installationwizardstep1_zoom70.webp)
 
 Click <span class="notranslate">_Finish and Install_</span> to complete installation or click <span class="notranslate">_Skip Wizard_</span> to go back to the <span class="notranslate"> Dashboard</span>.
 
@@ -68,7 +68,7 @@ You can find a complete description of the CloudLinux OS components below.
 
 A virtualized per-user file system encapsulates each customer into a ‘cage’ preventing them from seeing each other files and viewing sensitive information (e.g., system files)
 
-![](./images/wizardcagefs_zoom90.png)
+![](/images/legacy/lve_manager/wizardcagefs_zoom90.webp)
 
 Toggle the sliders to enable CageFS by default for new and/or existing users. 
 
@@ -84,7 +84,7 @@ CageFS is a requirement for PHP Selector operation.
 
 It is the fastest and most reliable way to serve PHP pages for Apache web-servers, a drop-in replacement for SuPHP, FCGID, RUID2, and ITK.
 
-![](./images/wizard_lsapi_zoom90.png)
+![](/images/legacy/lve_manager/wizard_lsapi_zoom90.webp)
 
 LSAPI requires CRIU to operate and we also recommend you to use mod_suexec. You can find details in our [documentation](/legacy/cloudlinux_os_components/#apache-mod-lsapi-pro).
 
@@ -96,7 +96,7 @@ LSAPI requires CRIU to operate and we also recommend you to use mod_suexec. You 
 
 Monitors MySQL usage to throttle abusers, preventing server overload and improving overall performance.
 
-![](./images/wizard_mysqlgovernor_zoom90.png)
+![](/images/legacy/lve_manager/wizard_mysqlgovernor_zoom90.webp)
 
 :::tip Note
 <span class="notranslate">MySQL Governor</span> can be automatically installed only with cPanel/WHM and DirectAdmin - use CLI instructions available [here](/legacy/command-line_tools/#mysql-governor) in all other cases.
@@ -112,7 +112,7 @@ We recommend you to create a full database backup before the <span class="notran
 
 Allows end users to create Node.js applications and select the specific version of Node.js and other parameters.
 
-![](./images/wizard_node.jsselector_zoom90.png)
+![](/images/legacy/lve_manager/wizard_node.jsselector_zoom90.webp)
 
 Here you can choose versions to be installed and the version to be used as default.
 
@@ -123,7 +123,7 @@ Here you can choose versions to be installed and the version to be used as defau
 </div>
 
 Allows end users to select the specific version of <span class="notranslate"> Ruby</span> they need. 
-![](./images/wizard_ruby_selector_zoom90.png)
+![](/images/legacy/lve_manager/wizard_ruby_selector_zoom90.webp)
 
 Here you can choose <span class="notranslate">Ruby</span> versions to be installed.
 
@@ -135,7 +135,7 @@ Here you can choose <span class="notranslate">Ruby</span> versions to be install
 
 Allows end users to select the default version of <span class="notranslate">Python</span> and set the required versions for installation.
 
-![](./images/wizard_python_selector_zoom90.png) 
+![](/images/legacy/lve_manager/wizard_python_selector_zoom90.webp) 
 
 
 Here you can choose <span class="notranslate">Python</span> versions to be installed.
@@ -144,7 +144,7 @@ Here you can choose <span class="notranslate">Python</span> versions to be insta
 
 Allows end users to select the specific version of PHP they need, with over 120 PHP extensions to choose from.
 
-![](./images/wizard_php_selector_zoom90.png)
+![](/images/legacy/lve_manager/wizard_php_selector_zoom90.webp)
 
 Go to <span class="notranslate">CloudLinux Manager</span> settings to set up <span class="notranslate"> PHP Selector</span> options and parameters. Read more in the [PHP Selector documentation](/legacy/cloudlinux_os_components/#installation-and-update-4). 
 
@@ -158,31 +158,31 @@ When the components to be installed are selected and configured, and installatio
 
 Installation status is displayed throughout the process in the <span class="notranslate">Dashboard</span>. Click <span class="notranslate">_Installing_</span> to show modules installation state.
 
-![](./images/wizard_installation_status_zoom70.png)
+![](/images/legacy/lve_manager/wizard_installation_status_zoom70.webp)
 
 All installed modules are displayed on the <span class="notranslate"> Dashboard</span>.
 When installation is completed successfully, you will see the following status.
 
-![](./images/wizardsuccess_zoom90.png)
+![](/images/legacy/lve_manager/wizardsuccess_zoom90.webp)
 
 If you decide to remove failed module or a module to be installed by clicking the (X) button, a confirmation dialog will appear.
 
 After confirming the action, the module will disappear from the list.
 
-![](./images/wizardinstallremove_zoom90.png)
+![](/images/legacy/lve_manager/wizardinstallremove_zoom90.webp)
 
 If module installation fails, the Installing button changes to <span class="notranslate">_Warning_</span> and the module indicator will turn red.
 
-![](./images/wizard_warning_zoom70.png)
+![](/images/legacy/lve_manager/wizard_warning_zoom70.webp)
 
 
-* Click ![](./images/wizard_download_btn.png) to download the error log.
-* Click ![](./images/wizard_try_again_btn.png) to try to install a module again.
-* Click ![](./images/wizard_close_btn.png) to remove a specific module from the installation queue. The module will be displayed on the <span class="notranslate">Dashboard</span> but will not be installed.
+* Click ![](/images/legacy/lve_manager/wizard_download_btn.webp) to download the error log.
+* Click ![](/images/legacy/lve_manager/wizard_try_again_btn.webp) to try to install a module again.
+* Click ![](/images/legacy/lve_manager/wizard_close_btn.webp) to remove a specific module from the installation queue. The module will be displayed on the <span class="notranslate">Dashboard</span> but will not be installed.
 
 If module auto-installation fails, you will see that the module indicator turns yellow.
 
-![](./images/wizardautoinstallationfails_zoom80.png)
+![](/images/legacy/lve_manager/wizardautoinstallationfails_zoom80.webp)
 
 In this case, you can download a log for details and try to install the module again.
 
@@ -190,12 +190,12 @@ In this case, you can download a log for details and try to install the module a
 
 In case of a fatal error, you will see the following warning.
 
-![](./images/wizardbroken_zoom70.png)
+![](/images/legacy/lve_manager/wizardbroken_zoom70.webp)
 
 
-* Click ![](./images/wizard_download_btn.png) to download the error log.
-* Click ![](./images/wizard_try_again_btn.png) to try to install module(s) again.
-* Click ![](./images/wizard_close_btn.png) to cancel installation. The canceled modules will be removed from the installation process.
+* Click ![](/images/legacy/lve_manager/wizard_download_btn.webp) to download the error log.
+* Click ![](/images/legacy/lve_manager/wizard_try_again_btn.webp) to try to install module(s) again.
+* Click ![](/images/legacy/lve_manager/wizard_close_btn.webp) to cancel installation. The canceled modules will be removed from the installation process.
 
 You can contact our support team for further assistance anytime by [submitting a ticket in our helpdesk system](https://cloudlinux.zendesk.com/hc/requests/new).
 
@@ -208,7 +208,7 @@ You can contact our support team for further assistance anytime by [submitting a
 
 Administrator credentials allow controlling limits for host users.
 
-![](./images/lvemanagermainmenu_zoom80.png)
+![](/images/legacy/lve_manager/lvemanagermainmenu_zoom80.webp)
 
 Log in as administrator to get access to the following functionality:
 
@@ -228,10 +228,10 @@ For more details, please go to the [ImunifyAV documentation](https://docs.imunif
 
 In the CloudLinux Manager UI we use the following color codes for notifications:
 
-* ![](./images/pic_warning.png) warning
-* ![](./images/pic_error.png) error
-* ![](./images/pic_info.png) information
-* ![](./images/pic_success.png) success
+* ![](/images/legacy/lve_manager/pic_warning.webp) warning
+* ![](/images/legacy/lve_manager/pic_error.webp) error
+* ![](/images/legacy/lve_manager/pic_info.webp) information
+* ![](/images/legacy/lve_manager/pic_success.webp) success
 
 The following actions are available in the action notifications (error, success)
  * follow a link
@@ -258,7 +258,7 @@ CloudLinux OS dashboard provides a quick overview of statistics and all administ
 
 Go to <span class="notranslate">CloudLinux Manager | Dashboard</span>.
 
-![](./images/dashboard_zoom70.png)
+![](/images/legacy/lve_manager/dashboard_zoom70.webp)
 
 The <span class="notranslate">CloudLinux OS Dashboard</span> provides the following information:
 
@@ -284,7 +284,7 @@ The <span class="notranslate">CloudLinux OS Dashboard</span> provides the follow
   * <span class="notranslate">Default version</span> — the default version of PHP binaries.
   Click <span class="notranslate">_Manage_</span> to change the default version, enable or disable <span class="notranslate">PHP Selector</span>, change the list of supported versions, and choose default modules. You will be redirected to <span class="notranslate">CloudLinux Manager | PHP Selector</span>.<br>
   PHP Selector (cPanel) has malfunctions warnings about [the most common issues](./#errors).
-  ![](./images/PHPSelectorDashboardMalfunction.png)
+  ![](/images/legacy/lve_manager/PHPSelectorDashboardMalfunction.webp)
 * <span class="notranslate">[Python Selector](./#python-selector-1)</span> block displays the following data:
   * <span class="notranslate">Python Selector</span> status (<span class="notranslate">Enabled/Disabled/Not installed</span> — displays a current status of the Python Selector.
   
@@ -337,7 +337,7 @@ Tick <span class="notranslate">_Hide MySQL usage_</span> checkbox to hide the in
 
 To expand the list of users click on the number above and in the dropdown choose the number of user to be displayed on the page.
 
-![](./images/man_01_zoom73.png)
+![](/images/legacy/lve_manager/man_01_zoom73.webp)
 
 The list of users can be filtered by <span class="notranslate">_Username_</span> and <span class="notranslate">_Domain_</span>.
 
@@ -361,7 +361,7 @@ To manage Reseller’s end users hoster should login as a reseller.
 
 Choose <span class="notranslate">_Users_</span> tab to view the list of all users in the system and manage their limits.
 
-![](./images/userstabhoster_zoom70.png)
+![](/images/legacy/lve_manager/userstabhoster_zoom70.webp)
 
 :::tip Note
 A hoster can view the list of resellers’ end users and their limits, but can not manage resellers’ end users limits (if those are set by reseller).
@@ -403,11 +403,11 @@ Click pencil icon in <span class="notranslate">_Actions_</span> column to edit l
 
 Click <span class="notranslate">_Save_</span> to save changes or <span class="notranslate">_Cancel_</span> to close the pop-up.
 
-![](./images/actionshoster.png)
+![](/images/legacy/lve_manager/actionshoster.webp)
 
 Click on <span class="notranslate">_History_</span> symbol to view the history of a particular user resource usage. Choose time frame to view the history for a particular time period.
 
-![](./images/historyhoster.jpg)
+![](/images/legacy/lve_manager/historyhoster.webp)
 
 #### Group actions for users with enabled CageFS
 
@@ -421,7 +421,7 @@ If CageFS is disabled, group actions are not available. See how you can enable C
 * **View users with enabled CageFS**
   
   To view users with enabled CageFS, click <span class="notranslate">_Show only >> Users with CageFS enabled_</span>
-  ![](./images/CageFSEnabledUsers.png)
+  ![](/images/legacy/lve_manager/CageFSEnabledUsers.webp)
 
 * **Disable CageFS for several users**
 
@@ -430,7 +430,7 @@ If CageFS is disabled, group actions are not available. See how you can enable C
   * Select a particular user or select all users
   * Click <span class="notranslate">_CageFS_ >> _Disable_</span>.
 
-  ![](./images/GroupDisableCageFS.png)
+  ![](/images/legacy/lve_manager/GroupDisableCageFS.webp)
 
 ### Statistics
 
@@ -459,11 +459,11 @@ Statistics table can be filtered by:
 
 Click <span class="notranslate">_Manage_</span> to choose type of users to be displayed - <span class="notranslate">End users, Resellers, Resellers’ end users</span> or <span class="notranslate">Resellers’ end users (no Reseller limit)</span> by ticking checkbox in the drop-down.
 
-![](./images/statisticstabhoster_zoom70.png)
+![](/images/legacy/lve_manager/statisticstabhoster_zoom70.webp)
 
 Click chart symbol in the <span class="notranslate">_View_</span> column to view the detailed resource usage history for a particular account. Use timeframe drop-down to view the history for a particular period of time.
 
-![](./images/history_charts_zoom70.png)
+![](/images/legacy/lve_manager/history_charts_zoom70.webp)
 
 ### Options
 
@@ -479,7 +479,7 @@ The following sections are available to set the required options:
 * <span class="notranslate">[Node.js](./#node-js)</span> - allows to enable/disable and manage Node.js Selector
 * <span class="notranslate">[Python Selector](./#python-selector-section)</span> - allows to enable/disable and manage Python Selector
 
-![](./images/options-general.png)
+![](/images/legacy/lve_manager/options-general.webp)
 
 #### LVE Faults Email Notifications
 
@@ -493,7 +493,7 @@ But it is possible to enable LVE Faults Email Notifications for all users by def
 
 A hoster can set email notifications for panel administrator, reseller customer, and resellers’ customers in cases of limits faults. Choose <span class="notranslate">_Options_</span> tab to manage LVE Faults email notifications.
 
-![](./images/lve-faults-email-notifications.png)
+![](/images/legacy/lve_manager/lve-faults-email-notifications.webp)
 
 The following types of notification are available:
 
@@ -505,7 +505,7 @@ The following types of notification are available:
 
 #### Faults to include
 
-![](./images/faults-to-include.png)
+![](/images/legacy/lve_manager/faults-to-include.webp)
 
 Tick checkboxes to include required limits to the notifications:
 
@@ -518,7 +518,7 @@ Tick checkboxes to include required limits to the notifications:
 
 #### Minimum number of Faults to notify
 
-![](./images/minimum-number-of-faults-to-notify.png)
+![](/images/legacy/lve_manager/minimum-number-of-faults-to-notify.webp)
 
 Set a number of faults required for the notification to be sent for:
 
@@ -532,13 +532,13 @@ Set the frequency of email notifications sending to:
 
 #### Inode limits
 
-![](./images/inode-limits.png)
+![](/images/legacy/lve_manager/inode-limits.webp)
 
 Allows to reset inode limits and show/hide end-user inode usage.
 
 #### User interface settings
 
-![](./images/user-interface-settings.png)
+![](/images/legacy/lve_manager/user-interface-settings.webp)
 
 Allows to manage user interface settings:
 
@@ -547,7 +547,7 @@ Allows to manage user interface settings:
 
 #### MySQL Governor settings
 
-![](./images/mysql-governor-settings.png)
+![](/images/legacy/lve_manager/mysql-governor-settings.webp)
 
 Allows to manage MySQL Governor settings.
 
@@ -612,7 +612,7 @@ Tick if yes.
 
 #### CageFS
 
-![](./images/options-cagefs.png)
+![](/images/legacy/lve_manager/options-cagefs.webp)
 
 Allows to manage CageFS settings:
 
@@ -622,7 +622,7 @@ Allows to manage CageFS settings:
 
 #### Node.js
 
-![](./images/options-nodejs.png)
+![](/images/legacy/lve_manager/options-nodejs.webp)
 
 Allows to enable/disable and manage Node.js Selector.
 
@@ -633,7 +633,7 @@ See more:
 
 #### Python Selector section
 
-![](./images/options-python-selector.png)
+![](/images/legacy/lve_manager/options-python-selector.webp)
 
 Allows to enable/disable and manage Python Selector.
 
@@ -658,7 +658,7 @@ Choose <span class="notranslate">_Packages_</span> tab to view and modify:
 * limits for reseller packages (created by hoster);
 * limits for resellers’ end users packages if reseller limits are not set for that reseller (hoster access allows identifying a particular reseller’s end user belonging to a particular reseller (created by reseller)).
   
-![](./images/packageshostertab_zoom70.png)
+![](/images/legacy/lve_manager/packageshostertab_zoom70.webp)
 
 To modify package limits click on a pencil symbol in <span class="notranslate">_Actions_</span> column in a particular package row. The following limits for this package are available for setting:
 
@@ -717,11 +717,11 @@ Now admin can manage all those limits for hosting packages and this will increas
 
 To view the package limits open this page:
 
-![](./images/mysql_packages_limits.png)
+![](/images/legacy/lve_manager/mysql_packages_limits.webp)
 
 To manage the package limits edit the needed package:
 
-![](./images/mysql_packages_limits_edit.png)
+![](/images/legacy/lve_manager/mysql_packages_limits_edit.webp)
 
 ### PHP Selector
 
@@ -741,7 +741,7 @@ To manage the package limits edit the needed package:
 
 Choose default modules from the list for a proper PHP version or for native.
 
-![](./images/php_selector.png)
+![](/images/legacy/lve_manager/php_selector.webp)
 
 :::tip Note
 You can also use [PHP Selector CLI](/legacy/command-line_tools/#php-selector)
@@ -751,7 +751,7 @@ You can also use [PHP Selector CLI](/legacy/command-line_tools/#php-selector)
 
 Go to cPanel admin interface → CloudLinux manager → Selector
 
-![](./images/NewSelector.png)
+![](/images/legacy/lve_manager/NewSelector.webp)
 
 <span class="notranslate">_Selector_</span> tab has two sub tabs: <span class="notranslate">_Main settings_</span> and <span class="notranslate">_Domains_</span>.
 
@@ -763,15 +763,15 @@ Go to cPanel admin interface → CloudLinux manager → Selector
   * <span class="notranslate">_Supported versions_</span>: allows to select supported PHP versions 
 * <span class="notranslate">_Domains_</span> sub tab contains the list of User-Domain pairs to visualize which PHP Selector is used by a domain
 
-![](./images/Domains.png)
+![](/images/legacy/lve_manager/Domains.webp)
 
 Admin can filter the list:
 
-![](./images/SelectorFilters.png)
+![](/images/legacy/lve_manager/SelectorFilters.webp)
 
 If an admin clicks <span class="notranslate">_Use PHP selector_</span> in the <span class="notranslate">_Action_</span> table, the PHP version for a domain in MultiPHP Selector is changed to the system default version and <span class="notranslate">`php-fpm`</span> is disabled. Users' websites will use the version set in CloudLinux OS PHP Selector (user interface). Group operation also can be used.
 
-![](./images/UsePHPSelector.png)
+![](/images/legacy/lve_manager/UsePHPSelector.webp)
 
 #### PHP Selector troubleshooting <Badge type="info" text="cPanel"/> <Badge type="info" text="CloudLinux Manager 6.0.1-2" />
 
@@ -780,30 +780,30 @@ You can see the following errors in the <span class="notranslate">_Domains_</spa
 
 1. <span class="notranslate">PHP Selector cannot be activated for this domain. Initialize CageFS in the Options tab first</span>.
 
-![](./images/Error1.png)
+![](/images/legacy/lve_manager/Error1.webp)
 
 **Solution**
 
 Initialize CageFS in the Options tab (see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
 
-![](./images/CageFSInit.png)
+![](/images/legacy/lve_manager/CageFSInit.webp)
 
 2. <span class="notranslate">PHP Selector cannot be activated for this domain. Enable CageFS for this user in the Users tab first</span>.
 
-![](./images/Error2.png)
+![](/images/legacy/lve_manager/Error2.webp)
 
 **Solution**
 
 Enable CageFS in the Users tab (see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users)).
 
-![](./images/CageFSEnable.png)
+![](/images/legacy/lve_manager/CageFSEnable.webp)
 
 * You can enable CageFS for one user by individual slider (for lve 1001 in the picture above)
 * You can enable CageFS for a group of user by the CageFS button (for lve 1002, 1003 in the picture above)
 
 3. Some PHP related issues need to be resolved in order to enable domain management. Find the list of PHP related issues that prevent domain management above.
 
-![](./images/Error3.png)
+![](/images/legacy/lve_manager/Error3.webp)
 
 **Solution**
 
@@ -813,13 +813,13 @@ If you cannot see Diagnostic tool notifications, you can restart it. Then you ca
 
 The diagnostic tool allows to catch some issues. You can start diagnostic by clicking <span class="notranslate">_Run diagnostic_</span> button.
 
-![](./images/RunDiagnostic.png)
+![](/images/legacy/lve_manager/RunDiagnostic.webp)
 
 The most popular errors and solutions:
 
 1. Your PHP Handler does not support CLoudLinux OS PHP Selector
 
-![](./images/Issue1.png)
+![](/images/legacy/lve_manager/Issue1.webp)
    
 **Solution**: install `mod_suexec` (see instructions [here](/legacy/cloudlinux_os_components/#installation-5)) and then run the following command:
 
@@ -832,19 +832,19 @@ cagefsctl --force-update
 
 2. Incorrect config file format
 
-![](./images/Issue2.png)
+![](/images/legacy/lve_manager/Issue2.webp)
        
 **Solution**: correct the file format via SSH.
 
 3. Some domains have neither PHP version selected in MultiPHP Manager no system default version or have `php-fpm` enabled.
 
-![](./images/Issue3.png)
+![](/images/legacy/lve_manager/Issue3.webp)
 
 **Solution**: see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
 
 4. MultiPHP system default version is not ea-php
 
-![](./images/Issue4.png)
+![](/images/legacy/lve_manager/Issue4.webp)
 
 **Solution**: see [installation instructions](/legacy/cloudlinux_os_components/#installation-instructions-for-cpanel-users) for cPanel users
 
@@ -875,7 +875,7 @@ A list of installed Python versions is displayed. There are several columns in t
 
 To display all changes immediately click <span class="notranslate">_Refresh_</span>.
 
-![](./images/PythonGeneral.png) 
+![](/images/legacy/lve_manager/PythonGeneral.webp) 
 
 #### How to enable/disable Python Selector
 
@@ -886,13 +886,13 @@ To disable Python Selector move a slider back to <span class="notranslate">_Disa
 If you disable Python, all users won't be able to manage their applications
 :::
 
-![](./images/PythonEnableDisable.png)
+![](/images/legacy/lve_manager/PythonEnableDisable.webp)
 
 ::: tip Note
 Python Selector icon in end user interface is hidden when Python is disabled.
 :::
 
-![](./images/PythonEndUserIcon.png)
+![](/images/legacy/lve_manager/PythonEndUserIcon.webp)
 
 #### How to manage Python Selector 
 
@@ -905,7 +905,7 @@ To enable particular Python version do the following:
 * Move a disabled slider in the <span class="notranslate">Enabled</span> column for a particular Python version.
 * In the confirmation popup click <span class="notranslate">_Agree_</span> to save changes or <span class="notranslate">_Cancel_</span> to close popup.
 
-![](./images/PythonEnabled.png)
+![](/images/legacy/lve_manager/PythonEnabled.webp)
 
 To disable particular Python version do the following:
 
@@ -931,7 +931,7 @@ It is impossible:
 * to install or remove version if another installation/uninstalling process is running
 :::
 
-![](./images/PythonInstall.png)
+![](/images/legacy/lve_manager/PythonInstall.webp)
 
 #### Make a particular Python version as a default
 
@@ -948,13 +948,13 @@ To make a particular Python version as a default version, do the following:
 It is impossible to make disabled Python version as a default version
 :::
 
-![](./images/PythonChangeDefaultVersion.png)
+![](/images/legacy/lve_manager/PythonChangeDefaultVersion.webp)
 
 #### Applications column
  
 To view and operate with the list of domains with Python versions click a number in the <span class="notranslate">_Applications_</span> column for a particular Python version. A section with a list of Domains for particular Python version will be displayed.
 
-![](./images/PythonDomains.png)
+![](/images/legacy/lve_manager/PythonDomains.webp)
 
 Domains are displayed by three. To load more domains click <span class="notranslate">_Load More_</span> button.
  
@@ -999,7 +999,7 @@ Go to <span class="notranslate"> _CloudLinux Manager → Options Tab → Node.js
 
 To display all changes immediately click <span class="notranslate"> _Refresh_ </span> link.
 
-![](./images/nodejsgeneral_zoom70.png)
+![](/images/legacy/lve_manager/nodejsgeneral_zoom70.webp)
 
 #### How to enable/disable Node.js
 
@@ -1010,13 +1010,13 @@ To display all changes immediately click <span class="notranslate"> _Refresh_ </
 If you disable Node.js, its version for all your applications will not be changed, but you can not add a new application to this version.
 :::
 
-![](./images/nodejsslider_zoom70.png)
+![](/images/legacy/lve_manager/nodejsslider_zoom70.webp)
 
 ::: tip Note
 <span class="notranslate">Node.js Selector</span> icon in end user interface is hidden when Node.js is disabled.
 :::
 
-![](./images/nodejsselectorlogo_zoom70.png)
+![](/images/legacy/lve_manager/nodejsselectorlogo_zoom70.webp)
 
 #### How to manage Node.js
 
@@ -1028,7 +1028,7 @@ To enable particular Node.js version do the following:
 * Move a disabled slider in the <span class="notranslate"> _Enabled_ </span> column for a particular Node.js version.
 * In the confirmation pop-up click <span class="notranslate"> _Agree_ </span> to save changes or <span class="notranslate"> _Cancel_ </span> to close pop-up.
 
-![](./images/nodejsenable_zoom70.png)
+![](/images/legacy/lve_manager/nodejsenable_zoom70.webp)
 
 To disable particular Node.js version do the following:
 * Move an enabled slider in the <span class="notranslate"> _Enabled_ </span> column for a particular Node.js version.
@@ -1052,7 +1052,7 @@ It is impossible:
 * to install or remove version if another installation/uninstall process is running.
 :::
 
-![](./images/nodejsconfirmation_zoom70.png)
+![](/images/legacy/lve_manager/nodejsconfirmation_zoom70.webp)
 
 #### Make a particular Node.js version as a default
 
@@ -1065,13 +1065,13 @@ It is impossible to make a disabled version default.
 :::
 
 
-![](./images/nodejsmakedefault_zoom70.png)
+![](/images/legacy/lve_manager/nodejsmakedefault_zoom70.webp)
 
 #### Applications column
 
 To view and operate with the list of domains with Node.js versions click on a number in the <span class="notranslate"> _Applications_ </span> column for a particular Node.js version. A section with a list of Domains for particular Node.js version will be displayed.
 
-![](./images/nodejsselectordomains_zoom70.png)
+![](/images/legacy/lve_manager/nodejsselectordomains_zoom70.webp)
 
 Domains are displayed by three. To load more domains click on <span class="notranslate"> _Load More_ </span> button.
 
@@ -1152,17 +1152,17 @@ There are Main, PHP Site analyzer, and Settings subtabs here.
 
 This subtab views the latest report (for the previous day) of the Website monitoring tool.
 
-![](./images/WebsiteMonitoringMain.png)
+![](/images/legacy/lve_manager/WebsiteMonitoringMain.webp)
 
 Remember that report is created every 24 hours and all changes in configuration (the _Settings_ tab) or in the list of domains will be applied for the next 24 hours (from midnight).
 
 * **Total number of requests** - requests that were sent to all domains, existing on the servers
-* **Successful requests** - the number of requests for all domains with ![](./images/Code200.png)
+* **Successful requests** - the number of requests for all domains with ![](/images/legacy/lve_manager/Code200.webp)
 * **Requests with errors** - the number of requests for all domains which status code is not 200
 * **Not started requests due to short check interval** - this metric is used to adjust configuration. If it is not equal 0, an admin should increase the value of Requests sending interval, because the tool does not fit into this interval to send requests to all domains.
 * **Slowest websites in 24h and Websites with most errors in 24h** - in these sections you can find the number of domains that was exposed here.
 
-  ![](./images/TopSlow.png)
+  ![](/images/legacy/lve_manager/TopSlow.webp)
 
 
 #### PHP Slow Site analyzer
@@ -1171,7 +1171,7 @@ Remember that report is created every 24 hours and all changes in configuration 
 The Slow Site analyzer is not available for CloudLinux OS Legacy (Shared) 6.
 :::
 
-![](./images/WebsiteMonitoringPHPSiteAnalyzer.png)
+![](/images/legacy/lve_manager/WebsiteMonitoringPHPSiteAnalyzer.webp)
 
 This is an example of a report from the Slow Site analyzer. The report shows the number of slow requests per domain and its URLs and the average duration of each slow URL.
 
@@ -1188,7 +1188,7 @@ All settings which was changed after starting Website monitoring and Slow site a
 
 To enable or disable **Website monitoring**, use the following slider.
 
-![](./images/WebsiteMonitoringSlider.png)
+![](/images/legacy/lve_manager/WebsiteMonitoringSlider.webp)
 
 * **Enable summary notifications** - turn on/off summary daily email report notifications
 * **Enable alert notifications** - turn on/off immediate alert email notifications
@@ -1204,7 +1204,7 @@ To enable or disable the **Slow site analyzer**, use the following slider.
 Slow Site analyzer is not available for CloudLinux OS Legacy (Shared) 6.
 :::
 
-![](./images/WebsiteMonitoringSlider1.png)
+![](/images/legacy/lve_manager/WebsiteMonitoringSlider1.webp)
 
 * **Enable Autotracing** - turn on/off Autotracing;
 * **Enable summary notifications** - turn on/off summary daily email report notifications;
@@ -1231,11 +1231,11 @@ Email notifications are created by the Web monitoring tools.
 
 **Example of the Web monitoring tools report**.
 
-![](./images/EmailNotifications.png)
+![](/images/legacy/lve_manager/EmailNotifications.webp)
 
 **Example of the PHP Slow site analyzer report**.
 
-![](./images/SlowSiteAnalyzerEmailNotifications.png)
+![](/images/legacy/lve_manager/SlowSiteAnalyzerEmailNotifications.webp)
 
 
 #### FAQ
@@ -1300,7 +1300,7 @@ Reseller cannot manage <span class="notranslate">INODE</span> or MYSQL limits. N
 The bottom line star in the table displays the total reseller resource usage. It means, that all the usage of resellers’ end users and of his own is displayed as a summary for each parameter.
 
 
-![](./images/currentusagetabresellerr_zoom70.png)
+![](/images/legacy/lve_manager/currentusagetabresellerr_zoom70.webp)
 
 <div class="notranslate">
 
@@ -1320,7 +1320,7 @@ On the <span class="notranslate">_Historical Usage_</span> page the reseller is 
 
 Click <span class="notranslate">_LVE Statistics_</span> on the top of the <span class="notranslate">Top 5</span> list to go to the <span class="notranslate">_Statistics_</span> page to view or manage the rest of users.
 
-![](./images/historicalusageresellertab_zoom70.png)
+![](/images/legacy/lve_manager/historicalusageresellertab_zoom70.webp)
 
 <div class="notranslate">
 
@@ -1341,7 +1341,7 @@ You can filter the list by <span class="notranslate">_Username_, _Domain_, _LVE 
 
 Tick <span class="notranslate">_Show only ignored users_</span> to display only users with <span class="notranslate">MySQL Governor</span> disabled.
 
-![](./images/userstabreseller_zoom70.png)
+![](/images/legacy/lve_manager/userstabreseller_zoom70.webp)
 
 <div class="notranslate">
 
@@ -1355,7 +1355,7 @@ Click on a pencil icon in <span class="notranslate">_Actions_</span> column to e
 * Click <span class="notranslate">Apply</span> for <span class="notranslate">Do not limit</span> to set unlimited resources to a user.
 * Set values for <span class="notranslate"> PEED, PMEM, IO, IOPS, EP</span>, and NPROC and click <span class="notranslate">_Save_</span> to save changes or <span class="notranslate">_Cancel_</span> to close the window.
 
-![](./images/userstabpopup_zoom70.png)
+![](/images/legacy/lve_manager/userstabpopup_zoom70.webp)
 
 <div class="notranslate">
 
@@ -1376,14 +1376,14 @@ The following parameters are displayed:
 * <span class="notranslate"> NPROC</span> usage per user;
 * <span class="notranslate"> IOPS</span> usage per user.
 
-![](./images/statisticstabreseller_zoom70.png)
+![](/images/legacy/lve_manager/statisticstabreseller_zoom70.webp)
 
 
 Use <span class="notranslate">_Charts_</span> in the <span class="notranslate">_View_</span> column to view detailed resource usage charts for a particular period of time.
 
 For example, 7 days period chart.
 
-![](./images/sevendayschartresellers_zoom70.png)
+![](/images/legacy/lve_manager/sevendayschartresellers_zoom70.webp)
 
 <div class="notranslate">
 
@@ -1405,7 +1405,7 @@ Unfortunately, it is not possible to disable LVE Faults Email Notifications for 
 But it is possible to enable LVE Faults Email Notifications for all users by default, so that users can disable the feature themselves in their interface.
 
 
-![](./images/optionsresellernotify_zoom70.png)
+![](/images/legacy/lve_manager/optionsresellernotify_zoom70.webp)
 
 * <span class="notranslate">_Notify me on users faults_</span> - notify reseller when his users have exceeded limits.
 * <span class="notranslate">_Notify Customers_</span> - notify resellers’ end users when they have exceeded limits.
@@ -1413,13 +1413,13 @@ But it is possible to enable LVE Faults Email Notifications for all users by def
 
 In <span class="notranslate">_Faults to include_</span> section tick checkboxes to include particular limits to email notifications.
 
-![](./images/options02_zoom70.png)
+![](/images/legacy/lve_manager/options02_zoom70.webp)
 
 In <span class="notranslate">_Minimum number of Faults to notify_</span> section enter the number of faults required for the notification to be sent for reseller and customer. You can also set the reseller notification frequency.
 
 Set the frequency of sending the reseller email notifications in <span class="notranslate">_Notify Reseller Every ... days/hours/minutes/seconds_</span> section.
 
-![](./images/options03_zoom70.png)
+![](/images/legacy/lve_manager/options03_zoom70.webp)
 
 Click <span class="notranslate">_Save Changes_</span> to apply changes.
 
@@ -1431,7 +1431,7 @@ Click <span class="notranslate">_Save Changes_</span> to apply changes.
 
 Choose <span class="notranslate">_Packages_</span> tab to view and modify limits for reseller’s packages.
 
-![](./images/packagesreseller_zoom70.png)
+![](/images/legacy/lve_manager/packagesreseller_zoom70.webp)
 
 Click pencil icon in a package row to set the following limits for a package:
 
@@ -1493,25 +1493,25 @@ As a result, <span class="notranslate">CloudLinux Manager</span> will automatica
 
 | |
 |:---:|
-|![](./images/PHP_version_message_cPanel_admin.png)|
+|![](/images/legacy/lve_manager/PHP_version_message_cPanel_admin.webp)|
 | Figure 1.1 cPanel CloudLinux Manager (administrator)| 
 
 
 | |
 |:---:|
-|![](./images/PHP_version_message_DirectAdmin_admin.png)|
+|![](/images/legacy/lve_manager/PHP_version_message_DirectAdmin_admin.webp)|
 | Figure 1.2 DirectAdmin CloudLinux Manager (administrator)| 
 
 
 | |
 |:---:|
-|![](./images/PHP_version_message_cPanel_user.png)|
+|![](/images/legacy/lve_manager/PHP_version_message_cPanel_user.webp)|
 | Figure 2.1 cPanel CloudLinux Manager (user)|
 
 
 | |
 |:---:|
-|![](./images/PHP_version_message_DirectAdmin_user.png)|
+|![](/images/legacy/lve_manager/PHP_version_message_DirectAdmin_user.webp)|
 | Figure 2.2 DirectAdmin CloudLinux Manager (user)| 
 
 :::tip Note
@@ -1562,7 +1562,7 @@ Client resource usage plugin for cPanel, Plesk, and DirectAdmin allows host’s 
 
 Go to your control panel and click _CPU and concurrent connection usage_.
 
-![](./images/client_resource_usage.png)
+![](/images/legacy/lve_manager/client_resource_usage.webp)
 
 Here you can see three tabs:
 
@@ -1570,7 +1570,7 @@ Here you can see three tabs:
 * **<span class="notranslate">Current usage</span>**: here you can find full information on the resource usage displayed in charts and tables.
 * **<span class="notranslate">Snapshot</span>**: server snapshots with processes list and database and HTTP queries.
 
-![](./images/RU-dashboard.png)
+![](/images/legacy/lve_manager/RU-dashboard.webp)
 
 #### Dashboard
 
@@ -1580,13 +1580,13 @@ To see detailed information about resource usage, click <span class="notranslate
 
 If your site is not limited, you will see the plain <span class="notranslate">Dashboard</span>.
 
-![](./images/RU-no-issues.png)
+![](/images/legacy/lve_manager/RU-no-issues.webp)
 
 #### Current Usage
 
 Go to the <span class="notranslate">_Current Usage_</span> tab to see the detailed information about resource usage on your server.
 
-![](./images/RU-current-usage.png)
+![](/images/legacy/lve_manager/RU-current-usage.webp)
 
 :::tip Note
 It's possible to add the <span class="notranslate">`normalized_user_cpu = N`</span> value to the <span class="notranslate">`/etc/sysconfig/cloudlinux`</span> file. So you can see for example CPU Usage X/200 (%) in the scenario where a user's LVE CPU limit is 200%. If the value is equal to `Y`, CPU Usage cannot get greater than 100%.
@@ -1601,7 +1601,7 @@ The <span class="notranslate">_Current Usage_</span> table displays resource usa
 **<span class="notranslate">Inodes</span>** usage is displayed if it is enabled and **<span class="notranslate">Inodes</span>** limits are set for the user. cPanel only.
 :::
 
-![](./images/RU-current-usage-table.png)
+![](/images/legacy/lve_manager/RU-current-usage-table.webp)
 
 * **<span class="notranslate">Description</span>**: resource name
 * **<span class="notranslate">Usage</span>**: resource usage value
@@ -1633,13 +1633,13 @@ All charts have the color legend:
   
 You can also see the Faults chart with all faults for all resources.
 
-![](./images/RU-faults-chart.png)
+![](/images/legacy/lve_manager/RU-faults-chart.webp)
 
 #### Usage
 
 The <span class="notranslate">_Usage_</span> table displays information on each resource usage sorted by timeframe and time unit.
 
-![](./images/RU-usage-table.png)
+![](/images/legacy/lve_manager/RU-usage-table.webp)
 
 * **<span class="notranslate">From-To</span>**: period
 * **<span class="notranslate">A</span>**: average
@@ -1652,7 +1652,7 @@ Use controls below the table to navigate through it.
 
 Go to the <span class="notranslate">_Snapshot_</span> tab to see server snapshots with processes list and database and HTTP queries.
 
-![](./images/RU-snapshots.png)
+![](/images/legacy/lve_manager/RU-snapshots.webp)
 
 You can choose a date and a snapshot to display in the table.
 
@@ -1705,13 +1705,13 @@ Displays information on processes in the selected snapshot.
 
 Displays information on database queries in the selected snapshot.
 
-![](./images/RU-db-queries.png)
+![](/images/legacy/lve_manager/RU-db-queries.webp)
 
 #### HTTP queries
 
 Displays information on HTTP queries in the selected snapshot.
 
-![](./images/RU-HTTP-queries.png)
+![](/images/legacy/lve_manager/RU-HTTP-queries.webp)
 
 
 #### Turning On / Off email notifications per user
@@ -1725,7 +1725,7 @@ A user can disable LVE-Stats notifications about hitting LVE limits by himself.
 
 The feature is available via **Resource Usage client plugin** | **Options** | **LVE Stats Email Notifications**
 
-![](./images/TurningOnOffNotifications.png)
+![](/images/legacy/lve_manager/TurningOnOffNotifications.webp)
 
 ### Python Selector client plugin
 
@@ -1733,7 +1733,7 @@ The feature is available via **Resource Usage client plugin** | **Options** | **
 Python Selector icon in end user interface is hidden when Python is disabled
 :::
 
-![](./images/PythonEndUserIcon.png)
+![](/images/legacy/lve_manager/PythonEndUserIcon.webp)
 
 End User interface allows end users to setup and manage Python for their web applications.
 
@@ -1741,7 +1741,7 @@ Go to <span class="notranslate">cPanel → Software Section → Setup Python App
  
 Web Applications page is displayed.
 
-![](./images/PythonEUWebApp.png)
+![](/images/legacy/lve_manager/PythonEUWebApp.webp)
 
 There are several columns in the list:
 
@@ -1761,7 +1761,7 @@ Do not use "python37", "python38", "python311" (i.e. **"python{version number}"*
 
 1. Click <span class="notranslate">_Create Application_</span> to create an application. The Create Application tab opens.
 
-    ![](./images/PythonCreateApp1.png)
+    ![](/images/legacy/lve_manager/PythonCreateApp1.webp)
 
 2. Specify the following:
     * <span class="notranslate">Python version</span> — select from the dropdown (required);
@@ -1774,7 +1774,7 @@ Do not use "python37", "python38", "python311" (i.e. **"python{version number}"*
 
 To delete or edit environment variable, click <span class="notranslate">_Bin_</span> or <span class="notranslate">_Pencil_</span> for the required variable.
 
-![](./images/PythonEnvVar.png)
+![](/images/legacy/lve_manager/PythonEnvVar.webp)
 
 #### Start application
  
@@ -1790,7 +1790,7 @@ To stop a started application do the following:
 * Click <span class="notranslate">_Stop_</span> icon in the <span class="notranslate">_Actions_</span> column in a started application row.
 * When an action is completed a <span class="notranslate">_Stop_</span> changes to <span class="notranslate">_Start_</span>.
 
-![](./images/PythonStartStopApp.png)
+![](/images/legacy/lve_manager/PythonStartStopApp.webp)
 
 #### Restart application
  
@@ -1806,7 +1806,7 @@ To remove application do the following:
 * In the confirmation popup click <span class="notranslate">_Agree_</span> to start removing or <span class="notranslate">_Cancel_</span> to close the popup.
 * When an action is completed an application will be removed from the <span class="notranslate">_Web Applications_</span> table and a confirmation popup will be displayed.
 
-![](./images/PythonRestartRemove.png)
+![](/images/legacy/lve_manager/PythonRestartRemove.webp)
 
 #### Edit application
  
@@ -1814,7 +1814,7 @@ To edit application do the following:
 
 * Click the <span class="notranslate">_Pencil_</span> in the <span class="notranslate">_Actions_</span> column in a particular application row. A particular application tab opens.
 
-![](./images/PythonSelectorEditApp.png)
+![](/images/legacy/lve_manager/PythonSelectorEditApp.webp)
 
 The following actions are available:
 
@@ -1851,14 +1851,14 @@ You can also use [Python Selector CLI](/legacy/command-line_tools/#end-user)
 <span class="notranslate">Node.js Selector</span> icon in end user interface is hidden when Node.js is disabled.
 :::
 
-![](./images/Node.jsClientPlugin.png)
+![](/images/legacy/lve_manager/Node.jsClientPlugin.webp)
 
 End User interface allows end users to setup and manage Node.js for their web applications.  
 Go to <span class="notranslate">_cPanel → Software Section → Setup Node.js App_</span>.
 
 <span class="notranslate">_Web Applications_</span> page is displayed.
 
-![](./images/nodejsusermain_zoom70.png)
+![](/images/legacy/lve_manager/nodejsusermain_zoom70.webp)
 
 There are several columns in the list.
 * <span class="notranslate"> App URI </span> — application URI including the domain.
@@ -1881,7 +1881,7 @@ To stop a started application do the following:
 * Click <span class="notranslate"> _Stop_ </span> icon in the <span class="notranslate"> _Actions_ </span> column in a started application row.
 * When an action is completed a <span class="notranslate"> _Stop_ </span> icon changes to <span class="notranslate"> _Start_ </span> icon.
 
-![](./images/nodejsuseruistartstop_zoom70.png)
+![](/images/legacy/lve_manager/nodejsuseruistartstop_zoom70.webp)
 
 #### Restart application
 
@@ -1895,14 +1895,14 @@ To remove application do the following:
 * In the confirmation pop-up click <span class="notranslate"> _Agree_ </span> to start removing or <span class="notranslate"> _Cancel_ </span> to close pop-up.
 * When an action is completed an application will be removed from the <span class="notranslate"> _Web Applications_ </span> table and a confirmation pop-up will be displayed.
 
-![](./images/nodejsuseruirestartremove_zoom70.png)
+![](/images/legacy/lve_manager/nodejsuseruirestartremove_zoom70.webp)
 
 #### Edit application
 
 To edit application do the following:
 * Click <span class="notranslate"> _Pencil_ </span> icon in the <span class="notranslate"> _Actions_ </span> column in a particular application row. A particular application tab opens.
 
-![](./images/Node.js-Selector-edit-app.png)
+![](/images/legacy/lve_manager/Node.js-Selector-edit-app.webp)
 
 The following actions are available:
 * Restart application — click <span class="notranslate"> _Restart_ </span> button.
@@ -1928,11 +1928,11 @@ End user interface allows end users to setup and manage Ruby for their web appli
 
 Go to <span class="notranslate">_cPanel → Software Section → Setup Ruby App_</span>.
 
-![](./images/RubyClientPluginStart.png)
+![](/images/legacy/lve_manager/RubyClientPluginStart.webp)
 
 Setup Ruby application page is displayed.
 
-![](./images/RubyClientPlugin1.png)
+![](/images/legacy/lve_manager/RubyClientPlugin1.webp)
 
 Here you can do the following:
 
@@ -1945,17 +1945,17 @@ End user interface allows end users to select and manage PHP extensions and opti
 
 Go to <span class="notranslate">_cPanel → Software Section → Select PHP Version_</span>.
 
-![](./images/PHPSelectorClientPlugin.png)
+![](/images/legacy/lve_manager/PHPSelectorClientPlugin.webp)
 
 PHP Extensions page opens.
 
-![](./images/php_selector_customer.png)
+![](/images/legacy/lve_manager/php_selector_customer.webp)
 
 Here you can choose extensions for the particular PHP version, the current PHP version and reset to default.
 
 To manage PHP options, click <span class="notranslate">_Switch to PHP options_</span>.
 
-![](./images/php_selector_options.png)
+![](/images/legacy/lve_manager/php_selector_options.webp)
 
 All changes are saved automatically.
 
@@ -1979,17 +1979,17 @@ All changes are saved automatically.
 
 The <span class="notranslate">_My Domains_</span> tab contains a list of user’s domains to visualize which PHP Selector is used by domain.
 
-![](./images/MyDomainsTab.png)
+![](/images/legacy/lve_manager/MyDomainsTab.webp)
 
 A user can configure a domain to use CloudLinux OS <span class="notranslate">PHP Selector</span>.
 
 1. Click <span class="notranslate">_Use PHP Selector_</span>
   
-![](./images/UsePHPSelector1.png)
+![](/images/legacy/lve_manager/UsePHPSelector1.webp)
 
 2. Set a version in <span class="notranslate">PHP Selector</span>
 
-![](./images/SetVersion.png)
+![](/images/legacy/lve_manager/SetVersion.webp)
 
 :::tip Note
 If `php-fpm` is enabled for a domain the only administrator can set it to <span class="notranslate">_disable_</span>.
@@ -2062,12 +2062,12 @@ To add LVE Settings to standard cPanel package, go to <span class="notranslate">
 You can find the information on how to add a package in official cPanel documentation on the link: [https://documentation.cpanel.net/display/ALD/Add+a+Package](https://documentation.cpanel.net/display/ALD/Add+a+Package)
 :::
 
-![](./images/lve-extension_01.jpg)
+![](/images/legacy/lve_manager/lve-extension_01.webp)
 
 
 Tick <span class="notranslate">_LVE Settings_</span> in the bottom of the page to open <span class="notranslate">_LVE Settings_</span> form.
 
-![](./images/lve-extension_02.jpg)
+![](/images/legacy/lve_manager/lve-extension_02.webp)
 
 You can specify the following options:
 
@@ -2084,7 +2084,7 @@ Your changes to <span class="notranslate">_LVE Settings_</span> will appear in t
 |<span class="notranslate"> IO Settings </span> | Maximum <span class="notranslate">I/O (input/output)</span> usage speed for an account. Is measured in <span class="notranslate">`Kb/s`</span>. Must be a positive number. Type <span class="notranslate">`DEFAULT`</span> to use default value. Type `0` for unlimited resource.|
 |<span class="notranslate"> IOPS Settings </span> | Maximum <span class="notranslate">`IOPS`</span> (input/output operations per second) usage for an account. Must be a positive number. Type <span class="notranslate">`DEFAULT`</span> to use default value. Type `0` to unlimited resource.|
 
-![](./images/lve-extension_03.jpg) 
+![](/images/legacy/lve_manager/lve-extension_03.webp) 
 
 Click <span class="notranslate">_Add_</span> to apply your changes.
 
@@ -2096,13 +2096,13 @@ You can edit limits in any convenient for you way - in <span class="notranslate"
 
 To edit package extensions, go to <span class="notranslate"> _Packages_</span> | <span class="notranslate">_Edit a Package_</span>. Choose a package from the <span class="notranslate">_Package_</span> list and click <span class="notranslate">_Edit_</span>.
 
-![](./images/lve-extension_04.jpg)
+![](/images/legacy/lve_manager/lve-extension_04.webp)
 
 <span class="notranslate">**CloudLinux Manager**</span>
 
 To edit package extensions, go to <span class="notranslate">CloudLinux Manager</span> | <span class="notranslate">Server Configuration</span> | <span class="notranslate"> CloudLinux OS CloudLinux Manager</span> | <span class="notranslate"> Packages</span> and click pencil (edit) icon.
 
-![](./images/lve-extension_05.jpg)
+![](/images/legacy/lve_manager/lve-extension_05.webp)
 
 <span class="notranslate">**WHM API**</span>
 

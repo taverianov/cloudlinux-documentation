@@ -83,27 +83,27 @@ Adding <span class="notranslate"> Python</span> modules requires executing permi
 
 1. In <span class="notranslate">_Software/Services_</span> area choose <span class="notranslate">_Select Python Environment_</span>.
 
-![](./images/clip000133.jpg)
+![](/images/legacy/deprecated/clip000133.webp)
 
 2. Create project form will appear. Choose interpreter version for your application, application folder name (project path) and <span class="notranslate"> URI </span> for accessing your application. Click <span class="notranslate"> “Create project” </span> to create an application.
 
-![](./images/clip000233.jpg)
+![](/images/legacy/deprecated/clip000233.webp)
 
 After a little while a new application entry will be appended to the web-page.
 
-![](./images/clip000255.jpg)
+![](/images/legacy/deprecated/clip000255.webp)
 
 3. You can edit path (folder name of the project in the home directory, for example, <span class="notranslate"> _/home/clman1/project_name_ </span> ), <span class="notranslate"> uri </span> for application, <span class="notranslate"> wsgi </span> handler. If you click <span class="notranslate"> Edit </span> - the value is converted to input field and thus becomes editable. When editing is complete, click <span class="notranslate"> Save </span>.
 
-![](./images/clip000256.jpg)
+![](/images/legacy/deprecated/clip000256.webp)
 
 4. <span class="notranslate"> Wsgi </span> entry is to specify <span class="notranslate"> python wsgi </span> application entry point. It must be specified as filename, must be callable and separated by colon. If your app is running from file <span class="notranslate"> flask/run.py </span> by calling callable app, set <span class="notranslate"> flask/run.py:app </span>.
 
-![](./images/clip000257.jpg)
+![](/images/legacy/deprecated/clip000257.webp)
 
 5. When <span class="notranslate"> Show </span> control is clicked, <span class="notranslate"> python </span> extensions section will be expanded. It gives the ability to add or remove <span class="notranslate"> python </span> modules. When start typing in input field, appropriate hints are shown in drop-down list. Choose the entry you want from drop-down and click <span class="notranslate"> Add </span>.
 
-![](./images/clip000261.jpg)
+![](/images/legacy/deprecated/clip000261.webp)
 
 If you click <span class="notranslate"> Delete </span>, the corresponding module entry will disappear.
 In addition to setting <span class="notranslate"> path, uri </span> and <span class="notranslate"> wsgi </span> , the interpreter version can be changed as well by changing the value in select drop-down.
@@ -139,18 +139,18 @@ To change application <span class="notranslate"> URI </span> run:
 
 The possibility to choose domain when creating an application was added to web interface as well.
 
-![](./images/webapp001_zoom94.png)
+![](/images/legacy/deprecated/webapp001_zoom94.webp)
 
 Also, you can run simple commands from web interface (e.g. you can install packages from specific repositories or control web applications by means of <span class="notranslate"> django -admin</span>).
 
-![](./images/webapp002_zoom93.png)
+![](/images/legacy/deprecated/webapp002_zoom93.webp)
 
 
 ### Hide Python Selector icon
 
 It is possible to hide or show <span class="notranslate">Python Selector</span> icons by marking or unmarking proper checkbox in <span class="notranslate"> LVE Manager _Options_</span> tab.
 
-![](./images/CL-hide-python-ruby.png)
+![](/images/legacy/deprecated/CL-hide-python-ruby.webp)
 
 The same result can be accomplished in CLI by running:
 
@@ -879,7 +879,7 @@ OPTIMUMCACHE IS NO LONGER SUPPORTED.
 **OptimumCache 0.2+**
 
 OptimumCache is a de-duplicating file cache optimized specifically for shared hosting. Typical shared hosting server runs a number of sites with WordPress and Joomla as well as other popular software. This usually means that there are hundreds of duplicate files that are constantly being read into file cache - both wasting precious disk <span class="notranslate"> IO </span> operations as well as memory. OptimumCache creates a cache of such duplicated files and de-duplicates file cache.
-![](./images/embim1.png)
+![](/images/legacy/deprecated/embim1.webp)
 
 With OptimumCache, if a duplicate of an already loaded file is requested, the file gets loaded from filesystem cache. By doing that, system bypasses disk IO, significantly improving the speed of reading that file, while lowering load on the hard disk. As the file had been read from disk just once, it is cached by filesystem cache just once, minimizing amount of duplicates in file system cache and improving overall cache efficiency. This in turn reduces memory usage, decreases the number of disk operations - all while improving the websites response time.
 
@@ -1420,7 +1420,7 @@ cloudlinux-collect --test
 ```
 </div>
 
-![](./images/optimumcachecollect_zoom93.png)
+![](/images/legacy/deprecated/optimumcachecollect_zoom93.webp)
 
 Along with common statistics blocks as <span class="notranslate">CPU</span> , disk usage, <span class="notranslate">inodes</span> cached, there are two blocks of data to watch how effectively OptimumCache is functioning.
 

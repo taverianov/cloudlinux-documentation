@@ -275,26 +275,26 @@ Starting from kernel 5.14.0-362.8.1.el9_3 and kmod_lve-2.1-20 the secure boot is
 4. Enroll the key:
 
 * Select **`Enroll MOK`**\
-![Step 1](./images/cl9_secureboot/1.png)
+![Step 1](/images/legacy/cloudlinux_installation/cl9_secureboot/1.webp)
 
 * Select **`View key 0`**\
-![Step 2](./images/cl9_secureboot/2.png)
+![Step 2](/images/legacy/cloudlinux_installation/cl9_secureboot/2.webp)
 
 * Make sure that CloudLinux's Secure Boot Key information is displayed\
 
 * Press the **Esc key** when you are finished\
-![Step 3](./images/cl9_secureboot/3.png)
+![Step 3](/images/legacy/cloudlinux_installation/cl9_secureboot/3.webp)
 
 * Select **`Continue`** on the screen from Step 2
 It will ask "Enrol the key(s)?".\
 Select **`Yes/OK`**\
-![Step 4](./images/cl9_secureboot/4.png)
+![Step 4](/images/legacy/cloudlinux_installation/cl9_secureboot/4.webp)
 
 * Enter the password you used for importing the key (point 2.ii)\
-![Step 5](./images/cl9_secureboot/5.png)
+![Step 5](/images/legacy/cloudlinux_installation/cl9_secureboot/5.webp)
 
 * Select **`Reboot`** (Older versions may say **`Continue boot`**)\
-![Step 6](./images/cl9_secureboot/6.png)
+![Step 6](/images/legacy/cloudlinux_installation/cl9_secureboot/6.webp)
 
 * Now you can enable Secure Boot in BIOS options menu
 
@@ -402,7 +402,7 @@ The graphical mode is used by default when you boot the system from the local me
 
 The first screen displayed is the language selection page.
 
-![Welcome page screenshot](./images/welcome_page.png)
+![Welcome page screenshot](/images/legacy/cloudlinux_installation/welcome_page.webp)
 
 First, find your preferred language in the left column and than select locale in the right one.
 Selected language will be used during installation and also as a default language of the installed system.
@@ -415,7 +415,7 @@ and proceed to the [Installation Summary](#installation-summary).
 The Installation summary screen is the main dashboard of your installation parameters. 
 Most of the options which can be configured during the installation can be accessed from here.
 
-![Welcome page screenshot](./images/installation_summary.png)
+![Welcome page screenshot](/images/legacy/cloudlinux_installation/installation_summary.webp)
 
 The summary screen displays links to other configuration screens, those links can be in 
 several different states, which are graphically indicated:
@@ -447,7 +447,7 @@ Most likely your network is not configured by default,
 so you can see the URL configuration field greyed out, like on the screenshot below. Please refer to the Network Configuration screen first to set up a network connection.
 :::
 
-![Unavailable network source](./images/installation_source_gray_network.png)
+![Unavailable network source](/images/legacy/cloudlinux_installation/installation_source_gray_network.webp)
 
 The correct installation URL for CloudLinux OS is
 
@@ -457,7 +457,7 @@ https://repo.cloudlinux.com/cloudlinux/8/BaseOS/x86_64/kickstart/
 
 Type in installation URL in the corresponding field, configure proxy if needed and press the `Done` button.
 
-![](./images/installation_source_network_address.png)
+![](/images/legacy/cloudlinux_installation/installation_source_network_address.webp)
 
 
 #### ISO File Source
@@ -465,7 +465,7 @@ Type in installation URL in the corresponding field, configure proxy if needed a
 This option is primary used as an alternative when you don't have internet connection on a target server.
 It is only available if you downloaded Minimal or DVD ISO which contains some bundled packages in.
 
-![](./images/installation_iso_source.png)
+![](/images/legacy/cloudlinux_installation/installation_iso_source.webp)
 
 Tick the `ISO file` checkbox and press the `Done` button.
 
@@ -475,11 +475,11 @@ After clicking `Done`, you will be redirected to the [Installation Summary](./#i
 where [Installation source](./#choosing-the-installation-source) and [Software Selection](./#software-selection) links
 will be greyed and the `Downloading package metadata` message wll be shown. 
 
-![](./images/installation_source_gray_working.png)
+![](/images/legacy/cloudlinux_installation/installation_source_gray_working.webp)
 
 Please hold on while that message disappears and proceed to the [Software Selection](./#software-selection) section.
 
-![](./images/installation_source_gray_done.png)
+![](/images/legacy/cloudlinux_installation/installation_source_gray_done.webp)
 
 
 #### Software Selection
@@ -493,7 +493,7 @@ has downloaded package metadata from the source.
 It is not possible to select specific packages during a manual installation, you can only select pre-defined environments and add-ons.
 
 You should choose the CloudLinux OS, and the edition that matches your license will be set up at this stage:
- ![](./images/software_selection.png)
+ ![](/images/legacy/cloudlinux_installation/software_selection.webp)
 
 
 Then, on the right side of the screen, select one or more add-ons which you want to install by ticking the
@@ -506,7 +506,7 @@ using the `Installation Destination` menu and create your [Root Password](https:
 
 Doing that, the `Begin installation` button becomes blue, so click it.
 
-![](./images/installation_available.png) 
+![](/images/legacy/cloudlinux_installation/installation_available.webp) 
 
 After this point, the installation process actually starts and changes are being made to your selected disks.
 It is not possible to go back to the Installation Summary and change any settings configured there; 
@@ -523,7 +523,7 @@ which you used to start the installation, or make sure that your system tries to
 from the hard drive before trying removable media. Otherwise, your computer will start the installer again instead of the installed system.
 :::
 
-![](./images/installation_done.png)
+![](/images/legacy/cloudlinux_installation/installation_done.webp)
 
 #### Next Steps
 
@@ -570,11 +570,11 @@ Images are built in both types Azure supports: *gen1 (BIOS based)* and *gen2 (UE
 How to use CloudLinux Image in Azure:
 
 * When creating Virtual Machine, while choosing what OS should be used, click See al images.
-   ![](./images/AzureVirt.png)
+   ![](/images/legacy/cloudlinux_installation/AzureVirt.webp)
 * Switch from Marketplace to Community images.
-   ![](./images/AzureSwitch.png)
+   ![](/images/legacy/cloudlinux_installation/AzureSwitch.webp)
 * Search by typing *cloudlinux* or filter by *Publisher* which is also *cloudlinux* or *Azure Compute Gallery* which is *cloudlinux-cbc76afd-63bc-4f6e-b801-65bd2f1ab0a0*.
-   ![](./images/AzureSearch.png)
+   ![](/images/legacy/cloudlinux_installation/AzureSearch.webp)
 * Choose a suitable image. Check that the Publisher of the selected images is *cloudlinux* and Public Gallery Name is *cloudlinux-cbc76afd-63bc-4f6e-b801-65bd2f1ab0a0*.
 
 
@@ -824,7 +824,7 @@ apache_status = yes
 </div>
 
 
-![](./images/sshot-2013-07-30-21-25-48.png)
+![](/images/legacy/cloudlinux_installation/sshot-2013-07-30-21-25-48.webp)
 
 9. Set PHP configuration to:
     
@@ -836,7 +836,7 @@ php_fastcgi5 enabled and is default
 ```
 </div>
 
-![](./images/sshot-2013-07-30-21-31-05.png)
+![](/images/legacy/cloudlinux_installation/sshot-2013-07-30-21-31-05.webp)
 
 Other options could be configured according to personal needs.
 
@@ -891,17 +891,17 @@ Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS image as a c
 
 1. To choose the right image, navigate to [https://download.cloudlinux.com/cloudlinux/images/#kvm-tab](https://download.cloudlinux.com/cloudlinux/images/#kvm-tab). Several different images are available for download (with and without a control panel).
 
-![](./images/cloudlinuximages.png)
+![](/images/legacy/cloudlinux_installation/cloudlinuximages.webp)
 
 2. Copy the link for the image you are going to use and log into [cloud.digitalocean.com](https://blog.digitalocean.com/custom-images/cloud.digitalocean.com).
 
 Click <span class="notranslate">_Images_</span> on the left of the screen and then choose <span class="notranslate">_Custom Images_</span>. Click the <span class="notranslate">_Import via URL_</span> button and paste the CloudLinux OS Legacy (Shared) image link.
 
-![](./images/customimages.png)
+![](/images/legacy/cloudlinux_installation/customimages.webp)
 
 There are several options here, but the most important is <span class="notranslate">_Choose a datacenter region_</span>, i.e. which datacenter region your Droplets should be created in for this image.
 
-![](./images/uploadimage.png)
+![](/images/legacy/cloudlinux_installation/uploadimage.webp)
 
 Click the <span class="notranslate">_Upload Image_</span> button and wait until the image is successfully uploaded.
 
@@ -909,7 +909,7 @@ Click the <span class="notranslate">_Upload Image_</span> button and wait until 
 
 You can find more information about creating/adding SSH keys in [this article](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/).
 
-![](./images/addsshkey.png)
+![](/images/legacy/cloudlinux_installation/addsshkey.webp)
 
 4. You will then be able to start a CloudLinux OS Droplet using the image.
    
@@ -917,11 +917,11 @@ You can find more information about creating/adding SSH keys in [this article](h
    Your Droplet will be created in the same datacenter that your custom image resides in.
    :::
 
-![](./images/startdroplet.png)
+![](/images/legacy/cloudlinux_installation/startdroplet.webp)
 
 5. Now, use your preferred SSH client software to connect to your Droplet. You can find more information on SSH client setup [here](https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/).
 
-![](./images/sshclient.png)
+![](/images/legacy/cloudlinux_installation/sshclient.webp)
 
 
 ### Linode
@@ -1077,7 +1077,7 @@ Wizard is a tool to set up CloudLinux OS components.
 
 In the current version only the lsapi module can be installed.
 
-![](./images/WizardVZ.png)
+![](/images/legacy/cloudlinux_installation/WizardVZ.webp)
 
 #### Dashboard
 
@@ -1085,7 +1085,7 @@ CloudLinux OS dashboard provides a quick overview of statistics and all administ
 
 In the current version only statistics about the lsapi module is available.
 
-![](./images/DashboardVZ.png)
+![](/images/legacy/cloudlinux_installation/DashboardVZ.webp)
 
 #### Lsapi 
 
@@ -1095,11 +1095,11 @@ To install Lsapi via CloudLinux Wizard, please turn off mod_ruid2 in EasyApache 
 For EasyApache select `Currently Installed Packages`.
 :::
 
-![](./images/LsapiVZ1.png)
+![](/images/legacy/cloudlinux_installation/LsapiVZ1.webp)
 
-![](./images/LsapiVZ2.png)
+![](/images/legacy/cloudlinux_installation/LsapiVZ2.webp)
 
-![](./images/LsapiVZ3.png)
+![](/images/legacy/cloudlinux_installation/LsapiVZ3.webp)
 
 
 :::tip Note
@@ -1140,7 +1140,7 @@ You can find CageFS documentation [here](/legacy/cloudlinux_os_components/#cagef
    cagefsctl –init
    ```
    **Via CloudLinux Wizard (cPanel only):**
-   ![](./images/CLWizardInstallation.png)
+   ![](/images/legacy/cloudlinux_installation/CLWizardInstallation.webp)
 3. Make sure compatible handlers are installed:
    **Via SSH:**
    ```
@@ -1152,7 +1152,7 @@ You can find CageFS documentation [here](/legacy/cloudlinux_os_components/#cagef
    **It's also possible to install via CloudLinux Wizard:**<br>
    The `mod_suexec` and `mod_suphp` can be installed via cPanel EasyApache4 installation tool.<br><br>
 4. Make sure users are enabled in the CageFS:
-   ![](./images/UsersEnabled.png)
+   ![](/images/legacy/cloudlinux_installation/UsersEnabled.webp)
 
 Useful links:
 

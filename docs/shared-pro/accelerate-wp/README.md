@@ -15,7 +15,7 @@ AccelerateWP Free suite is enabled by default on all new servers. Proceed to [su
 
 #### Activate AccelerateWP for a single server
 
-![](./images/AWPAdminPaidPremium.png)
+![](/images/shared-pro/accelerate-wp/AWPAdminPaidPremium.webp)
 
 
 
@@ -26,7 +26,7 @@ does not provide access to billable optimization features
 
 
 
-![](./images/AWPAdminNonPaidPremium.png)
+![](/images/shared-pro/accelerate-wp/AWPAdminNonPaidPremium.webp)
 
 
 Enable AccelerateWP Free for all users on the server via [CLI](#enable-acceleratewp-free)
@@ -51,13 +51,13 @@ It is possible to activate AccelerateWP Free on all compatible servers via the [
 or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). 
 Once Activate button is clicked - AccelerateWP Free will be set up automatically on all compatible servers within couple of minutes.
 
-![](./images/CMInstallationProd.png)
+![](/images/shared-pro/accelerate-wp/CMInstallationProd.webp)
 
 #### Activate AccelerateWP Premium on all servers via Centralized Monitoring
 
 Starting from ```lve-utils-6.5.11-1``` it is possible to activate AccelerateWP Premium via Centralized Monitoring as well.
 
-![](./images/CMInstallationPremium.png)
+![](/images/shared-pro/accelerate-wp/CMInstallationPremium.webp)
 
 AccelerateWP Premium will be activated on all compatible servers once activation button is clicked and upgrade url is provided.
 Before using AccelerateWP Premium features - all end-users will be requested to upgrade to Premium plan using provided upgrade url.
@@ -132,14 +132,14 @@ Resellers' users are not allowed to use AccelerateWP features.
 
 In the _CloudLinux Manager → AccelerateWP_ tab an administrator has the opportunity to provide end-users with a suite of features, which on its turn could be activated by end-users.
 
-![](./images/AWPAdminPaidPremium.png)
+![](/images/shared-pro/accelerate-wp/AWPAdminPaidPremium.webp)
 
 Once the feature suite is enabled by the administrator, end-users will see an AccelerateWP tab in their control panel interface and be able to activate the optimization feature.
 
 ### Suites usage statistics
 When AccelerateWP is enabled, the AccelerateWP usage statistics are shown.
 
-![](./images/AWPStats.png)
+![](/images/shared-pro/accelerate-wp/AWPStats.webp)
 
 It includes:
 * `Active Users` block with the total number of users and number of users who have activated the optimization feature/total users
@@ -154,12 +154,12 @@ The second column `AccelerateWP` shows a number of user's WordPress sites, optim
 
 To enable premium features, click on the "Activate premium features" link and select the options you want. To integrate functions with billing, you must specify the base URL for the purchase of the function by end users.
 
-![](./images/AWPAdminPaidPremium.png)
+![](/images/shared-pro/accelerate-wp/AWPAdminPaidPremium.webp)
 
 In case both AccelerateWP and AccelerateWP Premium feature suites are enabled, 
 the statistics are extended with AccelerateWP Premium metrics.
 
-![](./images/AWPStatsPremium.png)
+![](/images/shared-pro/accelerate-wp/AWPStatsPremium.webp)
 
 Please notice the `AccelerateWP Premium` rows in the `Active Users` and the `Wordpress sites on server` 
 blocks, and also the `AccelerateWP Premium` column in the statistics table.
@@ -172,7 +172,7 @@ If you want to get updated statistics immediately, use the "Rescan users website
 ### Filters
 You may use the following filters to browse AccelerateWP statistics slices.
 
-![](./images/AWPFilters.png)
+![](/images/shared-pro/accelerate-wp/AWPFilters.webp)
 
 * `Users with WordPress sites only` filter will show statistics for users who already have WordPress sites; users without WordPress installations will be hidden
 * `Users with AccelerateWP only` filter will show statistics for users who utilize the AccelerateWP optimization feature; users who did not activate AccelerateWP feature will be hidden
@@ -988,7 +988,7 @@ feature for their users.
 
 When AccelerateWP Premium is enabled in the admin interface, users get a proposal to upgrade their subscription.
 
-![](./images/AWPUpgradeNoLink.png)
+![](/images/shared-pro/accelerate-wp/AWPUpgradeNoLink.webp)
 
 When a user upgrades the subscription to the plan with AccelerateWP support, billing must execute the following command on the server:
 ```
@@ -1013,7 +1013,7 @@ The upgrade window can be customized with a link to the plan upgrade page, which
 cloudlinux-awp-admin set-options --upgrade-url https://plan.upgrade/splash
 ```
 
-![](./images/AWPUpgradeLink.png)
+![](/images/shared-pro/accelerate-wp/AWPUpgradeLink.webp)
 
 AccelerateWP automatically appends GET parameters when the link is displayed.
 
@@ -1062,14 +1062,14 @@ If you would like to stop using AccelerateWP Premium,
 click on the `manage` link and remove the `Premium Features` checkbox.
 AccelerateWP will be still available for your users.
 
-![](./images/AWPDisablePremiumOnly.png)
+![](/images/shared-pro/accelerate-wp/AWPDisablePremiumOnly.webp)
 
 ## Disable AccelerateWP
 
 If you would like to stop using AccelerateWP completely, toggle the `AccelerateWP` back.
 Both AccelerateWP and AccelerateWP Premium will be turned off.
 
-![](./images/AWPDisable.png)
+![](/images/shared-pro/accelerate-wp/AWPDisable.webp)
 
 This operation will:
 * disable the AccelerateWP tab in the users' control panel interface
@@ -1156,7 +1156,7 @@ End-users will not be able to activate the Object Caching feature until the Redi
 
 Corresponding incompatibility warning will be displayed in the control panel's User interface:
 
-![](./images/AWPNoRedis.png)
+![](/images/shared-pro/accelerate-wp/AWPNoRedis.webp)
 
 The Redis extensions are configured for all installed and supported PHP versions automatically:
 * right after the AccelerateWP Premium suite is enabled
@@ -1237,7 +1237,7 @@ All errors will be displayed in standard output and logged into `/var/log/clwpos
 ### End-users of AccelerateWP encounter PHP-related issues during feature activation
 End-users may encounter PHP-related errors while activating the AccelerateWP features.
 
-![](./images/AWPBrokenPHP.png)
+![](/images/shared-pro/accelerate-wp/AWPBrokenPHP.webp)
 
 The general examples of possible reasons are:
 * broken PHP binaries

@@ -3132,27 +3132,27 @@ Take a note that the configuration of CageFS for users is located at the Users t
 
 It allows to initialize CageFS, select users CageFS will be enabled for, as well as update CageFS skeleton.
 
-![](./images/img1-zoom73.png)
+![](/images/legacy/cloudlinux_os_components/img1-zoom73.webp)
 
 To enable CageFS for a proper user (users), in <span class="notranslate"> CageFS User Manager </span> choose a user from the list on the right ( <span class="notranslate"> Disabled </span> users) and click <span class="notranslate"> Toggle </span> . The user will move to the list on the left ( <span class="notranslate"> Enabled </span> users).
 
 To disable a user (users), choose a user from the list on the left ( <span class="notranslate"> Enabled </span> users) and click <span class="notranslate"> Disable CageFS </span> . The user will move to the list on the right ( <span class="notranslate"> Disabled </span> users).
 
-![](./images/cpanel-enable-disable-cagefs.png)
+![](/images/legacy/cloudlinux_os_components/cpanel-enable-disable-cagefs.webp)
 
 To update CageFS skeleton, click <span class="notranslate"> Update CageFS Skeleton </span> .
 
-![](./images/cpanel-update-cagefs-skeleton.png)
+![](/images/legacy/cloudlinux_os_components/cpanel-update-cagefs-skeleton.webp)
 
 ##### CageFS inbuilt in Cloudlinux Manager
 
 To enable or disable CageFS for a proper user (users), in <span class="notranslate"> Cloudlinux Manager </span>, go to the Users tab and use the Toggle next to the chosen user(s) from the list under the <span class="notranslate"> CageFS </span> column. 
 
-![](./images/cpanel-enable-disable-cagefs2.png)
+![](/images/legacy/cloudlinux_os_components/cpanel-enable-disable-cagefs2.webp)
 
 To update CageFS skeleton, go to <span class="notranslate"> Cloudlinux Manager > Options > CageFS </span> and click on the Update button next to <span class="notranslate"> CageFS </span> Skeleton:
 
-![](./images/cpanel-cagefs-options.png)
+![](/images/legacy/cloudlinux_os_components/cpanel-cagefs-options.webp)
 
 #### Plesk
 
@@ -3160,20 +3160,20 @@ CageFS is an option inbuilt in Cloudlinux Manager that allows initializing and u
 
 To enable or disable CageFS for a proper user (users), in <span class="notranslate"> Cloudlinux Manager </span>, go to the Users tab and use the Toggle next to the chosen user(s) from the list under the <span class="notranslate"> CageFS </span> column. 
 
-![](./images/enable-disable-cagefs-for-user.png)
+![](/images/legacy/cloudlinux_os_components/enable-disable-cagefs-for-user.webp)
 
 To update CageFS skeleton, go to <span class="notranslate"> Cloudlinux Manager > Options > CageFS </span> and click on the Update button next to <span class="notranslate"> CageFS </span> Skeleton:
 
-![](./images/plesk-update-cagefs-skeleton.png)
+![](/images/legacy/cloudlinux_os_components/plesk-update-cagefs-skeleton.webp)
 
 #### ISPManager
 
 CageFS comes with plugin for <span class="notranslate"> ISP Manager </span> to enable/disable CageFS on per user base. In edit user section chose <span class="notranslate"> Permission </span> tab. Mark <span class="notranslate"> CageFS User Mode </span> checkbox and click <span class="notranslate"> OK </span> to apply.
 
-![](./images/ispmanager_cagefs_user_zoom98.png)
+![](/images/legacy/cloudlinux_os_components/ispmanager_cagefs_user_zoom98.webp)
 
 Or you can manage global CageFS settings via CageFS menu
-![](./images/img3.jpg)
+![](/images/legacy/cloudlinux_os_components/img3.webp)
 
 
 See also [CageFS CLI tools](/legacy/command-line_tools/#cagefs).
@@ -3220,7 +3220,7 @@ This is how common server resources can be managed.
 
 SQL requests are not limited inside LVE, so there are not any calculations for IO usage there. It can be clearly viewed via the lve-stats charts:
 
-![](./images/Chart1.png)
+![](/images/legacy/cloudlinux_os_components/Chart1.webp)
 
 **Blue chart (database)**:
 
@@ -3234,7 +3234,7 @@ Also for different types of database load (for example in case, there is a huge 
 
 Take a look on this chart:
 
-![](./images/Chart2.png)
+![](/images/legacy/cloudlinux_os_components/Chart2.webp)
 
 **Blue (database) CPU usage**:
 
@@ -3254,7 +3254,7 @@ There is no direct IO limitation for database treads. But in case of exceeding g
 
 Take a look at the next chart. The I/O load is synchronous with the CPU load.
 
-![](./images/Chart3.png)
+![](/images/legacy/cloudlinux_os_components/Chart3.webp)
 
 ### Installation and update
 
@@ -3894,13 +3894,13 @@ Let’s check the CPU usage charts from CloudLinux statistics (lve-stats).
 
 In this case, CPU usage by database could be less than LVE average CPU usage (blue chart is lower than green chart):
 
-![](./images/NewTurnedOff.png)
+![](/images/legacy/cloudlinux_os_components/NewTurnedOff.webp)
 
 **The new type of  CPU usage calculation is turned on**.
 
 In this case, CPU usage by database become more similar to LVE average CPU usage (blue chart and green chart on the sceen):
 
-![](./images/NewTurnedOn.png)
+![](/images/legacy/cloudlinux_os_components/NewTurnedOn.webp)
 
 ### FAQ
 
@@ -3916,7 +3916,7 @@ This is how common server resources can be managed.
 
 SQL requests are not limited inside LVE, so there are not any calculations for IO usage there. It can be clearly viewed via the lve-stats charts:
 
-![](./images/Chart1.png)
+![](/images/legacy/cloudlinux_os_components/Chart1.webp)
 
 **Blue chart (database)**:
 
@@ -3930,7 +3930,7 @@ Also for different types of database load (for example in case, there is a huge 
 
 Take a look on this chart:
 
-![](./images/Chart2.png)
+![](/images/legacy/cloudlinux_os_components/Chart2.webp)
 
 **Blue (database) CPU usage**:
 
@@ -3950,7 +3950,7 @@ There is no direct IO limitation for database treads. But in case of exceeding g
 
 Take a look at the next chart. The I/O load is synchronous with the CPU load.
 
-![](./images/Chart3.png)
+![](/images/legacy/cloudlinux_os_components/Chart3.webp)
 
 
 
@@ -4227,11 +4227,11 @@ yum groupinstall alt-php
   
   Go to <span class="notranslate">cPanel → Admin interface → LVE Manager → Dashboard</span> → click <span class="notranslate">_Refresh_</span>
 
-  ![](./images/cageFS-verify.png)
+  ![](/images/legacy/cloudlinux_os_components/cageFS-verify.webp)
 
   If there is a problem you can see _Not initialized_
 
-  ![](./images/not-initialized.png)
+  ![](/images/legacy/cloudlinux_os_components/not-initialized.webp)
 
 5. Initilize CageF (if it is not initialized)
 
@@ -4248,17 +4248,17 @@ yum groupinstall alt-php
 
     Go to cPanel → <span class="notranslate">Admin interface → LVE manager → Options → CageFS INIT</span>
 
-    ![](./images/CageFS-init.png)
+    ![](/images/legacy/cloudlinux_os_components/CageFS-init.webp)
 
   If CageFS was initialized after refreshing Dashboard you will see that CageFS is enabled:
 
-  ![](./images/CageFS-enabled.png)
+  ![](/images/legacy/cloudlinux_os_components/CageFS-enabled.webp)
 
 6. Enable CageFS to a user
 
   Go to <span class="notranslate">cPanel → Admin interface → LVE manager → Users</span>
 
-  ![](./images/enable-CageFS-to-user.png)
+  ![](/images/legacy/cloudlinux_os_components/enable-CageFS-to-user.webp)
 
   * For one user by individual slider (for LVE 1001 in the picture above)
   * For a group of user by the _CageFS_ button (for LVE 1002 and 1003 in the picture above)
@@ -4267,13 +4267,13 @@ yum groupinstall alt-php
 
   Go to <span class="notranslate">cPanel → Admin interface → MultiPHP Manager → PHP versions</span>
 
-  ![](./images/check-ea-php.png)
+  ![](/images/legacy/cloudlinux_os_components/check-ea-php.webp)
 
 8. Check that an appropriate PHP handler is selected for PHP version which is system version
 
   Go to <span class="notranslate">cPanel Admin interface → MultiPHP Manager → PHP Handlers</span>
 
-  ![](./images/php-handlers.png)
+  ![](/images/legacy/cloudlinux_os_components/php-handlers.webp)
 
 9. Check version for domain in MultiPHP Selector. It should be equal to the system default version
 
@@ -4303,11 +4303,11 @@ If the settings were not applied, you can use the following steps to set up Lite
 
 **For Plesk**
 
-![](./images/LiteSpeedForPlesk.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedForPlesk.webp)
 
 **For other control panels**
 
-![](./images/LiteSpeedForOtherCP.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedForOtherCP.webp)
 
 Additionally, we recommend setting up the following parameters:
 
@@ -4316,13 +4316,13 @@ Additionally, we recommend setting up the following parameters:
 * Set _Yes_ in the _Run On Startup_
 * Make sure to set _Max Idle Time_ (for example to 140)
 
-![](./images/LiteSpeedAdditionSettings.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedAdditionSettings.webp)
 
 **How to set up LiteSpeed version lower than 5.3 to use PHP Selector**
 
 Go to the _External App_ tab, _External Application_ ➞ Add.
 
-![](./images/LiteSpeedExternalAppTab.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedExternalAppTab.webp)
 
 * The _Command line_ should be `/var/www/cgi-bin/cgi_wrapper/cloudlinux_wrapper` on Plesk. 
 * For other control panels, the _Command line_ should be `/usr/local/bin/lsphp`.
@@ -4330,11 +4330,11 @@ Go to the _External App_ tab, _External Application_ ➞ Add.
 
 **For Plesk**
 
-![](./images/LiteSpeedPlesk.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedPlesk.webp)
 
 **For other control panels**
 
-![](./images/LiteSpeedOtherCP.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedOtherCP.webp)
 
 
 Settings in text format:
@@ -4368,10 +4368,10 @@ Settings in text format:
 
 Go to the _Script Handler_ tab. For required suffixes, change the _Handler Name_ to `lsphp_selector`.
 
-![](./images/LiteSpeedHandlerName.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedHandlerName.webp)
 
 
-![](./images/LiteSpeedScriptHandler.png)
+![](/images/legacy/cloudlinux_os_components/LiteSpeedScriptHandler.webp)
 
 :::tip Note
 In order to use PHP Selector and custom php.ini, lsphp5 needs to be in SuEXEC non-daemon mode.
@@ -4691,9 +4691,9 @@ It is enough to put `php.ini` in the directory where PHP script is located in or
 1. You should restart Apache web server after modifying virtual host configuration for the domains.
 2. Custom `php.ini` may break switching PHP version via <span class="notranslate">CloudLinux OS PHP Selector</span> or <span class="notranslate">cPanel MultiPHP Manager</span> for the appropriate users or domains.
 3. When using cPanel ea-php for the domains, additional `php.ini` files may not be loaded, so you should load all needed PHP extensions in custom `/etc/php.ini` file:
-![](./images/custom_file_cPanel1.png)
+![](/images/legacy/cloudlinux_os_components/custom_file_cPanel1.webp)
 4. When using CloudLinux OS alt-php, additional `php.ini` files will be loaded:
-![](./images/custom_file_cPanel2.png)
+![](/images/legacy/cloudlinux_os_components/custom_file_cPanel2.webp)
 5. If you have modified anything in `/etc/cagefs/custom.etc` directory, you should execute one of the following:
 
     * to apply changes to CageFS for all users, run:
@@ -4740,7 +4740,7 @@ You can find more info on ' <span class="notranslate"> Feature Manager </span> '
 
 Once <span class="notranslate"> PHP Selector </span> is enabled, you can find it in the <span class="notranslate"> Feature Manager </span> . Disabling it in <span class="notranslate"> Feature Manager </span> , will remove the icon for users that are using that particular <span class="notranslate"> 'Feature List' </span>
 
-<img src="./images/screen1-phpselector-featuremanager.png" width="478" height="575" />
+<img src="/images/legacy/cloudlinux_os_components/screen1-phpselector-featuremanager.webp" width="478" height="575" />
 
 
 #### PHP extensions
@@ -4999,7 +4999,7 @@ Admin can modify the settings using <span class="notranslate"> [selectorctl](/le
 
 Users can use web interface to modify php.ini settings:
 
-![](./images/php_selector_options.png)
+![](/images/legacy/cloudlinux_os_components/php_selector_options.webp)
 
 
 #### End user files and directories
@@ -5600,7 +5600,7 @@ OpenLiteSpeed is not compatible with Python Selector due to lack of `.htaccess` 
 
 ### Supported versions
 
-![](./images/Python_supported_versions.png)
+![](/images/legacy/cloudlinux_os_components/Python_supported_versions.webp)
   
 ### Installation
 
@@ -5689,7 +5689,7 @@ Ruby Selector works only on cPanel/WHM servers.
 
 ### Supported versions
 
-![](./images/Ruby_supported_versions.png)
+![](/images/legacy/cloudlinux_os_components/Ruby_supported_versions.webp)
 
 
 ### Installation and update
@@ -5734,7 +5734,7 @@ See also Ruby Selector [CLI](/legacy/command-line_tools/#ruby-selector) section.
 
 It is possible to hide or show <span class="notranslate">Ruby Selector</span> icon by marking or unmarking proper checkboxes in <span class="notranslate"> LVE Manager Options</span> tab.
 
-![](./images/CL-hide-ruby.png)
+![](/images/legacy/cloudlinux_os_components/CL-hide-ruby.webp)
 
 The same result can be accomplished in CLI by running:
 
@@ -5806,7 +5806,7 @@ See also [Ruby Selector CLI tools](/legacy/command-line_tools/#ruby-selector).
 
 ### Supported versions
 
-![](./images/Nodejs_supported_versions.png)
+![](/images/legacy/cloudlinux_os_components/Nodejs_supported_versions.webp)
 
 #### **Requirements**
 
@@ -5953,12 +5953,12 @@ cloudlinux-selector create --interprete=nodejs --json --app-root=<USER_NAME> --a
 In the <span class="notranslate"> IntelliJ IDEA </span> you can create and run any remote script <span class="notranslate"> (Preferences — Remote SSH External Tools — Add).</span>
 :::
 
-![](./images/createapp_zoom70.png)
+![](/images/legacy/cloudlinux_os_components/createapp_zoom70.webp)
 
   * Choose a location of the application on the server and synchronize the files with the <span class="notranslate"> IntelliJ IDEA </span> project.
 4. Set up <span class="notranslate"> Run/Debug Configurations </span> in the project created.
 
-![](./images/setconfiguration_zoom70.png)
+![](/images/legacy/cloudlinux_os_components/setconfiguration_zoom70.webp)
 
   * Specify a path to the remote Node.js interpreter. To be able to specify the remote interpreter, you should install the <span class="notranslate"> _Node.js Remote Interpreter_ </span> plugin first. Please find more information [here](https://www.jetbrains.com/help/idea/configure-node-js-remote-interpreter.html) , using server access credentials for a user <span class="notranslate"> _(Main menu → Run → Edit configurations...)_ </span> .
   * Specify initial _JavaScript file_ that will be run with the <span class="notranslate"> _node_ </span> command (it is the _app.js_ file from the archive).
@@ -5975,7 +5975,7 @@ In the <span class="notranslate"> IntelliJ IDEA </span> you can create and run a
 6. Deploy the modules on the remote and the local machine with the <span class="notranslate"> **_npm install_** </span> command (if there are dependent modules). In the UI you can click the <span class="notranslate"> _Run NPM Install_ </span> button.
 7. Run Node.js application with the configuration set at the 4th step <span class="notranslate"> _(Main menu → Run → Run… → Select configuration)_ </span> .
 
-![](./images/runapp_zoom60.png)
+![](/images/legacy/cloudlinux_os_components/runapp_zoom60.webp)
 
 8. If you are using the application from the archive attached, you can see the running application on port 3003 — <span class="notranslate"> _http://DOMAIN:3003_ . </span>
 
@@ -5983,7 +5983,7 @@ In the <span class="notranslate"> IntelliJ IDEA </span> you can create and run a
 The port should be available to a server user.
 :::
 
-![](./images/runningappdomain_zoom70.png)
+![](/images/legacy/cloudlinux_os_components/runningappdomain_zoom70.webp)
 
 The following information should be displayed on this page:
 * A version of the running Node.js interpreter;
@@ -6043,11 +6043,11 @@ PassengerFriendlyErrorPages on
 ```
 </div>
 
-![](./images/errorapplog.png)
+![](/images/legacy/cloudlinux_os_components/errorapplog.webp)
 
 This is a much more convenient approach to developing an application and debugging errors. On the other hand, if these directives are turned off you will see:
 
-![](./images/errorapplogsorry.png)
+![](/images/legacy/cloudlinux_os_components/errorapplogsorry.webp)
 
 In this case, there is no useful information for debugging errors and this is suitable for production mode. More information about [PassengerFriendlyErrorPages](https://www.phusionpassenger.com/library/config/apache/reference/#passengerfriendlyerrorpages) and [PassengerAppEnv](https://www.phusionpassenger.com/library/config/apache/reference/#passengerappenv).
 
@@ -6087,7 +6087,7 @@ mod_lsapi PRO is an [Apache HTTP Server](https://httpd.apache.org/) module based
 1. Apache passes handling for PHP request to mod_lsapi PRO;
 2. mod_lsapi PRO use liblsapi to transfer request to lsphp parent process;
 3. lsphp is forking child process which executes the request and returns data to mod_lsapi PRO;
-![](./images/mod_lsapidiagrammnew.jpg)  
+![](/images/legacy/cloudlinux_os_components/mod_lsapidiagrammnew.webp)  
 _mod_lsapi PRO integrates with Apache, allows to handle concurrent requests and manages the lsphp processes_
 
 * If there are no requests for lsapi_backend_pgrp_max_idle seconds, lsphp parent process will be  terminated;
@@ -6190,7 +6190,7 @@ service httpd restart
 
 Now LSPHPXY alt-php PHP handlers are available for managing through Plesk PHP Settings.
 
-![](./images/plesk-php-settings.png)
+![](/images/legacy/cloudlinux_os_components/plesk-php-settings.webp)
 
 For more details about switch_mod_lsapi, please visit [switch_mod_lsapi tool](/legacy/command-line_tools/#apache-mod-lsapi-pro).
 
@@ -10208,15 +10208,15 @@ The <span class="notranslate">`mod_suexec`</span> installation process varies de
 1. Open EasyApache4 page.
 2. Click <span class="notranslate">_Customize_</span> for <span class="notranslate">_Currently installed Packages_</span>.
 
-  ![](./images/mod_suexec_admin_ui_1.png)
+  ![](/images/legacy/cloudlinux_os_components/mod_suexec_admin_ui_1.webp)
 
 3. Click <span class="notranslate">_Apache Modules_</span>. Find <span class="notranslate">`mod_suexec`</span> and click <span class="notranslate">_Yes_</span> to install it.
 
-  ![](./images/mod_suexec_admin_ui_2.png)
+  ![](/images/legacy/cloudlinux_os_components/mod_suexec_admin_ui_2.webp)
 
 4. Select <span class="notranslate">_Review_</span> and <span class="notranslate">_Provision_</span>.
 
-  ![](./images/mod_suexec_admin_ui_3.png)
+  ![](/images/legacy/cloudlinux_os_components/mod_suexec_admin_ui_3.webp)
 
 5. Wait while <span class="notranslate">_Provision_</span> will be finished.
    
