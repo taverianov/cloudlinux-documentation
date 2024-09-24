@@ -6,7 +6,7 @@
 
 CloudLinux Manager (previously LVE Manager) is accessible via the *Server Configuration* tab:
 
-![](./images/howtofindlvemanagerinpanel.png)
+![](/images/solo/manager/howtofindlvemanagerinpanel.webp)
 
 
 :::warning Warning
@@ -14,7 +14,7 @@ LVE Manager is renamed to CloudLinux Manager since cPanel v 96.0.9
 :::
 
 
-![](./images/solo_lvemanagermainmenu.png)
+![](/images/solo/manager/solo_lvemanagermainmenu.webp)
 
 Log in as administrator to get access to the following functionality:
 
@@ -35,7 +35,7 @@ To start using CloudLinux Manager, it must be activated with your CloudLinux OS 
 In order to activate CloudLinux Manager features, follow the next steps: 
 
 * Enter your CLN activation key if you already have it 
-    ![](./images/cloudlinuxmanageractivation.png)
+    ![](/images/solo/manager/cloudlinuxmanageractivation.webp)
   
     If you have IP-based license, please leave the _Enter Activation Key_ field empty and just click _Activate_.
     
@@ -58,7 +58,7 @@ You can turn off the _Website monitoring_, _PHP Sites Analyzer_ in the _[Setting
 
 This subtab views the latest report (for the last 24 hours) of the Website monitoring tool.
 
-![](./images/WebsiteMonitoringMain.png)
+![](/images/solo/manager/WebsiteMonitoringMain.webp)
 
 Report is regenerated each time the page is loaded, so all changes in configuration (the [_Settings_](/solo/manager/#wmt-settings) tab) or in the list of domains will be applied immediately.
 
@@ -72,7 +72,7 @@ Report is regenerated each time the page is loaded, so all changes in configurat
 
 To enable or disable **Website Monitoring**, use the following slider.
 
-![](./images/WebsiteMonitoringSlider.png)
+![](/images/solo/manager/WebsiteMonitoringSlider.webp)
 
 
 * **Email to send report** - all email notifications will be sent to this email address
@@ -81,7 +81,7 @@ To enable or disable **Website Monitoring**, use the following slider.
 If email is not specified, all [notifications](/solo/manager/#wmt-email-notifications) will be sent to control panel administrator's email.
 :::
 
-![](./images/Webmonitoringtoolsettings.png)
+![](/images/solo/manager/Webmonitoringtoolsettings.webp)
 
 * **Enable summary notifications** - turn on/off summary daily email report notifications
 * **Enable alert notifications** - turn on/off immediate alert email notifications
@@ -138,7 +138,7 @@ The summary report with all data for the previous day. It is created and sent ev
 
 **Example of the Web Monitoring tools daily report**.
 
-![](./images/Webmonitoringtoolemail.png)
+![](/images/solo/manager/Webmonitoringtoolemail.webp)
 
 #### Alert
 
@@ -148,7 +148,7 @@ If domains are still responding with non-200 status code - Web Monitoring tool w
 
 **Example of the Web monitoring tools immediate alert**.
 
-![](./images/Webmonitoringtoolalert.png)
+![](/images/solo/manager/Webmonitoringtoolalert.webp)
 
 :::tip Note
 The next alert with domains will not be sent in less than 6 hours. Also, if the alerted domain is still responding with non-200 status code even after 6 hours - it will not be re-alerted until it responds with 200 status code at least once and becomes unavailable again.
@@ -158,7 +158,7 @@ The next alert with domains will not be sent in less than 6 hours. Also, if the 
 
 **PHP Slow Site analyzer** (**SSA**) is a tool that generates daily reports for the server administrator with information about the top N slow PHP-based URLs for all domains. The Slow Site analyzer tracks all PHP-based requests and selects slow ones by specific rules.
 
-![](./images/solo_SlowSiteAnalyzerReport.png)
+![](/images/solo/manager/solo_SlowSiteAnalyzerReport.webp)
 
 This is an example of a report from the Slow Site analyzer. The report shows the number of slow requests per domain and its URLs and the average duration of each slow URL.
 
@@ -167,11 +167,11 @@ This is an example of a report from the Slow Site analyzer. The report shows the
 
 To enable or disable the **Slow Site analyzer**, use the following slider:
 
-![](./images/WebsiteMonitoringSlider1.png)
+![](/images/solo/manager/WebsiteMonitoringSlider1.webp)
 
 The following settings can be changed through the UI:
 
-![](./images/solo_SlowSiteAnalyzerSettings.png)
+![](/images/solo/manager/solo_SlowSiteAnalyzerSettings.webp)
 
 * **Enable Autotracing** - turn on/off Autotracing;
 * **Enable summary notifications** - turn on/off summary daily email report notifications;
@@ -274,7 +274,7 @@ SSA sends email reports daily if the "**Enable summary notifications**" setting 
 
 **Example of the PHP Slow Site analyzer report**:
 
-![](./images/solo_SlowSiteAnalyzerEmailNotifications.png)
+![](/images/solo/manager/solo_SlowSiteAnalyzerEmailNotifications.webp)
 
 
 ## X-Ray
@@ -348,7 +348,7 @@ rm -f /opt/cloudlinux/flags/enabled-flags.d/xray-per-domain-php-version-mode.fla
 
 The *Tracing tasks* tab contains a list of all tracing tasks created both manually and automatically via continuous tasks.
 
-![](./images/XRayTracingTaskCreated.png)
+![](/images/solo/manager/XRayTracingTaskCreated.webp)
 
 The *Created* column shows how a task was created – automatically (by continuous task) or manually.
 
@@ -356,7 +356,7 @@ The *Created* column shows how a task was created – automatically (by continuo
   
 The *Continuous tracing* tab contains a list of continuous tasks for which tracing tasks will be created automatically for a new day for a specific domain.
 
-![](./images/XRayContinuousTasksList.png)
+![](/images/solo/manager/XRayContinuousTasksList.webp)
 
 ### Managing tracing task
 
@@ -368,12 +368,12 @@ The *Continuous tracing* tab contains a list of continuous tasks for which traci
 4. Click the <span class="notranslate">_Run_</span> button
 5. Tracing will run in the default mode. In the default mode <span class="notranslate">X-Ray</span> traces the first 20 requests for a specified URL
 
-![](./images/XRayTracingTask.png)
+![](/images/solo/manager/XRayTracingTask.webp)
 
 * <span class="notranslate">**URL**</span> should be a valid URL of the domain which exists on the current hosting server. The URL field supports wildcard matching. To learn more about wildcard matching, click _How to use special characters_.
 * <span class="notranslate">**Advanced settings**</span> allow you to set an IP address and tracing options: by time or by number of queries.
 
-    ![](./images/XRayAdvanced.png)
+    ![](/images/solo/manager/XRayAdvanced.webp)
 
 **Advanced settings**
 
@@ -384,11 +384,11 @@ Record for
 
 After creating, the task appears in the list of tracing tasks.
 
-![](./images/XRayTrcingTaskList.png)
+![](/images/solo/manager/XRayTrcingTaskList.webp)
 
 #### Viewing tracing tasks list
 
-![](./images/XRayTrcingTaskList1.png)
+![](/images/solo/manager/XRayTrcingTaskList1.webp)
 
 Tasks created *Manually* are simply tracing tasks.
 
@@ -407,15 +407,15 @@ A tracing task can have the following statuses:
 Collected requests are available in the UI for two weeks.
 :::
 
-Click ![](./images/XRayView.png) to open a list of collected requests.
+Click ![](/images/solo/manager/XRayView.webp) to open a list of collected requests.
 
 #### Tracing tasks
 
-![](./images/solo_XRayCollectedRequests.png)
+![](/images/solo/manager/solo_XRayCollectedRequests.webp)
 
 The slowest request is highlighted.
 
-![](./images/XRaySlowestRequest.png)
+![](/images/solo/manager/XRaySlowestRequest.webp)
 
 * <span class="notranslate">**Total**</span> displays how many requests were collected according to tasks requirements.
 * <span class="notranslate">**Pending**</span> displays how many of collected requests are not visible in the table yet.
@@ -423,11 +423,11 @@ The slowest request is highlighted.
 
 There are filters for the request types and the indicator of a filter used now.
 
-![](./images/FilterIndicator.png)
+![](/images/solo/manager/FilterIndicator.webp)
 
 If slow requests were not detected during the tracing task, the following is displayed. Here, you can also view all requests.
 
-![](./images/solo_RecordedSession.png)
+![](/images/solo/manager/solo_RecordedSession.webp)
 
 
 <span class="notranslate">X-Ray</span> collects the following data for each request:
@@ -440,7 +440,7 @@ If slow requests were not detected during the tracing task, the following is dis
 
 #### Software modules/plugins
 
-![](./images/XRaySoftwareModulesPlugins.png)
+![](/images/solo/manager/XRaySoftwareModulesPlugins.webp)
 
 The <span class="notranslate">_Software modules/plugins_</span> section displays the following data:
 
@@ -451,7 +451,7 @@ The <span class="notranslate">_Software modules/plugins_</span> section displays
 
 #### Database queries
 
-![](./images/XRayDatabaseQueries.png)
+![](/images/solo/manager/XRayDatabaseQueries.webp)
 
 The <span class="notranslate">_Database queries_</span> section displays the following data:
 
@@ -463,7 +463,7 @@ The <span class="notranslate">_Database queries_</span> section displays the fol
  
 #### External requests
 
-![](./images/XRayExternalRequests.png)
+![](/images/solo/manager/XRayExternalRequests.webp)
 
 The <span class="notranslate">_External requests_</span> section displays the following data:
 
@@ -473,7 +473,7 @@ The <span class="notranslate">_External requests_</span> section displays the fo
  
 #### System functions
 
-![](./images/XRaySystemFunctions.png)
+![](/images/solo/manager/XRaySystemFunctions.webp)
 
 The <span class="notranslate">_System functions_</span> section displays the following data:
 
@@ -483,15 +483,15 @@ The <span class="notranslate">_System functions_</span> section displays the fol
 
 #### Stopping tracing task
 
-Click ![](./images/XRayStop.png) to stop the tracing task.
+Click ![](/images/solo/manager/XRayStop.webp) to stop the tracing task.
 
-![](./images/XRayStopped.png)
+![](/images/solo/manager/XRayStopped.webp)
 
-The tracing task status will be changed to <span class="notranslate">**Stopped**</span>. Data will not be collected anymore but you can see already collected information or continue tracing later by clicking ![](./images/XRayStart.png).
+The tracing task status will be changed to <span class="notranslate">**Stopped**</span>. Data will not be collected anymore but you can see already collected information or continue tracing later by clicking ![](/images/solo/manager/XRayStart.webp).
 
 #### Deleting tracing task 
 
-Click ![](./images/XRayDelete.png) to delete the tracing task.
+Click ![](/images/solo/manager/XRayDelete.webp) to delete the tracing task.
 
 :::warning Warning!
 When you have deleted a tracing task, all collected data will be unavailable.
@@ -503,15 +503,15 @@ When you have deleted a tracing task, all collected data will be unavailable.
 
 1. Click the *Create continuous tracing*  button 
 
-![](./images/XRayCreateContinuousTaskBtn.png)
+![](/images/solo/manager/XRayCreateContinuousTaskBtn.webp)
 
 2. Specify URL in the *Domain* field and email in the *Email for reports* field and click the *Create* button.
 
-![](./images/XRayCreateContinuousTaskForm.png)
+![](/images/solo/manager/XRayCreateContinuousTaskForm.webp)
 
 3. You can see a new task in the *Continuous tracing* tab in the X-Ray UI.
 
-![](./images/XRayContinuousTracingTab.png)
+![](/images/solo/manager/XRayContinuousTracingTab.webp)
 
 4. If you stop a continuous tracing task, a new task for the next 24 hours will not be created. The task for the current day will be finished at midnight and the report will be emailed.
 
@@ -521,21 +521,21 @@ When you have deleted a tracing task, all collected data will be unavailable.
 
 You can find a list of continuous tracing tasks in the _Continuous tracing_ tab.
 
-![](./images/XRayContinuousTracingTasksList.png)
+![](/images/solo/manager/XRayContinuousTracingTasksList.webp)
 
 You can find automatically created tasks in the _Tracing tasks_ tab marked as _Automatically_ in the _Created_ column.
 
-![](./images/XRayContinuousTracingTasksListCreated.png)
+![](/images/solo/manager/XRayContinuousTracingTasksListCreated.webp)
 
 The [statuses for automatically created tasks](/solo/manager/#tracing-status) are the same as for tracing task.
 
-To view detailed info about an automatically created task, click ![](./images/XRayView1.png). You will get requests grouped by hour.
+To view detailed info about an automatically created task, click ![](/images/solo/manager/XRayView1.webp). You will get requests grouped by hour.
 
-![](./images/XRayContinuousTracingTasksListGrouped.png)
+![](/images/solo/manager/XRayContinuousTracingTasksListGrouped.webp)
 
 Click to a group to open a list of the requests.
 
-![](./images/XRayContinuousTracingTasksRequestsList.png)
+![](/images/solo/manager/XRayContinuousTracingTasksRequestsList.webp)
 
 The following data is collected for each request:
 
@@ -562,19 +562,19 @@ To delete the continuous tracing task completely, see [Creating a new continuous
 
 1. Users get daily reports on their emails. An example of a report is shown below:
 
-    ![](./images/XRayContinuousTaskDaylyReportExample.png)
+    ![](/images/solo/manager/XRayContinuousTaskDaylyReportExample.webp)
 
 2. Click the link in the email to show the detailed report:
 
-    ![](./images/XRayContinuousTaskDaylyReportCollectedRequests.png)
+    ![](/images/solo/manager/XRayContinuousTaskDaylyReportCollectedRequests.webp)
 
 3. You can view requests grouped by hour:
 
-    ![](./images/XRayContinuousTaskDaylyReportByHourRequests.png)
+    ![](/images/solo/manager/XRayContinuousTaskDaylyReportByHourRequests.webp)
 
 4. You can also view the detailed information about request:
 
-    ![](./images/XRayContinuousTaskDaylyReportRequestDetails.png)
+    ![](/images/solo/manager/XRayContinuousTaskDaylyReportRequestDetails.webp)
 
 
 ### X-Ray Autotracing
@@ -611,7 +611,7 @@ Check [CLI documentation](/solo/manager/#x-ray-autotracing-cli) for a descriptio
 A new tab for Autotracing tasks was added to the X-Ray UI:
 
 
-![](./images/XRayAutotracingtaskstab.png)
+![](/images/solo/manager/XRayAutotracingtaskstab.webp)
 
 
 #### Autotracing FAQ
@@ -1079,7 +1079,7 @@ Note that the URL field supports wildcard matching and you can have a case when 
 
 1. Check that <span class="notranslate">**xray**</span> extension is enabled for the domain. To do so, go to the <span class="notranslate">`phpinfo()`</span> page and make a request. In the phpinfo output try to find the following section:
    
-    ![](./images/XRayPHPInfo.png)
+    ![](/images/solo/manager/XRayPHPInfo.webp)
 
 If you cannot see that section, try to restart PHP processes for that user (the simplest way is to restart Apache) and check that you can see the <span class="notranslate">**xray**</span> extension.
 
@@ -1088,7 +1088,7 @@ If you cannot see that section, try to restart PHP processes for that user (the 
 3. <span class="notranslate">X-Ray</span> may not send data if a site uses a caching plugin, as the caching plugin is outputting HTML, thus there are no PHP scripts to examine. We encountered such issues with sites that use <span class="notranslate">LSCache</span> and <span class="notranslate">WP Super Cache</span> plugins. Check that your site does not use caching plugins. If so, disable it while tracing a site to get information from <span class="notranslate">X-Ray</span>.
 4. If you set a client’s IP when creating the tracing task, check that your requests come to the server with this IP via phpinfo (since there may be NAT between your local machine and the server).
    
-    ![](./images/XRayPHPInfoRemoteAddr.png)
+    ![](/images/solo/manager/XRayPHPInfoRemoteAddr.webp)
 
 5. If, after checking the previous items, the issue persists, [contact our support team](https://cloudlinux.zendesk.com/hc/en-us/requests/new).
 
@@ -1099,7 +1099,7 @@ If you managed to create a tracing task, this means that the <span class="notran
 1. PHP process wasn't reloaded after adding the xray.ini. To solve this, you should restart the Apache or fpm service for the domain on which the tracing was started. At the moment, this is done automatically by the <span class="notranslate">X-Ray</span> manager after creating the task.
 2. Your domain uses a PHP version different from the one which was detected by the <span class="notranslate">X-Ray</span> manager. To solve this, check the scan dir for additional ini files for your domain.
 
-    ![](./images/XRayScanDir.png)
+    ![](/images/solo/manager/XRayScanDir.webp)
 
     Then check the <span class="notranslate">`ini_location`</span> that was passed to the <span class="notranslate">X-Ray</span> manager by running the following command:
 
@@ -1142,7 +1142,7 @@ There are AccelerateWP and AccelerateWP Premium feature suites.
 AccelerateWP suite is always enabled when AccelerateWP is turned on. Choose whether you want to offer AccelerateWP Premium 
 for your users and click "Turn on" to start exploring AccelerateWP. 
 
-![](./images/awp/AWPGettingStarted.png)
+![](/images/solo/manager/awp/AWPGettingStarted.webp)
 
 Once the AccelerateWP suite is enabled by administrator,
 end-users will see an AccelerateWP tab in their cPanel interface and be able to activate the optimization feature.
@@ -1211,7 +1211,7 @@ In the _CloudLinux Manager → AccelerateWP_ tab Administrator has the opportuni
 [activate free features for all WordPress sites](/solo/manager/#activate-free-acceleratewp-for-all-wordpress-sites-on-the-server).
 
 
-![](./images/AWPAdminSolo.png)
+![](/images/solo/manager/AWPAdminSolo.webp)
 
 
 By toggling the `Enable AccelerateWP for all users` an administrator provides end-users with AccelerateWP feature.
@@ -1220,7 +1220,7 @@ Once the feature suite is enabled by administrator, end-users will see an Accele
 #### Suites usage statistics
 When AccelerateWP is enabled, the AccelerateWP usage statistics is shown.
 
-![](./images/awp/AWPStats.png)
+![](/images/solo/manager/awp/AWPStats.webp)
 
 It includes:
 * `Active Users` block with total number of users and number of users who has activated the optimization feature/total users
@@ -1236,7 +1236,7 @@ The second column `AccelerateWP` shows number of user's WordPress sites, optimiz
 In case if both AccelerateWP and AccelerateWP Premium feature suites are enabled, 
 the statistics is extended with AccelerateWP Premium metrics.
 
-![](./images/awp/AWPStatsPremium.png)
+![](/images/solo/manager/awp/AWPStatsPremium.webp)
 
 Please notice the `AccelerateWP Premium` rows in the `Active Users` and the `Wordpress sites on server` 
 blocks, and also the `AccelerateWP Premium` column in statistics table.
@@ -1249,7 +1249,7 @@ If you want to get updated statistics immediately, use the "Rescan users website
 #### Filters
 You may use the following filters to browse AccelerateWP statistics slices.
 
-![](./images/awp/AWPFilters.png)
+![](/images/solo/manager/awp/AWPFilters.webp)
 
 * `Users with WordPress sites only` filter will show statistics for users which already have WordPress sites; users without WordPress installations will be hidden
 * `Users with AccelerateWP only` filter will show statistics for users who utilizes the AccelerateWP optimization feature; users who did not activated AccelerateWP feature will be hidden
@@ -1538,7 +1538,7 @@ feature for their users.
 
 When AccelerateWP Premium is enabled in admin interface, users get proposal to upgrade their subscription.
 
-![](./images/awp/AWPUpgradeNoLink.png)
+![](/images/solo/manager/awp/AWPUpgradeNoLink.webp)
 
 When user upgrades the subscription to the plan with AccelerateWP support, 
 billing must execute the following command on the server:
@@ -1564,7 +1564,7 @@ The upgrade window can be customized with link to the plan upgrade page, which c
 cloudlinux-awp-admin set-options --upgrade-url https://plan.upgrade/splash
 ```
 
-![](./images/awp/AWPUpgradeLink.png)
+![](/images/solo/manager/awp/AWPUpgradeLink.webp)
 
 AccelerateWP automatically appends GET parameters when the link is displayed.
 
@@ -1613,14 +1613,14 @@ If you would like to stop using AccelerateWP Premium,
 click on the `manage` link and remove `Premium Features` checkbox.
 AccelerateWP will be still available for your users.
 
-![](./images/awp/AWPDisablePremiumOnly.png)
+![](/images/solo/manager/awp/AWPDisablePremiumOnly.webp)
 
 ### Disable AccelerateWP
 
 If you would like to stop using AccelerateWP completely, toggle the `AccelerateWP` back.
 Both AccelerateWP and AccelerateWP Premium will be turned off.
 
-![](./images/awp/AWPDisable.png)
+![](/images/solo/manager/awp/AWPDisable.webp)
 
 This operation will:
 * disable AccelerateWP tab in users' control panel interface
@@ -1702,7 +1702,7 @@ End-users will not be able to activate the Object Caching feature until Redis ex
 
 Corresponding incompatibility warning will be displayed in control panel's User interface:
 
-![](./images/awp/AWPNoRedis.png)
+![](/images/solo/manager/awp/AWPNoRedis.webp)
 
 The Redis extensions are configured for all installed and supported PHP versions automatically:
 * right after the AccelerateWP Premium suite is enabled
@@ -1783,7 +1783,7 @@ All errors will be displayed in standard output and logged into `/var/log/clwpos
 #### End-users of AccelerateWP encounter PHP-related issues during feature activation
 End-users may encounter PHP-related errors while activating the AccelerateWP features.
 
-![](./images/awp/AWPBrokenPHP.png)
+![](/images/solo/manager/awp/AWPBrokenPHP.webp)
 
 The general examples of possible reasons are:
 * broken PHP binaries
@@ -1856,7 +1856,7 @@ yum update lvemanager lve-utils alt-python27-cllib
 
 2. Open CloudLinux manager -> Selector tab -> Select PHP versions to install.
 
-![](./images/solo_php_selector_1.png)
+![](/images/solo/manager/solo_php_selector_1.webp)
 
 ### PHP Handlers
 
@@ -1873,16 +1873,16 @@ yum update lvemanager lve-utils alt-python27-cllib
 
 You can use cPanel interface:
 
-![](./images/solo_php_selector_2.png)
+![](/images/solo/manager/solo_php_selector_2.webp)
 
 ### Administrator interface
 
 In the Selector tab the diagnostic bar help to monitor configuration of PHP Selector
 
-![](./images/solo_php_selector_3.png)
+![](/images/solo/manager/solo_php_selector_3.webp)
 
 The Main Settings helps to monitor next settings
 
-![](./images/solo_php_selector_4.png)
+![](/images/solo/manager/solo_php_selector_4.webp)
 
-![](./images/solo_php_selector_5.png)
+![](/images/solo/manager/solo_php_selector_5.webp)

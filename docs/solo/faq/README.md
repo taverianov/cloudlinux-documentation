@@ -105,10 +105,10 @@ These are configuration steps:
 
     * **Via MultiPHP Manager**
 
-    ![](./images/InstallationViaMultiPHPManager.png)
+    ![](/images/solo/faq/InstallationViaMultiPHPManager.webp)
 
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
-![](./images/EnablePHPFpm.png)
+![](/images/solo/faq/EnablePHPFpm.webp)
 
