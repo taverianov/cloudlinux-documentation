@@ -20,8 +20,7 @@ AccelerateWP Free suite is enabled by default on all new servers. Proceed to [su
 
 
 :::tip Note
-AccelerateWP Premium suite includes only Object Cache feature if CloudLinux license 
-does not provide access to billable optimization features
+By default, AccelerateWP Premium suite includes Object Cache (which is not billable per user). If the option to allow billable optimization features is selected in CLN, the additional premium features will be included in the suite.
 :::
 
 
