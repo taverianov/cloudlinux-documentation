@@ -7,12 +7,12 @@
 
 CloudLinux OS Solo is designed for installation on VPS or dedicated servers with a single hosting account for any number of websites.
 
-Unlike [CloudLinux OS Shared](/introduction/), this edition is not designed for Shared Hosting usage and it does not include any [LVE-related](/shared/lve_manager/) features.
+Unlike [CloudLinux OS Legacy (Shared)](/introduction/), this edition is not designed for Shared Hosting usage and it does not include any [LVE-related](/legacy/lve_manager/) features.
 
 We provide the CloudLinux OS Solo with pre-installed features, but for grafical interface, please install a control panel on your server.
 
 :::warning
-Currently supported OS version is CloudLinux OS Solo 8 only. Therefore, for now, there is no possibility to use CloudLinux OS Solo on servers with OS version 6 and 7.
+Currently supported OS version is CloudLinux OS Solo 8+ only. Therefore, for now, there is no possibility to use CloudLinux OS Solo on servers with OS version 6 and 7.
 Please refer to the [currently supported OS versions](/introduction/#cloudlinux-os-solo-lifecycle).
 :::
 
@@ -24,34 +24,37 @@ Please refer to the [currently supported OS versions](/introduction/#cloudlinux-
 |cPanel regular with one user|Yes|
 |Plesk|Yes|
 |DirectAdmin|Yes|
-|Other panels|No|
-|No control panel|No|
+|Other panels|Yes|
+|No control panel|Yes|
 
 #### CloudLinux OS editions comparison
 
 
-|**Features**|**<font color="#2c98f0">CloudLinux OS Solo</font>**|**CloudLinux OS Admin**|**CloudLinux OS Shared**|**CloudLinux OS Shared Pro**|
+|**Features**|**<font color="#2c98f0">CloudLinux OS Solo</font>**|**CloudLinux OS Admin**|**CloudLinux OS Legacy (Shared)**|**CloudLinux OS Shared Pro**|
 |:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|<font color="#2c98f0">1</font>|5|unlimited|unlimited|
-|Resource Limits (LVE)|<font color="#2c98f0">No</font>|**Yes***|**Yes**|**Yes**|
+|Resource Limits (LVE)|<font color="#2c98f0">No</font>*|**Yes****|**Yes**|**Yes**|
 |Cage FS|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |MySQL Governor|<font color="#2c98f0">No</font>|No|**Yes**|**Yes**|
 |PHP Selector|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Other Selectors (Python, Node.js, Ruby)|<font color="#2c98f0">No</font>|**Yes****|**Yes****|**Yes****|
+|Python/Node.js Selectors|**<font color="#2c98f0">Yes</font>*****|**Yes*****|**Yes*****|**Yes*****|
+|Ruby Selector|<font color="#2c98f0">No</font>|**Yes*****|**Yes*****|**Yes*****|
 |HardenedPHP|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |Apache mod_lsapi PRO|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |SecureLinks|<font color="#2c98f0">No</font>|**Yes**|**Yes**|**Yes**|
 |Website monitoring tool|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
-|Website monitoring alerts|**<font color="#2c98f0">Yes</font>**|No|No|No|
+|Website monitoring alerts|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |Slow Site analyzer|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 |PHP X-Ray|**<font color="#2c98f0">Yes</font>**|**Yes**|No|**Yes**|
 |Centralized Monitoring|<font color="#2c98f0">No</font>|No|No|**Yes**|
 |AccelerateWP|**<font color="#2c98f0">Yes</font>**|**Yes**|No|**Yes**|
 |Support 24/7|**<font color="#2c98f0">Yes</font>**|**Yes**|**Yes**|**Yes**|
 
-\* Limits are disabled by default.
+\* Only inodes limits are available.
 
-\** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
+\** Limits are disabled by default.
+
+\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
 
 
 ### Benefits
@@ -129,5 +132,5 @@ Currently, the following version are supported:
 
 ## What's next
 
-1. The [Installation](/shared/installation) section contains information about how to install this OS.
+1. The [Installation](/legacy/installation) section contains information about how to install this OS.
 2. The [landing page](https://lp.cloudlinux.com/cloudlinux-os-solo) contains the instructions about how to buy license or get trial.

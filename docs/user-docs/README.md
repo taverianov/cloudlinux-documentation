@@ -2,4 +2,4 @@
 
 [[toc]]
 
-Here you may find the documentation sections for end-users on Cloudlinux OS Shared & Solo.
+Here you may find the documentation sections for end-users on Cloudlinux OS.

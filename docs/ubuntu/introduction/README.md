@@ -14,28 +14,31 @@ We support Ubuntu 20.04 LTS.
 ## CloudLinux OS editions comparison
 
 
-|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**|**CloudLinux OS Shared**|**CloudLinux OS Shared Pro**|**<font color="#2c98f0">CloudLinux Subsystem For Ubuntu</font>**|
+|**Features**|**CloudLinux OS Solo**|**CloudLinux OS Admin**|**CloudLinux OS Legacy (Shared)**|**CloudLinux OS Shared Pro**|**<font color="#2c98f0">CloudLinux Subsystem For Ubuntu</font>**|
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |Maximum amount of hosting accounts|1|5|unlimited|unlimited|**<font color="#2c98f0">unlimited</font>**|
-|Resource Limits (LVE)|No|**Yes***|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|Resource Limits (LVE)|No*|**Yes****|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Cage FS|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |MySQL Governor|No|No|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |PHP Selector|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|Other Selectors (Python, Node.js, Ruby)|No|**Yes****|**Yes****|**Yes****|**<font color="#2c98f0">No</font>**|
+|Python/Node.js Selectors|**Yes*****|**Yes*****|**Yes*****|**Yes*****|**<font color="#2c98f0">No</font>**|
+|Ruby Selector|No|**Yes*****|**Yes*****|**Yes*****|**<font color="#2c98f0">No</font>**|
 |HardenedPHP|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
+|Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |SecureLinks|No|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Website monitoring tool|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
-|Website monitoring alerts|**Yes**|No|No|No|**<font color="#2c98f0">No</font>**|
+|Website monitoring alerts|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
 |Slow Site analyzer|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
 |PHP X-Ray|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">No</font>**|
 |Centralized Monitoring|No|No|No|**Yes**|**<font color="#2c98f0">No</font>**|
 |AccelerateWP|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">No</font>**|
 |Support 24/7|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 
-\* Limits are disabled by default.
+\* Only inodes limits are available.
 
-\** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
+\** Limits are disabled by default.
+
+\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
 
 ## Supported control panels
 

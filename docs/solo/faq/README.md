@@ -3,27 +3,27 @@
 
 [[toc]]
 
-### What is the difference between CloudLinux Solo and CloudLinux OS Shared?
+### What is the difference between CloudLinux Solo and CloudLinux OS Legacy (Shared)?
 
-CloudLinux OS Solo is not designed for shared hosting usage and it does not include any [LVE-related](/shared/lve_manager/) features and CageFS. 
+CloudLinux OS Solo is not designed for shared hosting usage and it does not include any [LVE-related](/legacy/lve_manager/) features. 
 
 CloudLinux OS Solo provides a set of tools for website monitoring and performance tracking out-of-box. [Read more](/solo/manager/).
 
-### Can I convert CloudLinux Solo to CloudLinux Shared?
+### Can I convert CloudLinux Solo to CloudLinux Legacy?
 
-The conversion mechanism will be implemented in the next releases.
+Yes, you can follow the [instruction](/legacy/cloudlinux_installation/#switch-license).
 
 ### Is the CloudLinux OS Solo paid/unpaid?
 
-The final pricing will be available with the upcoming Beta release, but you already can [sign up](https://lp.cloudlinux.com/cloudlinux-os-solo) for free Beta testing and test it without any costs using the trial license which can be extended.
+You should purchase a license to use CloudLinux OS Solo.
 
 ### Where can I get the latest ISO of CloudLinux OS Solo?
 
-You can download the latest ISO and use it to install CloudLinux OS Solo on your server using [this link](https://repo.cloudlinux.com/cloudlinux/8.3_solo_beta-netinstall/iso/x86_64/).
+You can download the latest ISO and use it to install CloudLinux OS Solo on your server using [this link](https://repo.cloudlinux.com/cloudlinux/8/iso/x86_64/).
 
 ### How can I get the CloudLinux OS Solo trial license?
 
-Please refer to [this page](https://lp.cloudlinux.com/cloudlinux-os-solo) to find information on how to get the trial license and the activation key.
+Please refer to [this page](https://cloudlinux.com/trial) to find information on how to get the trial license and the activation key.
 
 ### How many servers can I use with the trial license?
 
@@ -31,7 +31,7 @@ The number of servers is unlimited.
 
 ### What control panel can be used with CloudLinux OS Solo?
 
-For the current implementation, we recommend using cPanel Solo and DirectAdmin. Plesk is not supported yet.
+For the current implementation, we recommend using cPanel Solo, Plesk, DirectAdmin or Webuzo.
 
 ### How can I get support for my CloudLinux OS Solo servers?
 
@@ -71,37 +71,25 @@ Please verify your cPanel firewall settings.
 
 Yes, it is possible.
 
-### Can I register my CloudLinux OS Shared 6/7/8 with CloudLinux OS Solo trial key?
+### Can I register my CloudLinux OS Legacy (Shared) 6/7/8 with CloudLinux OS Solo trial key?
 
 No, you cannot.
 
-### Can I convert CentOS 6,7 to CloudLinux OS Solo 8 using the cldeploy script?
+### Can I convert CentOS 6,7 to CloudLinux OS Solo 8+ using the cldeploy script?
 
-No, you cannot. Only CentOS 8/AlmaLinux 8 can be converted.
+No, you cannot. Only CentOS 8/AlmaLinux 8+ can be converted.
 
 ### Does CloudLinux OS Solo work with LiteSpeed?
 
 No, it does not. We are still implementing this feature, so it will be available in the next CloudLinux OS Solo releases.
 
-### What is the process of upgrading if the customer adds more users to the server and will have to upgrade? (i.e., upgrading from CloudLinux OS Solo to CloudLinux OS Shared)
+### What is the process of upgrading if the customer adds more users to the server and will have to upgrade? (i.e., upgrading from CloudLinux OS Solo to CloudLinux OS Legacy (Shared))
 
-Create a new server by [converting an existing server](/solo/installation/#converting-existing-servers) or [from ISO](/solo/installation/#iso-file-source)) and migrate the settings of that one user.
-
-:::tip
-We are collecting feedback about CloudLinux OS Solo to CloudLinux OS Shared transitions and may consider implementing that automatically in the future.
-:::
-
-### Where can I use the WP Optimization Suite?
-
-In the current beta release only on CloudLinux OS Solo and cPanel. In the next releases it will be available for CloudLinux OS Shared PRO.
-
-### How will it help my customers?
-
-In the current beta version, the WP Optimization Suite automatically configures the Object Cache module per site. In the next releases we will add modules to help automatically increase performance for WordPress sites.
+Follow the edition switching [procedure](/legacy/cloudlinux_installation/#switch-license).
 
 ### How to set up PHP-fpm handler for the domain?
 
-Since the PHP-fpm handler is required to use WP Optimization Suite, you may need to configure it manually.
+Since the PHP-fpm handler is required to use AccelerateWP, you may need to configure it manually.
 
 These are configuration steps:
 
@@ -117,10 +105,10 @@ These are configuration steps:
 
     * **Via MultiPHP Manager**
 
-    ![](./images/InstallationViaMultiPHPManager.png)
+    ![](/images/solo/faq/InstallationViaMultiPHPManager.webp)
 
 
 2. Enable PHP-fpm handler for domain via MultiPHP Manager
 
-![](./images/EnablePHPFpm.png)
+![](/images/solo/faq/EnablePHPFpm.webp)
 

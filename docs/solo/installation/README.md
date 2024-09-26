@@ -32,7 +32,7 @@ There are multiple ISO types available:
 * `CloudLinux-*-minimal.iso` - this one contains only a minimal set of packages to set up a light server without GUI and Development tools.
 
 :::tip Note
-Once you install a server from the ISO, make sure you [register your system](/shared/cloudlinux_installation/#license-activation) 
+Once you install a server from the ISO, make sure you [register your system](/legacy/cloudlinux_installation/#license-activation) 
 and then run the `yum update` command to get all recent updates.
 :::
 
@@ -48,7 +48,7 @@ The graphical mode is used by default when you boot the system from the local me
 
 The first screen displayed is the language selection page.
 
-![Welcome page screenshot](./images/welcome_page.png)
+![Welcome page screenshot](/images/solo/installation/welcome_page.webp)
 
 First, find your preferred language in the left column and then select locale in the right one.
 The selected language will be used during installation and also as a default language of the installed system.
@@ -61,7 +61,7 @@ and proceed to the [Installation Summary](/solo/installation/#installation-summa
 The Installation summary screen is the main dashboard of your installation parameters. 
 Most of the options which can be configured during the installation can be accessed from here.
 
-![Welcome page screenshot](./images/installation_summary.png)
+![Welcome page screenshot](/images/solo/installation/installation_summary.webp)
 
 The summary screen displays links to other configuration screens, those links can be in 
 several different states, which are graphically indicated:
@@ -92,7 +92,7 @@ Most likely your network is not configured by default,
 so you can see the URL configuration field greyed out, like on the screenshot below. Please refer to the Network Configuration screen first to set up a network connection.
 :::
 
-![Unavailable network source](./images/installation_source_gray_network.png)
+![Unavailable network source](/images/solo/installation/installation_source_gray_network.webp)
 
 The correct installation URL for CloudLinux OS Solo is
 
@@ -102,7 +102,7 @@ https://repo.cloudlinux.com/cloudlinux/8/BaseOS/x86_64/kickstart/
 
 Type in the installation URL in the corresponding field, configure the proxy if needed and press the `Done` button.
 
-![](./images/installation_source_network_address.png)
+![](/images/solo/installation/installation_source_network_address.webp)
 
 
 #### ISO file source
@@ -110,7 +110,7 @@ Type in the installation URL in the corresponding field, configure the proxy if 
 This option is primarily used as an alternative when you don't have an internet connection on a target server.
 It is only available if you downloaded Minimal or DVD ISO which contains some bundled packages in.
 
-![](./images/installation_iso_source.png)
+![](/images/solo/installation/installation_iso_source.webp)
 
 Tick the `ISO file` checkbox and press the `Done` button.
 
@@ -120,11 +120,11 @@ After clicking `Done`, you will be redirected to the [Installation Summary](/sol
 where [Installation source](/solo/installation/#installation-source) and [Software Selection](/solo/installation/#software-selection) links
 will be greyed and the `Downloading package metadata` message wll be shown. 
 
-![](./images/installation_source_gray_working.png)
+![](/images/solo/installation/installation_source_gray_working.webp)
 
 Please hold on while that message disappears and proceed to the [Software Selection](/solo/installation/#software-selection) section.
 
-![](./images/installation_source_gray_done.png)
+![](/images/solo/installation/installation_source_gray_done.webp)
 
 
 #### Software Selection
@@ -140,7 +140,7 @@ It is not possible to select specific packages during a manual installation, you
 To install CloudLinux OS Solo, first, choose the `CloudLinux OS Solo (minimal)` environment on the left of the screen.
 
 :::warning Warning
-All other environments are used to install [CloudLinux OS Shared](http://docs.cloudlinux.com/), so make sure you choose `CloudLinux OS Solo (minimal)`. 
+All other environments are used to install [CloudLinux OS](http://docs.cloudlinux.com/), so make sure you choose `CloudLinux OS Solo (minimal)`. 
 :::
 
 Only one environment can be chosen, even if more are available. 
@@ -154,7 +154,7 @@ using the `Installation Destination` menu and create your [Root Password](https:
 
 Doing that, the `Begin installation` button becomes blue, so click it.
 
-![](./images/installation_available.png) 
+![](/images/solo/installation/installation_available.webp) 
 
 After this point, the installation process actually starts and changes are being made to your selected disks.
 It is not possible to go back to the Installation Summary and change any settings configured there; 
@@ -171,7 +171,7 @@ which you used to start the installation, or make sure that your system tries to
 from the hard drive before trying removable media. Otherwise, your computer will start the installer again instead of the installed system.
 :::
 
-![](./images/installation_done.png)
+![](/images/solo/installation/installation_done.webp)
 
 #### Next steps
 
@@ -183,10 +183,10 @@ Next, [activate your installation](/solo/manager/#activation) in order to get up
 ## Converting existing servers
 
 :::warning
-Only CentOS 8/AlmaLinux 8 can be converted to the CloudLinux OS Solo 8. 
+Only AlmaLinux/Rocky Linux 8+ can be converted to CloudLinux OS Solo.
 :::
 
-Sometimes it is required to convert already existing servers with `CentOS` or `AlmaLinux` and make them `CloudLinux OS Solo`.
+Sometimes it is required to convert already existing `AlmaLinux` or `Rocky Linux` servers to `CloudLinux OS Solo`.
 
 It is easy to convert your existing installation by cldeploy script. The process takes a few minutes and replaces just a handful of RPMs.
 
@@ -220,17 +220,6 @@ After the successful conversion, reboot your system by running the following com
 ```
 reboot
 ```
-
-The script automatically detects and supports the following control panels:
-* cPanel with Easy Apache 4
-
-Unfortunately, for now, it is not possible to convert servers with:
-
-* Plesk
-* DirectAdmin
-* Other control panels that use [CloudLinux OS Shared integration](https://docs.cloudlinux.com/control_panel_integration/#introduction).
-
-Please subscribe to [our blog](https://blog.cloudlinux.com/), check the news and receive updates. 
 
 #### The cldeploy explanation
 

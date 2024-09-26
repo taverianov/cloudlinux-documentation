@@ -66,7 +66,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
         * Go to the <span class="notranslate">_X-Ray_</span> tab.
         * Click <span class="notranslate">_Install_</span> to start installation.
 
-        ![](./images/XRayUI.png)
+        ![](/images/shared-pro/x-ray/XRayUI.webp)
 
     * Via SSH by running the following command:
   
@@ -79,7 +79,7 @@ X-Ray Autotracing is installed and enabled by default on all new compatible serv
 
 6. After installation, use the <span class="notranslate">_Start tracing_</span> button to create your first tracing task for a slow site.
 
-![](./images/XRayStartTracing.png)
+![](/images/shared-pro/x-ray/XRayStartTracing.webp)
 
 ## X-Ray serverwide mode
 
@@ -134,7 +134,7 @@ Need to be enabled separately, see [How to enable X-Ray Autotracing](/cloudlinux
 
 The *Tracing tasks* tab contains a list of all tracing tasks created both manually and automatically via continuous tasks.
 
-![](./images/XRayTracingTaskCreated.png)
+![](/images/shared-pro/x-ray/XRayTracingTaskCreated.webp)
 
 The *Created* column shows how a task was created – automatically (by continuous task) or manually.
 
@@ -149,7 +149,7 @@ yum update lvemanager alt-php-xray
 
 The *Continuous tracing* tab contains a list of continuous tasks for which tracing tasks will be created automatically for a new day for a specific domain.
 
-![](./images/XRayContinuousTasksList.png)
+![](/images/shared-pro/x-ray/XRayContinuousTasksList.webp)
 
 ## Managing tracing task
 
@@ -161,12 +161,12 @@ The *Continuous tracing* tab contains a list of continuous tasks for which traci
 4. Click the <span class="notranslate">_Run_</span> button
 5. Tracing will run in the default mode. In the default mode <span class="notranslate">X-Ray</span> traces the first 20 requests for a specified URL
 
-![](./images/XRayTracingTask.png)
+![](/images/shared-pro/x-ray/XRayTracingTask.webp)
 
 * <span class="notranslate">**URL**</span> should be a valid URL of the domain which exists on the current hosting server. The URL field supports wildcard matching. To learn more about wildcard matching, click _How to use special characters_.
 * <span class="notranslate">**Advanced settings**</span> allow you to set an IP address and tracing options: by time or by number of queries.
 
-    ![](./images/XRayAdvanced.png)
+    ![](/images/shared-pro/x-ray/XRayAdvanced.webp)
 
 **Advanced settings**
 
@@ -177,11 +177,11 @@ Record for
 
 After creating, the task appears in the list of tracing tasks.
 
-![](./images/XRayTrcingTaskList.png)
+![](/images/shared-pro/x-ray/XRayTrcingTaskList.webp)
 
 ### Viewing tracing tasks list
 
-![](./images/XRayTrcingTaskList1.png)
+![](/images/shared-pro/x-ray/XRayTrcingTaskList1.webp)
 
 Tasks created *Manually* are simply tracing tasks.
 
@@ -200,15 +200,15 @@ A tracing task can have the following statuses:
 Collected requests are available in the UI for two weeks.
 :::
 
-Click ![](./images/XRayView.png) to open a list of collected requests.
+Click ![](/images/shared-pro/x-ray/XRayView.webp) to open a list of collected requests.
 
 ### Tracing tasks
 
-![](./images/XRayCollectedRequests.png)
+![](/images/shared-pro/x-ray/XRayCollectedRequests.webp)
 
 The slowest request is highlighted.
 
-![](./images/XRaySlowestRequest.png)
+![](/images/shared-pro/x-ray/XRaySlowestRequest.webp)
 
 * <span class="notranslate">**Total**</span> displays how many requests were collected according to tasks requirements.
 * <span class="notranslate">**Pending**</span> displays how many of collected requests are not visible in the table yet.
@@ -217,11 +217,11 @@ The slowest request is highlighted.
 
 There are filters for the request types and the indicator of a filter used now.
 
-![](./images/FilterIndicator.png)
+![](/images/shared-pro/x-ray/FilterIndicator.webp)
 
 If slow requests were not detected during the tracing task, the following is displayed. Here, you can also view all requests.
 
-![](./images/RecordedSession.png)
+![](/images/shared-pro/x-ray/RecordedSession.webp)
 
 
 <span class="notranslate">X-Ray</span> collects the following data for each request:
@@ -234,7 +234,7 @@ If slow requests were not detected during the tracing task, the following is dis
 
 ### Software modules/plugins
 
-![](./images/XRaySoftwareModulesPlugins.png)
+![](/images/shared-pro/x-ray/XRaySoftwareModulesPlugins.webp)
 
 The <span class="notranslate">_Software modules/plugins_</span> section displays the following data:
 
@@ -245,7 +245,7 @@ The <span class="notranslate">_Software modules/plugins_</span> section displays
 
 ### Database queries
 
-![](./images/XRayDatabaseQueries.png)
+![](/images/shared-pro/x-ray/XRayDatabaseQueries.webp)
 
 The <span class="notranslate">_Database queries_</span> section displays the following data:
 
@@ -257,7 +257,7 @@ The <span class="notranslate">_Database queries_</span> section displays the fol
  
 ### External requests
 
-![](./images/XRayExternalRequests.png)
+![](/images/shared-pro/x-ray/XRayExternalRequests.webp)
 
 The <span class="notranslate">_External requests_</span> section displays the following data:
 
@@ -267,7 +267,7 @@ The <span class="notranslate">_External requests_</span> section displays the fo
  
 ### System functions
 
-![](./images/XRaySystemFunctions.png)
+![](/images/shared-pro/x-ray/XRaySystemFunctions.webp)
 
 The <span class="notranslate">_System functions_</span> section displays the following data:
 
@@ -277,15 +277,15 @@ The <span class="notranslate">_System functions_</span> section displays the fol
 
 ### Stopping tracing task
 
-Click ![](./images/XRayStop.png) to stop the tracing task.
+Click ![](/images/shared-pro/x-ray/XRayStop.webp) to stop the tracing task.
 
-![](./images/XRayStopped.png)
+![](/images/shared-pro/x-ray/XRayStopped.webp)
 
-The tracing task status will be changed to <span class="notranslate">**Stopped**</span>. Data will not be collected anymore but you can see already collected information or continue tracing later by clicking ![](./images/XRayStart.png).
+The tracing task status will be changed to <span class="notranslate">**Stopped**</span>. Data will not be collected anymore but you can see already collected information or continue tracing later by clicking ![](/images/shared-pro/x-ray/XRayStart.webp).
 
 ### Deleting tracing task 
 
-Click ![](./images/XRayDelete.png) to delete the tracing task.
+Click ![](/images/shared-pro/x-ray/XRayDelete.webp) to delete the tracing task.
 
 :::warning Warning!
 When you have deleted a tracing task, all collected data will be unavailable.
@@ -297,15 +297,15 @@ When you have deleted a tracing task, all collected data will be unavailable.
 
 1. Click the *Create continuous tracing*  button 
 
-![](./images/XRayCreateContinuousTaskBtn.png)
+![](/images/shared-pro/x-ray/XRayCreateContinuousTaskBtn.webp)
 
 2. Specify URL in the *Domain* field and email in the *Email for reports* field and click the *Create* button.
 
-![](./images/XRayCreateContinuousTaskForm.png)
+![](/images/shared-pro/x-ray/XRayCreateContinuousTaskForm.webp)
 
 3. You can see a new task in the *Continuous tracing* tab in the X-Ray UI.
 
-![](./images/XRayContinuousTracingTab.png)
+![](/images/shared-pro/x-ray/XRayContinuousTracingTab.webp)
 
 4. If you stop a continuous tracing task, a new task for the next 24 hours will not be created. The task for the current day will be finished at midnight and the report will be emailed.
 
@@ -315,21 +315,21 @@ When you have deleted a tracing task, all collected data will be unavailable.
 
 You can find a list of continuous tracing tasks in the _Continuous tracing_ tab.
 
-![](./images/XRayContinuousTracingTasksList.png)
+![](/images/shared-pro/x-ray/XRayContinuousTracingTasksList.webp)
 
 You can find automatically created tasks in the _Tracing tasks_ tab marked as _Automatically_ in the _Created_ column.
 
-![](./images/XRayContinuousTracingTasksListCreated.png)
+![](/images/shared-pro/x-ray/XRayContinuousTracingTasksListCreated.webp)
 
 The [statuses for automatically created tasks](/cloudlinux-os-plus/#tracing-status) are the same as for tracing task.
 
-To view detailed info about an automatically created task, click ![](./images/XRayView1.png). You will get requests grouped by hour.
+To view detailed info about an automatically created task, click ![](/images/shared-pro/x-ray/XRayView1.webp). You will get requests grouped by hour.
 
-![](./images/XRayContinuousTracingTasksListGrouped.png)
+![](/images/shared-pro/x-ray/XRayContinuousTracingTasksListGrouped.webp)
 
 Click to a group to open a list of the requests.
 
-![](./images/XRayContinuousTracingTasksRequestsList.png)
+![](/images/shared-pro/x-ray/XRayContinuousTracingTasksRequestsList.webp)
 
 The following data is collected for each request:
 
@@ -356,19 +356,19 @@ To delete the continuous tracing task completely, see [Creating a new continuous
 
 1. Users get daily reports on their emails. An example of a report is shown below:
 
-    ![](./images/XRayContinuousTaskDaylyReportExample.png)
+    ![](/images/shared-pro/x-ray/XRayContinuousTaskDaylyReportExample.webp)
 
 2. Click the link in the email to show the detailed report:
 
-    ![](./images/XRayContinuousTaskDaylyReportCollectedRequests.png)
+    ![](/images/shared-pro/x-ray/XRayContinuousTaskDaylyReportCollectedRequests.webp)
 
 3. You can view requests grouped by hour:
 
-    ![](./images/XRayContinuousTaskDaylyReportByHourRequests.png)
+    ![](/images/shared-pro/x-ray/XRayContinuousTaskDaylyReportByHourRequests.webp)
 
 4. You can also view the detailed information about request:
 
-    ![](./images/XRayContinuousTaskDaylyReportRequestDetails.png)
+    ![](/images/shared-pro/x-ray/XRayContinuousTaskDaylyReportRequestDetails.webp)
 
 
 ## X-Ray Autotracing
@@ -405,7 +405,7 @@ Check [CLI documentation](/command-line_tools/#x-ray-autotracing) for a descript
 A new tab for Autotracing tasks was added to the X-Ray UI:
 
 
-![](./images/XRayAutotracingtaskstab.png)
+![](/images/shared-pro/x-ray/XRayAutotracingtaskstab.webp)
 
 
 ### Autotracing FAQ
@@ -467,14 +467,14 @@ Advice will not be generated by old tracing tasks.
 
 While the tracing task is running, X-Ray will look for places where advice can be applied. New advice will be displayed on the *Smart Advice* tab. 
 
-![](./images/XRaySmartAdviceMainTab.png)
+![](/images/shared-pro/x-ray/XRaySmartAdviceMainTab.webp)
 
 After the X-Ray finds advice you will see new advice in the *Review* status on the *Smart Advice* tab. 
 Then you may use the *Details* button to see which URLs were found by X-Ray that will be speed up by that advice and use *Quick Action* to enable advice for a site.
 
 Example of details:
 
-![](./images/XRaySmartAdviceDetails.png)
+![](/images/shared-pro/x-ray/XRaySmartAdviceDetails.webp)
 
 After you apply the advice by using *Quick Action*, the status will change to the *Applied*.
 
@@ -488,7 +488,7 @@ If the process of applying advice fails you will see an error log with a detaile
 
 Example when an error appears during advice applying:
 
-![](./images/XRaySmartAdviceError.png)
+![](/images/shared-pro/x-ray/XRaySmartAdviceError.webp)
 
 ### Smart Advice FAQ
 
@@ -676,11 +676,11 @@ You can manage the setting in several interfaces:
 
 **X-Ray settings:**
 
-![](./images/XRayAdvancedMetrics.ui.xray.png)
+![](/images/shared-pro/x-ray/XRayAdvancedMetrics.ui.xray.webp)
 
 **AccelerateWP settings:**  
 
-![](./images/XRayAdvancedMetrics.ui.awp.png)
+![](/images/shared-pro/x-ray/XRayAdvancedMetrics.ui.awp.webp)
 
 ### How to enable/disable via CLI
 
@@ -698,11 +698,11 @@ To start advanced performance monitoring, you can enable tracing tasks that invo
 
 Once tracing tasks are enabled, the JavaScript snippet will periodically send POST requests to our secure analytics service.
 
-![](./images/XRayAdvancedMetrics.request.png)
+![](/images/shared-pro/x-ray/XRayAdvancedMetrics.request.webp)
 
 These requests capture anonymous data about page load time and resources.
 
-![](./images/XRayAdvancedMetrics.data.png)
+![](/images/shared-pro/x-ray/XRayAdvancedMetrics.data.webp)
 
 
 ## End-user X-Ray plugin
@@ -720,26 +720,26 @@ You can hide or show the end-user X-Ray plugin icon by ticking or unticking the 
 
 Go to _LVE Manager → Options Tab → User interface settings_.
 
-![](./images/HideXRayAppCheckbox.png)
+![](/images/shared-pro/x-ray/HideXRayAppCheckbox.webp)
 
 :::tip Note
 The X-Ray plugin icon in the end-user interface is hidden when the checkbox is ticked.
 :::
 
-![](./images/XRayAppUIIcon.png)
+![](/images/shared-pro/x-ray/XRayAppUIIcon.webp)
 
 ### How to manage the end-user X-Ray plugin
 
 The web interface of the end-user X-Ray plugin is almost the same as the X-Ray administrator interface.
 
-![](./images/XRayEndUserUI.png)
+![](/images/shared-pro/x-ray/XRayEndUserUI.webp)
 
 But there are some differences and they are described further.
 
 * End-users can create tasks only for their domains from the drop-down list:
-    ![](./images/XRayEndUserUIStart.png)
+    ![](/images/shared-pro/x-ray/XRayEndUserUIStart.webp)
 * To specify URL or wildcard, end-users should use the input field next to the domain:
-    ![](./images/XRayEndUserUiSpecifyURL.png)
+    ![](/images/shared-pro/x-ray/XRayEndUserUiSpecifyURL.webp)
 
 You can read about all other basic interface elements and managing tracing tasks in the [Managing tracing task section](/cloudlinux-os-plus/#managing-tracing-task).
 
@@ -752,21 +752,21 @@ Tracing tasks created by an end-user will also be displayed in the administrator
 * The end-user X-Ray plugin does not support creating continuous tasks.
 * The end-user has a limit of tracing tasks running at a time. Before starting the next task, the end-user should wait for the completion of the previous ones or forcefully stop the running ones. Otherwise, the user will get the next error:
     
-    ![](./images/XRayEndUserUIError.png)
+    ![](/images/shared-pro/x-ray/XRayEndUserUIError.webp)
     :::tip Note
     The current limit is one tracing task per user. 
     :::
 * The administrator and the end-user can’t run the tracing task for the same Domain/URL at the same time. Once, the administrator started a specific tracing task, the end-user will not be able to duplicate it. And the same is true for the administrators – they will just see the running task for the specific domain and see the notification that they're trying to create a tracing task with a duplicated URL.
 * If continuous tracing is enabled for the domain, the end-user will not be able to create a new task for this domain because the same rule works - it will be a duplicate of the existing tracing tasks. The next warning will appear:
     
-    ![](./images/XRayEndUserUIWarning.png)
+    ![](/images/shared-pro/x-ray/XRayEndUserUIWarning.webp)
 
     To solve this, the existing running tasks for the same Domain/URL should be stopped or completed. You can find more details about this in the [FAQ](/cloudlinux-os-plus/#what-should-i-do-if-i-see-the-warning-task-is-duplicated-by-url).
 
 * If a user's tracing task was created for a domain which is using the FPM handler there's an additional limitation.  To avoid  frequent reloads of the particular FPM service, **Start tracing** ,  **Stop tracing** or  **Continue tracing** action would be blocked in case if the latest reload of a corresponding FPM service was done less than 1 minute ago.  
 If a user gets such an error message - it means that  1 reload  in  1 minute for a particular FPM service has been already done.  Just try performing the same operation once again in a while.
 
-![](./images/XRayEndUserFPMerror.png)
+![](/images/shared-pro/x-ray/XRayEndUserFPMerror.webp)
 	
 ## X-Ray automated throttling detection
 
@@ -775,14 +775,14 @@ If a user gets such an error message - it means that  1 reload  in  1 minute for
 
 **IO/IOPS throttling detection** is available since `alt-php-xray-0.3-7` and `lvemanager-xray-0.7-1`.
 
-- `kmod-lve-2.0-23` (and later) for CloudLinux OS Shared 8 or CloudLinux OS Shared 7 hybrid
-- `kernel-1.5-58` (and later) for CloudLinux OS Shared 7 or CloudLinux OS Shared 6 hybrid
+- `kmod-lve-2.0-23` (and later) for CloudLinux OS 8 or CloudLinux OS 7 hybrid
+- `kernel-1.5-58` (and later) for CloudLinux OS 7 or CloudLinux OS 6 hybrid
 
 are also required to utilize the feature of **IO/IOPS throttling detection**.
 :::
 
 :::warning Warning
-X-Ray automated throttling detection feature is not supported for CloudLinux OS Shared 6
+X-Ray automated throttling detection feature is not supported for CloudLinux OS 6
 :::
 
 The X-Ray automated throttling detection system checks if the account exceeds LVE limits by CPU or by IO/IOPS during the HTTP request execution. Requests with exceeded LVE limits are indicated in both X-Ray Administrator and X-Ray User plugins.
@@ -793,15 +793,15 @@ If limiting by IO and IOPS in total was detected for a particular request, it is
 
 The case of both limiting for the request is also possible.
 
-![](./images/CPUIOLimiting.png)
+![](/images/shared-pro/x-ray/CPUIOLimiting.webp)
 
 Requests with exceeded LVE limits are also marked in the request detailed view.
 
-![](./images/RequestDetails.png)
+![](/images/shared-pro/x-ray/RequestDetails.webp)
 
 Requests with exceeded LVE limits are marked in the PDF report as well.
 
-![](./images/PDFReport.png)
+![](/images/shared-pro/x-ray/PDFReport.webp)
 
 
 ## X-Ray client
@@ -1073,11 +1073,11 @@ Note that the URL field supports wildcard matching and you can have a case when 
 1. <span class="notranslate">X-Ray</span> may not send data if a site uses a caching plugin, as the caching plugin is outputting HTML, thus there are no PHP scripts to examine. We encountered such issues with sites that use <span class="notranslate">LSCache</span> and <span class="notranslate">WP Super Cache</span> plugins. Check that your site does not use caching plugins. If so, disable it while tracing a site to get information from <span class="notranslate">X-Ray</span>. Moreover, it can also be because of caching on server side, for example NGINX Cache. Or when using CDN because requests are processed from another host. In such cases, during tracing, caching must also be disabled.
 2. If you set a client’s IP when creating the tracing task, check that your requests come to the server with this IP via phpinfo (since there may be NAT between your local machine and the server).
    
-    ![](./images/XRayPHPInfoRemoteAddr.png)
+    ![](/images/shared-pro/x-ray/XRayPHPInfoRemoteAddr.webp)
 
 3. Check that <span class="notranslate">**xray**</span> extension is enabled for the domain. To do so, go to the <span class="notranslate">`phpinfo()`</span> page and make a request. In the phpinfo output try to find the following section:
    
-    ![](./images/XRayPHPInfo.png)
+    ![](/images/shared-pro/x-ray/XRayPHPInfo.webp)
 
 If you cannot see that section, try to restart PHP processes for that user (the simplest way is to restart Apache) and check that you can see the <span class="notranslate">**xray**</span> extension.
 
@@ -1092,7 +1092,7 @@ If you managed to create a tracing task, this means that the <span class="notran
 1. PHP process wasn't reloaded after adding the xray.ini. To solve this, you should restart the Apache or fpm service for the domain on which the tracing was started. At the moment, this is done automatically by the <span class="notranslate">X-Ray</span> manager after creating the task.
 2. Your domain uses a PHP version different from the one which was detected by the <span class="notranslate">X-Ray</span> manager. To solve this, check the scan dir for additional ini files for your domain.
 
-    ![](./images/XRayScanDir.png)
+    ![](/images/shared-pro/x-ray/XRayScanDir.webp)
 
     Then check the <span class="notranslate">`ini_location`</span> that was passed to the <span class="notranslate">X-Ray</span> manager by running the following command:
 
