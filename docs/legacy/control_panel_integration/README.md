@@ -1304,9 +1304,9 @@ CageFS documentation can be found here: [CageFS](/legacy/cloudlinux_os_component
 
 ### CageFS MIN_UID  
 
-CageFS has MIN_UID setting. Users with UIDs < MIN_UID will not be limited by CageFS. This setting is configured based on UID_MIN setting from <span class="notranslate">`/etc/login.defs`</span> file by default. So, typically MIN_UID is 500 on CloudLinux OS 6 and 1000 on CloudLinux OS 7.
+CageFS has UID_MIN setting. Users with UIDs < UID_MIN will not be limited by CageFS. This setting is configured based on UID_MIN setting from <span class="notranslate">`/etc/login.defs`</span> file by default. So, typically UID_MIN is 500 on CloudLinux OS 6 and 1000 on CloudLinux OS 7.
 
-You can obtain current MIN_UID value by executing the following command:
+You can obtain current UID_MIN value by executing the following command:
 
 <div class="notranslate">
 
@@ -1315,7 +1315,7 @@ cagefsctl --get-min-uid
 ```
 </div>
 
-You can set MIN_UID by executing the following command:
+You can set UID_MIN by executing the following command:
 
 <div class="notranslate">
 
@@ -1324,7 +1324,7 @@ cagefsctl --set-min-uid <value>
 ```
 </div>
 
-For example, to set MIN_UID to 10000, you should execute the following command:
+For example, to set UID_MIN to 10000, you should execute the following command:
 
 <div class="notranslate">
 
