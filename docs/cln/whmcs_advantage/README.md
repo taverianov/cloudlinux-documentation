@@ -164,6 +164,10 @@ https://your.whmcs.com/?m=cloudlinux_advantage&action=provisioning&username=demo
 
 ## Plesk extension
 
+:::tip Note
+From version AccelerateWP 1.9-8, installation and activation of the extension for Plesk starts automatically.
+:::
+
 The extension adds the ability to execute the <span class="notranslate">`accelerate-wp-admin set-suite`</span> command to the Plesk XML API.
 
 Do not install it if you are not using AccelerateWP WHMCS billing integration.
