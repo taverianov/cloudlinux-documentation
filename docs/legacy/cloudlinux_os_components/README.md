@@ -3854,7 +3854,11 @@ The following script could be used before installing MySQL-governor and MySQL/Ma
 ```
 /usr/share/lve/dbgovernor/scripts/mysql_backup.sh
 ```
-</div>
+</div> 
+
+:::tip 
+The script `mysql_backup.sh` is provided starting from the Governor version 1.2-115.
+:::
 
 On <span class="notranslate"> cPanel </span> server enable monitoring back:
 <div class="notranslate">
