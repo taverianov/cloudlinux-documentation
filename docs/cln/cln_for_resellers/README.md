@@ -100,12 +100,12 @@ For managing these features via CLN for IP-based licensing:
 2. Go to the 'CloudLinux' tab
 3. Go to the IP Licenses section
 
-![](/images/cln-ip-licenses-section1.png)
+![](/images/cln/cln_for_resellers/cln-ip-licenses-section.png)
 
 4. Press edit
 5. Choose new permissions 
 
-![](/images/cln-edit-ip-license.png)
+![](/images/cln/cln_for_resellers/cln-edit-ip-license.png)
 
 6. Save permissions 
 
@@ -115,15 +115,15 @@ For managing these features via CLN for key-based licensing:
 2. Go to the 'CloudLinux' tab
 3. Go to the  'Activation keys' section 
 
-![](/images/cln-activation-keys.png)
+![](/images/cln/cln_for_resellers/cln-activation-keys.png)
 
 4. Select the activation key that you need 
 
-![](/images/cln-activation-key-details.png)
+![](/images/cln/cln_for_resellers/cln-activation-key-details.png)
 
 5. Press edit 
 
-![](/images/cln-edit-activation-key.png)
+![](/images/cln/cln_for_resellers/cln-edit-activation-key.png)
 
 6. Choose new permissions
 7. Save permissions
