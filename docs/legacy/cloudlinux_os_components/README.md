@@ -3230,7 +3230,7 @@ This is the user’s real IO Database usage which was calculated by MySQL Govern
 
 This is the user’s IO Database usage which was calculated by lve-stats.
 
-Also for different types of database load (for example in case, there is a huge amount of shot requests), CPU usage charts for LVE and database can be different.
+Also, for different types of database load (for example in case, there is a huge amount of short requests), CPU usage charts for LVE and database can be different.
 
 Take a look on this chart:
 
