@@ -115,7 +115,7 @@ For managing these features via CLN for key-based licensing:
 2. Go to the 'CloudLinux' tab
 3. Go to the  'Activation keys' section 
 
-![](/image/cln-activation-keys.png)
+![](/images/cln-activation-keys.png)
 
 4. Select the activation key that you need 
 
