@@ -100,7 +100,7 @@ For managing these features via CLN for IP-based licensing:
 2. Go to the 'CloudLinux' tab
 3. Go to the IP Licenses section
 
-![](/images/cln-ip-licenses-section.png)
+![](/images/cln-ip-licenses-section1.png)
 
 4. Press edit
 5. Choose new permissions 
