@@ -93,24 +93,40 @@ Click ![](/images/cln/cln_for_resellers/clnarrow.webp) near invoice id to show d
 
 Accelerate WP Premium and CDN permission management will help you enable/ disable Premium and CDN features on certain servers. In cases where hosting users have root access to the server (e.g. VPS users), this permission ensures the license holder retains control over access to billable features. 
 
-Default state for different Cloudlinux OS editions:
-* Solo, Admin - disabled
-* Pro - enabled 
+By default permissions are disabled. 
 
-For managing these features via CLN:
-
-1. Login to the CLN account
+For managing these features via CLN for IP-based licensing:
+1. Log in to the CLN account
 2. Go to the 'CloudLinux' tab
-3. Go to the IP Licenses section 
+3. Go to the IP Licenses section
 
-![](/images/cln/cln_for_resellers/cln-ip-licenses-section.webp) 
+![](/images/cln-ip-licenses-section.webp)
 
 4. Press edit
 5. Choose new permissions 
 
-![](/images/cln/cln_for_resellers/cln-choose-permissions.webp)
+![](/images/cln-edit-ip-license.png)
 
-6. Save permissions
+6. Save permissions 
+
+For managing these features via CLN for key-based licensing: 
+
+1. Log in to the CLN account
+2. Go to the 'CloudLinux' tab
+3. Go to the  'Activation keys' section 
+
+![](/image/cln-activation-keys.png)
+
+4. Select the activation key that you need 
+
+![](/images/cln-activation-key-details.png)
+
+5. Press edit 
+
+![](/images/cln-edit-activation-key.png)
+
+6. Choose new permissions
+7. Save permissions
 
 
 
