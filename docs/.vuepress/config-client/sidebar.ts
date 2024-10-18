@@ -57,17 +57,6 @@ export default {
             ]
         },
     ],
-    '/shared-pro/': [
-        {
-            collapsable: false,
-            children: [
-                "/shared-pro/introduction/",
-                "/shared-pro/x-ray/",
-                "/shared-pro/centralized-monitoring/",
-                "/shared-pro/accelerate-wp/"
-            ]
-        },
-    ],
     '/ubuntu/': [
         {
             collapsable: false,
@@ -81,22 +70,23 @@ export default {
             ]
         },
     ],
-    '/legacy/': [
+    '/cloudlinuxos/': [
         {
             collapsable: false,
             children: [
-                "/legacy/cloudlinux_installation/",
-                "/legacy/elevate/",
-                "/legacy/limits/",
-                "/legacy/lve_manager/",
-                "/legacy/cloudlinux_os_components/",
-                "/legacy/command-line_tools/",
-                "/legacy/apache2nginx/",
-                "/legacy/alt-ea_packages/",
-                "/legacy/control_panel_integration/",
-                "/legacy/cloudlinux_os_kernel/",
-                "/legacy/for_cloudlinux_partners/",
-                "/legacy/deprecated/"
+                "/cloudlinuxos/cloudlinux_installation/",
+                "/cloudlinuxos/elevate/",
+                "/cloudlinuxos/limits/",
+                "/cloudlinuxos/lve_manager/",
+                "/cloudlinuxos/cloudlinux_os_components/",
+                "/cloudlinuxos/shared-pro/",
+                "/cloudlinuxos/command-line_tools/",
+                "/cloudlinuxos/apache2nginx/",
+                "/cloudlinuxos/alt-ea_packages/",
+                "/cloudlinuxos/control_panel_integration/",
+                "/cloudlinuxos/cloudlinux_os_kernel/",
+                "/cloudlinuxos/for_cloudlinux_partners/",
+                "/cloudlinuxos/deprecated/"
             ]
         },
     ],

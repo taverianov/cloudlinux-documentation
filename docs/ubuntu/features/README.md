@@ -4,26 +4,26 @@ Below you can find the list of supported features with the links to the document
 
 ## LVE limits
 
-* [Understanding limits](/legacy/limits/#understanding-limits)
-* [SPEED limit](/legacy/limits/#speed-limit)
-* [Memory limit](/legacy/limits/#memory-limit)
-* [IO](/legacy/limits/#io)
-* [IOPS](/legacy/limits/#iops)
-* [Entry processes](/legacy/limits/#entry-processes)
-* [Number of processes](/legacy/limits/#number-of-processes)
-* [Inodes](/legacy/limits/#inodes)
-* [Network traffic bandwidth control and accounting system](/legacy/limits/#network-traffic-bandwidth-control-and-accounting-system)
-* [Limits validation](/legacy/limits/#limits-validation)
-* [Compatibility matrix](/legacy/limits/#compatibility-matrix)
-* [Reseller limits](/legacy/limits/#reseller-limits)
+* [Understanding limits](/cloudlinuxos/limits/#understanding-limits)
+* [SPEED limit](/cloudlinuxos/limits/#speed-limit)
+* [Memory limit](/cloudlinuxos/limits/#memory-limit)
+* [IO](/cloudlinuxos/limits/#io)
+* [IOPS](/cloudlinuxos/limits/#iops)
+* [Entry processes](/cloudlinuxos/limits/#entry-processes)
+* [Number of processes](/cloudlinuxos/limits/#number-of-processes)
+* [Inodes](/cloudlinuxos/limits/#inodes)
+* [Network traffic bandwidth control and accounting system](/cloudlinuxos/limits/#network-traffic-bandwidth-control-and-accounting-system)
+* [Limits validation](/cloudlinuxos/limits/#limits-validation)
+* [Compatibility matrix](/cloudlinuxos/limits/#compatibility-matrix)
+* [Reseller limits](/cloudlinuxos/limits/#reseller-limits)
 
 ## Inode limits
 
-The documentation is available [here](/legacy/limits/#inodes).
+The documentation is available [here](/cloudlinuxos/limits/#inodes).
 
 ## Reseller limits
 
-The documentation is available [here](/legacy/limits/#reseller-limits).
+The documentation is available [here](/cloudlinuxos/limits/#reseller-limits).
 
 ## MySQL Governor
 
@@ -45,7 +45,7 @@ MySQL Governor allows restricting customers who use too many resources. It suppo
 
 You can set different limits for different periods: current, short, med, long. By default those periods are defined as 1
 second, 5 seconds, 1 minute and 5 minutes. They can be re-defined using
-the [configuration file](/legacy/cloudlinux_os_components/#configuration-and-operation). The idea is
+the [configuration file](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation). The idea is
 to use larger acceptable values for shorter periods. Like you could allow a customer to use two cores (200%) for one
 second, but only 1 core (on average) for 1 minute, and only 70% within 5 minutes. That would make sure that customer can
 burst for short periods of time.
@@ -95,7 +95,7 @@ In case of installing on cPanel + Ubuntu server, set the following parameter:
 5. After installation, check that the database server is working properly. If you have any problems,
    use [Support Portal]().
 6. Configure user mapping to the database. The mapping format is described in
-   the [following section](/legacy/cloudlinux_os_components/#mapping-a-user-to-a-database).
+   the [following section](/cloudlinuxos/cloudlinux_os_components/#mapping-a-user-to-a-database).
 
 In case a non-panel system the `/etc/container/dbuser-map` should be created and updated with new users by admin.
 
@@ -113,9 +113,9 @@ such a mechanism for MySQL Governor to operate properly. MySQL Governor automati
 dbuser-map file every five minutes.
 
 7. MySQL Governor configuration can be found in the
-   following [section](/legacy/cloudlinux_os_components/#configuration-3).
+   following [section](/cloudlinuxos/cloudlinux_os_components/#configuration-3).
 8. MySQL Governor CLI tools description can be found in the
-   following [section](/legacy/command-line_tools/#mysql-governor).
+   following [section](/cloudlinuxos/command-line_tools/#mysql-governor).
 9. Having configured the mapping use `dbtop` to see the current user load on the database (you'd need to make some
    database queries).
 
@@ -128,7 +128,7 @@ dbtop
 ### How To upgrade database server
 
 You can find the instructions
-in [this documentation](/legacy/cloudlinux_os_components/#upgrading-database-server).
+in [this documentation](/cloudlinuxos/cloudlinux_os_components/#upgrading-database-server).
 
 ### Uninstalling
 
@@ -143,26 +143,26 @@ The script will install the original MySQL server, and remove MySQL Governor.
 ### Configuration and operation
 
 You can find the instructions
-in [this documentation](/legacy/cloudlinux_os_components/#configuration-and-operation).
+in [this documentation](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation).
 
 ## Administrator WEB interface (CloudLinux Manager)
 
-The documentation is available [here](/legacy/lve_manager/#cloudlinux-manager).
+The documentation is available [here](/cloudlinuxos/lve_manager/#cloudlinux-manager).
 
 * [Dashboard](/sub-system-ubuntu/features/#dashboard)
-* [Current Usage](/legacy/lve_manager/#current-usage)
-* [Users](/legacy/lve_manager/#users)
-* [Statistics](/legacy/lve_manager/#statistics)
-* [Packages](/legacy/lve_manager/#packages)
-* [Options](/legacy/lve_manager/#options)
-* [PHP Selector](/legacy/cloudlinux_os_components/#php-selector)
+* [Current Usage](/cloudlinuxos/lve_manager/#current-usage)
+* [Users](/cloudlinuxos/lve_manager/#users)
+* [Statistics](/cloudlinuxos/lve_manager/#statistics)
+* [Packages](/cloudlinuxos/lve_manager/#packages)
+* [Options](/cloudlinuxos/lve_manager/#options)
+* [PHP Selector](/cloudlinuxos/cloudlinux_os_components/#php-selector)
     * [Installation instructions](/features/#php-selector-installation-instructions)
-    * [Selector tab](/legacy/lve_manager/#selector-tab)
-    * [Selector tab additional features (cPanel)](/legacy/lve_manager/#selector-tab-additional-features)
+    * [Selector tab](/cloudlinuxos/lve_manager/#selector-tab)
+    * [Selector tab additional features (cPanel)](/cloudlinuxos/lve_manager/#selector-tab-additional-features)
       CloudLinux Manager 6.0.1-2
-    * [PHP Selector troubleshooting (cPanel)](/legacy/lve_manager/#php-selector-troubleshooting)
+    * [PHP Selector troubleshooting (cPanel)](/cloudlinuxos/lve_manager/#php-selector-troubleshooting)
       CloudLinux Manager 6.0.1-2
-    * [PHP Selector diagnostic tool and notifications](/legacy/lve_manager/#php-selector-diagnostic-tool-and-notifications)
+    * [PHP Selector diagnostic tool and notifications](/cloudlinuxos/lve_manager/#php-selector-diagnostic-tool-and-notifications)
       CloudLinux Manager 6.0.1-2
 
 ### Dashboard
@@ -177,12 +177,12 @@ Go to _CloudLinux Manager_ | _Dashboard_.
   hours.
 * Resellers hitting limits — number of enrolled Resellers that are reaching their limit in any kind of resource. Data is
   within the last 24 hours.
-* [PHP Selector](/legacy/lve_manager/#php-selector-2) block displays the following information:
+* [PHP Selector](/cloudlinuxos/lve_manager/#php-selector-2) block displays the following information:
     * Default version — the default version of PHP binaries. Click _Manage_ to change the default version, enable or
       disable PHP Selector, change the list of supported versions, and choose default modules. You will be redirected to
       CloudLinux Manager | PHP Selector. PHP Selector (cPanel) has malfunctions warnings
-      about [the most common issues](/legacy/lve_manager/#errors).
-* [CageFS](/legacy/cloudlinux_os_components/#cagefs) block displays the following information:
+      about [the most common issues](/cloudlinuxos/lve_manager/#errors).
+* [CageFS](/cloudlinuxos/cloudlinux_os_components/#cagefs) block displays the following information:
     * CageFS status (Enabled/Disabled/Not installed). To manage CageFS, click _Manage_. You will be redirected to
       CloudLinux Manager | Options | CageFS. Click _Install_ to install CageFS.
     * Mode displays the current CageFS mode of operation.
@@ -190,20 +190,20 @@ Go to _CloudLinux Manager_ | _Dashboard_.
 
 ## Reseller WEB interface (CloudLinux Manager)
 
-* [Current Usage](/legacy/lve_manager/#current-usage-tab)
-* [Historical Usage](/legacy/lve_manager/#historical-usage-tab)
-* [Users](/legacy/lve_manager/#users-tab)
-* [Statistics](/legacy/lve_manager/#statistics-tab)
-* [Packages](/legacy/lve_manager/#packages-tab)
+* [Current Usage](/cloudlinuxos/lve_manager/#current-usage-tab)
+* [Historical Usage](/cloudlinuxos/lve_manager/#historical-usage-tab)
+* [Users](/cloudlinuxos/lve_manager/#users-tab)
+* [Statistics](/cloudlinuxos/lve_manager/#statistics-tab)
+* [Packages](/cloudlinuxos/lve_manager/#packages-tab)
 
 ## User WEB interface
 
-* [Resource Usage](/legacy/lve_manager/#resource-usage-client-plugin)
-* [PHP Selector](/legacy/lve_manager/#php-selector-client-plugin)
+* [Resource Usage](/cloudlinuxos/lve_manager/#resource-usage-client-plugin)
+* [PHP Selector](/cloudlinuxos/lve_manager/#php-selector-client-plugin)
 
 ## LVE Wrappers
 
-The documentation is available [here](/legacy/cloudlinux_os_components/#lve-wrappers).
+The documentation is available [here](/cloudlinuxos/cloudlinux_os_components/#lve-wrappers).
 
 * lve_wrapper
 * lve_suwrapper
@@ -211,7 +211,7 @@ The documentation is available [here](/legacy/cloudlinux_os_components/#lve-wrap
 ## CageFS and running commands inside
 
 The documentation is
-available [here](/legacy/control_panel_integration/#running-commands-inside-cagefs).
+available [here](/cloudlinuxos/control_panel_integration/#running-commands-inside-cagefs).
 
 * cagefs_enter
 * cagefs_enter_user
@@ -229,7 +229,7 @@ sure that no single web site can bring down your web server.
 Today, a single site can consume all CPU, IO, Memory resources or Apache processes - and bring the server to a halt. LVE
 prevents that. It is done via collaboration of Apache module, PAM module and kernel.
 
-[mod_hostinglimits](/legacy/cloudlinux_os_components/#hostinglimits-module-for-apache) is an Apache
+[mod_hostinglimits](/cloudlinuxos/cloudlinux_os_components/#hostinglimits-module-for-apache) is an Apache
 module that:
 
 * detects VirtualHost from which the request came;
@@ -277,7 +277,7 @@ To install, follow these steps:
 
 #### PHP Selector installation instructions
 
-The documentation is available [here](/legacy/cloudlinux_os_components/#php-selector).
+The documentation is available [here](/cloudlinuxos/cloudlinux_os_components/#php-selector).
 
 To install, run the following commands:
 
@@ -289,27 +289,27 @@ cagefsctl –-init
 
 ## Symlink owner match protection
 
-The documentation is available [here](/legacy/cloudlinux_os_kernel/#fs-enforce-symlinksifowner).
+The documentation is available [here](/cloudlinuxos/cloudlinux_os_kernel/#fs-enforce-symlinksifowner).
 
-* [fs.enforce_symlinksifowner](/legacy/cloudlinux_os_kernel/#fs-enforce-symlinksifowner)
-* [fs.symlinkown_gid](/legacy/cloudlinux_os_kernel/#fs-symlinkown-gid)
-* [fs.process_symlinks_by_task](/legacy/cloudlinux_os_kernel/#fs-process-symlinks-by-task)
+* [fs.enforce_symlinksifowner](/cloudlinuxos/cloudlinux_os_kernel/#fs-enforce-symlinksifowner)
+* [fs.symlinkown_gid](/cloudlinuxos/cloudlinux_os_kernel/#fs-symlinkown-gid)
+* [fs.process_symlinks_by_task](/cloudlinuxos/cloudlinux_os_kernel/#fs-process-symlinks-by-task)
 
 ## Link traversal protection
 
-* [fs.protected_symlinks_create](/legacy/cloudlinux_os_kernel/#link-traversal-protection)
-* [fs.protected_hardlinks_create](/legacy/cloudlinux_os_kernel/#link-traversal-protection)
+* [fs.protected_symlinks_create](/cloudlinuxos/cloudlinux_os_kernel/#link-traversal-protection)
+* [fs.protected_hardlinks_create](/cloudlinuxos/cloudlinux_os_kernel/#link-traversal-protection)
 
 ## Tuned profiles
 
-The documentation is available [here](/legacy/cloudlinux_os_kernel/#tuned-profiles-cloudlinux).
+The documentation is available [here](/cloudlinuxos/cloudlinux_os_kernel/#tuned-profiles-cloudlinux).
 
 ## Apache mod_lsapi
 
 ### General requirements
 
 General requirements are
-available [here](/legacy/cloudlinux_os_components/#general-information-and-requirements-9).
+available [here](/cloudlinuxos/cloudlinux_os_components/#general-information-and-requirements-9).
 
 ### Installation
 
@@ -333,7 +333,7 @@ service apache2 restart
 
 ### Configuration
 
-Configuration instructions are available [here](/legacy/cloudlinux_os_components/#configuration-4).
+Configuration instructions are available [here](/cloudlinuxos/cloudlinux_os_components/#configuration-4).
 
 ### Troubleshooting
 

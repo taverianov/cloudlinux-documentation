@@ -5,24 +5,19 @@ export default [
         link: "/introduction/",
     },
     {
-        title: "CloudLinux OS Legacy (Shared)",
-        description: "CloudLinux OS Legacy (Shared) is designed for shared hosting providers. It isolates each customer into a separate “Lightweight Virtualized Environment” (LVE), which allocates and limits server resources.",
-        link: "/legacy/cloudlinux_installation/",
-    },
-    {
-        title: "CloudLinux OS Shared Pro",
-        description: "CloudLinux OS Shared Pro extends your CloudLinux OS Legacy (Shared) functionality with even more useful features.",
-        link: "/shared-pro/introduction/",
+        title: "CloudLinux OS",
+        description: "Optimizes shared hosting environments by enhancing stability, security, and performance through user isolation and efficient resource management. Featuring tools like LVE resource limits, CageFS, and multiple language selectors, it empowers hosting providers to offer superior services. The CloudLinux OS Shared Pro edition further extends functionality with even more valuable features.",
+        link: "/cloudlinuxos/cloudlinux_installation/",
     },
     {
         title: "Apache2Nginx (BETA)",
         description: "Apache2Nginx sets up Nginx hosting with .htaccess support.",
-        link: "/legacy/apache2nginx/",
+        link: "/cloudlinuxos/apache2nginx/",
     },
     {
         title: "AccelerateWP",
         description: "AccelerateWP carries a suite of optimization features that can be enabled and automatically configured for the end user's site.",
-        link: "/shared-pro/accelerate-wp/",
+        link: "/cloudlinuxos/shared-pro/accelerate-wp/",
     },
     {
         title: "CLN - CloudLinux Licenses",
