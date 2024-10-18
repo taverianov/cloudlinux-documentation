@@ -5604,7 +5604,19 @@ OpenLiteSpeed is not compatible with Python Selector due to lack of `.htaccess` 
 
 ### Supported versions
 
-![](/images/cloudlinuxos/cloudlinux_os_components/Python_supported_versions.webp)
+| CloudLinux 6  | CloudLinux 7  | CloudLinux 8  | CloudLinux 9  |
+|---------------|---------------|---------------|---------------|
+| alt-python 2.7 | alt-python 2.7 | alt-python 2.7 | alt-python 2.7 |
+| alt-python 3.3 | alt-python 3.3 | alt-python 3.3 | alt-python 3.3 |
+| alt-python 3.4 | alt-python 3.4 | alt-python 3.4 | alt-python 3.4 |
+| alt-python 3.5 | alt-python 3.5 | alt-python 3.5 | alt-python 3.5 |
+| alt-python 3.6 | alt-python 3.6 | alt-python 3.6 | alt-python 3.6 |
+| alt-python 3.7 | alt-python 3.7 | alt-python 3.7 | alt-python 3.7 |
+| alt-python 3.8 | alt-python 3.8 | alt-python 3.8 | alt-python 3.8 |
+| alt-python 3.9 | alt-python 3.9 | alt-python 3.9 | alt-python 3.9 |
+| alt-python 3.11| alt-python 3.10| alt-python 3.10| alt-python 3.10|
+|               | alt-python 3.11| alt-python 3.11| alt-python 3.11|
+|               | alt-python 3.12| alt-python 3.12| alt-python 3.12|
   
 ### Installation
 
