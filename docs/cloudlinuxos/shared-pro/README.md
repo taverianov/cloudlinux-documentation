@@ -15,18 +15,6 @@ To activate the CloudLinux OS Shared Pro you have to purchase a Shared Pro licen
 Apart from the functionality described in this documentation section, the Shared Pro edition includes all the [CloudLinux Shared OS features](/cloudlinuxos/cloudlinux_os_components/#cloudlinux-os-components).
 :::
 
-### AccelerateWP Introduction
-
-The [AccelerateWP](/cloudlinuxos/shared-pro/#acceleratewp) carries a suite of optimization features that can be enabled and automatically configured for the end user's site.
-
-### Centralized Monitoring Introduction
-
-[Centralized Monitoring](/cloudlinuxos/shared-pro/#centralized-monitoring) is a tool that allows hosting administrators to monitor the load for all their servers and users.
-
-### X-Ray Introduction
-
-[X-Ray](/cloudlinuxos/shared-pro/#x-ray) is a tool developed for website performance monitoring and performance issues detection. X-Ray can gather and visualize information about the top N slowest system functions, external requests, software modules and database queries of the client’s website.
-
 ## AccelerateWP
 
 ### Getting started
