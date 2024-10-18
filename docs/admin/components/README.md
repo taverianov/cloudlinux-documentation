@@ -5,9 +5,9 @@ CloudLinux OS Admin is very close to the regular CloudLinux Legacy (Shared) edit
 
 The exclusions are:
 
- - [MySQL Governor](/shared/control_panel_integration/#mysql-governor) is not available
- - [X-Ray](/shared-pro/x-ray/#x-ray) is available like with CloudLinux Shared Pro
- - [Accelerate WP](/shared-pro/accelerate-wp/#acceleratewp) is available like with CloudLinux Shared Pro
+ - [MySQL Governor](/cloudlinuxos/control_panel_integration/#mysql-governor) is not available
+ - [X-Ray](/cloudlinuxos/shared-pro/x-ray/#x-ray) is available like with CloudLinux Shared Pro
+ - [Accelerate WP](/cloudlinuxos/shared-pro/accelerate-wp/#acceleratewp) is available like with CloudLinux Shared Pro
 
 The rest of the components are similar to CloudLinux OS Legacy (Shared).
 

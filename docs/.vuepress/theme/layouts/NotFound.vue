@@ -96,11 +96,15 @@ onMounted(async () => {
       }
     }
   }
-  
-  // check of the current path starts with /shared/ replace it with /legacy/ without losing the rest of the path or query
-  if (route.fullPath.startsWith('/shared')) {
-    const newPath = route.fullPath.replace('/shared', '/legacy');
+
+  if (route.fullPath.startsWith('/legacy')) {
+    const newPath = route.fullPath.replace('/legacy', '/cloudlinuxos');
+    // router.push(newPath);
+    window.location.href = newPath;
+  } else if (route.fullPath.startsWith('/shared')) {
+    const newPath = route.fullPath.replace('/shared', '/cloudlinuxos');
     router.push(newPath);
+    window.location.href = newPath;
   } else {
     window.location.href = '/not-found.html';
   }

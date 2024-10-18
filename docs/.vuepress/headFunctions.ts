@@ -28,10 +28,18 @@ export default [
       `
       (function() {
         var routes = ${JSON.stringify(routes)};
+        
+        // Function to normalize a URL by removing a trailing slash
+        function normalizeUrl(url) {
+          return url.endsWith('/') ? url.slice(0, -1) : url;
+        }
+    
+        var currentPath = normalizeUrl(window.location.pathname + window.location.hash);
     
         for (var route_url in routes) {
-          if (window.location.href.indexOf(route_url) !== -1) {
+          if (normalizeUrl(route_url) === currentPath) {
             window.location.href = routes[route_url];
+            break; // Exit the loop after redirecting
           }
         }
       })();
