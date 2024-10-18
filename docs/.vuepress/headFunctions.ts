@@ -29,12 +29,16 @@ export default [
       (function() {
         var routes = ${JSON.stringify(routes)};
         
-        // Function to normalize a URL by removing a trailing slash
+        // Function to normalize a URL by removing a trailing slash and leading characters
         function normalizeUrl(url) {
-          return url.endsWith('/') ? url.slice(0, -1) : url;
+          url = url.endsWith('/') ? url.slice(0, -1) : url;
+          url = url.startsWith('/') ? url.slice(1) : url;
+          url = url.startsWith('?') ? url.slice(1) : url;
+          return url;
         }
     
-        var currentPath = normalizeUrl(window.location.pathname + window.location.hash);
+        var currentPath = window.location.pathname + window.location.search + window.location.hash;
+        currentPath = normalizeUrl(currentPath);
     
         for (var route_url in routes) {
           if (normalizeUrl(route_url) === currentPath) {
@@ -68,4 +72,5 @@ export default [
       `,
     ]
   ];
+  
   

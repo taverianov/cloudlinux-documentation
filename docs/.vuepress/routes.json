@@ -48,5 +48,6 @@
     "/python_selector/#installation":"/cloudlinuxos/cloudlinux_os_components/#installation-1",
     "/user-docs/user-docs-shared-cloudlinux/#acceleratewp":"/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp",
     "/cloudlinux-os-plus":"/cloudlinuxos/shared-pro/",
-    "/cloudlinuxos": "/cloudlinuxos/cloudlinux_installation/#installation"
+    "/cloudlinuxos": "/cloudlinuxos/cloudlinux_installation/#installation",
+    "/shared": "/cloudlinuxos/"
 }
