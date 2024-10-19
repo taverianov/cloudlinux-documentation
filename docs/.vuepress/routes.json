@@ -49,5 +49,7 @@
     "/user-docs/user-docs-shared-cloudlinux/#acceleratewp":"/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp",
     "/cloudlinux-os-plus":"/cloudlinuxos/shared-pro/",
     "/cloudlinuxos": "/cloudlinuxos/cloudlinux_installation/#installation",
-    "/shared": "/cloudlinuxos/"
+    "/shared": "/cloudlinuxos/",
+    "/shared-pro/accelerate-wp/#set-upgrade-url-for-cdn": "/cloudlinuxos/shared-pro/#set-upgrade-url-for-cdn",
+    "/shared-pro/accelerate-wp": "/cloudlinuxos/shared-pro/#acceleratewp"
 }
