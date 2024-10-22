@@ -17,7 +17,7 @@ export default [
     {
         title: "AccelerateWP",
         description: "AccelerateWP carries a suite of optimization features that can be enabled and automatically configured for the end user's site.",
-        link: "/cloudlinuxos/sharedpro/accelerate-wp/",
+        link: "/cloudlinuxos/shared-pro/#acceleratewp",
     },
     {
         title: "CLN - CloudLinux Licenses",
