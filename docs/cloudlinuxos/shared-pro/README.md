@@ -1312,10 +1312,10 @@ Make sure that `cm.cloudlinux.com` is available on your end server.
     yum update lve-utils
     ```
 3. Log in to the [https://cm.cloudlinux.com/](https://cm.cloudlinux.com/) using CLN credentials (if you are already logged in via CLN, authorization via CM is not necessary, it uses SSO).
-4. Activate statistics collection on all your servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). Optionally, activate the [AccelerateWP Free](/cloudlinuxos/shared-pro/accelerate-wp/#acceleratewp-suite)* for all of your compatible servers.
-    ![](/images/cloudlinuxos/shared-pro/centralized-monitoring/CMInstallationProd.webp) Additionally, it is possible to activate the [AccelerateWP Premium](/cloudlinuxos/shared-pro/accelerate-wp/#acceleratewp-premium-suite)* for all compatible servers.
+4. Activate statistics collection on all your servers via the [Centralized Monitoring UI](https://cm.cloudlinux.com) or via the [CLN UI](https://cln.cloudlinux.com/console/cloudlinux/centralized-monitoring). Optionally, activate the [AccelerateWP Free](/cloudlinuxos/shared-pro/#acceleratewp-suite)* for all of your compatible servers.
+    ![](/images/cloudlinuxos/shared-pro/centralized-monitoring/CMInstallationProd.webp) Additionally, it is possible to activate the [AccelerateWP Premium](/cloudlinuxos/shared-pro/#acceleratewp-premium-suite)* for all compatible servers.
     ![](/images/cloudlinuxos/shared-pro/centralized-monitoring/CMInstallationPremium.webp)
-5. Within couple minutes after the activation, statistics collection and sending to the central server, [AccelerateWP Free](/cloudlinuxos/shared-pro/accelerate-wp/#acceleratewp-suite)* and [AccelerateWP Premium](/cloudlinuxos/shared-pro/accelerate-wp/#acceleratewp-premium-suite) * will be set up automatically: all required packages and components will be installed. For new, just registered servers, actions can take up to 5 hours.
+5. Within couple minutes after the activation, statistics collection and sending to the central server, [AccelerateWP Free](/cloudlinuxos/shared-pro/#acceleratewp-suite)* and [AccelerateWP Premium](/cloudlinuxos/shared-pro/#acceleratewp-premium-suite) * will be set up automatically: all required packages and components will be installed. For new, just registered servers, actions can take up to 5 hours.
 6. Make sure you have activated statistics collection (see paragraph 4) otherwise you will not be able to set up your servers. For instant set up of a registered server after statistics collection was enabled, run the following commands for all servers:
     ```
     rhn_check	
