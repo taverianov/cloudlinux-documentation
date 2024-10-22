@@ -3324,6 +3324,7 @@ Please make sure to specify your current <span class="notranslate"> MariaDB </sp
 * 104 – MariaDB v10.4 [requires <span class="notranslate">MySQL Governor</span> 1.2-53+]
 * 105 - MariaDB v10.5 [requires <span class="notranslate">MySQL Governor</span> 1.2-62+]
 * 106 - MariaDB v10.6 [requires <span class="notranslate">MySQL Governor</span> 1.2-76+]
+* 1011 - MariaDB v10.11 [requires <span class="notranslate">MySQL Governor</span>  1.2-103+]
 
 :::tip Updated note
 MariaDB version 10.4 is available for CloudLinux OS 6.
@@ -3369,6 +3370,7 @@ If you are installing <span class="notranslate"> MySQL Governor </span> on a ser
 |mariadb104 |MariaDB v 10.4 [requires <span class="notranslate">MySQL Governor</span> 1.2-53+]|
 |mariadb105 |MariaDB v 10.5 [requires <span class="notranslate">MySQL Governor</span> 1.2-62+]|
 |mariadb106 |MariaDB v 10.6 [requires <span class="notranslate">MySQL Governor</span> 1.2-76+]|
+|mariadb1011 |MariaDB v 10.11 [requires <span class="notranslate">MySQL Governor</span> 1.2-103+]|
 |percona56 | <span class="notranslate"> Percona Server v 5.6 </span> |
 
 Generally, <span class="notranslate"> stable </span> and <span class="notranslate"> beta </span> channels contain different version of MySQL packages - <span class="notranslate"> beta </span> contains newer version than <span class="notranslate"> stable </span> or the same one. If you would like to install  <span class="notranslate"> beta </span>  packages, use  <span class="notranslate"> --install-beta </span>  flag instead of  <span class="notranslate"> --install </span>  when calling installation script:
