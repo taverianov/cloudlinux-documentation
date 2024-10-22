@@ -52,5 +52,6 @@
     "/shared": "/cloudlinuxos/",
     "/shared-pro/accelerate-wp/#set-upgrade-url-for-cdn": "/cloudlinuxos/shared-pro/#set-upgrade-url-for-cdn",
     "/shared-pro/accelerate-wp": "/cloudlinuxos/shared-pro/#acceleratewp",
-    "/shared-pro/": "/cloudlinuxos/shared-pro/"
+    "/shared-pro/": "/cloudlinuxos/shared-pro/",
+    "/cloudlinuxos-pro/introduction/":"/cloudlinuxos/shared-pro/#introduction"
 }
