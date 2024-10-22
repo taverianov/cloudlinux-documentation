@@ -68,9 +68,8 @@ onMounted(async () => {
     router.push(newPath);
     window.location.href = newPath;
   } else {
-    // Show the iframe and set the source to 'not-found.html'
-    showIframe.value = true;
-    iframeSrc.value = '/not-found.html';
+    router.push('/not-found.html');
+    window.location.href = ('/not-found.html');
   }
 });
 </script>
