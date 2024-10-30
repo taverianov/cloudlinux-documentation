@@ -1152,7 +1152,7 @@ end-users will see the Object Caching feature in their interface,
 but cannot install the plugin unless they purchase the feature using WHMCS or 3'd party billing.
 
 #### AccelerateWP suite
-This is a basic suite which includes [AccelerateWP base feature](/user-docs/user-docs-shared-cloudlinux/#acceleratewp-feature-wordpress-optimization-plugin): 
+This is a basic suite which includes [AccelerateWP base feature](/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp-feature-wordpress-optimization-plugin): 
 a WordPress optimization plugin that provides full page caching, GZIP compression and some other useful optimizations.
 
 **AccelerateWP suite limitations**
@@ -1176,7 +1176,7 @@ This feature is free of charge only during the beta testing period.
 Afterwards it will be charged. Beta testing period ends no earlier than March 2023.
 :::
 
-This is a premium suite which includes [Object Caching feature](/user-docs/user-docs-shared-cloudlinux/#acceleratewp-premium-object-caching-feature).
+This is a premium suite which includes [Object Caching feature](/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp-premium-object-caching-feature).
 
 The Object Caching mechanism stores database query results in additional storage for quick access. 
 This mechanism is really helpful in case if website needs to process multiple pages per second as 
@@ -1305,7 +1305,7 @@ cloudlinux-awp-admin set-suite --suites=accelerate_wp,accelerate_wp_premium --di
 ### Useful AccelerateWP CLI commands
 Use CLI commands to check AccelerateWP features status.
 
-If you are also interested in Smart Advice CLI command, they could be found [here](/manager/#useful-smart-advice-cli-commands).
+If you are also interested in Smart Advice CLI command, they could be found [here](/solo/manager/#useful-smart-advice-cli-commands).
 
 :::warning Warning!
 This is an experimental feature. The backwards compatibility is not guaranteed.
@@ -1528,7 +1528,7 @@ If the banner was previously disabled/enabled for the website, then for its subs
 
 CloudLinux developed it's own WHMCS plugin 
 which provides you AccelerateWP billing integration out of the box. 
-Check out [the documentation](/cln/whmcs_awp_plugin/) to find how to install and use the plugin.
+Check out [the documentation](/cln/whmcs_plugin/) to find how to install and use the plugin.
 
 ### Other billing integration
 
