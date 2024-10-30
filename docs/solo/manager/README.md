@@ -1828,7 +1828,7 @@ Cloudlinux Solo supports only inodes limits. More informormation is available [h
 * [Overview](/solo/manager/#php-selector-overview)
 * [How to enable PHP Selector](/solo/manager/#how-to-enable-php-selector)
 * [PHP Handlers](/solo/manager/#php-handlers)
-* [Administrator interface](/manager/#selector-admin-interface)
+* [Administrator interface](/solo/manager/#administrator-interface-1)
 
 ### Overview
 
