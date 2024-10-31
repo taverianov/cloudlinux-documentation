@@ -1039,7 +1039,7 @@ To use CloudLinux Shared Pro in Virtuozzo container, please update the next pack
 * [AccelerateWP](/cloudlinuxos/cloudlinux_installation/#acceleratewp)
 * [Hardened PHP](/cloudlinuxos/control_panel_integration/#hardened-php)
 * [Website monitoring and Slow Site Analyzer](/cloudlinuxos/lve_manager/#website-monitoring-tool-and-slow-site-analyzer)
-* [X-Ray](/cloudlinuxos/shared-pro/x-ray)
+* [X-Ray](/solo/manager/#x-ray)
 * [CageFS](/cloudlinuxos/cloudlinux_installation/#cagefs)
 * [PHP Selector](/cloudlinuxos/cloudlinux_installation/#php-selector)
 * [Wizard](/cloudlinuxos/cloudlinux_installation/#cloudlinux-wizard)
