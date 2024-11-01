@@ -61,6 +61,7 @@
     "/admin/description/":"/introduction/admin/",
     "/admin/installation/":"/introduction/admin/#licensing",
     "/admin/components/":"/introduction/admin/#components",
-    "/admin/faq/":"/introduction/admin/#faq"
+    "/admin/faq/":"/introduction/admin/#faq"б
+    "/introduction/":"/introduction/cloudlinux-os-editions/"
 
 }
