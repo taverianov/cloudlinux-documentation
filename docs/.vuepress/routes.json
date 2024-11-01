@@ -62,6 +62,7 @@
     "/admin/installation/":"/introduction/admin/#licensing",
     "/admin/components/":"/introduction/admin/#components",
     "/admin/faq/":"/introduction/admin/#faq",
-    "/introduction/":"/introduction/cloudlinux-os-editions/"
+    "/introduction/":"/introduction/cloudlinux-os-editions/",
+    "/introduction/#cloudlinux-os-life-cycle":"/introduction/cloudlinux-os-editions/#cloudlinux-os-life-cycle"
 
 }
