@@ -36,7 +36,9 @@ There are some incompatible devices with **CL6**:
 With RHEL8 (**CloudLinux OS 8/CloudLinux OS 7 Hybrid**), some devices are no longer supported.
 You can check the entire list here: [Hardware enablement considerations in adopting RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/hardware-enablement_considerations-in-adopting-rhel-8#removed-hardware-support_hardware-enablement)
 
-## Software Compatibility
+## Software Compatibility 
+
+CloudLinux OS is designed to maintain full binary compatibility with CentOS and Red Hat Enterprise Linux (RHEL). This means that any software, applications, or scripts that run on CentOS or RHEL can run on CloudLinux OS without modification. The operating system ensures broad compatibility with the vast ecosystem of Linux software, providing a seamless and stable environment for hosting providers and users transitioning from other enterprise Linux distributions. This compatibility extends to package management, system libraries, and core functionalities, making CloudLinux OS a reliable drop-in replacement that supports the same software stack as its counterparts.
 
 ### ZFS
 
@@ -48,14 +50,15 @@ CloudLinux 8+ provides limited support for ZFS, to the same degree as other RHEL
 1.  Because ZFS is known to have some lag in adapting to kernel changes, we consider it the customer's responsibility to test the upgradeability of the environment to the most recent kernels and ZFS versions before upgrading the entire fleet.
 1.  Most CloudLinux features, like CageFS, should work fine with ZFS-backed mount points, and if not, we will try our best to provide fixes according to severity and demand
 
-CloudLinux features known to not work with ZFS:
+:::tip CloudLinux features known to not work with ZFS:
 
-1.  LVE IO Limits (as well as generic cgroups limits) don't work because the ZFS data path bypasses some of the kernel's internals. See related upstream tickets [1](https://github.com/canonical/lxd/issues/7627#issuecomment-671107839), [2](https://github.com/openzfs/zfs/issues/4275#issuecomment-1137332006), [3](https://github.com/openzfs/zfs/issues/1952#issuecomment-148471131). There is also an [ongoing attempt](https://github.com/openzfs/zfs/pull/16205) to implement per-dataset IO limits on the ZFS side.
+LVE IO Limits (as well as generic cgroups limits) don't work because the ZFS data path bypasses some of the kernel's internals. See related upstream tickets [1](https://github.com/canonical/lxd/issues/7627#issuecomment-671107839), [2](https://github.com/openzfs/zfs/issues/4275#issuecomment-1137332006), [3](https://github.com/openzfs/zfs/issues/1952#issuecomment-148471131). There is also an [ongoing attempt](https://github.com/openzfs/zfs/pull/16205) to implement per-dataset IO limits on the ZFS side. 
+:::
 
 
 ## Getting License
 
-You will need a valid activation key - trial or paid - to be able to use your CloudLinux OS Solo server.
+You will need a valid activation key - trial or paid - to be able to use your CloudLinux OS server.
 
 ### Getting Trial License
 
@@ -78,7 +81,6 @@ To get the activation key:
 
 You will get a key that looks like: `12314-d34463a182fede4f4d7e140f1841bcf2`.
 
-
 ## Converting existing servers
 
 Sometimes it is required to convert already existing servers with **`CentOS`** or **`AlmaLinux`** and make them **`CloudLinux OS`**.
@@ -97,12 +99,10 @@ Currently supported OS for conversion:
 * AlmaLinux OS 8, AlmaLinux OS 9
 * RockyLinux (installation only, no uninstall option)
 
-
 :::warning Unsupported OS for conversion:
 * CentOS 8
 * CentOS Stream
 :::
-
 
 Supported control panels:
 * cPanel ([Documentation](https://docs.cpanel.net/installation-guide/system-requirements-cloudlinux/))
@@ -112,6 +112,9 @@ Supported control panels:
 * InterWorx ([Documentation](https://appendix.interworx.com/current/nodeworx/plugins/install-use-cloudlinux-plugin-interworx.html))
 * Webuzo ([Documentation](https://webuzo.com/docs/installing-webuzo/install-cloudlinux-os/))
 
+:::warning Warning:
+CloudLinux 9 does not support Plesk. 
+:::
 
 :::warning Other control panels:
 Control panels not mentioned in the list of supported panels have native integration or integration done by the developer of the panel.

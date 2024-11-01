@@ -1,6 +1,11 @@
-# Introduction
+# Introduction to CloudLinux OS 
 
-[[toc]]
+* [CloudLinux OS editions](/introduction/cloudlinux-os-editions/)
+    * [CloudLinux OS Solo](/introduction/solo/)
+    * [CloudLinux OS Admin](/introduction/admin/)
+    * [CloudLinux OS Shared (Pro)](/cloudlinuxos/shared-pro/)
+* [CloudLinux OS components](/introduction/cloudlinux-os-editions/#cloudlinux-os-components)
+* [CloudLinux OS life cycle](/introduction/cloudlinux-os-editions/#cloudlinux-os-life-cycle)
 
 ## CloudLinux OS editions
 
@@ -29,41 +34,7 @@
 
 \** LVE limits are disabled by default.
 
-\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.
-
-### CloudLinux OS Solo
-CloudLinux OS Solo is designed for installation on VPS or VDS servers.
-This edition has major differences compared to all others, so please make sure to carefully examine the feature table to see if it is suitable for you
-[here](/introduction/).
-
-
-### CloudLinux OS Admin
-
-CloudLinux OS Admin is designed for shared hosting providers who want to flawlessly migrate their
-big shared hosting customer to individual VPS with same CloudLinux features as on Shared hosting.
-At the same time you will be able to separate such a user's websites if necessary and isolate them
-with CageFS for efficient extra security.
-Also it may be suitable for a small server with less than 5 customers on it.
-
-Most of the features of CloudLinux OS Legacy (Shared) are available in this edition, with a small differences:
-
-- lve limits are set to unlimited by default (can be changed in CloudLinux Manager at any time)
-- MySQL Governor is not available in this edition
-- the license itself does not allow more than 5 users to be hosted on server.
-
-### CloudLinux OS Shared (Pro)
-
-CloudLinux OS Shared Pro is designed for shared hosting providers.
-It isolates each customer into a separate “Lightweight Virtualized Environment” (LVE),
-which allocates and limits server resources, like memory, CPU and the number of simultaneous connections,
-for each web hosting tenant. This ensures that tenants cannot jeopardize the stability of your servers,
-causing all sites to slow down or even come to a halt. CloudLinux OS Shared Pro also “cages” tenants from one another
-to avoid security breaches. This way, unstable scripts or malware are not able to sprawl across your customer sites,
-causing severe harm.
-
-Purchasing CloudLinux OS Shared Pro license extends your CloudLinux OS Legacy (Shared)
-functionality with even more useful [features](/shared-pro/introduction/).
-
+\*** Python/Node.js/Ruby Selectors are available only for cPanel, DirectAdmin servers, and servers with custom panel with own integration.  
 
 ## CloudLinux OS components
 
@@ -147,22 +118,6 @@ LVE-stats 2 collects LVE usage statistics (CPU, memory, disk space usage),
 and allows to collect the usage data.
 
 [See more](/cloudlinuxos/cloudlinux_os_components/#lve-stats-2).
-
-## CloudLinux 9
-
-| CloudLinux 9 version             | Editions                                                                                 | Hosting Panels                                                         | Virtuozzo Support |
-|----------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------|-------------------|
-| CloudLinux 9 Beta                | CloudLinux Legacy (Shared) CloudLinux Shared Pro                                         | - Non-panel<br /> - Custom panel integration<br /> - [DirectAdmin](https://blog.cloudlinux.com/announcing-support-for-cloudlinux-9-with-directadmin)                                 | No                |
-| [CloudLinux 9.2](https://blog.cloudlinux.com/cloudlinux-os-9.2-is-now-available-for-non-panel-and-custom-panel-installations)                   | CloudLinux Legacy (Shared) CloudLinux Shared Pro                                                 | - Non-panel<br /> - Custom panel integration<br /> - cPanel with experimental key<br /> - DirectAdmin | No                |
-| [CloudLinux 9.3](https://blog.cloudlinux.com/cloudlinux-os-9-introducing-the-latest-9.3-version-now-accessible-for-non-panel-custom-panel-and-cpanel-users-from-version-11.116.0.1-onwards)<br>[CloudLinux 9.4](https://blog.cloudlinux.com/introducing-cloudlinux-os-9.4-stable-release) | CloudLinux Legacy (Shared)<br /> CloudLinux Shared Pro<br /> CloudLinux Solo<br />CloudLinux Admin | - Non-panel<br /> - Custom panel integration<br />  - cPanel >=  11.116.0.1<br /> - DirectAdmin        | No                |
-
-:::tip Note!
-Starting from v11.116.0.1, cPanel is fully integrated with CloudLinux 9 (9.2+), and the flag `--experimental-os=almalinux-9.2` no longer necessary.
-:::
-
-:::tip Note!
-If you have a server with cPanel + CloudLinux already installed via the experimental flag `--experimental-os=almalinux-9.2`, as described here, it is highly recommended to reinstall the server from scratch to avoid unexpected behavior.
-:::
 
 ## CloudLinux OS life cycle
 
