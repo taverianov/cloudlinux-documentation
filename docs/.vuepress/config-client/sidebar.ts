@@ -12,31 +12,9 @@ export default {
         {
             collapsable: false,
             children: [
-                "/introduction/"
-            ]
-        },
-    ],
-    '/admin/': [
-        {
-            collapsable: false,
-            children: [
-            "/admin/description/",
-            "/admin/installation/",
-            "/admin/components/",
-            "/admin/faq/"
-            ]
-        },
-    ],
-    '/solo/': [
-        {
-            collapsable: false,
-            children: [
-            "/solo/introduction/",
-            "/solo/installation/",
-            "/solo/activation/",
-            "/solo/administration/",
-            "/solo/manager/",
-            "/solo/faq/"
+                "/introduction/cloudlinux-os-editions/",
+                "/introduction/solo/",
+                "/introduction/admin/"
             ]
         },
     ],

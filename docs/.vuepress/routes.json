@@ -54,5 +54,13 @@
     "/shared-pro/": "/cloudlinuxos/shared-pro/",
     "/cloudlinuxos-pro/introduction/":"/cloudlinuxos/shared-pro/#introduction",
     "/shared-pro/accelerate-wp": "/cloudlinuxos/shared-pro/#acceleratewp",
-    "/cloudlinuxos/shared-pro/accelerate-wp/": "/cloudlinuxos/shared-pro/#acceleratewp"
+    "/cloudlinuxos/shared-pro/accelerate-wp/": "/cloudlinuxos/shared-pro/#acceleratewp",
+    "/solo/introduction/":"/introduction/solo/",
+    "/solo/activation/":"/introduction/solo/#license-activation",
+    "/solo/faq/":"/introduction/solo/#faq",
+    "/admin/description/":"/introduction/admin/",
+    "/admin/installation/":"/introduction/admin/#licensing",
+    "/admin/components/":"/introduction/admin/#components",
+    "/admin/faq/":"/introduction/admin/#faq"
+
 }
