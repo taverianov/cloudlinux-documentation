@@ -1729,6 +1729,10 @@ To start all users CLI commands use <span class="notranslate">`cagefs_enter`</sp
 
 * Create user application:
 
+    :::tip Note
+    Python Selector supports only utf-8 symbols for the 'app-root' and 'app-uri' arguments.
+    ::: 
+
     <div class="notranslate">
     
     ```
@@ -1880,6 +1884,11 @@ To create application run:
 /usr/bin/selectorctl --interpreter=ruby --version=VERSION [--user=USER] [--print-summary] [--json] --create-webapp <FOLDER_NAME> <URI>
 ```
 </div>
+
+:::tip Note
+Ruby Selector supports only utf-8 symbols for the 'FOLDER_NAME' and 'URI' arguments.
+::: 
+
 To delete application:
 <div class="notranslate">
 
@@ -2214,6 +2223,11 @@ cloudlinux-selector create [--json] --interpreter nodejs [(--user <str> | --doma
 </div>
 
 **Example**:  
+
+:::tip Note
+NodeJS Selector supports only utf-8 symbols for the 'app-root' and 'app-uri' arguments.
+::: 
+
 This command creates <span class="notranslate"> user1 </span> 's application for the domain <span class="notranslate"> xyz.com </span> :
 <div class="notranslate">
 
@@ -2228,6 +2242,7 @@ or
 cloudlinux-selector create --json --interpreter nodejs --app-root my_apps/app1 --domain xyz.com --app-uri apps/app1
 ```
 </div>
+
 Start, restart, stop, and destroy user application
 <div class="notranslate">
 
