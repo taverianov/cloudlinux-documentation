@@ -345,7 +345,16 @@ Here's what the cldeploy script does when you run it:
 
 #### Uninstallation Process
 
-Here's what the cldeploy script does if you run it to uninstall CloudLinux:
+To uninstall CloudLinux, run the following command:
+```
+cldeploy -c
+```
+or equivalently:
+```
+cldeploy --uninstall
+```
+
+Here's what the cldeploy script does during uninstallation:
 
 * Restores CentOS/AlmaLinux repositories, and almalinux-release/centos-release/release-notes/logos.
 * Removes lve, mod_hostinglimits, lve-stats, lvemanager packages.
