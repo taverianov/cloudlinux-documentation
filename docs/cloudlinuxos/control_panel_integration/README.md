@@ -24,7 +24,7 @@ We encourage you to create a pull request with your feedback at the bottom of th
 
 ### Introduction
 
-There are several possible ways of integration with CloudLinux OS OS:
+There are several possible ways of integration with CloudLinux OS:
 
 * **Complete integration using new API** - exactly what is described in this document. This way a panel vendor will get all CloudLinux OS features (current and future) and maximum support. It’s recommended.
 * **Manually Ad-hoc** - using low-level CLI utils. It is not recommended. It’s kind of “do it yourself way” - a control panel might use low-level utils like `lvectl` to set limits directly to a raw LVE by ID and control everything (including edge-cases) in its own code. There are many downsides of such approach e.g. only a small number of features can be implemented this way and any new changes in CloudLinux OS will require more and more updates to the control panel code, and can possibly even introduce bugs, etc. And although this way looks easier at first, it will become more and more difficult to maintain it over time.
