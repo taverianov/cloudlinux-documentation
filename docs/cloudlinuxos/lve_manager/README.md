@@ -1656,11 +1656,11 @@ Go to the <span class="notranslate">_Snapshot_</span> tab to see server snapshot
 
 You can choose a date and a snapshot to display in the table.
 
-#### Server processes snapshots
+#### Server process snapshots
 
-In case when a CloudLinux OS user hits LVE limits, appropriate faults are generated and [lvestats](/cloudlinuxos/deprecated/#lve-stats-0-x) package generates server processes snapshot. Snapshot is a list of running applications and a list of running MySQL queries right after the faults happened.
+When a CloudLinux OS user hits LVE limits, appropriate faults are generated and the [lvestats](/cloudlinuxos/cloudlinux_os_components/#lve-stats-2) package generates a server process snapshot. The snapshot is a list of running applications and a list of running MySQL queries right after the faults happened.
 
-Snapshots allow users to investigate the reason of account hitting its limits. Several snapshots are generated for each incident. An incident is a state when faults are generated in a close time period. The time period is configurable. By default, if faults are generated in 300 seconds time period, we consider them as a single incident.
+Snapshots allow users to investigate the reason of accounts hitting their limits. Several snapshots are generated for each incident. An incident is a state when multiple faults are generated in a given time period. The time period is configurable. By default, if faults are generated within a period of 300 seconds, we consider them to be a single incident.
 
 The snapshot configuration options are available in
 
