@@ -1001,8 +1001,8 @@ After creating a new user, the following script should be called:
 | | | | |
 |-|-|-|-|
 |Argument |Mandatory |Default |Description |
-|<span class="notranslate">--username, -u</span>|Yes | - |The name of administrator account to be removed |
-|<span class="notranslate">--owner, -o</span>|Yes | - |A name of the account owner. The owner can be an administrator or a reseller |
+|<span class="notranslate">--username, -u</span>|Yes | - |The name of the user account |
+|<span class="notranslate">--owner, -o</span>|Yes | - |The owned of the created account. The owner can be an administrator or a reseller |
 
 After renaming a user (when a user name or a home directory was changed), the following script should be called:
 
