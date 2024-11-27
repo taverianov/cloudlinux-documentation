@@ -372,7 +372,22 @@ More information is also available here: [Uninstall CloudLinux](/cloudlinuxos/cl
 
 ## Installing new servers
 
-All CloudLinux OS editions may be installed using one ISO and source.
+All CloudLinux OS editions may be installed using one ISO and source. 
+
+:::tip 
+After installing CloudLinux OS from the ISO, you can switch between different editions by updating the license key. This flexibility allows you to upgrade or change editions without reinstalling the operating system. To switch editions: 
+
+1. **Obtain the new activation key** for the desired CloudLinux OS edition from the [CloudLinux Network (CLN)](https://cln.cloudlinux.com/console/auth/login).
+2. **Re-register your server** with the new key by running the following command as the root user:
+```
+rhnreg_ks --activationkey=<new_activation_key> --force
+```
+Replace `<new_activation_key>` with the activation key for your new edition.
+For IP-based licenses, use the following command instead:
+```
+clnreg_ks --force
+```
+:::
 
 ### Downloading ISO
 
