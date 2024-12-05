@@ -7740,13 +7740,13 @@ This mode is enabled by default and creates a separate lsphp process for each vi
 
 ### General information and requirements
 
-The nginx-lsapi-module is an extension for the [NGINX](https://www.nginx.com/) web server, designed to seamlessly integrate the lightweight, high-performance [LiteSpeed](https://www.litespeedtech.com/open-source/litespeed-sapi) PHP processing capability directly within the NGINX architecture. This module enables NGINX to efficiently handle PHP requests using the LiteSpeed SAPI, offering an alternative to traditional PHP-FPM or mod_php approaches. It aims to leverage the speed and flexibility of LiteSpeed's PHP processing in environments where the NGINX is the preferred web server.
+The NGINX LSAPI Module is an extension for the [NGINX](https://www.nginx.com/) web server, designed to seamlessly integrate the lightweight, high-performance [LiteSpeed](https://www.litespeedtech.com/open-source/litespeed-sapi) PHP processing capability directly within the NGINX architecture. This module enables NGINX to efficiently handle PHP requests using the LiteSpeed SAPI, offering an alternative to traditional PHP-FPM or mod_php approaches. It aims to leverage the speed and flexibility of LiteSpeed's PHP processing in environments where the NGINX is the preferred web server.
 
 **How does it work?**
 
-1. NGINX passes handling for PHP request to nginx-mod-lsapi;
-2. nginx-mod-lsapi uses liblsapi to transfer request to the lsphp parent process;
-3. lsphp forks the child process, which executes the request and returns data to nginx-mod-lsapi;
+1. NGINX passes handling for PHP request to NGINX LSAPI Module;
+2. NGINX LSAPI Module uses liblsapi to transfer request to the lsphp parent process;
+3. lsphp forks the child process, which executes the request and returns data to NGINX LSAPI Module;
 
 * If there are no requests for lsapi_pgrp_max_idle seconds, lsphp parent process will be terminated;
 * If there are no lsphp child processes available when a new request comes, the new lsphp child process will be created;
@@ -7755,9 +7755,13 @@ The nginx-lsapi-module is an extension for the [NGINX](https://www.nginx.com/) w
 
 **What is lsphp?**
 
-lsphp - PHP + LSAPI. What is PHP LSAPI? [LiteSpeed Server Application Programming Interface](https://www.litespeedtech.com/open-source/litespeed-sapi/php) (LSAPI) is designed specifically for seamless, optimized communication between the LiteSpeed Web Server and third-party web applications. With nginx-mod-lsapi, this protocol is now available for NGINX.
+lsphp - PHP + LSAPI. What is PHP LSAPI? [LiteSpeed Server Application Programming Interface](https://www.litespeedtech.com/open-source/litespeed-sapi/php) 
+(LSAPI) is designed specifically for seamless, optimized communication between the LiteSpeed Web Server and third-party web applications. 
+With NGINX LSAPI Module, this protocol is now available for NGINX.
 
-Using nginx-mod-lsapi, we have seen the higher performance than NGINX with fastcgi+php-fpm, easier installation than php-fpm and easier integration with any control panel. nginx-mod-lsapi means faster and more stable dynamic web pages.
+Using NGINX LSAPI Module, we have seen higher performance than NGINX with fastcgi+php-fpm, 
+easier installation than php-fpm and easier integration with any control panel. 
+NGINX LSAPI Module means faster and more stable dynamic web pages.
 
 **Optional requirements**
 
@@ -7768,24 +7772,24 @@ Using nginx-mod-lsapi, we have seen the higher performance than NGINX with fastc
 
 ### Installation
 
-nginx-mod-lsapi can be installed through YUM package manager, however, the installation process varies depending on the control panel.
+NGINX LSAPI Module can be installed through YUM package manager. However, the installation process varies depending on the control panel.
 
 Select the control panel you are using:
 * [cPanel](./#installing-on-cpanel-servers-with-ea-nginx)
-* [No control panel](./#installing-on-servers-with-no-control-panel-2)
+* No control panel - In progress
 * Plesk - In progress
 * DirectAdmin - In progreess
 
 #### Installing on cPanel servers with ea-nginx
 
-Install nginx-mod-lsapi and related packages through YUM package manager as follows:
+Install NGINX LSAPI Module and related packages through YUM package manager as follows:
 <div class="notranslate">
 
 ```
 yum install ea-nginx-mod-lsapi --enablerepo=cl-ea4-testing
 ```
 </div>
-Now, when the module is installed, restart NGINX to ensure that the nginx-mod-lsapi is enabled:
+Now, when the module is installed, restart NGINX to ensure that NGINX LSAPI Module is enabled:
 <div class="notranslate">
 
 ```
@@ -7796,37 +7800,20 @@ service nginx restart
 Use Apache2Nginx to set up NGINX hosting on the server and automatically convert .htaccess files into corresponding NGINX configuration.
 For more details, please visit [Apache2Nginx](/cloudlinuxos/apache2nginx/#apache2nginx).
 
-#### Installing on servers with no control panel
-
-Install nginx-mod-lsapi and related packages through YUM package manager as follows:
-<div class="notranslate">
-
-```
-yum install nginx-mod-lsapi
-```
-</div>
-Now, when the module is installed, restart NGINX to ensure that nginx-mod-lsapi is enabled:
-<div class="notranslate">
-
-```
-service nginx restart
-```
-</div>
-
 
 ### Uninstalling
 
 
-The uninstallation process of the nginx-mod-lsapi module also varies depending on your control panel.
+The uninstallation process of the NGINX LSAPI Module also varies depending on your control panel.
 
 Select the control panel you are using:
-* [cPanel](./#uninstall-procedure-for-cpanel-servers-with-ea-nginx)
-* [No control panel](./#uninstall-procedure-for-servers-with-no-control-panel-2)
+* [cPanel](./#uninstallation-procedure-for-cpanel-servers-with-ea-nginx)
+* No control panel - In progress
 * Plesk - In progress
 * DirectAdmin - In progreess
 
 
-#### Uninstallation procedure for cPanel servers with EA-NGINX
+#### Uninstallation procedure for cPanel servers with ea-nginx
 
 Remove packages with YUM package manager:
 <div class="notranslate">
@@ -7851,7 +7838,7 @@ Remove packages with YUM package manager:
 <div class="notranslate">
 
 ```
-yum erase nginx-mod-lsapi
+yum erase ea-nginx-mod-lsapi
 rm [path to nginx-mod-lsapi.conf]
 ```
 </div>
@@ -7867,7 +7854,11 @@ service nginx restart
 
 * [Configuration references](./#configuration-references-1)
 
-In order to get nginx-mod-lsapi to work properly, you'll need to configure NGINX. To do this, we use a separate _lsapi.conf_ file.
+:::tip Note
+If using Apache2Nginx, no configuration is required for NGINX LSAPI Module. The module is automatically configured to process PHP requests.
+:::
+
+In order to get NGINX LSAPI Module to work properly, you'll need to configure NGINX. To do this, we use a separate _lsapi.conf_ file.
 
 First of all, you need to make sure that the appropriate LSAPI module configuration exists and contains the correct content.
 <div class="notranslate">
@@ -7899,7 +7890,7 @@ lsapi_enabled on;
 The lsapi_enabled parameter is supported in global, server, and local configurations. Therefore, it can be enabled/disabled globally, only for the server, and also only for a specific location.
 
 
-The LSPHP handler can be enabled using the lsapi_handler directive. The lsapi_handler directive tells NGINX that the files with .php extension should be handled by nginx-mod-lsapi with the selected handler.
+The LSPHP handler can be enabled using the lsapi_handler directive. The lsapi_handler directive tells NGINX that the files with .php extension should be handled by NGINX LSAPI Module with the selected handler.
 <div class="notranslate">
 
 ```
@@ -7907,7 +7898,7 @@ The LSPHP handler can be enabled using the lsapi_handler directive. The lsapi_
 ```
 </div>
 
-If no handler is explicitly set for a request, the specified content type will be used as the handler name, therefore, please disable php.conf or any other PHP handler for using nginx-mod-lsapi. In this example application/x-httpd-lsphp is a default handler by which nginx-mod-lsapi processes requests with the lsphp binary from _/usr/local/bin/_ directory.
+If no handler is explicitly set for a request, the specified content type will be used as the handler name, therefore, please disable php.conf or any other PHP handler for using NGINX LSAPI Module. In this example application/x-httpd-lsphp is a default handler by which NGINX LSAPI Module processes requests with the lsphp binary from _/usr/local/bin/_ directory.
 
 The final lsapi.conf configuration might look like this:
 <div class="notranslate">
@@ -7932,15 +7923,15 @@ server {
 ```
 </div>
 
-In order for nginx-mod-lsapi to work lsapi.conf should be loaded to NGINX through [Include](https://nginx.org/en/docs/ngx_core_module.html#include) directive.
+In order for NGINX LSAPI Module to work lsapi.conf should be loaded to NGINX through [Include](https://nginx.org/en/docs/ngx_core_module.html#include) directive.
 
 For a more detailed description of the module directives please visit the [Configuration reference](./#configuration-references-2).  
-For the installation guide for nginx-mod-lsapi please visit [Installation](./#installation-3).
+For the installation guide for NGINX LSAPI Module please visit [Installation](./#installation-3).
 
 #### Configuration references
 
 
-[nginx-mod-lsapi customization](./#nginx-mod-lsapi-customization):
+[NGINX LSAPI Module customization](./#nginx-lsapi-module-customization):
 * [lsapi_enabled](./#lsapi-enabled)  
 * [lsapi_sock_path](./#lsapi-sock-path)  
 * [lsapi_per_user](./#lsapi-per-user-1)  
@@ -7996,7 +7987,7 @@ For the installation guide for nginx-mod-lsapi please visit [Installation](./#in
 * [lsapi_paranoid](./#lsapi-paranoid-1)
 * [lsapi_check_doc_root](./#lsapi-check-doc-root)
 
-#### **nginx-mod-lsapi customization**
+#### **NGINX LSAPI Module customization**
 
 #### **lsapi_enabled**
 
@@ -8718,10 +8709,10 @@ Set user & group for requests.
 
 ### Troubleshooting
 
-**Debugging nginx-mod-lsapi issues: error.log & sulsphp.log**
+**Debugging NGINX LSAPI Module issues: error.log & sulsphp.log**
 
 
-nginx-mod-lsapi errors will be located in error_log and sulsphp_log.
+NGINX LSAPI Module errors will be located in error_log and sulsphp_log.
 Note that errors can appear in both logs at the same time, and you might need to refer to both of them to solve the issue.
 
 See the following table for more details:
@@ -8747,7 +8738,7 @@ See the following table for more details:
 
 CRIU is <span class="notranslate"> _Checkpoint/Restore In Userspace_ </span> , (pronounced <span class="notranslate"> kree-oo </span> ), is a software tool for the Linux operating system. Using this tool, you can freeze a running application (or part of it) and checkpoint it as a collection of files on disk. You can then use the files to restore the application and run it exactly as it was at the time of freeze (more information on the link [https://criu.org/Main_Page](https://criu.org/Main_Page) ).
 
-nginx-mod-lsapi now supports the following parameters:
+NGINX LSAPI Module now supports the following parameters:
 
 | |  |  | |
 |-|--|--|-|
@@ -8771,7 +8762,7 @@ lsapi_criu_debug off;
 ```
 </div>
 
-When NGINX module nginx-mod-lsapi detects CRIU enabled (lsapi_criu On), it prepares a directory for images (on the first request of virtualhost) to store ( <span class="notranslate"> lsapi_criu_img_path /var/ngx_lsapi/criu/[dir_name] </span> ), and starts the lsphp process. Lsphp increases a counter ( <span class="notranslate"> lsapi_criu_use_shm off|Signals </span> ) via shared memory or signals, and when counter reaches the limit ( <span class="notranslate"> lsapi_backend_initial_start 15 </span> ), lsphp sends the freezing request to CRIU.
+When NGINX module NGINX LSAPI Module detects CRIU enabled (lsapi_criu On), it prepares a directory for images (on the first request of virtualhost) to store ( <span class="notranslate"> lsapi_criu_img_path /var/ngx_lsapi/criu/[dir_name] </span> ), and starts the lsphp process. Lsphp increases a counter ( <span class="notranslate"> lsapi_criu_use_shm off|Signals </span> ) via shared memory or signals, and when counter reaches the limit ( <span class="notranslate"> lsapi_backend_initial_start 15 </span> ), lsphp sends the freezing request to CRIU.
 The CRIU service makes images of requested processes. Lsphp will not be frozen if counter does not reach the limit. The next time when lsphp will be stopped, it will be unfrozen from the images.
 
 The images of the processes will be saved even if NGINX is restarted. However, all images will be deleted after a server restart by default. This can be modified by setting the new path <span class="notranslate"> lsapi_criu_imgs_path </span> .
@@ -8837,7 +8828,7 @@ systemctl daemon-reload
 
 #### CRIU Installation
 
-CRIU is installed as a dependency to the nginx-mod-lsapi package. To activate it:
+CRIU is installed as a dependency to the NGINX LSAPI Module package. To activate it:
 
 1. Enable service and start it:
 
@@ -8890,7 +8881,7 @@ Note that this option works only if <span class="notranslate">lsapi_terminate_ba
 
 3. Global reset flag for cleaning all earlier saved images by CRIU.
 
-Current nginx-mod-lsapi allows cleaning all images only with one flag file.
+The current NGINX LSAPI Module allows cleaning all images only with one flag file.
 
 Create <span class="notranslate"> /usr/share/criu/mod_lsapi/lsphp.criu.reset </span> file. Also don't forget to set permissions as follows: <span class="notranslate"> [nobody:nobody] </span> (or <span class="notranslate"> [nginx:nginx] </span> for non cPanel) and access mode [700] to the <span class="notranslate"> /usr/share/criu/mod_lsapi </span> directory.
 
@@ -8927,7 +8918,7 @@ This mode is enabled by default and creates a separate lsphp process for each vi
 
 <span class="notranslate">`mod_lsapi_reset_me[server_name]`</span> flag will not work for a user when lsapi_per_user option is <span class="notranslate">`on`</span>.
 
-5. There is an (default <span class="notranslate">`off`</span>) option in nginx-mod-lsapi that creates only one lsphp process for a user, regardless of the number of his virtual hosts. We don't recommend to use this option with CRIU, but if you use it, make sure that your virtual hosts (under the same user) have the same environment configurations. If they are not the same, this may cause undesirable lsphp process operations.
+5. There is an (default <span class="notranslate">`off`</span>) option in NGINX LSAPI Module that creates only one lsphp process for a user, regardless of the number of his virtual hosts. We don't recommend to use this option with CRIU, but if you use it, make sure that your virtual hosts (under the same user) have the same environment configurations. If they are not the same, this may cause undesirable lsphp process operations.
 
 
 
@@ -10255,4 +10246,3 @@ This module is integrated into Apache for DirectAdmin control panel by default.
 This module is integrated into httpd Apache rpm provided by Cloudlinux OS by default.
 
 If you are using an alternative Apache - [httpd24](https://www.cloudlinux.com/cloudlinux-os-blog/entry/httpd24-updated-for-cloudlinux-6), nothing has to be done as this module is also integrated into httpd24-httpd Apache rpm provided by Cloudlinux by default.
-
