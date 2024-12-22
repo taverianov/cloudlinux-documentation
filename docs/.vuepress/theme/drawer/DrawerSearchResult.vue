@@ -1,12 +1,15 @@
 <template>
   <section v-if="data.length" class="drawer-main__search-results">
-    <template v-for="(i) in visibleResults" :key="i">
-      <div class="search-result" @click="gotTo(parseUrl(i.url))">
-        <div class="search-result__title" v-html="getTitleForArticle(i.title)"></div>
-        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(i.title)"></div>
-        <div class="search-result__text" v-html="formatPreviewMarkdown(i.preview)"></div>
+    <template v-for="(item, index) in visibleResults" :key="item.objectID || index">
+      <div class="search-result" @click="gotTo(parseUrl(item.url))">
+        <div class="search-result__title" v-html="getTitleForArticle(item.title)"></div>
+        <div class="search-result__breadcrumb" v-html="getBreadcrumbsForArticle(item.title)"></div>
+        <div class="search-result__text" v-html="formatPreviewMarkdown(item.preview)"></div>
       </div>
     </template>
+    <div v-if="countOfHiddenResults > 0" class="show-more" @click="showAllHiddenResult">
+      <p>Show {{ countOfHiddenResults }} more results</p>
+    </div>
   </section>
   <div v-else>
     <p v-if="!modelValue.length" class="no_results">Write your search query, then press Enter or click the search button.</p>
@@ -17,10 +20,8 @@
 import { computed, inject, ref } from "vue";
 import { marked } from "marked";
 
-// Create a new renderer instance
 const renderer = new marked.Renderer();
 
-// Redefine how headers are processed
 renderer.heading = function (text) {
   // check if text is a string
   if (typeof text !== "string") {
@@ -29,13 +30,15 @@ renderer.heading = function (text) {
   return `<strong>${text}</strong>`;
 };
 
-// Define image rendering to exclude images
 renderer.image = function () {
-  return ""; // Exclude image tags by returning an empty string
+  return "";
 };
 
 const formatPreviewMarkdown = (markdown) => {
-  return marked(markdown, { renderer });
+  let md = marked(markdown, { renderer });
+  // remove all <br> tags
+  md = md.replace(/<br>/g, "");
+  return md;
 };
 
 const props = defineProps({
@@ -49,7 +52,7 @@ const props = defineProps({
   },
 });
 
-const { MAX_VISIBLE_RESULT, MAX_VISIBLE_ROWS } = inject('themeConfig');
+const { MAX_VISIBLE_RESULT } = inject('themeConfig');
 const isShowAllResult = ref(false);
 
 const gotTo = (url) => {
@@ -82,10 +85,6 @@ const showAllHiddenResult = () => {
   isShowAllResult.value = true;
 };
 
-const collapseResults = () => {
-  isShowAllResult.value = false;
-};
-
 const getTitleForArticle = (title) => {
   let sliced = title.split("->").map((part) => part.trim());
   return sliced.pop();
@@ -102,35 +101,26 @@ const getBreadcrumbsForArticle = (title) => {
 <style lang="stylus">
 @import "../../styles/config.styl";
 
-.algolia-docsearch-suggestion--highlight {
-  background: $drawerHighlightTextBgColor !important;
-  color: $drawerHighlightTextColor !important;
-}
-
 .drawer-main__search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  column-gap: $drawerSearchColumnGap;
-  row-gap: $drawerSearchRowGap;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); // Flexible grid with min width
+  gap: 1.5rem; // Increased gap for better spacing
+  padding: 1rem; // Padding around the results area
 }
 
 .search-result {
   padding: 1rem;
   border: 1px solid $drawerSearchBorderColor;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: $drawerOneSearchResultGap;
-  width: 100%;
-  cursor: pointer;
+  border-radius: 10px; // More rounded corners
+  background: $searchResultBackgroundColor; // Added background color for better visibility
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Shadow for elevation
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
 
   &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Increased shadow on hover
     transform: translateY(-2px);
-
     .search-result__title {
       color: $mainColor;
       text-decoration: underline;
@@ -140,47 +130,50 @@ const getBreadcrumbsForArticle = (title) => {
   &__title {
     font-size: $drawerSearchResultTitleFontSize;
     font-weight: $drawerSearchResultTitleWeight;
-    line-height: $drawerSearchResultTitleLineHeight;
     color: $drawerSearchResultTitleColor;
     margin: 0;
+    line-height: 1.4; // Increased line height for better readability
   }
 
   &__text {
     font-size: $drawerSearchResultTextFontSize;
     line-height: $drawerSearchResultTextLineHeight;
     color: $drawerSearchResultTextColor;
-    margin: 0;
+    margin: 0.5rem 0; // Added margin for spacing
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: v-bind(MAX_VISIBLE_ROWS);
+    -webkit-line-clamp: 3; // Limit preview text lines for coherence
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
 
   &__breadcrumb {
     font-size: $drawerSearchResultBreadcrumbTextSize;
-    line-height: $drawerSearchResultBreadcrumbLineHeight;
     color: $drawerSearchResultBreadcrumbColor;
     margin: 0;
+  }
+}
+
+.show-more {
+  text-align: center;
+  margin: 1rem 0;
+  cursor: pointer;
+
+  p {
+    color: $mainColor;
+    font-weight: bold;
   }
 }
 
 .no_results {
   font-size: 1.5625rem;
   text-align: center;
-
-  &__link {
-    color: $mainColor;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 @media (max-width: $mobileBreakpoint) {
   .drawer-main__search-results {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr; // Single column on mobile
   }
 
   .no_results {
