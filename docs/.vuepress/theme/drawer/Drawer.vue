@@ -16,10 +16,12 @@
        <div class="drawer-main">
          <div class="drawer-main__wrapper">
            <div class="drawer-main__breadcrumb">
-             <p v-if="drawerArticleResult.length" class="drawer-main__breadcrumb__text">Home
-               <img :src="withBase('/arrows/arrow-right-breadcrumb.svg')" alt="breadcrumb icon"/>
-               Documentation
-             </p>
+            <!--
+              <p v-if="drawerArticleResult.length" class="drawer-main__breadcrumb__text">Home
+                <img :src="withBase('/arrows/arrow-right-breadcrumb.svg')" alt="breadcrumb icon"/>
+                Documentation
+              </p>
+            -->
            </div>
            <DrawerSearchResult :modelValue="modelValue" :data="drawerArticleResult"/>
          </div>

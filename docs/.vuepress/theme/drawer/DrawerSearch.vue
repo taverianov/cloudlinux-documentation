@@ -1,14 +1,16 @@
 <template>
-  <form id="search-form" class="drawer-header__input">
-    <input :value="modelValue"
+  <form id="search-form" class="drawer-header__input" @submit.prevent="performSearch">
+    <input type="text" 
+           :value="modelValue"
            @input="$emit('update:modelValue', $event.target.value)"
            id="algolia-search-input"
            :placeholder="placeholder"
            :class="activeSearchClass"
-           @keypress.enter.prevent="performSearch"
+           maxlength="100"
     />
     <div :class="activeSearchIconClass">
-      <img @click="performSearch" alt="search icon" :src="withBase(activeSearchIcon)"/>
+      <img v-if="!loading" @click="performSearch" alt="search icon" :src="withBase(activeSearchIcon)"/>
+      <div v-if="loading" class="spinner"></div>
     </div>
   </form>
 </template>
@@ -129,7 +131,8 @@ function parseDocs(api_response) {
 
 async function queryGlobalSearch(query, n_results=10) {
   const baseUrl = 'https://global-search.cl-edu.com/search';
-  let url = `${baseUrl}?query=${query}&collections=cloudlinux_docs&n_results=${n_results}&source=cloudlinux_docs`;
+  let urlEncodedQuery = encodeURIComponent(query);
+  let url = `${baseUrl}?query=${urlEncodedQuery}&collections=cloudlinux_docs&n_results=${n_results}&source=cloudlinux_docs`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -143,11 +146,14 @@ async function queryGlobalSearch(query, n_results=10) {
   }
 }
 
+const loading = ref(false); // Reactive variable for loading state
+
 const performSearch = async () => {
+  loading.value = true; // Set loading to true when search starts
   const data = await queryGlobalSearch(props.modelValue, MAX_HITS_PER_PAGE);
+  loading.value = false; // Set loading to false when search finishes
   if (data) {
     const hits = parseDocs(data);
-    console.log(hits); // Log the results data structure
     emit('result', hits);
     emit('openDrawer');
   }
@@ -222,4 +228,18 @@ watch(
     width 75%
   .header-layout__search-title
     text-align center
+
+.spinner
+  border 4px solid rgba(0, 0, 0, 0.1)
+  border-top 4px solid #3498db
+  border-radius 50%
+  width 20px
+  height 20px
+  animation spin 1s linear infinite
+
+@keyframes spin
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(360deg)
 </style>
