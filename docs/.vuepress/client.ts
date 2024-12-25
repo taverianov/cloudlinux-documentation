@@ -78,9 +78,9 @@ export default defineClientConfig({
                 appId: "0TCNL6CGX8",
             },
 
-            MAX_VISIBLE_RESULT: 10,
-            MAX_VISIBLE_ROWS: 10,
-            MAX_HITS_PER_PAGE: 10,
+            MAX_VISIBLE_RESULT: 12,
+            MAX_VISIBLE_ROWS: 12,
+            MAX_HITS_PER_PAGE: 12,
         })
     }
 })
