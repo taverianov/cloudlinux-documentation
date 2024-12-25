@@ -40,6 +40,10 @@ renderer.image = function () {
   return "";
 };
 
+renderer.table = function () {
+  return "";
+}
+
 const formatPreviewMarkdown = (markdown) => {
   let md = marked(markdown, { renderer });
   md = md.replace(/<br>/g, ""); // Remove all <br> tags
