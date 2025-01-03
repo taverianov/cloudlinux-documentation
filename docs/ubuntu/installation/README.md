@@ -35,7 +35,7 @@ The script will install the CloudLinux Subsystem on your Ubuntu machine. After t
 ## Ubuntu2Cloudlinux explained
 
 The `ubuntu2cloudlinux.py` script installs the CloudLinux Subsystem For Ubuntu.
-It is a simplier script compared to the CLdeploy script for CentOS and AlmaLinux. For example, it doesn't replace the Linux kernel, only adds a dynamic module to it.
+It is a simpler script compared to the CLdeploy script for CentOS and AlmaLinux. For example, it doesn't replace the Linux kernel, only adds a dynamic module to it.
 Here is a list of actions that the `ubuntu2cloudlinux` script performs:
 
 * Checks that you are running the latest available version of the `ubuntu2cloudlinux.py script`, and updates itself if necessary.
