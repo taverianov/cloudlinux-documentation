@@ -14,4 +14,3 @@ To troubleshoot and resolve issues, you can use the following log files:
 
 1. `alt-php*-zts` packages are not available at the moment.
 2. The `tmpreaper package` is used instead of `tmpwatch`.
-3. PNG format for LVE Charts does not work correctly on CloudLinux subsystem on Ubuntu (lvechart utility may produce broken images).
