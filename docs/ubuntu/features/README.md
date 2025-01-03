@@ -41,7 +41,7 @@ MySQL Governor allows restricting customers that use too many resources. It supp
 | READ  | bytes | bytes read. Cached reads are not counted, only those that were actually read from disk will be counted |
 | WRITE | bytes | bytes written. Cached writes are not counted, only once data is written to disk, it is counted         |
 
-You can set different limits for different periods: current, short, med, long. By default those periods are defined as 1 second, 5 seconds, 1 minute and 5 minutes. They can be re-defined using the [configuration file](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation).
+You can set different limits for different periods: current, short, mid, long. By default those periods are defined as 1 second, 5 seconds, 1 minute and 5 minutes. They can be re-defined using the [configuration file](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation).
 The idea is to use larger acceptable values for shorter periods. Like you could allow a customer to use two cores (200%) for one second, but only 1 core (on average) for 1 minute, and only 70% within 5 minutes.
 That would make sure that customer can burst for short periods of time.
 
