@@ -22,7 +22,31 @@ More information about the actual kernel changes and releases can be obtained fr
 
 ## Hybrid Kernels
 
-Hybrid kernels give you the ability to take advantage of the benefits and features available in newer kernels without having to completely upgrade to another version of the operating system. Example - for the CloudLinux 7 kernel, based on version 3.10, you can install a hybrid kernel (same as on CloudLinux 8), which is based on version 4.18. This provides more kernel options, memory and overall optimization, as well as a positive impact on system performance.
+Hybrid kernels give you the ability to take advantage of the benefits and features available in newer kernels without having to completely upgrade to another version of the operating system. Example - for the CloudLinux 7 kernel, based on version 3.10, you can install a hybrid kernel (same as on CloudLinux 8), which is based on version 4.18. This provides more kernel options, memory and overall optimization, as well as a positive impact on system performance. 
+
+### CL9 LTS kernel 
+
+In CL9 we don’t have our own kernel, instead we use AlmaLinux’s one which gets regular upstream updates.  
+
+For stability purposes we have also prepared the LTS (Long Term Support) kernel which is older than AlmaLinux by upstream version but has all security fixes / high scored CVEs. 
+
+We recommend this kernel as it minimizes changes while maintaining comprehensive CVE coverage. 
+
+#### How To Install
+
+Run the following commands:
+
+```
+dnf install -y --allowerasing kernel-lts kmod-lve-lts perf-lts bpftool-lts
+```
+```
+reboot
+```
+
+After the reboot, you should delete regular kernels to prevent regular updates from overwriting default boot kernel: 
+```
+dnf remove kernel-core
+```
 
 #### How to migrate from the normal kernel to hybrid one
 
