@@ -7298,6 +7298,10 @@ This will:<br>
 - Install: <span class="notranslate"> /usr/lib/apache/mod_lsapi. </span> so (or to another correct httpd modules path)<br>
 - Install: <span class="notranslate"> /usr/sbin/sulsphp </span>
 
+:::tip Note
+Starting from 1.1-80 version mod_lsapi uses Apache user name specified in the Apache config file along with user name precompiled with HTTPD_USER definition. So there is no need to change HTTPD_USER definition anymore. 
+:::
+
 **lsphp started under user apache/nobody**
 
 Check if SuExecUserGroup specified for virtual hosts. This parameter is used by mod_lsapi for user identification.
