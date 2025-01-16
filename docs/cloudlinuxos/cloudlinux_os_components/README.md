@@ -6506,6 +6506,65 @@ In order to mod_lsapi PRO work lsapi.conf should be loaded to Apache through [In
 For more detailed description of the module directives please visit [Configuration reference](./#configuration-references).  
 For installation guide mod_lsapi PRO please visit [Installation](./#installation-2).
 
+#### Using alternative LVE id for Virtual Hosts
+Starting from 1.1-79 version mod_lsapi supports possibility to use alternative LVE id for different Virtual Hosts.
+XXXX
+While the main LVE for user account is created automatically on account creation, alternative LVEs must be created manually using lvectl CLI utility. For example, if we already created user1 user account, LVE with the same LVE id as account uid is already created:
+```
+[root@ ~]# id user1
+uid=1001(user1) gid=1004(user1) groups=1004(user1)
+[root ~]# lvectl list
+      ID   SPEED    PMEM    VMEM      EP   NPROC      IO    IOPS
+ default     100   1024M      0K      20     100    1024    1024
+    1001      50   1024M      0K      40      90    1024    1024
+   limit       0      0K      0K       0       0       0       0
+
+[root@ ~]#
+```
+
+Let's use 11001 LVE id for alternative LVE for this account, create this LVE and set LVE limits for it:
+```
+[root ~]# lvectl set 11001 --speed=50% --pmem=512M --io=2048 --ep=10 --nproc=50
+[root ~]# lvectl limits 11001
+      ID   SPEED    PMEM    VMEM      EP   NPROC      IO    IOPS
+   11001      50    512M      0K      10      50    2048    1024
+
+[root ~]#
+```
+
+Now we can use different LVEs for different Virtual Hosts bound to the same user account user1 by setting different [LVEid](./#lveid) values:
+```
+<VirtualHost 10.193.208.48:80>
+    ServerName user1.example.com
+    DocumentRoot /home/user1/public_html
+        <IfModule hostinglimits_module>
+            <Directory "/home/user1/public_html">
+                LVEId 11001
+            </Directory>
+        </IfModule>
+        <IfModule lsapi_module>
+            lsapi_user_group user1 user1
+            lsapi_per_user Off
+        </IfModule>
+ </VirtualHost>
+
+ <VirtualHost 10.193.208.48:80>
+    ServerName sub.user1.example.com
+    DocumentRoot /home/user1/sub.user1.example.com
+        <IfModule hostinglimits_module>
+            <Directory "/home/user1/sub.user1.example.com">
+                LVEId 1001
+            </Directory>
+        </IfModule>
+        <IfModule lsapi_module>
+            lsapi_user_group user1 user1
+            lsapi_per_user Off
+        </IfModule>
+ </VirtualHost>
+```
+
+Please note that in the example above 2 different Virtual Hosts use different LVEs but the same account user1. Also [lsapi_per_user](./#lsapi-per-user) config directive must be set to Off in order to allow using of dedicated lsphp backend for every Virtual Host.
+
 #### Configuration references
 
 
