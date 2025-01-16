@@ -3,6 +3,7 @@
 This documentation describes specific features of the CloudLinux kernel. In other cases the kernel has the same features and innovations as any similar RHEL kernel.
 More information about the actual kernel changes and releases can be obtained from our [changelog](https://changelog.cloudlinux.com/).
 
+* [CL9 LTS kernel](./#cl9-lts-kernel)
 * [Hybrid Kernels](./#hybrid-kernels)
 * [SecureLinks and Link Traversal Protection](./#securelinks-and-link-traversal-protection)
 * [File change API](./#file-change-api)
@@ -20,11 +21,7 @@ More information about the actual kernel changes and releases can be obtained fr
 * [Enter LVE when using cPanel utilities](./#enter-lve-when-using-cpanel-utilities)
 * [Proactive reporting kernel crash events with Sentry and Kernel Panic Receiver](./#proactive-reporting-kernel-crash-events-with-sentry-and-kernel-panic-receiver)
 
-## Hybrid Kernels
-
-Hybrid kernels give you the ability to take advantage of the benefits and features available in newer kernels without having to completely upgrade to another version of the operating system. Example - for the CloudLinux 7 kernel, based on version 3.10, you can install a hybrid kernel (same as on CloudLinux 8), which is based on version 4.18. This provides more kernel options, memory and overall optimization, as well as a positive impact on system performance. 
-
-### CL9 LTS kernel 
+## CL9 LTS kernel 
 
 In CL9 we don’t have our own kernel, instead we use AlmaLinux’s one which gets regular upstream updates.  
 
@@ -32,7 +29,7 @@ For stability purposes we have also prepared the LTS (Long Term Support) kernel 
 
 We recommend this kernel as it minimizes changes while maintaining comprehensive CVE coverage. 
 
-#### How To Install
+### How To Install
 
 Run the following commands:
 
@@ -47,6 +44,10 @@ After the reboot, you should delete regular kernels to prevent regular updates f
 ```
 dnf remove kernel-core
 ```
+
+## Hybrid Kernels
+
+Hybrid kernels give you the ability to take advantage of the benefits and features available in newer kernels without having to completely upgrade to another version of the operating system. Example - for the CloudLinux 7 kernel, based on version 3.10, you can install a hybrid kernel (same as on CloudLinux 8), which is based on version 4.18. This provides more kernel options, memory and overall optimization, as well as a positive impact on system performance. 
 
 #### How to migrate from the normal kernel to hybrid one
 
