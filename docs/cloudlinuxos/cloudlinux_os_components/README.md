@@ -6508,7 +6508,6 @@ For installation guide mod_lsapi PRO please visit [Installation](./#installation
 
 #### Using alternative LVE id for Virtual Hosts
 Starting from 1.1-79 version mod_lsapi supports possibility to use alternative LVE id for different Virtual Hosts.
-XXXX
 While the main LVE for user account is created automatically on account creation, alternative LVEs must be created manually using lvectl CLI utility. For example, if we already created user1 user account, LVE with the same LVE id as account uid is already created:
 ```
 [root@ ~]# id user1
