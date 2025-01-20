@@ -67,10 +67,6 @@ apt  install governor-mysql
 
 2. To use MySQL Governor with
 
-    * cl-MariaDB103
-    ```
-    /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mariadb103
-    ```
     * cl-MySQL80
     ```
     /usr/share/lve/dbgovernor/mysqlgovernor.py --mysql-version=mysql80
@@ -91,7 +87,7 @@ In case of installing on cPanel + Ubuntu server, set the following parameter:
 6. Configure user mapping to the database. The mapping format is described in
    the [following section](/cloudlinuxos/cloudlinux_os_components/#mapping-a-user-to-a-database).
 
-In case a non-panel system the `/etc/container/dbuser-map` should be created and updated with new users by admin.
+In case of a non-panel system the `/etc/container/dbuser-map` mapping file should be created and updated with new users by an admin.
 
 The format is as follows:
 
@@ -101,7 +97,7 @@ The format is as follows:
 [dbuser_nameN] [account_nameN] [UIDN]
 ```
 
-The control panel should automatically generate such mapping and write it to the `/etc/container/dbuser-map`. Usually,
+The control panel should automatically generate this mapping and write it to the `/etc/container/dbuser-map` file. Usually,
 it is enough to write a hook when adding, deleting or renaming a database for a user. The control panel should implement
 such a mechanism for MySQL Governor to operate properly. MySQL Governor automatically applies changes from the
 dbuser-map file every five minutes.
@@ -359,16 +355,16 @@ And restart service:
 service httpd restart
 ```
 
-### Uninstall
+### Uninstallation
 
-Uninstall procedure for cPanel servers with EasyApache 4:
+Uninstallation procedure for cPanel servers with EasyApache 4:
 
 ```
 /usr/bin/switch_mod_lsapi --uninstall
 apt remove liblsapi liblsapi-dev ea-apache24-mod-lsapi
 ```
 
-Uninstall procedure for servers with no panel:
+Uninstallation procedure for servers with no panel:
 
 ```
 /usr/bin/switch_mod_lsapi --uninstall
