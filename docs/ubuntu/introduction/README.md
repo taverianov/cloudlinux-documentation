@@ -29,12 +29,12 @@ In the table below, a feature marked with "No" for the CloudLinux Subsystem for 
 |HardenedPHP|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Apache mod_lsapi PRO|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |SecureLinks|No|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
-|Website monitoring tool|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
-|Website monitoring alerts|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
-|Slow Site analyzer|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">No</font>**|
-|PHP X-Ray|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">No</font>**|
-|Centralized Monitoring|No|No|No|**Yes**|**<font color="#2c98f0">No</font>**|
-|AccelerateWP|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">No</font>**|
+|Website monitoring tool|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|Website monitoring alerts|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|Slow Site analyzer|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|PHP X-Ray|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|Centralized Monitoring|No|No|No|**Yes**|**<font color="#2c98f0">Yes</font>**|
+|AccelerateWP|**Yes**|**Yes**|No|**Yes**|**<font color="#2c98f0">Yes</font>**|
 |Support 24/7|**Yes**|**Yes**|**Yes**|**Yes**|**<font color="#2c98f0">Yes</font>**|
 
 \* Only inodes limits are available.
