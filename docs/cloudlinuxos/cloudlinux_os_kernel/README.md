@@ -43,7 +43,12 @@ reboot
 After the reboot, you should delete regular kernels to prevent regular updates from overwriting default boot kernel: 
 ```
 dnf remove kernel-core
-```
+``` 
+
+You should see the similar dnf output:  
+
+![](/images/dnf-cl9-lts.png) 
+
 
 ## Hybrid Kernels
 
