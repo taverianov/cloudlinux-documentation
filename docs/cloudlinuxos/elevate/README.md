@@ -426,7 +426,7 @@ You may encounter the following error message when attempting to upgrade:
   One or more EasyApache 4 package(s) are not compatible with CloudLinux 8.
   Please remove these packages before continuing the update.
   - ea-apache24-mod-unsupported-package
-	- ...
+  - ...
 ```
 
 Review and remove the listed EasyApache packages, then restart the process.
@@ -451,6 +451,16 @@ The packages from the listed repositories **won't be properly upgraded** if Leap
 It's recommended to follow the provided suggestion and remove the repositories and packages before running the upgrade.
 
 If you'd like to add the configuration data for new repositories and packages to Leapp, please refer to the [Contribution](/cloudlinuxos/elevate/#contribution) section of the manual for information on the proper procedure for doing so.
+
+#### Modified or custom package repositories
+
+CloudLinux Elevate is intended for use with the default CloudLinux repositories. If you have custom/local repositories providing CloudLinux packages, or have disalbed CLN communication, you most likely won't be able to complete the upgrade process.
+
+If you encounter problems in this scenario:
+_ Before restarting the upgrade, restore the stock configuration of repositories.
+_ Re-enable RHN plugins and ensure that the system is registered with CLN.
+_ Make sure there are no repositories that are hardcoded to use a specific major OS version (e.g. 7) instead of $releasever.
+_ Continue with the upgrade process.
 
 
 ## Known issues
@@ -630,7 +640,7 @@ This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on s
 
 It uses an additional tool to assist with migration of cPanel-related features - the script provided by the cPanel team: [elevate-cpanel](https://github.com/cpanel/elevate).
 
-See the official cPanel Elevate documentation at https://cpanel.github.io/elevate/
+See the [official cPanel Elevate documentation here](https://cpanel.github.io/elevate/).
 
 ### Upgrade process overview
 
@@ -794,8 +804,7 @@ This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on s
 
 The process is performed through a tool provifed and maintained by the Plesk team, [cloudlinux7to8](https://github.com/plesk/cloudlinux7to8), with CL Leapp as a component of the process.
 
-See the official Plesk cloudlinux7to8 documentation with additional details at [the project page for cloudlinux7to8
-](https://github.com/plesk/cloudlinux7to8?tab=readme-ov-file#)
+See the official Plesk cloudlinux7to8 documentation with additional details at [the project page for cloudlinux7to8](https://github.com/plesk/cloudlinux7to8?tab=readme-ov-file#)
 
 ### Preparation
 
