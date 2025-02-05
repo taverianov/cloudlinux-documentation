@@ -916,7 +916,7 @@ Importing custom images to DigitalOcean is free, as you are only charged for the
 
 Below, we will describe how to add a qcow2 (QEMU/KVM) CloudLinux OS image as a custom image. You can find more information on image options at [https://www.digitalocean.com/docs/images/custom-images/overview/](https://www.digitalocean.com/docs/images/custom-images/overview/)
 
-1. To choose the right image, navigate to [https://download.cloudlinux.com/cloudlinux/images/#kvm-tab](https://download.cloudlinux.com/cloudlinux/images/#kvm-tab). Several different images are available for download (with and without a control panel).
+1. To choose the right image, navigate to [https://images.cloudlinux.com/](https://images.cloudlinux.com/). Several different images are available for download (with and without a control panel).
 
 ![](/images/cloudlinuxos/cloudlinux_installation/cloudlinuximages.webp)
 
