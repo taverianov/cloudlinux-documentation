@@ -195,8 +195,7 @@ Please read the known issues section before enabling this feature.
 #### **fs.process_symlinks_by_task** <Badge type="info" text="cPanel"/>
 
 ::: tip Note
-This option only available on CloudLinux 7 Hybrid or on CloudLinux 8.
-Also please note that this feature is available for cPanel only.
+This option is available on CloudLinux 7 Hybrid, CloudLinux 8 or newer versions. Also please note that this feature is available for cPanel only.
 :::
 
 This parameter is needed to protect against symlink vulnerability where an attacker might get access to files out of the CageFS via cPanel tools: File Manager, WebDAV, Webmail, etc. When a symlink is accessed from cPanel tools (non-root user case) we check whether the current process UID matches the symlink target UID.
