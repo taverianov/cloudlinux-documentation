@@ -36,6 +36,13 @@ Run the following commands:
 ```
 dnf install -y --allowerasing kernel-lts kmod-lve-lts perf-lts bpftool-lts
 ```
+In case you have dkms third-party modules that need devel package you should install them too: 
+```
+dnf install -y kernel-lts-devel kernel-lts-devel-matched 
+```
+
+After that, you should reboot:
+
 ```
 reboot
 ```
