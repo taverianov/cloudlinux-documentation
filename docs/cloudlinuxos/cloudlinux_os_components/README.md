@@ -7864,8 +7864,8 @@ service nginx restart
 ```
 </div>
 
-Use Apache2Nginx to set up NGINX hosting on the server and automatically convert .htaccess files into corresponding NGINX configuration.
-For more details, please visit [Apache2Nginx](/cloudlinuxos/apache2nginx/#apache2nginx).
+Use Apache2MaxWebserver to set up NGINX hosting on the server and automatically convert .htaccess files into corresponding NGINX configuration.
+For more details, please visit [Apache2MaxWebserver](/cloudlinuxos/apache2max_webserver/#apache2nginx).
 
 
 ### Uninstalling
@@ -7897,7 +7897,7 @@ service nginx restart
 ```
 </div>
 
-To remove NGINX from your system and restore Apache configuration, please visit [Apache2Nginx](/cloudlinuxos/apache2nginx/#switch-back-to-apache-hosting).
+To remove NGINX from your system and restore Apache configuration, please visit [Apache2MaxWebserver](/cloudlinuxos/apache2max_webserver/#switch-back-to-apache-hosting).
 
 #### Uninstallation procedure for servers with no control panel
 
@@ -7922,7 +7922,7 @@ service nginx restart
 * [Configuration references](./#configuration-references-1)
 
 :::tip Note
-If using Apache2Nginx, no configuration is required for NGINX LSAPI Module. The module is automatically configured to process PHP requests.
+If using Apache2MaxWebserver, no configuration is required for NGINX LSAPI Module. The module is automatically configured to process PHP requests.
 :::
 
 In order to get NGINX LSAPI Module to work properly, you'll need to configure NGINX. To do this, we use a separate _lsapi.conf_ file.
