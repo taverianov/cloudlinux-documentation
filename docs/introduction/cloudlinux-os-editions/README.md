@@ -132,4 +132,8 @@ Currently, the following versions are available and supported:
 |CloudLinux OS 6 | Feb 1, 2011 | Nov 30, 2020 ([ELS until June 30, 2024](/cln/billing/#cloudlinux-os-6-extended-lifecycle-support)) |
 |CloudLinux OS 7 | Apr 1, 2015 | Jun 30, 2024 (ELS until June 30, 2025) |
 |CloudLinux OS 8 | Mar 17, 2020 | May 31, 2029 |
-|CloudLinux OS 9 | Jan 17, 2023 | May 31, 2032 |
+|CloudLinux OS 9 | Jan 17, 2023 | May 31, 2032 | 
+
+:::tip 
+We retain the ability to produce critical updates for CL6 for at least the next 3 months. This period may extend to 6 or 12 months, depending on emerging necessities. More [here](https://blog.cloudlinux.com/end-of-life-announcement-for-cloudlinux-os-6). 
+:::
