@@ -6115,7 +6115,7 @@ _mod_lsapi PRO integrates with Apache, allows to handle concurrent requests and 
 
 * If there are no requests for lsapi_backend_pgrp_max_idle seconds, lsphp parent process will be  terminated;
 * If there are no lsphp child processes available when a new request comes, the new lsphp child process will be created;
-* lsphp childs process concurrent requests simultaneously;
+* lsphp child processes handle concurrent requests simultaneously.;
 * The maximum number of simultaneously running lsphp child processes can be set by the lsapi_backend_children directive.
 
 **What is lsphp?**
