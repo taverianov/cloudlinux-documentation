@@ -59,7 +59,7 @@ export default {
                 "/cloudlinuxos/cloudlinux_os_components/",
                 "/cloudlinuxos/shared-pro/",
                 "/cloudlinuxos/command-line_tools/",
-                "/cloudlinuxos/apache2nginx/",
+                "/cloudlinuxos/apache2max_webserver/",
                 "/cloudlinuxos/alt-ea_packages/",
                 "/cloudlinuxos/control_panel_integration/",
                 "/cloudlinuxos/cloudlinux_os_kernel/",

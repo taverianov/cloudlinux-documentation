@@ -1,31 +1,31 @@
 
-# Apache2Nginx (BETA)
+# Apache2MaxWebserver (BETA)
 ---
 
-Apache2Nginx sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
+Apache2MaxWebserver sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
 configuration.
 
 It seamlessly integrates with the LSAPI NGINX module,
 which allows for better performance and resource usage.
 
 :::tip  
-Apache2Nginx is supported on cPanel servers only, running CloudLinux OS 8 and later.
+Apache2MaxWebserver is supported on cPanel servers only, running CloudLinux OS 8 and later.
 :::
 
 ## Installation
 
-To use Apache2Nginx, first install the `apache2nginx` package:
+To use Apache2MaxWebserver, first install the `max_webserver` package:
 
 ```
-dnf --enablerepo=cloudlinux-updates-testing install apache2nginx
+dnf --enablerepo=cloudlinux-updates-testing install max_webserver
 ```
 
 ## Convert to NGINX hosting
 
-After `apache2nginx` package is installed, you can switch to NGINX by running:
+After `max_webserver` package is installed, you can switch to NGINX by running:
 
 ```
-apache2nginx setup
+apache2max_webserver setup
 ```
 
 Note that this may take a while, so we recommend running this command in a `tmux` or `screen` session.
@@ -48,7 +48,7 @@ The Apache service provides a safety net for websites that cannot be converted t
 To switch back to Apache, run:
 
 ```
-apache2nginx reset
+apache2max_webserver reset
 ```
 
 This command removes NGINX from your system and restores Apache configuration.
@@ -58,10 +58,10 @@ This command removes NGINX from your system and restores Apache configuration.
 To force individual website to be served by Apache, run:
 
 ```
-apache2nginx proxy -d <domain>
+apache2max_webserver proxy -d <domain>
 ```
 
-For example, `apache2nginx proxy -d example.com`.
+For example, `apache2max_webserver proxy -d example.com`.
 
 
 ## Disable forced use of Apache for a single website
@@ -69,31 +69,31 @@ For example, `apache2nginx proxy -d example.com`.
 To disable forcing individual website to be served by Apache:
 
 ```
-apache2nginx unproxy -d <domain>
+apache2max_webserver unproxy -d <domain>
 ```
 
 Note that Apache may still serve the website, if:
 * conversion of its `.htaccess` files fails in any way
-* unsupported handler is used. Apache2Nginx only supports PHP-FPM handler
+* unsupported handler is used. Apache2MaxWebserver only supports PHP-FPM handler
 
 ## List proxied websites
 
 To list websites that are forced to be served by Apache:
 
 ```
-apache2nginx list-proxied
+apache2max_webserver list-proxied
 ```
 
 This command lists all websites that are forced to be served by Apache and the reason for that.
 
 ## Other notes
 
-Apache2Nginx automatically converts `.htaccess` files to NGINX configuration, stored under the directory `/etc/nginx`
+Apache2MaxWebserver automatically converts `.htaccess` files to NGINX configuration, stored under the directory `/etc/nginx`
 as `apache2nginx.conf` and files prefixed with `apache2nginx-`.
 
 Please don't modify these files manually, as they will be overwritten by the monitoring subsystem.
 
 Instead, if you want to augment the NGINX configuration, you can do any of the following:
 
-* Work with your `.htaccess` files like usually, and let Apache2Nginx automatically convert them to respective NGINX configuration
+* Work with your `.htaccess` files like usually, and let Apache2MaxWebserver automatically convert them to respective NGINX configuration
 * Add files according to `ea-nginx` files conventions. Please refer to the [cPanel documentation](https://docs.cpanel.net/knowledge-base/web-services/nginx-with-reverse-proxy/).
