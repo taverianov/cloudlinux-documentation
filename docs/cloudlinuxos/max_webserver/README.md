@@ -74,7 +74,7 @@ apache2max_webserver unproxy -d <domain>
 
 Note that Apache may still serve the website, if:
 * conversion of its `.htaccess` files fails in any way
-* unsupported handler is used. MaxWebserver only supports PHP-FPM and MOD_LSAPI handlers
+* unsupported handler is used. MAx Web Server only supports PHP-FPM and MOD_LSAPI handlers
 
 ## List proxied websites
 
