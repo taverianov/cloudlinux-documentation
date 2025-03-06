@@ -64,5 +64,6 @@
     "/admin/faq/":"/introduction/admin/#faq",
     "/introduction/":"/introduction/cloudlinux-os-editions/",
     "/introduction/#cloudlinux-os-life-cycle":"/introduction/cloudlinux-os-editions/#cloudlinux-os-life-cycle",
-    "/introduction/#cloudlinux-9":"/cloudlinuxos/cloudlinux_installation/#requirements"
+    "/introduction/#cloudlinux-9":"/cloudlinuxos/cloudlinux_installation/#requirements",
+    "/cloudlinuxos/apache2nginx/":"/cloudlinuxos/apache2max_webserver/"
 }
