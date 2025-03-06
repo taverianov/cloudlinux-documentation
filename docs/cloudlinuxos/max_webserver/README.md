@@ -1,20 +1,20 @@
 
-# Apache2MaxWebserver (BETA)
+# MAx Web Server (BETA)
 ---
 
-Apache2MaxWebserver sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
+MAx Web Server sets up NGINX hosting on the server and automatically converts `.htaccess` files into corresponding NGINX 
 configuration.
 
 It seamlessly integrates with the LSAPI NGINX module,
 which allows for better performance and resource usage.
 
 :::tip  
-Apache2MaxWebserver is supported on cPanel servers only, running CloudLinux OS 8 and later.
+MAx Web Server is supported on cPanel servers only, running CloudLinux OS 8 and later.
 :::
 
 ## Installation
 
-To use Apache2MaxWebserver, first install the `max_webserver` package:
+To use MAx Web Server, first install the `max_webserver` package:
 
 ```
 dnf --enablerepo=cloudlinux-updates-testing install max_webserver
@@ -74,7 +74,7 @@ apache2max_webserver unproxy -d <domain>
 
 Note that Apache may still serve the website, if:
 * conversion of its `.htaccess` files fails in any way
-* unsupported handler is used. Apache2MaxWebserver only supports PHP-FPM handler
+* unsupported handler is used. MaxWebserver only supports PHP-FPM and MOD_LSAPI handlers
 
 ## List proxied websites
 
@@ -88,12 +88,12 @@ This command lists all websites that are forced to be served by Apache and the r
 
 ## Other notes
 
-Apache2MaxWebserver automatically converts `.htaccess` files to NGINX configuration, stored under the directory `/etc/nginx`
+MAx Web Server automatically converts `.htaccess` files to NGINX configuration, stored under the directory `/etc/nginx`
 as `apache2nginx.conf` and files prefixed with `apache2nginx-`.
 
 Please don't modify these files manually, as they will be overwritten by the monitoring subsystem.
 
 Instead, if you want to augment the NGINX configuration, you can do any of the following:
 
-* Work with your `.htaccess` files like usually, and let Apache2MaxWebserver automatically convert them to respective NGINX configuration
+* Work with your `.htaccess` files like usually, and let MAx Web Server automatically convert them to respective NGINX configuration
 * Add files according to `ea-nginx` files conventions. Please refer to the [cPanel documentation](https://docs.cpanel.net/knowledge-base/web-services/nginx-with-reverse-proxy/).
