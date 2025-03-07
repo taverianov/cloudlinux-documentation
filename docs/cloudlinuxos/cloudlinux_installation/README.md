@@ -112,10 +112,6 @@ Supported control panels:
 * InterWorx ([Documentation](https://appendix.interworx.com/current/nodeworx/plugins/install-use-cloudlinux-plugin-interworx.html))
 * Webuzo ([Documentation](https://webuzo.com/docs/installing-webuzo/install-cloudlinux-os/))
 
-:::warning Warning:
-CloudLinux 9 does not support Plesk. 
-:::
-
 :::warning Other control panels:
 Control panels not mentioned in the list of supported panels have native integration or integration done by the developer of the panel.
 We cannot guarantee the stability or correct operation of CloudLinux components on such panels.
