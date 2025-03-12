@@ -4529,6 +4529,19 @@ modules=json,zip,fileinfo
 ```
 </div>
 
+To reset the extensions for end users to the default list of extensions as defined in the `defaults.cfg` file, you can run the following command:
+```
+cagefsctl --list-enabled | grep -v enabled | grep -v '^$' | while read -r line; do \
+    id "$line" &>/dev/null && selectorctl --reset-user-extensions --version=8.4 --user="$line" || echo "User $line does not exist, skipping"; \
+done
+```
+
+This command will reset the extensions for all users on PHP version 8.4 to the default list. You can specify a different PHP version by modifying the `--version` argument in the command above.
+ 
+To reset the extensions for a specific user, you can use the following command:
+```
+selectorctl --reset-user-extensions --version=8.4 --user=user1
+```
 
 #### Individual PHP.ini files
 
