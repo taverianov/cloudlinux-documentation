@@ -7830,7 +7830,7 @@ The NGINX LSAPI Module is an extension for the [NGINX](https://www.nginx.com/) w
 2. NGINX LSAPI Module uses liblsapi to transfer request to the lsphp parent process;
 3. lsphp forks the child process, which executes the request and returns data to NGINX LSAPI Module;
 
-* If there are no requests for lsapi_pgrp_max_idle seconds, lsphp parent process will be terminated;
+* If there are no requests for lsapi_backend_pgrp_max_idle seconds, lsphp parent process will be terminated;
 * If there are no lsphp child processes available when a new request comes, the new lsphp child process will be created;
 * lsphp children process concurrent requests simultaneously;
 * The maximum number of simultaneously running lsphp child processes can be set by the lsapi_backend_children directive.
@@ -7961,15 +7961,15 @@ Then make sure that the loading of dynamic modules is not omitted in your main n
 include /usr/share/nginx/modules/*.conf;
 ```
 </div>
-In order to enable the module to process requests, you need to add the lsapi_enabled directive to your _lsapi.conf_ file as follows:
+In order to enable the module to process requests, you need to add the lsapi_engine directive to your _lsapi.conf_ file as follows:
 <div class="notranslate">
 
 ```
-lsapi_enabled on;
+lsapi_engine on;
 ```
 </div>
 
-The lsapi_enabled parameter is supported in global, server, and local configurations. Therefore, it can be enabled/disabled globally, only for the server, and also only for a specific location.
+The lsapi_engine parameter is supported in global, server, and local configurations. Therefore, it can be enabled/disabled globally, only for the server, and also only for a specific location.
 
 
 The LSPHP handler can be enabled using the lsapi_handler directive. The lsapi_handler directive tells NGINX that the files with .php extension should be handled by NGINX LSAPI Module with the selected handler.
@@ -7992,7 +7992,7 @@ server {
 	root            /home/testlsapi/public_html;
 
 	location ~ \.php$ {
-		lsapi_enabled    on;
+		lsapi_engine    on;
 		lsapi_handler    application/x-httpd-lsphp;
 		lsapi_user       testlsapi;
 	}
@@ -8014,39 +8014,39 @@ For the installation guide for NGINX LSAPI Module please visit [Installation](./
 
 
 [NGINX LSAPI Module customization](./#nginx-lsapi-module-customization):
-* [lsapi_enabled](./#lsapi-enabled)  
+* [lsapi_engine](./#lsapi-enabled)  
 * [lsapi_sock_path](./#lsapi-sock-path)  
 * [lsapi_per_user](./#lsapi-per-user-1)  
-* [lsapi_disable_reject](./#lsapi-disable-reject)  
-* [lsapi_terminate_backends_ex](./#lsapi-terminate-backends-ex)  
+* [lsapi_disable_reject_mode](./#lsapi-disable-reject-mode-1)  
+* [lsapi_terminate_backends_on_exit](./#lsapi-terminate-backends-on-exit)  
 * [lsapi_avoid_zombies](./#lsapi-avoid-zombies)  
 
 [Tuning LSPHP backend](./#tuning-lsphp-backend-1):
 * [lsapi_set_env](./#lsapi-set-env-1)
-* [lsapi_env_path](./#lsapi-env-path)
+* [lsapi_set_env_path](./#lsapi-set-env-path-1)
 * [lsapi_backend_children](./#lsapi-backend-children-1)
-* [lsapi_retry_max](./#lsapi-retry-max)
-* [lsapi_max_process_time](./#lsapi-max-process-time)
-* [lsapi_pgrp_max_idle](./#lsapi-pgrp-max-idle)
-* [lsapi_own_log](./#lsapi-own-log)
-* [lsapi_common_own_log](./#lsapi-common-own-log)
+* [lsapi_backend_connect_tries](./#lsapi-backend-connect-tries-1)
+* [lsapi_backend_max_process_time](./#lsapi-backend-max-process-time-1)
+* [lsapi_backend_pgrp_max_idle](./#lsapi-backend-pgrp-max-idle-1)
+* [lsapi_backend_use_own_log](./#lsapi-backend-use-own-log-1)
+* [lsapi_backend_common_own_log](./#lsapi-backend-common-own-log-1)
 * [lsapi_backend_coredump](./#lsapi-backend-coredump-1)
-* [lsapi_accept_notify](./#lsapi-accept-notify)
-* [lsapi_pgrp_max_reqs](./#lsapi-pgrp-max-reqs)
-* [lsapi_pgrp_max_crashes](./#lsapi-pgrp-max-crashes)
+* [lsapi_backend_accept_notify](./#lsapi-backend-accept-notify-1)
+* [lsapi_backend_pgrp_max_reqs](./#lsapi-backend-pgrp-max-reqs-1)
+* [lsapi_backend_pgrp_max_crashes](./#lsapi-backend-pgrp-max-crashes-1)
 * [lsapi_backend_loglevel_info](./#lsapi-backend-loglevel-info-1)
-* [lsapi_oom_score_adj](./#lsapi-oom-score-adj)
+* [lsapi_backend_oom_score_adj](./#lsapi-backend-oom-score-adj-1)
  
 [Connection pool mode](./#connection-pool-mode-1):
-* [lsapi_use_pool](./#lsapi-use-pool)
+* [lsapi_with_connection_pool](./#lsapi-with-connection-pool)
 * [lsapi_pool_size](./#lsapi-pool-size)
-* [lsapi_max_idle](./#lsapi-max-idle)
-* [lsapi_max_reqs](./#lsapi-max-reqs)
+* [lsapi_backend_max_idle](./#lsapi-backend-max-idle-1)
+* [lsapi_backend_max_reqs](./#lsapi-backend-max-reqs-1)
 
 [CRIU support](./#criu-support-2):
-* [lsapi_use_criu](./#lsapi-use-criu)
-* [lsapi_criu_sock_path](./#lsapi-criu-sock-path)
-* [lsapi_criu_imgs_path](./#lsapi-criu-imgs-path)
+* [lsapi_criu](./#lsapi-criu)
+* [lsapi_criu_socket_path](./#lsapi-criu-socket-path)
+* [lsapi_criu_imgs_dir_path](./#lsapi-criu-imgs-dir-path)
 * [lsapi_backend_initial_start](./#lsapi-backend-initial-start-1)
 * [lsapi_criu_use_shm](./#lsapi-criu-use-shm-1)
 * [lsapi_reset_criu_on_restart](./#lsapi-reset-criu-on-restart)
@@ -8063,18 +8063,18 @@ For the installation guide for NGINX LSAPI Module please visit [Installation](./
 * [lsapi_param](./#lsapi-param)
 
 [Security](./#security-1):
-* [lsapi_suexec](./#lsapi-suexec)
+* [lsapi_use_suexec](./#lsapi-use-suexec-1)
 * [lsapi_user](./#lsapi-user)
 * [lsapi_uid_gid](./#lsapi-uid-gid-1)
 * [lsapi_paranoid](./#lsapi-paranoid-1)
-* [lsapi_check_doc_root](./#lsapi-check-doc-root)
+* [lsapi_check_document_root](./#lsapi-check-document-root-1)
 
 #### **NGINX LSAPI Module customization**
 
-#### **lsapi_enabled**
+#### **lsapi_engine**
 
-**Syntax** : lsapi_enabled [on/off]  
-**Example** : lsapi_enabled on;  
+**Syntax** : lsapi_engine [on/off]  
+**Example** : lsapi_engine on;  
 **Default** : off  
 **Context** : main config, server config, local config.  
 **Type** : Mandatory  
@@ -8114,10 +8114,10 @@ Then these Virtual Hosts will have a dedicated backend process, while others wil
 
 ---
 
-#### **lsapi_disable_reject**  
+#### **lsapi_disable_reject_mode**  
 
-**Syntax** : lsapi_disable_reject [on/off]  
-**Example** : lsapi_disable_reject on;  
+**Syntax** : lsapi_disable_reject_mode [on/off]  
+**Example** : lsapi_disable_reject_mode on;  
 **Default** : off  
 **Context** : server config  
 **Type** : Optional  
@@ -8127,10 +8127,10 @@ If a new HTTP request is coming to LSPHP daemon when all LSPHP workers are still
 
 ---
 
-#### **lsapi_terminate_backends_ex**  
+#### **lsapi_terminate_backends_on_exit**  
 
-**Syntax** : lsapi_terminate_backends_ex [on/off]  
-**Example** : lsapi_terminate_backends_ex on;  
+**Syntax** : lsapi_terminate_backends_on_exit [on/off]  
+**Example** : lsapi_terminate_backends_on_exit on;  
 **Default** : on  
 **Context** : main config  
 **Type** : Optional  
@@ -8210,10 +8210,10 @@ Note: PATH env var default "/usr/local/bin:/usr/bin:/bin" cannot be changed beca
 
 ---
 
-#### **lsapi_env_path**  
+#### **lsapi_set_env_path**  
 
-**Syntax** : lsapi_env_path [path(s)]  
-**Default** : lsapi_env_path /usr/local/bin:/usr/bin:/bin  
+**Syntax** : lsapi_set_env_path [path(s)]  
+**Default** : lsapi_set_env_path /usr/local/bin:/usr/bin:/bin  
 **Context** : main config  
 **Type** : Optional  
 
@@ -8235,10 +8235,10 @@ Sets the maximum number of simultaneously running child backend processes. Optio
 
 ---
 
-#### **lsapi_retry_max**
+#### **lsapi_backend_connect_tries**
 
-**Syntax** : lsapi_retry_max [number]  
-**Example** : lsapi_retry_max 20;  
+**Syntax** : lsapi_backend_connect_tries [number]  
+**Example** : lsapi_backend_connect_tries 20;  
 **Default** : 10  
 **Context** : server config  
 **Type** : Optional  
@@ -8248,10 +8248,10 @@ Number of retries for connections to the lsPHP daemon.
 
 ---
 
-#### **lsapi_max_process_time**  
+#### **lsapi_backend_max_process_time**  
 
-**Syntax** : lsapi_max_process_time [number]  
-**Example** : lsapi_max_process_time 300;  
+**Syntax** : lsapi_backend_max_process_time [number]  
+**Example** : lsapi_backend_max_process_time 300;  
 **Default** : 300  
 **Context** : server config  
 **Type** : Optional  
@@ -8261,10 +8261,10 @@ Sets the env variable LSAPI_MAX_PROCESS_TIME. Optional - default value is 300. T
 
 ---
 
-#### **lsapi_common_own_log**  
+#### **lsapi_backend_common_own_log**  
 
-**Syntax** : lsapi_common_own_log [on/off]  
-**Example** : lsapi_common_own_log on;  
+**Syntax** : lsapi_backend_common_own_log [on/off]  
+**Example** : lsapi_backend_common_own_log on;  
 **Default** : off  
 **Context** : server config  
 **Type** : Optional  
@@ -8274,23 +8274,23 @@ It will be used only when lsapi_backend_use_own_log is set to On. On-backend pro
 
 ---
 
-#### **lsapi_own_log**  
+#### **lsapi_backend_use_own_log**  
 
-**Syntax** : lsapi_own_log [on/off]  
-**Example** : lsapi_own_log on;  
+**Syntax** : lsapi_backend_use_own_log [on/off]  
+**Example** : lsapi_backend_use_own_log on;  
 **Default** : off  
 **Context** : server config  
 **Type** : Optional  
 
 **Description** :  
-Redirecting log output of backend processes from NGINX error.log to dedicated log file or files, depending on the value of the lsapi_common_own_log option. If off, use the NGINX error log file for backend output, or a separate file otherwise.
+Redirecting log output of backend processes from NGINX error.log to dedicated log file or files, depending on the value of the lsapi_backend_common_own_log option. If off, use the NGINX error log file for backend output, or a separate file otherwise.
 
 ---
 
-#### **lsapi_pgrp_max_crashes**  
+#### **lsapi_backend_pgrp_max_crashes**  
 
-**Syntax** : lsapi_pgrp_max_crashes [number]  
-**Example** : lsapi_pgrp_max_crashes 300;  
+**Syntax** : lsapi_backend_pgrp_max_crashes [number]  
+**Example** : lsapi_backend_pgrp_max_crashes 300;  
 **Default** : 300  
 **Context** : server config  
 **Type** : Optional  
@@ -8300,10 +8300,10 @@ Controls how many crashes of its worker processes a control process will detect 
 
 ---
 
-#### **lsapi_pgrp_max_idle**  
+#### **lsapi_backend_pgrp_max_idle**  
 
-**Syntax** : lsapi_pgrp_max_idle [number]  
-**Example** : lsapi_pgrp_max_idle 30;  
+**Syntax** : lsapi_backend_pgrp_max_idle [number]  
+**Example** : lsapi_backend_pgrp_max_idle 30;  
 **Default** : 30  
 **Context** : server config  
 **Type** : Optional  
@@ -8313,10 +8313,10 @@ Sets env variable LSAPI_PGRP_MAX_IDLE, in seconds. Controls how long a control p
 
 ---
 
-#### **lsapi_pgrp_max_reqs**  
+#### **lsapi_backend_pgrp_max_reqs**  
 
-**Syntax** : lsapi_pgrp_max_reqs [number]  
-**Example** : lsapi_pgrp_max_reqs 0;  
+**Syntax** : lsapi_backend_pgrp_max_reqs [number]  
+**Example** : lsapi_backend_pgrp_max_reqs 0;  
 **Default** : 0  
 **Context** : server config  
 **Type** : Optional  
@@ -8339,10 +8339,10 @@ Controls which log level will be used to write PHP warnings and notices into NGI
 
 ---
 
-#### **lsapi_oom_score_adj**  
+#### **lsapi_backend_oom_score_adj**  
 
-**Syntax** : lsapi_oom_score_adj [number]  
-**Example** : lsapi_oom_score_adj 100;  
+**Syntax** : lsapi_backend_oom_score_adj [number]  
+**Example** : lsapi_backend_oom_score_adj 100;  
 **Default** : 0  
 **Context** : server config  
 **Type** : Optional  
@@ -8365,10 +8365,10 @@ Enable or not lsphp backend debug information dump.
 
 ---
 
-#### **lsapi_accept_notify**  
+#### **lsapi_backend_accept_notify**  
 
-**Syntax** : lsapi_accept_notify [on/off]  
-**Example** : lsapi_accept_notify on;  
+**Syntax** : lsapi_backend_accept_notify [on/off]  
+**Example** : lsapi_backend_accept_notify on;  
 **Default** : off  
 **Context** : server config  
 **Type** : Optional  
@@ -8419,10 +8419,10 @@ Sets LSPHP handler for server (virtual host) configuration.
 
 #### **Connection pool mode**
 
-#### **lsapi_use_pool**  
+#### **lsapi_with_connection_pool**  
 
-**Syntax** : lsapi_use_pool [on/off]  
-**Example** : lsapi_use_pool off;  
+**Syntax** : lsapi_with_connection_pool [on/off]  
+**Example** : lsapi_with_connection_pool off;  
 **Default** : on  
 **Context** : main config  
 **Type** : Optional  
@@ -8432,29 +8432,29 @@ Enable/disable LSAPI connection pool mode.
 
 ---
 
-#### **lsapi_max_idle**
+#### **lsapi_backend_max_idle**
 
-**Syntax** : lsapi_max_idle [number]  
-**Example** : lsapi_max_idle 300;  
+**Syntax** : lsapi_backend_max_idle [number]  
+**Example** : lsapi_backend_max_idle 300;  
 **Default** : 300  
 **Context** : server config  
 **Type** : Optional  
 
 **Description** :  
-It is relevant only with lsapi_use_pool option switched on. Controls how long a worker process will wait for a new request before it exits. 0 stands for infinite. Should be more or equal to 0. In the case of a wrong format the default value will be used. Optional, default value is 300.
+It is relevant only with lsapi_with_connection_pool option switched on. Controls how long a worker process will wait for a new request before it exits. 0 stands for infinite. Should be more or equal to 0. In the case of a wrong format the default value will be used. Optional, default value is 300.
 
 ---
 
-#### **lsapi_max_reqs**
+#### **lsapi_backend_max_reqs**
 
-**Syntax** : lsapi_max_reqs [number]  
-**Example** : lsapi_max_reqs 20000;  
-**Default** : 10000  
+**Synt-backendax**-1 : lsapi_backend_max_reqs [number] -backend 
+**-1Example** : lsapi_backend_max_reqs 20000;  
+-backend**Default-1** : 10000  
 **Context** : server config  
 **Type** : Optional  
 
 **Description** :  
-It is relevant only with lsapi_use_pool option switched on. Controls how many requests a worker process will process before it exits. Should be more than 0. In the case of a wrong format the default value will be used. Optional, default value is 10000.
+It is relevant only with lsapi_with_connection_pool option switched on. Controls how many requests a worker process will process before it exits. Should be more than 0. In the case of a wrong format the default value will be used. Optional, default value is 10000.
 
 ---
 
@@ -8473,10 +8473,10 @@ The parameter sets the connection pool size for each virtual host.
 
 #### **CRIU support**
 
-#### **lsapi_use_criu**  
+#### **lsapi_criu**  
 
-**Syntax** : lsapi_use_criu [on/off]  
-**Example** : lsapi_use_criu on;  
+**Syntax** : lsapi_criu [on/off]  
+**Example** : lsapi_criu on;  
 **Default** : off  
 **Context** : main config  
 **Type** : Optional  
@@ -8486,9 +8486,9 @@ Enable/disable CRIU for lsphp freezing. Default: Off.
 
 ---
 
-#### **lsapi_criu_sock_path**  
+#### **lsapi_criu_socket_path**  
 
-**Syntax** : lsapi_criu_sock_path [path]  
+**Syntax** : lsapi_criu_socket_path [path]  
 **Example** : lsapi_criu_socket_path /var/run/criu/criu_service.socket;  
 **Default** : /var/run/criu/criu_service.socket  
 **Context** : main config  
@@ -8499,10 +8499,10 @@ Set path to socket for communication with criu service.
 
 ---
 
-#### **lsapi_criu_imgs_path**  
+#### **lsapi_criu_imgs_dir_path**  
 
-**Syntax** : lsapi_criu_imgs_path [path]  
-**Example** : lsapi_criu_imgs_path /var/ngx_lsapi/criu;  
+**Syntax** : lsapi_criu_imgs_dir_path [path]  
+**Example** : lsapi_criu_imgs_dir_path /var/ngx_lsapi/criu;  
 **Default** : /var/ngx_lsapi/criu  
 **Context** : main config  
 **Type** : Optional  
@@ -8535,7 +8535,7 @@ The method of request counting. Off - use shared memory. Signals - use signals f
 
 **Description** :  
 This option allows cleaning all CRIU images on NGINX restart.  
-Setting lsapi_reset_criu_on_restart to on means that on each NGINX restart the CRIU images, which are stored in the directory specified by lsapi_criu_imgs_path directive, will be recreated upon a new request to domain (only after restart).
+Setting lsapi_reset_criu_on_restart to on means that on each NGINX restart the CRIU images, which are stored in the directory specified by lsapi_criu_imgs_dir_path directive, will be recreated upon a new request to domain (only after restart).
 
 ----
 
@@ -8697,10 +8697,10 @@ lsapi_param CONTENT_LENGTH $content_length;
 
 #### **Security**
 
-#### **lsapi_suexec**  
+#### **lsapi_use_suexec**  
 
-**Syntax** : lsapi_suexec [on/off]  
-**Example** : lsapi_suexec on;  
+**Syntax** : lsapi_use_suexec [on/off]  
+**Example** : lsapi_use_suexec on;  
 **Default** : on  
 **Context** : server config  
 **Type** : Optional  
@@ -8750,10 +8750,10 @@ Enable or disable checking the owner of the target PHP scripts.
 
 ---
 
-#### **lsapi_check_doc_root**  
+#### **lsapi_check_document_root**  
 
-**Syntax** : lsapi_check_doc_root [on/off]  
-**Example** : lsapi_check_doc_root on;  
+**Syntax** : lsapi_check_document_root [on/off]  
+**Example** : lsapi_check_document_root on;  
 **Default** : off  
 **Context** : server config  
 **Type** : Optional  
@@ -8803,12 +8803,12 @@ See the following table for more details:
 |-|--|-|
 |**error_log** | **sulsphp_log** | **Solution**|
 |Could not connect to lsphp backend: connect to lsphp failed: 111 Connection refused. Increase memory limit for LVE ID |uid: (xxx/xxxxxxxx) gid: (xxx/xxxxxxxxxx) cmd: /usr/local/bin/lsphp  | Increase pmem or vmem limits for the user uid.|
-|Error sending request: ReceiveLSHeader: nothing to read from backend socket |No need to check this log.  | lsphp was killed. It can be due to nginx restart or lfd. If you see this  message too often - change <span class="notranslate">  lsapi_terminate_backends_ex </span> to <span class="notranslate"> off </span> in lsapi.conf or add to <span class="notranslate"> /etc/csf/csf.pignore </span> the following lines: <span class="notranslate"> exe:/usr/local/bin/lsphp </span> pexe:/opt/alt/php.*/usr/bin/lsphp|
+|Error sending request: ReceiveLSHeader: nothing to read from backend socket |No need to check this log.  | lsphp was killed. It can be due to nginx restart or lfd. If you see this  message too often - change <span class="notranslate">  lsapi_terminate_backends_on_exit </span> to <span class="notranslate"> off </span> in lsapi.conf or add to <span class="notranslate"> /etc/csf/csf.pignore </span> the following lines: <span class="notranslate"> exe:/usr/local/bin/lsphp </span> pexe:/opt/alt/php.*/usr/bin/lsphp|
 |Error sending request (lsphp is killed?): ReceiveLSHeader: nothing to read from backend socket, referer: http://XXXXXXX  Child process with pid: XXXXX was killed by signal: 11, core dump: 0 |No need to check this log.  | lsphp has crashed. Next slide will explain what to do (core dump creating). Also, check configuration options for apc and suhosin in php.ini. Once you have a core file generated at DocumentRoot contact [https://cloudlinux.zendesk.com/](https://cloudlinux.zendesk.com/hc/) so we can investigate the cause.|
 |Could not connect to lsphp backend: connect to lsphp failed: 111 Connection refused |file is writable by others: (///usr/local/bin/lsphp)  | Incorrect lsphp file permissions. For fixing: <span class="notranslate"> chmod 755 /usr/local/bin/lsphp </span> cagefsctl --force-update.|
 |Backend error on sending request(GET /XXXX HTTP/1.1); uri(/XXXX) content-length(0) (lsphp is killed?): ReceiveAckHdr: backend process reset connection: errno 104 (possibly memory limit for LVE ID XXXX too small) |uid: (xxx/xxxxxxxx)  gid: (xxx/xxxxxxxxxx)  cmd: /usr/local/bin/lsphp  | Increase PMEM limits for the user UID.|
 |Reached max children process limit: XX, extra: 0, current: XX, please increase LSAPI_CHILDREN.<br><br>Backend error on sending request(GET /XXXX HTTP/1.1); uri(/XXXX) content-length(0) (lsphp is killed?): ReceiveAckHdr: backend process reset connection: errno 104 (possibly memory limit for LVE ID XXXX too small) |uid: (xxx/xxxxxxxx)  gid: (xxx/xxxxxxxxxx)  cmd: /usr/local/bin/lsphp  | Increase value of <span class="notranslate"> lsapi_backend_children </span> for UID in vhost.conf or globally in lsapi.conf.|
-|Connect to backend rejected on sending request(POST /XXXXX HTTP/1.1); uri(/XXXXX) |No need to check this log.|Set <span class="notranslate">`lsapi_disable_reject on`</span> in your <span class="notranslate">`lsapi.conf`</span> and reload NGINX. This way LSPHP daemon will put requests that cannot be served by LSPHP daemon right away into infinite queue, until one or more LSPHP daemon becomes free. Visit [Configuration Reference](./#configuration-references-2) for more info.|
+|Connect to backend rejected on sending request(POST /XXXXX HTTP/1.1); uri(/XXXXX) |No need to check this log.|Set <span class="notranslate">`lsapi_disable_reject_mode on`</span> in your <span class="notranslate">`lsapi.conf`</span> and reload NGINX. This way LSPHP daemon will put requests that cannot be served by LSPHP daemon right away into infinite queue, until one or more LSPHP daemon becomes free. Visit [Configuration Reference](./#configuration-references-2) for more info.|
 
 
 ### CRIU Support
@@ -8825,11 +8825,11 @@ NGINX LSAPI Module now supports the following parameters:
 | |  |  | |
 |-|--|--|-|
 |**Option name** | **Description** | **Values** | **Default**|
-|lsapi_use_criu | Enable/disable CRIU for lsphp freezing. | <span class="notranslate"> on/off </span> | <span class="notranslate"> off </span>|
-|lsapi_criu_sock_path | Set path to socket for communication with criu service. | [path to socket] | <span class="notranslate"> /var/run/criu/criu_service.socket </span>|
+|lsapi_criu | Enable/disable CRIU for lsphp freezing. | <span class="notranslate"> on/off </span> | <span class="notranslate"> off </span>|
+|lsapi_criu_socket_path | Set path to socket for communication with criu service. | [path to socket] | <span class="notranslate"> /var/run/criu/criu_service.socket </span>|
 |lsapi_backend_initial_start | Number of request when lsphp should be freezed. | [number] 0 - no freezing | 0|
 |lsapi_criu_use_shm | Method of requests counting. <span class="notranslate"> off </span> - use shared memory. <span class="notranslate"> Signals </span> - use signals from child processes to parent. | <span class="notranslate"> off/signals </span> | <span class="notranslate"> off </span>|
-|lsapi_criu_imgs_path | Path to folder where imgs of freezed PHP will be stored. | [path] | <span class="notranslate"> /var/nginx-mod-lsapi/ </span>|
+|lsapi_criu_imgs_dir_path | Path to folder where imgs of freezed PHP will be stored. | [path] | <span class="notranslate"> /var/nginx-mod-lsapi/ </span>|
 |lsapi_criu_debug | Enable/Disable CRIU related debug logging. | <span class="notranslate"> on/off </span> | <span class="notranslate"> off </span>|
 
 Example:
@@ -8847,7 +8847,7 @@ lsapi_criu_debug off;
 When NGINX module NGINX LSAPI Module detects CRIU enabled (lsapi_criu On), it prepares a directory for images (on the first request of virtualhost) to store ( <span class="notranslate"> lsapi_criu_img_path /var/ngx_lsapi/criu/[dir_name] </span> ), and starts the lsphp process. Lsphp increases a counter ( <span class="notranslate"> lsapi_criu_use_shm off|Signals </span> ) via shared memory or signals, and when counter reaches the limit ( <span class="notranslate"> lsapi_backend_initial_start 15 </span> ), lsphp sends the freezing request to CRIU.
 The CRIU service makes images of requested processes. Lsphp will not be frozen if counter does not reach the limit. The next time when lsphp will be stopped, it will be unfrozen from the images.
 
-The images of the processes will be saved even if NGINX is restarted. However, all images will be deleted after a server restart by default. This can be modified by setting the new path <span class="notranslate"> lsapi_criu_imgs_path </span> .
+The images of the processes will be saved even if NGINX is restarted. However, all images will be deleted after a server restart by default. This can be modified by setting the new path <span class="notranslate"> lsapi_criu_imgs_dir_path </span> .
 
 :::warning Important!
 If php.ini or the configuration file from php.d is changed, the images must be deleted manually.
@@ -8957,7 +8957,7 @@ On the next restart of NGINX all of the images will be cleaned.
 
 It can be enabled by writing <span class="notranslate">lsapi_reset_criu_on_restart on; </span> in _lsapi.conf_
 
-Note that this option works only if <span class="notranslate">lsapi_terminate_backends_ex</span> is <span class="notranslate">  on  </span> (default value is <span class="notranslate"> On </span> , it is set in _lsapi.conf_ too).
+Note that this option works only if <span class="notranslate">lsapi_terminate_backends_on_exit</span> is <span class="notranslate">  on  </span> (default value is <span class="notranslate"> On </span> , it is set in _lsapi.conf_ too).
 
 2. If you need to clean CRIU images for one user you can simply add file to the user's directory with CRIU images (default <span class="notranslate"> _/var/ngx_lsapi/criu/lsapi_ * _criu_imgs_ </span> ). On the next restart of lsphp the images will be cleaned.
 
