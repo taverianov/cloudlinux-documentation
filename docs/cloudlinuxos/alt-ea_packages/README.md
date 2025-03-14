@@ -128,6 +128,7 @@ The mark `x` stands for a supported version.
 | alt-php 8.1 |       x      |       x      |       x      |       x      |
 | alt-php 8.2 |       x      |       x      |       x      |       x      |
 | alt-php 8.3 |       x      |       x      |       x      |       x      |
+| alt-php 8.4 |              |       x      |       x      |       x      |
 
 
 
@@ -150,6 +151,7 @@ The mark `x` stands for a supported version.
 | alt-php 8.1 |     x     |     x     |     x     |
 | alt-php 8.2 |     x     |     x     |     x     |
 | alt-php 8.3 |     x     |     x     |     x     |
+| alt-php 8.4 |     x     |     x     |     x     |
 
 
 
@@ -176,6 +178,7 @@ The mark `x` stands for a supported version.
 | alt-php 8.1 |       x      |       x      |       x      |       x      |
 | alt-php 8.2 |       x      |       x      |       x      |       x      |
 | alt-php 8.3 |       x      |       x      |       x      |       x      |
+| alt-php 8.4 |              |       x      |       x      |       x      |
 
 
 
@@ -204,6 +207,7 @@ Large number of PHP extensions are bundled with each version of PHP.
 * [PHP 8.1 extensions](./#php-8-1-extensions)
 * [PHP 8.2 extensions](./#php-8-2-extensions)
 * [PHP 8.3 extensions](./#php-8-3-extensions)
+* [PHP 8.4 extensions](./#php-8-4-extensions)
 
 
 #### PHP 5.1 extensions
