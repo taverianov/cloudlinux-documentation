@@ -99,7 +99,7 @@ export default {
         botTitle: "AI Assistant",
       },
       iframeUrl: "https://chatbot.cloudlinux.com/docs/cloudlinux",
-      windowWidth: window.innerWidth,
+      windowWidth: 0, // Changed from window.innerWidth to avoid SSR error
     };
   },
   computed: {
@@ -109,6 +109,7 @@ export default {
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
+    this.handleResize(); // Set initial windowWidth on client-side
   },
   beforeUnmount() {
     window.removeEventListener("resize", this.handleResize);
