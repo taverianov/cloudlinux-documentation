@@ -212,7 +212,7 @@ No, you cannot. Only CentOS 8/AlmaLinux 8+ can be converted.
 
 ### Does CloudLinux OS Solo work with LiteSpeed?
 
-No, it does not. We are still implementing this feature, so it will be available in the next CloudLinux OS Solo releases.
+**CloudLinux OS Solo is not officially supported or tested with LiteSpeed at this time.** While it may work in some cases, we do not guarantee compatibility and cannot provide official support for this configuration. Use of CloudLinux OS Solo with LiteSpeed is at your own discretion and may result in unexpected behavior or limitations.
 
 ### What is the process of upgrading if the customer adds more users to the server and will have to upgrade? (i.e., upgrading from CloudLinux OS Solo to CloudLinux OS Legacy (Shared))
 
