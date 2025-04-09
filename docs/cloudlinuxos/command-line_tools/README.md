@@ -1124,7 +1124,7 @@ usage: <span class="notranslate"> dbctl command [parameter] [options] </span>
 | <span class="notranslate"> --cpu=N </span> |limit <span class="notranslate"> CPU </span> (pct) usage|
 | <span class="notranslate"> --read=N </span> |limit <span class="notranslate"> READ </span> (MB/s) usage|
 | <span class="notranslate"> --write=N </span> |limit <span class="notranslate"> WRITE </span> (MB/s) usage|
-| <span class="notranslate"> --level=N </span> |level (1,2,3 or 4) specified (deprecated) - this option is available only for <restrict_mode use="period"/> (see [Configuration](/cloudlinuxos/cloudlinux_os_components/#configuration-2))|
+| <span class="notranslate"> --level=N </span> |level (1,2,3 or 4) specified (deprecated) - this option is available only for period mode <br> <restrict_mode use="period"/> (see [Configuration](/cloudlinuxos/cloudlinux_os_components/#configuration-2))|
 
 
 
