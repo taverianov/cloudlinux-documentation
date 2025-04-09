@@ -1124,16 +1124,18 @@ usage: <span class="notranslate"> dbctl command [parameter] [options] </span>
 | <span class="notranslate"> --cpu=N </span> |limit <span class="notranslate"> CPU </span> (pct) usage|
 | <span class="notranslate"> --read=N </span> |limit <span class="notranslate"> READ </span> (MB/s) usage|
 | <span class="notranslate"> --write=N </span> |limit <span class="notranslate"> WRITE </span> (MB/s) usage|
-| <span class="notranslate"> --level=N </span> |level (1,2,3 or 4) specified (deprecated) - this option is available only for period mode:|
+| <span class="notranslate"> --level=N </span> |level (1,2,3 or 4) specified (deprecated) - this option is available only for period mode: <restrict_mode use="period"/> (see [Configuration](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation))|
 
-<span class="notranslate"> <restrict_mode use="period"/> </span> (see [Configuration](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation))
+
 
 The default mode is " <span class="notranslate"> limit </span> " - when a user hits limits, the account will be marked as restricted and if the user does not hit the limit again during " <span class="notranslate"> unlimit=1m </span> " account will be unrestricted. This mode doesn't have any additional levels/penalties.  
 <span class="notranslate"> <restrict_mode use="limit" unlimit="1m"/> </span>
 
 Changing the <span class="notranslate"> "unlimit" </span> can be done only via the configuration file (see [Configuration](/cloudlinuxos/cloudlinux_os_components/#configuration-and-operation)).
 
-<span class="notranslate"> --slow=N: </span> limit time (in seconds) for long running <span class="notranslate"> SELECT </span> queries
+| | |
+|-|-|
+| `--slow=N` | limit time (in seconds) for long running <span class="notranslate"> SELECT </span> queries|
 
 Options for parameter <span class="notranslate">`list`</span>:
 
