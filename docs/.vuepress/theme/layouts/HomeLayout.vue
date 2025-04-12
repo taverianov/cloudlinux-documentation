@@ -1,4 +1,5 @@
 <template>
+  <meta name="google-site-verification" content="5-Q2NFM8YQ1f64j819in5tsqnlwNjQXX6Y0PQzmBEcs" />
   <div class="theme-container">
     <HeaderLayout :isMobileWidth="isMobileWidth"/>
     <DocsCardsWrapper/>
