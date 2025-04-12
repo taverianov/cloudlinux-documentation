@@ -1,5 +1,6 @@
 <template>
   <div class="theme-container">
+    <meta name="google-site-verification" content="5-Q2NFM8YQ1f64j819in5tsqnlwNjQXX6Y0PQzmBEcs" />
     <HeaderLayout  :closeSidebarDrawer="pageRef?.closeSidebarDrawer" :isMobileWidth="isMobileWidth"/>
     <Sidebar
         v-if="allPages.length && !pageRef?.isOpenMobileSidebarMenu && !isMobileWidth"
