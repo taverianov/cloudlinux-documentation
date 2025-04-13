@@ -4,11 +4,11 @@ export default [
   [
     "script",
     {
-    type: "text/javascript",
-    id: "hs-script-loader",
-    async: true,
-    defer: true,
-    src: "//js.hs-scripts.com/5408110.js",
+      type: "text/javascript",
+      id: "hs-script-loader",
+      async: true,
+      defer: true,
+      src: "//js.hs-scripts.com/5408110.js",
     },
   ],
   [
@@ -74,8 +74,8 @@ export default [
   [
     "meta",
     {
-    name: "google-site-verification",
-    content: "5-Q2NFM8YQ1f64j819in5tsqnlwNjQXX6Y0PQzmBEcs",
+      name: "google-site-verification",
+      content: "5-Q2NFM8YQ1f64j819in5tsqnlwNjQXX6Y0PQzmBEcs",
     },
   ],
-  ];
+];

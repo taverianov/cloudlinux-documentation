@@ -3,7 +3,6 @@ docs/.vuepress/.temp
 node_modules
 
 .idea
-yarn.lock
 docs/.vuepress/dist/
 .vscode
 *.code-workspace
