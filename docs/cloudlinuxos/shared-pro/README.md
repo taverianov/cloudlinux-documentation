@@ -2022,7 +2022,7 @@ A tracing task can have the following statuses:
 #### Collected requests for tracing task
 
 :::warning Warning!
-Collected requests are available in the UI for two weeks.
+Collected requests are available in the UI for 30 days.
 :::
 
 Click ![](/images/cloudlinuxos/shared-pro/x-ray/XRayView.webp) to open a list of collected requests.
