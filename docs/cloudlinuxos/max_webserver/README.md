@@ -97,3 +97,28 @@ Instead, if you want to augment the NGINX configuration, you can do any of the f
 
 * Work with your `.htaccess` files like usually, and let MAx Web Server automatically convert them to respective NGINX configuration
 * Add files according to `ea-nginx` files conventions. Please refer to the [cPanel documentation](https://docs.cpanel.net/knowledge-base/web-services/nginx-with-reverse-proxy/).
+
+## Frequently Asked Questions 
+
+**Q: Is MAx Web Server available on all editions?**
+A: Yes, it is. However, **AccelerateWP** (*which provides more benefit in pair with MAx Web Server*) is available only for CloudLinux OS Shared PRO/Admin/Solo editions (not Legacy).
+
+**Q: What happens if the conversion from Apache to NGINX fails?**
+A: In such cases, the system will automatically switch to proxy-pass mode on NGINX.
+
+**Q: Which PHP handlers are supported?**
+A: MAx Web Server supports LSAPI and FPM PHP handlers, which can be managed via WHM/cPanel's MultiPHP Manager.
+
+**Q: How can I diagnose and report proxy-pass issues?**
+A: Use the following commands:
+* Run apache2max_webserver list-proxied to identify proxied websites and reasons.
+* Check logs with:
+```
+cat /var/log/max_webserver.log | grep username | grep WARNING
+```
+or more specifically:
+```
+cat /var/log/max_webserver.log | grep user.com | grep proxy_pass
+```
+**Q: If one site on an account uses proxy-pass, does it affect other sites?**
+A: No. Only the sites that couldn’t be converted will use proxy-pass. Successfully converted sites will operate via NGINX.
