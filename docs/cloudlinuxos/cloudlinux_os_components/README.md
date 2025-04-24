@@ -1865,14 +1865,12 @@ ffmpeg RPM should be installed on the system already.
 :::
 
 
-#### Excluding files
+#### Excluding Files
 
+To exclude files and directories from CageFS, create a file with the <span class="notranslate">`.black.list`</span> extension inside the <span class="notranslate">`/etc/cagefs/`</span> directory. 
+List the files or directories to exclude, one per line.
 
-To exclude files and directories from CageFS, edit file:  
-<span class="notranslate">`/etc/cagefs/custom.black.list`</span>  
-And add files or directories in there, one per line.
-
-Execute the following command to apply changes:
+Run the following command to apply the changes:
 <div class="notranslate">
 
 ```
@@ -1880,7 +1878,9 @@ cagefsctl --force-update
 ```
 </div>
 
-Please do not edit <span class="notranslate">`/etc/cagefs/black.list`</span> file because it is replaced during the update of CageFS package.
+:::warning Important
+Do not edit the <span class="notranslate">`/etc/cagefs/black.list`</span> file directly, as it will be overwritten during CageFS package updates.
+:::
 
 #### Excluding users
 
