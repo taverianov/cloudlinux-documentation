@@ -1503,29 +1503,29 @@ To see which letters were sent via lves-tats notifier in the logs, do the follow
 
 ## CageFS
 
-### General information and requirements
+### General Information and Requirements
 
 * [Minimum Requirements](./#minimum-requirements)
-* [CageFS quirks](./#cagefs-quirks)
+* [CageFS Quirks](./#cagefs-quirks)
 
-CageFS is a virtualized file system and a set of tools to contain each user in its own 'cage'. Each customer will have its own fully functional CageFS, with all the system files, tools, etc.
+CageFS is a virtualized file system and a set of tools designed to isolate each user in their own 'cage.' Each customer gets their own fully functional CageFS environment, complete with system files, tools, and more.
 
-The benefits of CageFS are:
+Benefits of CageFS:
 
-* Only safe binaries are available to user
-* User will not see any other users, and would have no way to detect presence of other users & their user names on the server
-* User will not be able to see server configuration files, such as Apache config files.
-* User's will have limited view of _/proc_ file system, and will not be able to see other users' processes
+* Only safe binaries are available to the user.
+* Users cannot see or detect other users or their usernames on the server.
+* Users cannot access server configuration files, such as Apache configuration files.
+* Users have a restricted view of the _/proc_ file system and cannot see other users' processes.
 
-At the same time, user's environment will be fully functional, and user should not feel in any way restricted. No adjustments to user's scripts are needed. CageFS will cage any scripts execution done via:
+Despite these restrictions, the user's environment remains fully functional, and users should not feel limited in any way. No changes to user scripts are required. CageFS will isolate any script execution performed via:
 * <span class="notranslate"> Apache (suexec, suPHP, mod_fcgid, mod_fastcgi) </span>
 * <span class="notranslate"> LiteSpeed Web Server </span>
-* <span class="notranslate"> Cron Jobs  </span>
+* <span class="notranslate"> Cron Jobs </span>
 * SSH
-* Any other <span class="notranslate"> PAM </span> enabled service
+* Any other <span class="notranslate"> PAM </span>-enabled service
 
 ::: tip Note
-mod_php is not supported, MPM ITK requires a custom patch
+mod_php is not supported, and MPM ITK requires a custom patch.
 :::
 
 ::: tip Note
@@ -1536,29 +1536,27 @@ See also [Compatibility Matrix](/cloudlinuxos/limits/#compatibility-matrix).
 
 #### Minimum Requirements:
 
-* kernel: CL6 with lve1.2.17.1 or later, CL7.
+* Kernel: CL6 with lve1.2.17.1 or later, CL7.
 * 7GB of disk space.
 
-Depending on your setup, and number of users, you might also need:
-* Up to 8MB per customer in `/var` directory (to store custom `/etc` directory)
-* 5GB to 20GB in `/usr/share` directory (to store safe skeleton of a filesystem)
+Depending on your setup and the number of users, you might also need:
+* Up to 8MB per customer in the `/var` directory (to store custom `/etc` directories).
+* 5GB to 20GB in the `/usr/share` directory (to store a safe skeleton of a filesystem).
 
 ::: danger Warning
-If at any time you decide to uninstall CageFS, please make sure you follow [uninstall instructions](./#uninstalling)
+If you decide to uninstall CageFS, ensure you follow the [uninstall instructions](./#uninstalling).
 :::
 
-#### CageFS quirks
+#### CageFS Quirks
 
+Due to its design, some features may not work as expected or may require adjustments:
 
-Due to the nature of CageFS, some options will not work as before or will require some changes:
+* The `lastlog` command will not work (<span class="notranslate">`/var/log/lastlog`</span>).
+* PHP will load `php.ini` from <span class="notranslate">`/usr/selector/php.ini`</span>. This file is a link to the actual `php.ini` file on your system, ensuring the same `php.ini` is ultimately loaded.
+* You must run <span class="notranslate">`cagefsctl --update`</span> whenever you modify `php.ini` or need new/updated software inside CageFS.
+* CageFS installation changes <span class="notranslate">`jailshell`</span> to regular bash on cPanel. [Learn why](https://cloudlinux.zendesk.com/hc/articles/115004517685-Why-CageFS-installation-changes-jailshell-to-regular-bash-on-cPanel-).
 
-* lastlog will not work (<span class="notranslate">`/var/log/lastlog`</span>).
-* PHP will load `php.ini` from <span class="notranslate">`/usr/selector/php.ini`</span>. That file is actually a link to the real `php.ini` file from your system. So the same `php.ini` will be loaded in the end.
-* You have to run <span class="notranslate">`cagefsctl --update`</span> any time you have modified `php.ini`, or you want to get new/updated software inside CageFS.
-* CageFS installation changes <span class="notranslate">`jailshell`</span> to regular bash on cPanel - [read why](https://cloudlinux.zendesk.com/hc/articles/115004517685-Why-CageFS-installation-changes-jailshell-to-regular-bash-on-cPanel-).
-
-
-### Installation and update
+### Installation and Update
 
 To install CageFS:
 <div class="notranslate">
@@ -1569,7 +1567,7 @@ yum install cagefs
 ```
 </div>
 
-That last command will create skeleton directory that might be around 7GB in size. If you don't have enough disk space in _/usr/share_, use following commands to have <span class="notranslate"> `cagefs-skeleton` </span> being placed in a different location:
+The last command creates a skeleton directory, which may require around 7GB of disk space. If you lack sufficient space in _/usr/share_, use the following commands to place the <span class="notranslate"> `cagefs-skeleton` </span> in a different location:
 <div class="notranslate">
 
 ```
@@ -1578,11 +1576,11 @@ ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton
 ```
 </div>
 
-The commands above should be executed before the <span class="notranslate">`cagefsctl --init`</span>.
+Execute these commands before running <span class="notranslate">`cagefsctl --init`</span>.
 
-Also, it is needed approximately 4Kb of disk space per one user for the <span class="notranslate">`/var/cagefs`</span> directory. You should place the <span class="notranslate">`/var/cagefs`</span> directory on partition, which is large enough and has disk quota enabled.
+Additionally, approximately 4KB of disk space per user is required for the <span class="notranslate">`/var/cagefs`</span> directory. Ensure this directory is located on a partition with sufficient space and disk quota enabled.
 
-For example, to create the <span class="notranslate">`/var/cagefs`</span> directory on the <span class="notranslate">`/home`</span> partition, execute the following commands before the <span class="notranslate">`cagefsctl --init`</span>:
+For example, to create the <span class="notranslate">`/var/cagefs`</span> directory on the <span class="notranslate">`/home`</span> partition, execute the following commands before running <span class="notranslate">`cagefsctl --init`</span>:
 
 <div class="notranslate">
 
@@ -1592,21 +1590,19 @@ ln -s /home/cagefs /var/cagefs
 ```
 </div>
 
-
 :::danger IMPORTANT
-Please make sure to turn on disk quota for a partition where the <span class="notranslate">`/var/cagefs`</span> directory is located, or move the <span class="notranslate">`/var/cagefs`</span> to a partition where disk quota is enabled. This is needed to prevent users from abusing disk quota inside CageFS.
+Ensure disk quota is enabled for the partition where the <span class="notranslate">`/var/cagefs`</span> directory is located, or move it to a partition with disk quota enabled. This prevents users from abusing disk quota inside CageFS.
 :::
 
-If the `/var/cagefs` directory is already created, you can move it. How to move the `/var/cagefs` directory:
+If the `/var/cagefs` directory already exists, you can move it. Learn how to move the `/var/cagefs` directory:
 [https://docs.cloudlinux.com./#moving-var-cagefs-directory](https://docs.cloudlinux.com./#moving-var-cagefs-directory)
 
-
 ::: danger IMPORTANT
-If you are placing skeleton in <span class="notranslate">`/home`</span> directory on cPanel servers, you must configure the following option in cPanel WHM: <span class="notranslate"> **WHM -> Server Configuration -> Basic cPanel/WHM Setup -> Basic Config -> Additional home directories** </span>  
-Change the value to blank (not default <span class="notranslate"> Home </span> ). Without changing this option, cPanel will create new accounts in incorrect places.
+If you place the skeleton in the <span class="notranslate">`/home`</span> directory on cPanel servers, configure the following option in cPanel WHM: <span class="notranslate"> **WHM -> Server Configuration -> Basic cPanel/WHM Setup -> Basic Config -> Additional home directories** </span>.  
+Set the value to blank (not the default <span class="notranslate"> Home </span>). Without this change, cPanel will create new accounts in incorrect locations.
 :::
 
-CageFS will automatically detect and configure all necessary files for:
+CageFS automatically detects and configures all necessary files for:
 * cPanel
 * Plesk
 * DirectAdmin
@@ -1616,19 +1612,18 @@ CageFS will automatically detect and configure all necessary files for:
 * PostgreSQL
 * LiteSpeed
 
-Web interface to manage CageFS is available for cPanel, Plesk 10+, DirectAdmin, ISPmanager & Interworx. Command line tool would need to be used for other control panels.
+A web interface for managing CageFS is available for cPanel, Plesk 10+, DirectAdmin, ISPmanager, and Interworx. For other control panels, use the command-line tool.
 
-Once you initialized the template you can start enabling users. By default CageFS is disabled for all users.
+Once the template is initialized, you can start enabling users. By default, CageFS is disabled for all users.
 
-Starting from **cagefs-6.1-27** <span class="notranslate">`fs.proc_can_see_other_uid`</span> will be migrated (one time) from _/etc/sysctl.conf_ into _/etc/sysctl.d/90-cloudlinux.conf_ . If this variable is not set in either file, it will default to 0.
+Starting from **cagefs-6.1-27**, the <span class="notranslate">`fs.proc_can_see_other_uid`</span> setting is migrated (one time) from _/etc/sysctl.conf_ to _/etc/sysctl.d/90-cloudlinux.conf_. If this variable is not set in either file, it defaults to 0.
 
-It is strongly advised against setting this variable in `90-cloudlinux.conf`. Define it in `/etc/sysctl.conf` or in some other config file with an index number greater than `90-cloudlinux.conf`, e.g. `/etc/sysctl.d/95-custom.conf`.
+It is strongly recommended not to set this variable in `90-cloudlinux.conf`. Instead, define it in `/etc/sysctl.conf` or another config file with an index number greater than `90-cloudlinux.conf`, such as `/etc/sysctl.d/95-custom.conf`.
 
-You can find more information on <span class="notranslate">`fs.proc_can_see_other_uid`</span> automatic migration in [Kernel Config Variables](/cloudlinuxos/cloudlinux_os_kernel/#kernel-config-variables).
-
+For more information on the automatic migration of <span class="notranslate">`fs.proc_can_see_other_uid`</span>, see [Kernel Config Variables](/cloudlinuxos/cloudlinux_os_kernel/#kernel-config-variables).
 
 :::tip Note
-You can also use [CageFS CLI](/cloudlinuxos/command-line_tools/#cagefs)
+You can also use [CageFS CLI](/cloudlinuxos/command-line_tools/#cagefs).
 :::
 
 ### Uninstalling
@@ -1642,9 +1637,9 @@ To uninstall CageFS, start by disabling and removing all directories:
 ```
 </div>
 
-That command will: disable CageFS for all customers, unmount CageFS for all users, removes <span class="notranslate"> _/usr/share/cagefs-skeleton_ & _/var/cagefs_ </span> directories. It will not remove _/etc/cagefs_ directory.
+This command disables CageFS for all customers, unmounts CageFS for all users, and removes the <span class="notranslate"> _/usr/share/cagefs-skeleton_ & _/var/cagefs_ </span> directories. It does not remove the _/etc/cagefs_ directory.
 
-Remove CageFS RPM:
+To remove the CageFS RPM:
 
 <div class="notranslate">
 
@@ -1870,14 +1865,12 @@ ffmpeg RPM should be installed on the system already.
 :::
 
 
-#### Excluding files
+#### Excluding Files
 
+To exclude files and directories from CageFS, create a file with the <span class="notranslate">`.black.list`</span> extension inside the <span class="notranslate">`/etc/cagefs/`</span> directory. 
+List the files or directories to exclude, one per line.
 
-To exclude files and directories from CageFS, edit file:  
-<span class="notranslate">`/etc/cagefs/custom.black.list`</span>  
-And add files or directories in there, one per line.
-
-Execute the following command to apply changes:
+Run the following command to apply the changes:
 <div class="notranslate">
 
 ```
@@ -1885,7 +1878,9 @@ cagefsctl --force-update
 ```
 </div>
 
-Please do not edit <span class="notranslate">`/etc/cagefs/black.list`</span> file because it is replaced during the update of CageFS package.
+:::warning Important
+Do not edit the <span class="notranslate">`/etc/cagefs/black.list`</span> file directly, as it will be overwritten during CageFS package updates.
+:::
 
 #### Excluding users
 
