@@ -11,7 +11,7 @@ These packages typically consist of a set of tools, libraries, and utilities tha
 
 alt-php provides by CloudLinux and it also includes PHP selector feature. These versions help to access outdated PHP version and also these versions are hardened and patched against vulnerabilities.
 
-Right now, you can easily use PHP selector to change PHP version from PHP 5.1 to PHP 8.3. And this option provides by CloudLinux LVE Manager plugin in WHM.
+Right now, you can easily use PHP selector to change PHP version from PHP 5.2 to PHP 8.3. And this option provides by CloudLinux LVE Manager plugin in WHM.
 
 EA PHP versions are provided by EasyApache 4. These PHP versions are included in cPanel installation and can be managed by Multi PHP Manager.
 
@@ -23,7 +23,7 @@ CloudLinux additionally provides older, End-of-Life versions of ea-php with secu
 
 alt-php includes PHP versions that CloudLinux provides along with their PHP Selector feature. These versions of PHP are often hardened and patched against vulnerabilities to allow users to continue to use applications that require outdated PHP versions.
 
-As of this time, PHP Selector currently offers users the ability to install and use PHP 5.1+ and the options for these versions are managed via CloudLinux's LVE Manager plugin in WHM.
+As of this time, PHP Selector currently offers users the ability to install and use PHP 5.2+ and the options for these versions are managed via CloudLinux's LVE Manager plugin in WHM.
 
 For more details regarding the installation of alt-php and PHP Selector, please refer to [CloudLInux's documentation](https://docs.cloudlinux.com/cloudlinuxos/cloudlinux_os_components/#general-information-and-requirements).
 
@@ -113,7 +113,6 @@ The mark `x` stands for a supported version.
 
 |             | Cloudlinux 6 | Cloudlinux 7 | Cloudlinux 8 | Cloudlinux 9 |
 |:-----------:|:------------:|:------------:|:------------:|:------------:|
-| alt-php 5.1 |       x      |       x      |       x      |              |
 | alt-php 5.2 |       x      |       x      |       x      |       x      |
 | alt-php 5.3 |       x      |       x      |       x      |       x      |
 | alt-php 5.4 |       x      |       x      |       x      |       x      |
@@ -136,7 +135,6 @@ The mark `x` stands for a supported version.
 
 |             | Debian 10 | Debian 11 | Debian 12 |
 |:-----------:|:---------:|:---------:|:---------:|
-| alt-php 5.1 |           |           |           |
 | alt-php 5.2 |           |           |           |
 | alt-php 5.3 |           |           |           |
 | alt-php 5.4 |           |           |           |
@@ -163,7 +161,6 @@ The mark `x` stands for a supported version.
 
 |             | Ubuntu 16.04 | Ubuntu 18.04 | Ubuntu 20.04 | Ubuntu 22.04 |
 |:-----------:|:------------:|:------------:|:------------:|:------------:|
-| alt-php 5.1 |              |              |              |              |
 | alt-php 5.2 |              |              |              |              |
 | alt-php 5.3 |              |              |              |              |
 | alt-php 5.4 |              |              |              |              |
@@ -192,7 +189,6 @@ The PHP core includes many built-in extensions that provide basic functionality,
 
 Large number of PHP extensions are bundled with each version of PHP.
 
-* [PHP 5.1 extensions](./#php-5-1-extensions)
 * [PHP 5.2 extensions](./#php-5-2-extensions)
 * [PHP 5.3 extensions](./#php-5-3-extensions)
 * [PHP 5.4 extensions](./#php-5-4-extensions)
@@ -208,19 +204,6 @@ Large number of PHP extensions are bundled with each version of PHP.
 * [PHP 8.2 extensions](./#php-8-2-extensions)
 * [PHP 8.3 extensions](./#php-8-3-extensions)
 * [PHP 8.4 extensions](./#php-8-4-extensions)
-
-
-#### PHP 5.1 extensions
-
-
-<div class="notranslate">
-
-| |  |  |  | |
-|-|-|-|-|-|
-|Reflection <br>SPL <br>SimpleXML <br>bcmath <br>big_int <br>bitset <br>bz2 <br>bz2_filter <br>calendar <br>coin_acceptor <br>crack <br>ctype <br>curl <br>date <br>dba <br>dbase <br>dom <br>doublemetaphone <br>exif | ftp <br>gd <br>geoip <br>gettext <br>gmagick <br>gmp <br>gnupg <br>haru <br>hash <br>huffman <br>iconv <br>idn <br>igbinary <br>imagick <br>imap <br>inclued <br>inotify <br>interbase  |  <br>oncube_loader<br>ldap <br>libxml <br>lzf <br>mbstring <br>mcrypt <br>memcache <br>msgpack <br>mysql <br>mysqli <br>ncurses <br>odbc <br>openssl <br>pcntl <br>pcre <br>pdo <br>pdo_oci* <br>pdo_firebird | pdo_mysql <br>pdo_odbc <br>pdo_pgsql <br>pdo_sqlite <br>pgsql <br>posix <br>pspell <br>quickhash <br>radius <br>readline <br>redis <br>session <br>shmop <br>snmp <br>sourceguardian <br>soap <br>sockets <br>ssh2  | standard <br>stats <br>stem <br>sybase_ct <br>sysvmsg <br>sysvsem <br>sysvshm <br>tidy <br>timezonedb <br>tokenizer <br>translit <br>wddx <br>xdebug <br>xml <br>xmlreader <br>xmlrpc <br>xmlwriter <br>xsl <br>zlib |
-</div>
-
-<sup>*</sup> CloudLinux 6/7
 
 #### PHP 5.2 extensions
 
