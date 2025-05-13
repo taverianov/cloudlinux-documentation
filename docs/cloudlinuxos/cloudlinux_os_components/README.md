@@ -3637,7 +3637,7 @@ MySQL Governor allows setting the burstable limits for accounts. To provide that
 
 **Example of choosing MySQL Governor limits**
 
-* With the default LVE SPEED limit is `100`, the possible values of the MySQL Governor CPU limits can be 250/150/110/90. I.e., we admit the short-term exceeding of the limits for processing SQL requests.
+* With the default LVE SPEED limit is `100`, the possible values of the MySQL Governor CPU limits can be 100/95/87/75. I.e., we admit the short-term exceeding of the limits for processing SQL requests.
 * If you face spike CPU consumption with these limits, it is recommended to reduce the excess of the `current` and `short` limits over the LVE limit. For example, to the values 150/110/100/90.
 * If the average level of CPU consumption is too high, then it is recommended to reduce the `middle` and `long` limits, too. For example, to the values 150/100/80/50.
 * Then MySQL processes will fall into LVE and be limited by LVE limits more often.
