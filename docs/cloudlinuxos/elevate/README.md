@@ -515,9 +515,13 @@ To summarize:
 * Rerun the pre-upgrade procedure to ensure that your changes are integrated correctly, then test the upgrade process as desired.
 
 
-## ELevate Scenario - CloudLinux 7 with no panel or a custom panel
+## ELevate Scenario - CloudLinux 7 with no panel or a custom panel (incl. DirectAdmin)
 
-This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on no-panel/custom panel systems.
+This scenario contains steps on how to upgrade CloudLinux 7 to CloudLinux 8 on no-panel/custom panel systems. 
+
+:::tip 
+ELevating CloudLinux 7 to CloudLinux 8 for **DirectAdmin** is now supported and the elevation process for systems with DirectAdmin **mirrors the procedure used for no-panel or custom panel systems**. More details in [our blog](https://blog.cloudlinux.com/elevating-cloudlinux-7-to-cloudlinux-8-with-directadmin-now-supported).
+:::
 
 1. First of all, make sure that your CloudLinux 7 is fully upgraded and on the latest kernel version.
 
