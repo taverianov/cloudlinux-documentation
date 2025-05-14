@@ -5839,7 +5839,20 @@ See also [Ruby Selector CLI tools](/cloudlinuxos/command-line_tools/#ruby-select
 
 ### Supported versions
 
-![](/images/cloudlinuxos/cloudlinux_os_components/Nodejs_supported_versions.webp)
+| CloudLinux 6     | CloudLinux 7     | CloudLinux 8     | CloudLinux 9     |
+| ---------------- | ---------------- | ---------------- | ---------------- |
+| alt‑nodejs 6.x   | alt‑nodejs 6.x   | alt‑nodejs 6.x   | alt‑nodejs 6.x   |
+| alt‑nodejs 8.x   | alt‑nodejs 8.x   | alt‑nodejs 8.x   | alt‑nodejs 8.x   |
+| alt‑nodejs 9.x   | alt‑nodejs 9.x   | alt‑nodejs 9.x   | alt‑nodejs 9.x   |
+| alt‑nodejs 10.x  | alt‑nodejs 10.x  | alt‑nodejs 10.x  | alt‑nodejs 10.x  |
+| alt‑nodejs 11.x  | alt‑nodejs 11.x  | alt‑nodejs 11.x  | alt‑nodejs 11.x  |
+| alt‑nodejs 12.x  | alt‑nodejs 12.x  | alt‑nodejs 12.x  | alt‑nodejs 12.x  |
+| alt‑nodejs 14.x  | alt‑nodejs 14.x  | alt‑nodejs 14.x  | alt‑nodejs 14.x  |
+| —                | alt‑nodejs 16.x  | alt‑nodejs 16.x  | alt‑nodejs 16.x  |
+| —                | alt‑nodejs 18.x  | alt‑nodejs 18.x  | alt‑nodejs 18.x  |
+| —                | alt‑nodejs 19.x  | alt‑nodejs 19.x  | alt‑nodejs 19.x  |
+| —                | alt‑nodejs 20.x  | alt‑nodejs 20.x  | alt‑nodejs 20.x  | 
+| —                | -                | alt‑nodejs 22.x  | alt‑nodejs 22.x  |
 
 #### **Requirements**
 
