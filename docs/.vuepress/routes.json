@@ -65,5 +65,6 @@
     "/introduction/":"/introduction/cloudlinux-os-editions/",
     "/introduction/#cloudlinux-os-life-cycle":"/introduction/cloudlinux-os-editions/#cloudlinux-os-life-cycle",
     "/introduction/#cloudlinux-9":"/cloudlinuxos/cloudlinux_installation/#requirements",
-    "/cloudlinuxos/apache2nginx/":"/cloudlinuxos/max_webserver/"
+    "/cloudlinuxos/apache2nginx/":"/cloudlinuxos/max_webserver/",
+    "/shared-pro/x-ray":"/cloudlinuxos/shared-pro/#x-ray"
 }
