@@ -174,7 +174,7 @@ In case of any uncertainty, it is recommended to seek assistance from CloudLinux
 | <span class="notranslate">[domains](./#domains)</span>       | Selectors, some UI features/X-Ray      |All UNIX users/administrators (UNIX users)|+/-|
 | <span class="notranslate">[resellers](./#resellers)</span>   | Always                                 |admins (UNIX users)|-|
 | <span class="notranslate">[admins](./#admins)</span>         | Always                                 |admins (UNIX users)|-|
-| <span class="notranslate">[php](./#admins)</span>            | For AccelerateWP                       |admins (UNIX users)|-|
+| <span class="notranslate">[php](./#php)</span>            | For AccelerateWP                       |admins (UNIX users)|-|
 
 ### Working with CPAPI & CageFS
 
