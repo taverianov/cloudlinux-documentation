@@ -3324,7 +3324,7 @@ Please make sure to specify your current <span class="notranslate"> MariaDB </sp
 * 105 - MariaDB v10.5 [requires <span class="notranslate">MySQL Governor</span> 1.2-62+]
 * 106 - MariaDB v10.6 [requires <span class="notranslate">MySQL Governor</span> 1.2-76+]
 * 1011 - MariaDB v10.11 [requires <span class="notranslate">MySQL Governor</span>  1.2-103+]
-* 114 - MariaDB v11.4 [requires <span class="notranslate">MySQL Governor</span>  1.2-122+] 
+* 1104 - MariaDB v11.4 [requires <span class="notranslate">MySQL Governor</span>  1.2-122+] 
 
 :::tip Updated note
 MariaDB version 10.4 is available for CloudLinux OS 6.
