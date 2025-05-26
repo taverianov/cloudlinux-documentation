@@ -1799,6 +1799,16 @@ yumdownloader --source mod_lsapi --enablerepo=*source
 ```
 </div>
 
+:::warning Note
+Make sure that versions of all installed and downloaded
+* `mod_lsapi`
+* `liblsapi`
+* `liblsapi-devel`
+packages completely coincide.
+Ensure that the copy of mod_lsapi.so visible to Apache is configured to load liblscapi.so of the same version.
+Mismatched versions can cause errors or unexpected behavior.
+:::
+
 3. Rebuild the package with your Apache using rpmbuild
 
 <div class="notranslate">
