@@ -1673,16 +1673,6 @@ rpmbuild --rebuild alt-mod-passenger-ver.cloudlinux.src.rpm
 ```
 </div>
 
-:::warning Note
-Make sure that versions of all installed and downloaded
-* `mod_lsapi`
-* `liblsapi`
-* `liblsapi-devel`
-packages completely coincide.
-Ensure that the copy of mod_lsapi.so visible to Apache is configured to load liblscapi.so of the same version.
-Mismatched versions can cause errors or unexpected behavior.
-:::
-
 3. Remove dependencies from `httpd`, `apr`, `apr-util` packages (`-devel` packages as well) and set your Apache packages instead, in the alt-mod-passenger spec file. Also, set the path for the directory where your Apache configs are located with <span class="notranslate">`__apache_conf_dir`</span> in the spec file.
 
 4. Rebuild the package again, this time you should get to the compilation stage. During compilation, you may encounter such errors:
@@ -1808,6 +1798,16 @@ yum install -y alt-python37-mock alt-python37-pytest httpd-devel
 yumdownloader --source mod_lsapi --enablerepo=*source
 ```
 </div>
+
+:::warning Note
+Make sure that versions of all installed and downloaded
+* `mod_lsapi`
+* `liblsapi`
+* `liblsapi-devel`
+packages completely coincide.
+Ensure that the copy of mod_lsapi.so visible to Apache is configured to load liblscapi.so of the same version.
+Mismatched versions can cause errors or unexpected behavior.
+:::
 
 3. Rebuild the package with your Apache using rpmbuild
 
