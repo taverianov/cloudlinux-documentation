@@ -115,15 +115,15 @@ Once a server is licensed with CloudLinux and has paid features enabled,
 both free and billable features become available. 
 If the license does not include paid features, only free features will be accessible.
 
-[Object Caching feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-premium-object-caching-feature).
+[Object Caching feature](/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp-premium-object-caching-feature).
 
 The Object Caching mechanism stores database query results in additional storage for quick access. 
 This mechanism is beneficial in cases if a website needs to process multiple pages per second as 
 requests come in and may be helpful in cases when full-page caching cannot be used, e.g. on personalized pages.
 
-[Image Optimization feature](https://user-docs.cloudlinux.com/wpos-plugin/#image-optimization)
+[Image Optimization feature](/user-docs/user-docs-shared-pro-cloudlinux/#image-optimization)
 
-[Critical CSS feature](https://user-docs.cloudlinux.com/wpos-plugin/#css-files)
+[Critical CSS feature](/user-docs/user-docs-shared-pro-cloudlinux/#css-files)
 
 **Premium suite limitations**
 
@@ -2955,4 +2955,3 @@ Required packages:
 * `lvemanager` >= 6.2.10-1
 * `alt-php-xray` >= 0.2-1
 
-$$$$$$$$$$$$$4
