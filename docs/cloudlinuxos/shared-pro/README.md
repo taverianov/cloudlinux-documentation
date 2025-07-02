@@ -2967,7 +2967,7 @@ However, it's crucial to understand when linking is appropriate.
 The primary users for this feature are customers of license-only resellers. If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that belong to the same owner.
 
 :::warning Сonditions under which linking is not advisable!
-* Some partners use a single account to manage servers they own directly alongside servers they resell to various clients. To avoid mixing data and granting unintended access, these distinct groups of servers should not be linked to one end-customer account.
+Some partners use a single account to manage servers they own directly alongside servers they resell to various clients. To avoid mixing data and granting unintended access, these distinct groups of servers should not be linked to one end-customer account.
 :::
 
 :::tip Info
