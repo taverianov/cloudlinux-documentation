@@ -2955,22 +2955,24 @@ Required packages:
 * `lvemanager` >= 6.2.10-1
 * `alt-php-xray` >= 0.2-1
 
-## Link server to CLN account
+## Link server to CLN account (available only for resellers and activated by demand)
 
 **Why do we need a server linking to CLN?**  
 One of the main CloudlinuxOS Shared Pro features is Centralized Monitoring. In case when a customer uses the license provided by the reseller the server registered with such license will be linked to the reseller's CLN account. As a result, customers cannot see the data in Centralized Monitoring. To allow a customer to see the data in such a case we implemented an ability to link the server to the customer's own CLN account.
 
 **Who can use it?**  
-Only customers who use CloudlinuxOS Shared Pro licenses provided by resellers.
+Only customers who use CloudlinuxOS Shared Pro licenses provided by resellers can use this feature.
 However, it's crucial to understand when linking is appropriate.
 
-* When to link: The primary users for this feature are customers of license-only resellers. If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that are owned and operated by the same entity.
+The primary users for this feature are customers of license-only resellers. If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that belong to the same owner.
 
-:::warning When NOT to link!
+:::warning Сonditions under which linking is not advisable!
 * Some partners use a single account to manage servers they own directly alongside servers they resell to various clients. To avoid mixing data and granting unintended access, these distinct groups of servers should not be linked to one end-customer account.
 :::
 
-If your server is eligible for linking, you will see a component in the CloudLinux Manager UI.
+:::tip Info
+If you are a reseller and interested in this feature, please leave your request on [our feature portal](https://features.cloudlinux.com/).
+:::
 
 **How to link a server?** 
 If your server is linkable you will see in the Cloudlinux Manager UI (Dashboard tab) the component with input field which allows linking the server to CLN.
