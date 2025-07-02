@@ -2964,7 +2964,7 @@ One of the main CloudlinuxOS Shared Pro features is Centralized Monitoring. In c
 Only customers who use CloudlinuxOS Shared Pro licenses provided by resellers.
 However, it's crucial to understand when linking is appropriate.
 
-* When to link: The primary users for this feature are customers of license-only resellers (e.g., WebPros, LicensePal, Jones M.). If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that are owned and operated by the same entity.
+* When to link: The primary users for this feature are customers of license-only resellers. If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that are owned and operated by the same entity.
 
 :::warning When NOT to link!
 * Some partners use a single account to manage servers they own directly alongside servers they resell to various clients. To avoid mixing data and granting unintended access, these distinct groups of servers should not be linked to one end-customer account.
