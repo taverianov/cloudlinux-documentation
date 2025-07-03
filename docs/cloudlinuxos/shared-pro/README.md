@@ -115,15 +115,15 @@ Once a server is licensed with CloudLinux and has paid features enabled,
 both free and billable features become available. 
 If the license does not include paid features, only free features will be accessible.
 
-[Object Caching feature](https://user-docs.cloudlinux.com/wpos-plugin/#acceleratewp-premium-object-caching-feature).
+[Object Caching feature](/user-docs/user-docs-shared-pro-cloudlinux/#acceleratewp-premium-object-caching-feature).
 
 The Object Caching mechanism stores database query results in additional storage for quick access. 
 This mechanism is beneficial in cases if a website needs to process multiple pages per second as 
 requests come in and may be helpful in cases when full-page caching cannot be used, e.g. on personalized pages.
 
-[Image Optimization feature](https://user-docs.cloudlinux.com/wpos-plugin/#image-optimization)
+[Image Optimization feature](/user-docs/user-docs-shared-pro-cloudlinux/#image-optimization)
 
-[Critical CSS feature](https://user-docs.cloudlinux.com/wpos-plugin/#css-files)
+[Critical CSS feature](/user-docs/user-docs-shared-pro-cloudlinux/#css-files)
 
 **Premium suite limitations**
 
@@ -2955,4 +2955,73 @@ Required packages:
 * `lvemanager` >= 6.2.10-1
 * `alt-php-xray` >= 0.2-1
 
-$$$$$$$$$$$$$4
+## Link server to CLN account (available only for resellers and activated by demand)
+
+**Why do we need a server linking to CLN?**  
+One of the main CloudlinuxOS Shared Pro features is Centralized Monitoring. In case when a customer uses the license provided by the reseller the server registered with such license will be linked to the reseller's CLN account. As a result, customers cannot see the data in Centralized Monitoring. To allow a customer to see the data in such a case we implemented an ability to link the server to the customer's own CLN account.
+
+**Who can use it?**  
+Only customers who use CloudlinuxOS Shared Pro licenses provided by resellers can use this feature.
+However, it's crucial to understand when linking is appropriate.
+
+The primary users for this feature are customers of license-only resellers. If you acquired your license this way, you can link the server to your CLN account. By doing so, you acknowledge that it is your responsibility to only link servers that belong to the same owner.
+
+:::warning Сonditions under which linking is not advisable!
+Some partners use a single account to manage servers they own directly alongside servers they resell to various clients. To avoid mixing data and granting unintended access, these distinct groups of servers should not be linked to one end-customer account.
+:::
+
+:::tip Info
+If you are a reseller and interested in this feature, please leave your request on [our feature portal](https://features.cloudlinux.com/).
+:::
+
+**How to link a server?** 
+If your server is linkable you will see in the Cloudlinux Manager UI (Dashboard tab) the component with input field which allows linking the server to CLN.
+
+![](/images/cm-ui-component.png)
+
+To link the server, it is required to perform the following:
+
+1. Create a CLN account if you do not have one [https://cln.cloudlinux.com/console/register/customer](https://cln.cloudlinux.com/console/register/customer).
+2. Log into your CLN account and copy the linking token. If you click the “Get the token” button you will be redirected to [https://cln.cloudlinux.com/console/profile/details](https://cln.cloudlinux.com/console/profile/details) where can copy the token
+3. Paste the token into the “Enter token” input and click the “Link server” button
+
+After these steps you server will be linked. And you will see it in the Centralized Monitoring.
+
+![](/images/linked-server-centralized-monitoring.png)
+
+### CLI utility /usr/sbin/cl-link-to-cln 
+
+We can also bind a server from the command line. To do this can be used `/usr/sbin/cl-link-to-cln` utility.
+
+```
+/usr/sbin/cl-link-to-cln --help  
+Usage: cl-link-to-cln [options]
+Options:
+  -h, --help            show this help message and exit
+  -t TOKEN, --linking-token=TOKEN
+                        Token to link the server
+  -s, --linking-status  Show if status linked or not
+```
+
+To link we have to:
+
+1. Check if the server can be linked:
+```
+/usr/sbin/cl-link-to-cln --linking-status  
+{
+    "result": "success",
+    "timestamp": 1698670480.3382068,
+    "linked": false,
+    "linkable": true
+}
+```
+
+* **linked (boolean)** field define if server is already linked
+* **linkable (boolean)** field define if server can be linked
+
+2. Link the server with the command:
+```
+/usr/sbin/cl-link-to-cln --linking-token=TOKEN
+```
+
+Token you can find here [https://cln.cloudlinux.com/console/profile/details](https://cln.cloudlinux.com/console/profile/details).
